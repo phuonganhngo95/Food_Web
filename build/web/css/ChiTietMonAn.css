@@ -1,0 +1,119 @@
+/* =========================================
+   CSS DÀNH CHO TRANG CHI TIẾT SẢN PHẨM
+   ========================================= */
+
+.product-detail-container {
+    display: flex;
+    gap: 40px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.detail-image {
+    flex: 1;
+}
+
+.detail-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.detail-info {
+    flex: 1.2;
+}
+
+.detail-name {
+    font-size: 32px;
+    font-family: var(--f-sub);
+    margin: 10px 0;
+    color: var(--text-color);
+    line-height: 1.2;
+}
+
+.detail-info .code {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #ddd;
+}
+
+.detail-price {
+    font-size: 36px;
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.detail-description {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+/* Bộ chọn số lượng */
+.quantity-box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.btn-qty {
+    width: 40px;
+    height: 40px;
+    background: #f1f1f1;
+    border: 1px solid #ddd;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-qty:hover {
+    background: #e2e2e2;
+}
+
+.input-qty {
+    width: 60px;
+    height: 40px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-left: none;
+    border-right: none;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Nút bấm hành động */
+.action-btns {
+    display: flex;
+    gap: 15px;
+}
+
+.action-btns .btn {
+    padding: 12px 30px;
+    font-size: 16px;
+    margin-top: 0;
+}
+
+.btn-buy-now {
+    background: #28a745;
+    color: #fff;
+}
+
+.btn-buy-now:hover {
+    background: #218838;
+}
+
+.breadcrumb a {
+    transition: color 0.3s;
+}
+
+.breadcrumb a:hover {
+    color: var(--primary-color);
+}
