@@ -58,154 +58,94 @@
             </div>
         </section>
 
-        <section class="container flex-between" style="padding: 40px 0; align-items: flex-start; gap: 30px;" id="thuc-don">
-            <aside class="left-menu">
-                <h3 class="menu-title">Danh Mục Món Ăn</h3>
-                <a href="#"><i class="fas fa-star"></i> Món Mới</a>
-                <a href="#"><i class="fas fa-fire"></i> Bán Chạy Nhất</a>
-                <a href="#"><i class="fas fa-tags"></i> Ưu đãi</a>
-                <hr>
-<!--                <a href="#category-1"><i class="fas fa-drumstick-bite"></i> Gà Rán</a>
-                <a href="#category-2"><i class="fas fa-hamburger"></i> Burger</a>
-                <a href="#category-3"><i class="fas fa-pizza-slice"></i> Pizza</a>
-                <a href="#category-4"><i class="fas fa-coffee"></i> Đồ Uống</a>-->
-            </aside>
+        <section class="container" style="padding: 40px 0;" id="thuc-don">
 
-            <div class="product-area" style="flex: 1;">
+            <div class="category-header">
+                <h2>DANH MỤC MÓN ĂN</h2>
+                <div class="line"></div>
+            </div>
 
-                <div class="product-section" id="category-1">
-                    <div class="flex-between section-header">
-                        <h2 class="title">Món mới</h2>
+            <div class="category-grid">
+
+                <a href="#uu-dai" class="category-card">
+                    <div class="img-wrapper">
+                        <img src="https://static.kfcvietnam.com.vn/images/category/lg/KHUYEN%20MAI.jpg?v=LWna03" alt="Ưu Đãi">
                     </div>
-                    <div class="product-grid">
-                        <div class="product-card">
-                            <a href="#">
-                                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=600&auto=format&fit=crop" alt="Burger Gà Trứng">
-                                <div class="product-info">
-                                    <p class="code">Mã: BG002</p>
-                                    <h3 class="name" style="font-family: var(--f-sub);">
-                                        <a href="ChiTietMonAn.jsp">Burger Gà Trứng</a>
-                                    </h3>
-                                    <div class="flex-between price-row">
-                                        <span class="price">40.000đ</span>
-                                        <a href="#" class="btn-add"><i class="fas fa-cart-plus"></i> Thêm</a>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="product-card">
-                            <a href="#">
-                                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=600&auto=format&fit=crop" alt="Burger Gà Trứng">
-                                <div class="product-info">
-                                    <p class="code">Mã: BG002</p>
-                                    <h3 class="name" style="font-family: var(--f-sub);">
-                                        <a href="ChiTietMonAn.jsp">Burger Gà Trứng</a>
-                                    </h3>
-                                    <div class="flex-between price-row">
-                                        <span class="price">40.000đ</span>
-                                        <a href="#" class="btn-add"><i class="fas fa-cart-plus"></i> Thêm</a>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="product-card">
-                            <a href="#">
-                                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=600&auto=format&fit=crop" alt="Burger Gà Trứng">
-                                <div class="product-info">
-                                    <p class="code">Mã: BG002</p>
-                                    <h3 class="name" style="font-family: var(--f-sub);">
-                                        <a href="ChiTietMonAn.jsp">Burger Gà Trứng</a>
-                                    </h3>
-                                    <div class="flex-between price-row">
-                                        <span class="price">40.000đ</span>
-                                        <a href="#" class="btn-add"><i class="fas fa-cart-plus"></i> Thêm</a>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="product-card">
-                            <a href="#">
-                                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=600&auto=format&fit=crop" alt="Burger Gà Trứng">
-                                <div class="product-info">
-                                    <p class="code">Mã: BG002</p>
-                                    <h3 class="name" style="font-family: var(--f-sub);">
-                                        <a href="ChiTietMonAn.jsp">Burger Gà Trứng</a>
-                                    </h3>
-                                    <div class="flex-between price-row">
-                                        <span class="price">40.000đ</span>
-                                        <a href="#" class="btn-add"><i class="fas fa-cart-plus"></i> Thêm</a>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="product-card">
-                            <a href="#">
-                                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=600&auto=format&fit=crop" alt="Burger Gà Trứng">
-                                <div class="product-info">
-                                    <p class="code">Mã: BG002</p>
-                                    <h3 class="name" style="font-family: var(--f-sub);">
-                                        <a href="ChiTietMonAn.jsp">Burger Gà Trứng</a>
-                                    </h3>
-                                    <div class="flex-between price-row">
-                                        <span class="price">40.000đ</span>
-                                        <a href="#" class="btn-add"><i class="fas fa-cart-plus"></i> Thêm</a>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+                    <div class="category-title">
+                        <span>Ưu Đãi</span>
+                        <i class="fas fa-chevron-right"></i>
                     </div>
+                </a>
 
-                </div>
+                <a href="#mon-moi" class="category-card">
+                    <div class="img-wrapper">
+                        <img src="https://static.kfcvietnam.com.vn/images/category/lg/MON%20MOI.jpg?v=LWna03" alt="Món Mới">
+                    </div>
+                    <div class="category-title">
+                        <span>Món Mới</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </a>
 
-                <div class="product-section" id="category-2">
-                    <div class="flex-between section-header">
-                        <h2 class="title">Burger</h2>
+                <a href="#combo-1-nguoi" class="category-card">
+                    <div class="img-wrapper">
+                        <img src="https://static.kfcvietnam.com.vn/images/category/lg/COMBO%201%20NGUOI.jpg?v=LWna03" alt="Combo 1 Người">
                     </div>
-                    <div class="product-grid">
-                        <div class="product-card">
-                            <a href="#">
-                                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=600&auto=format&fit=crop" alt="Burger Gà Trứng">
-                                <div class="product-info">
-                                    <p class="code">Mã: BG002</p>
-                                    <h3 class="name" style="font-family: var(--f-sub);">
-                                        <a href="ChiTietMonAn.jsp">Burger Gà Trứng</a>
-                                    </h3>
-                                    <div class="flex-between price-row">
-                                        <span class="price">40.000đ</span>
-                                        <a href="#" class="btn-add"><i class="fas fa-cart-plus"></i> Thêm</a>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+                    <div class="category-title">
+                        <span>Combo 1 Người</span>
+                        <i class="fas fa-chevron-right"></i>
                     </div>
-                </div>
+                </a>
 
-                <div class="product-section" id="category-3">
-                    <div class="flex-between section-header">
-                        <h2 class="title">Pizza</h2>
+                <a href="#combo-nhom" class="category-card">
+                    <div class="img-wrapper">
+                        <img src="https://static.kfcvietnam.com.vn/images/category/lg/COMBO%20NHOM.jpg?v=LWna03" alt="Combo Nhóm">
                     </div>
-                    <div class="product-grid">
-                        <div class="product-card">
-                            <a href="#">
-                                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=600&auto=format&fit=crop" alt="Burger Gà Trứng">
-                                <div class="product-info">
-                                    <p class="code">Mã: BG002</p>
-                                    <h3 class="name" style="font-family: var(--f-sub);">
-                                        <a href="ChiTietMonAn.jsp">Burger Gà Trứng</a>
-                                    </h3>
-                                    <div class="flex-between price-row">
-                                        <span class="price">40.000đ</span>
-                                        <a href="#" class="btn-add"><i class="fas fa-cart-plus"></i> Thêm</a>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+                    <div class="category-title">
+                        <span>Combo Nhóm</span>
+                        <i class="fas fa-chevron-right"></i>
                     </div>
-                </div>
+                </a>
+
+                <a href="#ga-ran" class="category-card">
+                    <div class="img-wrapper">
+                        <img src="https://static.kfcvietnam.com.vn/images/category/lg/GA.jpg?v=LWna03" alt="Gà Rán - Gà Quay">
+                    </div>
+                    <div class="category-title">
+                        <span>Gà Rán - Gà Quay</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </a>
+
+                <a href="#burger" class="category-card">
+                    <div class="img-wrapper">
+                        <img src="https://static.kfcvietnam.com.vn/images/category/lg/COM.jpg?v=LWna03" alt="Burger - Cơm - Mì Ý">
+                    </div>
+                    <div class="category-title">
+                        <span>Burger - Cơm - Mì Ý</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </a>
+
+                <a href="#thuc-an-nhe" class="category-card">
+                    <div class="img-wrapper">
+                        <img src="https://static.kfcvietnam.com.vn/images/category/lg/MON%20AN%20NHE.jpg?v=LWna03" alt="Thức Ăn Nhẹ">
+                    </div>
+                    <div class="category-title">
+                        <span>Thức Ăn Nhẹ</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </a>
+
+                <a href="#thuc-uong" class="category-card">
+                    <div class="img-wrapper">
+                        <img src="https://static.kfcvietnam.com.vn/images/category/lg/TRANG%20MIENG.jpg?v=LWna03" alt="Thức Uống & Tráng Miệng">
+                    </div>
+                    <div class="category-title">
+                        <span>Thức Uống & Tráng Miệng</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </a>
 
             </div>
         </section>
