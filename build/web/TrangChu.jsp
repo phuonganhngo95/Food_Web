@@ -59,94 +59,238 @@
         </section>
 
         <section class="container" style="padding: 40px 0;" id="thuc-don">
+            <div class="menu-layout">
 
-            <div class="category-header">
-                <h2>DANH MỤC MÓN ĂN</h2>
-                <div class="line"></div>
-            </div>
+                <aside class="left-sidebar">
+                    <h2 class="section-title">DANH MỤC MÓN ĂN</h2>
 
-            <div class="category-grid">
+                    <div class="left-menu">
+                        <ul class="menu-list">
+                            <li><a href="#uu-dai">Ưu Đãi</a></li>
+                            <li><a href="#mon-moi">Món Mới</a></li>
+                            <li><a href="#combo-1-nguoi">Combo 1 Người</a></li>
+                            <li><a href="#combo-nhom">Combo Nhóm</a></li>
+                            <li><a href="#ga-ran">Gà Rán - Gà Quay</a></li>
+                            <li><a href="#burger">Burger - Cơm - Mì Ý</a></li>
+                            <li><a href="#thuc-an-nhe">Thức Ăn Nhẹ</a></li>
+                            <li><a href="#thuc-uong">Thức Uống & Tráng Miệng</a></li>
+                        </ul>
+                    </div>
+                </aside>
 
-                <a href="#uu-dai" class="category-card">
-                    <div class="img-wrapper">
-                        <img src="https://static.kfcvietnam.com.vn/images/category/lg/KHUYEN%20MAI.jpg?v=LWna03" alt="Ưu Đãi">
-                    </div>
-                    <div class="category-title">
-                        <span>Ưu Đãi</span>
-                        <i class="fas fa-chevron-right"></i>
-                    </div>
-                </a>
+                <main class="right-content">
 
-                <a href="#mon-moi" class="category-card">
-                    <div class="img-wrapper">
-                        <img src="https://static.kfcvietnam.com.vn/images/category/lg/MON%20MOI.jpg?v=LWna03" alt="Món Mới">
-                    </div>
-                    <div class="category-title">
-                        <span>Món Mới</span>
-                        <i class="fas fa-chevron-right"></i>
-                    </div>
-                </a>
+                    <div id="uu-dai" class="product-section">
+                        <h2 class="section-title">Ưu Đãi</h2>
+                        <hr class="title-line">
 
-                <a href="#combo-1-nguoi" class="category-card">
-                    <div class="img-wrapper">
-                        <img src="https://static.kfcvietnam.com.vn/images/category/lg/COMBO%201%20NGUOI.jpg?v=LWna03" alt="Combo 1 Người">
-                    </div>
-                    <div class="category-title">
-                        <span>Combo 1 Người</span>
-                        <i class="fas fa-chevron-right"></i>
-                    </div>
-                </a>
+                        <div class="product-grid">
+                            <div class="product-card">
+                                <a href="#">
+                                    <div class="product-img">
+                                        <img src="https://static.kfcvietnam.com.vn/images/items/lg/D-CBO-CHICKEN-1.jpg?v=LwnZog" alt="Combo Cùng Xơi">
+                                    </div>
+                                    <div class="product-info">
+                                        <div class="title-price-row">
+                                            <h4 class="product-title">Combo Cùng Xơi</h4>
+                                            <div class="price-group">
+                                                <span class="current-price">189.000đ</span>
+                                            </div>
+                                        </div>
+                                        <p class="product-desc">Combo 4 Miếng Gà Rán + 4 Bánh Trứng</p>
+                                        <button class="btn-add-cart">Thêm</button>
+                                    </div>
+                                </a>
+                            </div>
 
-                <a href="#combo-nhom" class="category-card">
-                    <div class="img-wrapper">
-                        <img src="https://static.kfcvietnam.com.vn/images/category/lg/COMBO%20NHOM.jpg?v=LWna03" alt="Combo Nhóm">
-                    </div>
-                    <div class="category-title">
-                        <span>Combo Nhóm</span>
-                        <i class="fas fa-chevron-right"></i>
-                    </div>
-                </a>
+                            <div class="product-card">
+                                <div class="product-img">
+                                    <img src="https://static.kfcvietnam.com.vn/images/items/lg/D-CBO-CHICKEN-2.jpg?v=LwnZog" alt="Combo Cùng Vui">
+                                </div>
+                                <div class="product-info">
+                                    <div class="title-price-row">
+                                        <h4 class="product-title">Combo Cùng Vui</h4>
+                                        <div class="price-group">
+                                            <span class="current-price">199.000đ</span>
+                                            <span class="old-price">205.000đ</span>
+                                        </div>
+                                    </div>
+                                    <p class="product-desc">Combo 6 Miếng Gà Rán Tặng kèm 3 lon Pepsi (vị ngẫu nhiên)</p>
+                                    <button class="btn-add-cart">Thêm</button>
+                                </div>
+                            </div>
 
-                <a href="#ga-ran" class="category-card">
-                    <div class="img-wrapper">
-                        <img src="https://static.kfcvietnam.com.vn/images/category/lg/GA.jpg?v=LWna03" alt="Gà Rán - Gà Quay">
-                    </div>
-                    <div class="category-title">
-                        <span>Gà Rán - Gà Quay</span>
-                        <i class="fas fa-chevron-right"></i>
-                    </div>
-                </a>
+                            <div class="product-card">
+                                <div class="product-img">
+                                    <img src="https://static.kfcvietnam.com.vn/images/items/lg/D-CBO-CHICKEN-2.jpg?v=LwnZog" alt="Combo Cùng Vui">
+                                </div>
+                                <div class="product-info">
+                                    <div class="title-price-row">
+                                        <h4 class="product-title">Combo Cùng Vui</h4>
+                                        <div class="price-group">
+                                            <span class="current-price">199.000đ</span>
+                                            <span class="old-price">205.000đ</span>
+                                        </div>
+                                    </div>
+                                    <p class="product-desc">Combo 6 Miếng Gà Rán Tặng kèm 3 lon Pepsi (vị ngẫu nhiên)</p>
+                                    <button class="btn-add-cart">Thêm</button>
+                                </div>
+                            </div>
 
-                <a href="#burger" class="category-card">
-                    <div class="img-wrapper">
-                        <img src="https://static.kfcvietnam.com.vn/images/category/lg/COM.jpg?v=LWna03" alt="Burger - Cơm - Mì Ý">
-                    </div>
-                    <div class="category-title">
-                        <span>Burger - Cơm - Mì Ý</span>
-                        <i class="fas fa-chevron-right"></i>
-                    </div>
-                </a>
+                            <div class="product-card">
+                                <div class="product-img">
+                                    <img src="https://static.kfcvietnam.com.vn/images/items/lg/D-CBO-CHICKEN-2.jpg?v=LwnZog" alt="Combo Cùng Vui">
+                                </div>
+                                <div class="product-info">
+                                    <div class="title-price-row">
+                                        <h4 class="product-title">Combo Cùng Vui</h4>
+                                        <div class="price-group">
+                                            <span class="current-price">199.000đ</span>
+                                            <span class="old-price">205.000đ</span>
+                                        </div>
+                                    </div>
+                                    <p class="product-desc">Combo 6 Miếng Gà Rán Tặng kèm 3 lon Pepsi (vị ngẫu nhiên)</p>
+                                    <button class="btn-add-cart">Thêm</button>
+                                </div>
+                            </div>
 
-                <a href="#thuc-an-nhe" class="category-card">
-                    <div class="img-wrapper">
-                        <img src="https://static.kfcvietnam.com.vn/images/category/lg/MON%20AN%20NHE.jpg?v=LWna03" alt="Thức Ăn Nhẹ">
+                        </div>
                     </div>
-                    <div class="category-title">
-                        <span>Thức Ăn Nhẹ</span>
-                        <i class="fas fa-chevron-right"></i>
-                    </div>
-                </a>
 
-                <a href="#thuc-uong" class="category-card">
-                    <div class="img-wrapper">
-                        <img src="https://static.kfcvietnam.com.vn/images/category/lg/TRANG%20MIENG.jpg?v=LWna03" alt="Thức Uống & Tráng Miệng">
-                    </div>
-                    <div class="category-title">
-                        <span>Thức Uống & Tráng Miệng</span>
-                        <i class="fas fa-chevron-right"></i>
-                    </div>
-                </a>
+                    <div id="mon-moi" class="product-section" style="margin-top: 40px;">
+                        <h2 class="section-title">Món Mới</h2>
+                        <hr class="title-line">
 
+                        <div class="product-grid">
+                            <div class="product-card">
+                                <div class="product-img">
+                                    <img src="https://static.kfcvietnam.com.vn/images/items/lg/D-CBO-CHICKEN-2.jpg?v=LwnZog" alt="Combo Cùng Vui">
+                                </div>
+                                <div class="product-info">
+                                    <div class="title-price-row">
+                                        <h4 class="product-title">Combo Cùng Vui</h4>
+                                        <div class="price-group">
+                                            <span class="current-price">199.000đ</span>
+                                            <span class="old-price">205.000đ</span>
+                                        </div>
+                                    </div>
+                                    <p class="product-desc">Combo 6 Miếng Gà Rán Tặng kèm 3 lon Pepsi (vị ngẫu nhiên)</p>
+                                    <button class="btn-add-cart">Thêm</button>
+                                </div>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="product-img">
+                                    <img src="https://static.kfcvietnam.com.vn/images/items/lg/D-CBO-CHICKEN-2.jpg?v=LwnZog" alt="Combo Cùng Vui">
+                                </div>
+                                <div class="product-info">
+                                    <div class="title-price-row">
+                                        <h4 class="product-title">Combo Cùng Vui</h4>
+                                        <div class="price-group">
+                                            <span class="current-price">199.000đ</span>
+                                            <span class="old-price">205.000đ</span>
+                                        </div>
+                                    </div>
+                                    <p class="product-desc">Combo 6 Miếng Gà Rán Tặng kèm 3 lon Pepsi (vị ngẫu nhiên)</p>
+                                    <button class="btn-add-cart">Thêm</button>
+                                </div>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="product-img">
+                                    <img src="https://static.kfcvietnam.com.vn/images/items/lg/D-CBO-CHICKEN-2.jpg?v=LwnZog" alt="Combo Cùng Vui">
+                                </div>
+                                <div class="product-info">
+                                    <div class="title-price-row">
+                                        <h4 class="product-title">Combo Cùng Vui</h4>
+                                        <div class="price-group">
+                                            <span class="current-price">199.000đ</span>
+                                            <span class="old-price">205.000đ</span>
+                                        </div>
+                                    </div>
+                                    <p class="product-desc">Combo 6 Miếng Gà Rán Tặng kèm 3 lon Pepsi (vị ngẫu nhiên)</p>
+                                    <button class="btn-add-cart">Thêm</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="combo-1-nguoi" class="product-section" style="margin-top: 40px">
+                        <h2 class="section-title">Combo 1 người</h2>
+                        <hr class="title-line">
+
+                        <div class="product-grid">
+                            <div class="product-card">
+                                <div class="product-img">
+                                    <img src="https://static.kfcvietnam.com.vn/images/items/lg/D-CBO-CHICKEN-1.jpg?v=LwnZog" alt="Combo Cùng Xơi">
+                                </div>
+                                <div class="product-info">
+                                    <div class="title-price-row">
+                                        <h4 class="product-title">Combo Cùng Xơi</h4>
+                                        <div class="price-group">
+                                            <span class="current-price">189.000đ</span>
+                                        </div>
+                                    </div>
+                                    <p class="product-desc">Combo 4 Miếng Gà Rán + 4 Bánh Trứng</p>
+                                    <button class="btn-add-cart">Thêm</button>
+                                </div>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="product-img">
+                                    <img src="https://static.kfcvietnam.com.vn/images/items/lg/D-CBO-CHICKEN-2.jpg?v=LwnZog" alt="Combo Cùng Vui">
+                                </div>
+                                <div class="product-info">
+                                    <div class="title-price-row">
+                                        <h4 class="product-title">Combo Cùng Vui</h4>
+                                        <div class="price-group">
+                                            <span class="current-price">199.000đ</span>
+                                            <span class="old-price">205.000đ</span>
+                                        </div>
+                                    </div>
+                                    <p class="product-desc">Combo 6 Miếng Gà Rán Tặng kèm 3 lon Pepsi (vị ngẫu nhiên)</p>
+                                    <button class="btn-add-cart">Thêm</button>
+                                </div>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="product-img">
+                                    <img src="https://static.kfcvietnam.com.vn/images/items/lg/D-CBO-CHICKEN-2.jpg?v=LwnZog" alt="Combo Cùng Vui">
+                                </div>
+                                <div class="product-info">
+                                    <div class="title-price-row">
+                                        <h4 class="product-title">Combo Cùng Vui</h4>
+                                        <div class="price-group">
+                                            <span class="current-price">199.000đ</span>
+                                            <span class="old-price">205.000đ</span>
+                                        </div>
+                                    </div>
+                                    <p class="product-desc">Combo 6 Miếng Gà Rán Tặng kèm 3 lon Pepsi (vị ngẫu nhiên)</p>
+                                    <button class="btn-add-cart">Thêm</button>
+                                </div>
+                            </div>
+
+                            <div class="product-card">
+                                <div class="product-img">
+                                    <img src="https://static.kfcvietnam.com.vn/images/items/lg/D-CBO-CHICKEN-2.jpg?v=LwnZog" alt="Combo Cùng Vui">
+                                </div>
+                                <div class="product-info">
+                                    <div class="title-price-row">
+                                        <h4 class="product-title">Combo Cùng Vui</h4>
+                                        <div class="price-group">
+                                            <span class="current-price">199.000đ</span>
+                                            <span class="old-price">205.000đ</span>
+                                        </div>
+                                    </div>
+                                    <p class="product-desc">Combo 6 Miếng Gà Rán Tặng kèm 3 lon Pepsi (vị ngẫu nhiên)</p>
+                                    <button class="btn-add-cart">Thêm</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </main>
             </div>
         </section>
 
