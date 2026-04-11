@@ -4,35 +4,42 @@
     --f-sub: 'Nunito', sans-serif;
     --f-body: 'Quicksand', sans-serif;
 }
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 html {
     scroll-behavior: smooth;
 }
+
 body {
     font-family: var(--f-body);
     background: #f4f5f7;
     color: #333;
     line-height: 1.6;
 }
+
 a {
     text-decoration: none;
     color: inherit;
     transition: all 0.3s ease;
 }
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
+
 .flex-between {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 .highlight {
     color: var(--primary);
 }
@@ -41,11 +48,13 @@ h1, h2, .logo, .banner-text p {
     font-family: var(--f-title);
     font-weight: 400;
 }
+
 .logo {
     font-size: 2.2rem;
     color: #222;
     letter-spacing: -1px;
 }
+
 h3, .menu-title {
     font-family: var(--f-sub);
     font-weight: 700;
@@ -71,6 +80,7 @@ h3, .menu-title {
     color: #fff;
     box-shadow: 0 4px 10px rgba(230, 74, 25, 0.3);
 }
+
 .btn-primary:hover {
     background: #bf360c;
 }
@@ -85,6 +95,7 @@ h3, .menu-title {
     z-index: 100;
     box-shadow: 0 2px 15px rgba(0,0,0,0.05);
 }
+
 .menu-center a {
     margin: 0 15px;
     font-weight: 600;
@@ -103,15 +114,19 @@ h3, .menu-title {
     background-color: var(--primary);
     transition: width 0.3s ease;
 }
+
 .menu-center a:hover::after, .menu-center a.active::after {
     width: 100%;
 }
+
 .menu-center a:hover, .menu-center a.active {
     color: var(--primary);
 }
+
 .menu-right a {
     font-weight: 600;
 }
+
 .menu-right i {
     margin-right: 5px;
 }
@@ -265,34 +280,36 @@ h3, .menu-title {
     color: #ddd;
 }
 
-/* ================= MENU LAYOUT (LEFT & RIGHT) ================= */
+/* ================= MENU ================= */
 .menu-layout {
     display: flex;
     gap: 30px;
-    align-items: flex-start; /* Quan trọng để menu bên trái có thể sticky */
+    align-items: flex-start;
 }
 
-/* --- Cột Trái: Left Menu --- */
 .left-sidebar {
     width: 260px;
     flex-shrink: 0;
     position: sticky;
-    top: 120px; /* Ghim toàn bộ cột trái khi cuộn chuột */
+    top: 120px;
 }
 
 .left-menu {
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-    /*padding: 10px 0;*/
     border: 1px solid #eee;
 }
 
-/* --- Tiêu đề các khối và đường kẻ (hr) --- */
+.left-title {
+    font-size: 20px !important;
+}
+
 .section-title {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 700;
     color: #333;
+    margin-top: 20px;
     margin-bottom: 12px;
     font-family: var(--f-sub);
     text-transform: uppercase;
@@ -311,7 +328,6 @@ h3, .menu-title {
 .menu-list li a {
     display: block;
     padding: 14px 20px;
-    /*font-family: var(--f-sub);*/
     font-weight: 700;
     font-size: 16px;
     color: #444;
@@ -325,16 +341,9 @@ h3, .menu-title {
     border-left-color: var(--primary);
 }
 
-/* --- Cột Phải: Nội dung sản phẩm --- */
 .right-content {
-    /*margin-top: -1rem;*/
     flex: 1;
 }
-
-.product-section {
-    scroll-margin-top: 100px; /* Tránh bị header che khi click từ menu trái */
-}
-
 
 .product-grid {
     display: grid;
@@ -342,57 +351,43 @@ h3, .menu-title {
     gap: 20px;
 }
 
-/* --- Lưới Sản Phẩm --- */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 cột là đẹp nhất khi có left-menu */
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
-/* --- Card Sản Phẩm --- */
 .product-card {
     background: #fff;
-    border-radius: 6px;
+    border-radius: 5px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     display: flex;
     flex-direction: column;
     border: 1px solid #eaeaea;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
+    height: 100%;
 }
 
 .product-card:hover {
     box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-    transform: translateY(-3px); /* Tạo hiệu ứng thẻ nổi lên nhẹ khi hover */
+    transform: translateY(-3px);
 }
 
-/* --- Thẻ link bao bọc sản phẩm --- */
 .product-link {
     display: flex;
     flex-direction: column;
     flex: 1;
+    text-decoration: none;
+    color: inherit;
 }
 
-/* Hiệu ứng HOVER đổi màu text khi trỏ chuột vào thẻ sản phẩm */
-.product-link:hover .product-title {
-    color: var(--primary); /* Đổi tiêu đề sang màu cam */
-}
-
-.product-link:hover .product-desc {
-    color: #222; /* Làm chữ mô tả đậm màu lên một chút để dễ đọc hơn */
-}
-
-.product-link:hover .product-img img {
-    transform: scale(1.05); /* Zoom nhẹ ảnh khi hover */
-}
-
-/* Khung ảnh tỷ lệ vuông 1:1 */
 .product-img {
     width: 100%;
     padding-top: 100%;
     position: relative;
-    background: #f9f9f9;
-    overflow: hidden; /* Cần thêm overflow hidden để ảnh không tràn khi zoom */
+    /*background: #f9f9f9;*/
+    overflow: hidden;
 }
 
 .product-img img {
@@ -401,78 +396,76 @@ h3, .menu-title {
     left: 0;
     width: 100%;
     height: 100%;
+    padding: 5px;
     object-fit: cover;
-    transition: transform 0.4s ease; /* Thêm transition cho hiệu ứng zoom ảnh */
+    transition: transform 0.4s ease;
 }
 
-/* Phần thông tin */
-.product-info {
-    padding: 15px 15px 5px 15px; /* Giảm padding dưới vì nút thêm đã tách ra */
+.product-info-wrapper {
+    padding: 15px;
     display: flex;
     flex-direction: column;
     flex: 1;
 }
 
-/* Tiêu đề và giá */
-.title-price-row {
+.title-and-prices {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
 }
 
 .product-title {
     font-family: var(--f-sub);
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 700;
     color: #333;
     flex: 1;
-    padding-right: 10px;
+    padding-right: 15px;
     line-height: 1.3;
-    transition: color 0.3s ease; /* Hiệu ứng chuyển màu mượt mà */
+    transition: color 0.3s ease;
 }
 
-.product-title:hover {
+.product-link:hover .product-title {
     color: var(--primary);
 }
 
-.price-group {
-    text-align: right;
+.price-container {
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    min-width: 90px;
 }
 
 .current-price {
     font-family: var(--f-sub);
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 700;
-    color: #333;
+    color: #000;
+    line-height: 1.1;
 }
 
 .old-price {
     font-size: 13px;
     color: #888;
     text-decoration: line-through;
-    margin-top: 2px;
+    margin-top: 4px;
 }
 
-/* Mô tả sản phẩm */
 .product-desc {
-    font-size: 13px;
-    color: #666;
-    margin-bottom: 10px;
+    font-size: 16px;
+    color: #000;
+    margin-bottom: 15px;
     line-height: 1.5;
     flex: 1;
-    transition: color 0.3s ease; /* Hiệu ứng chuyển màu mượt mà */
 }
 
-/* --- Khung chứa nút Thêm --- */
 .card-action {
     padding: 0 15px 15px 15px;
-    margin-top: auto; /* Đẩy khối này xuống sát đáy thẻ card */
+    margin-top: auto;
 }
 
-/* Nút Thêm */
 .btn-add-cart {
     width: 100%;
     padding: 10px 0;
@@ -485,6 +478,7 @@ h3, .menu-title {
     font-size: 15px;
     cursor: pointer;
     transition: all 0.3s ease;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
 }
 
 .btn-add-cart:hover {
@@ -500,14 +494,17 @@ h3, .menu-title {
     border-top: 4px solid var(--primary);
     margin-top: 30px;
 }
+
 .footer .logo {
     margin-bottom: 15px;
     display: inline-block;
 }
+
 .footer p {
     margin-bottom: 10px;
     line-height: 1.6;
 }
+
 .footer h3 {
     margin-bottom: 20px;
     font-size: 1.2rem;
