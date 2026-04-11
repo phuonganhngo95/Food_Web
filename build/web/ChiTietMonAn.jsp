@@ -5,106 +5,98 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Chi Tiết Món Ăn - FastFood</title>
-
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700&family=Playwrite+IE:wght@100..400&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
         <link rel="stylesheet" href="./css/TrangChu.css">
+        <link rel="stylesheet" href="./css/ChiTietMonAn.css">
     </head>
     <body>
         <header class="top-menu">
             <div class="container flex-between">
-                <a href="#" class="logo">Fast<span class="highlight">Food</span></a>
+                <a href="index.html" class="logo">Fast<span class="highlight">Food</span></a>
                 <nav class="menu-center">
-                    <a href="#">Trang Chủ</a>
-                    <a href="index.html#thuc-don" class="active">Thực Đơn</a>
+                    <a href="./TrangChu.jsp">Trang Chủ</a>
+                    <a href="#thuc-don">Thực Đơn</a>
                     <a href="#khuyen-mai">Khuyến Mãi</a>
                     <a href="contact.html">Liên Hệ</a>
                 </nav>
                 <div class="menu-right">
-                    <a href="login.html"><i class="fas fa-user-circle"></i> Tài khoản</a>
-                    <a href="cart.html" class="cart-link"><i class="fas fa-shopping-cart"></i> Giỏ Hàng (3)</a>
+                    <div class="account-dropdown">
+                        <input type="checkbox" id="account-check" class="dropdown-check">
+
+                        <label for="account-check" class="dropdown-overlay"></label>
+
+                        <label for="account-check" class="account-link">
+                            <i class="fas fa-user-circle"></i> 
+                            <span>Tài khoản</span> <i class="fas fa-chevron-down arrow-icon"></i>
+                        </label>
+
+                        <div class="dropdown-content">
+                            <a href="login.html"><i class="fas fa-sign-in-alt"></i> Đăng nhập</a>
+                            <a href="register.html"><i class="fas fa-user-plus"></i> Đăng ký</a>
+                            <a href="profile.html"><i class="fas fa-id-badge"></i> Trang cá nhân</a>
+                        </div>
+                    </div>
+                    <a href="cart.html" class="cart-link"><i class="fas fa-shopping-cart"></i> Giỏ Hàng (0)</a>
                 </div>
             </div>
         </header>
 
-        <section class="container flex-between" style="padding: 40px 0; align-items: flex-start; gap: 30px;" id="thuc-don">
-
-            <aside class="left-menu">
-                <h3 class="menu-title">Danh Mục Món Ăn</h3>
-                <a href="#"><i class="fas fa-star"></i> Hàng Mới</a>
-                <a href="#"><i class="fas fa-fire"></i> Bán Chạy Nhất</a>
-                <a href="#"><i class="fas fa-tags"></i> Đang Giảm Giá</a>
-                <hr>
-                <a href="index.html#ga-ran"><i class="fas fa-drumstick-bite"></i> Gà Rán</a>
-                <a href="index.html#burger"><i class="fas fa-hamburger"></i> Burger</a>
-                <a href="index.html#pizza"><i class="fas fa-pizza-slice"></i> Pizza</a>
-                <a href="index.html#do-uong"><i class="fas fa-coffee"></i> Đồ Uống</a>
-            </aside>
-
-            <div class="product-area" style="flex: 1;">
-
-                <div class="breadcrumb" style="margin-bottom: 20px; color: #888;">
-                    <a href="index.html">Trang Chủ</a> / <a href="index.html#ga-ran">Gà Rán</a> / <span class="highlight">Gà Rán Giòn Cay</span>
+        <section class="banner">
+            <div class="container">
+                <div class="banner-text">
+                    <h1>Hương vị Tuyệt Đỉnh, <span class="highlight">Không Thể Cưỡng Lại!</span></h1>
+                    <p>Khám phá menu đa dạng với những món ăn nhanh giòn rụm, tẩm vị đậm đà.</p>
+                    <a href="#thuc-don" class="btn btn-primary">Đặt Ngay</a>
                 </div>
+            </div>
+        </section>
 
-                <div class="product-detail-container">
-                    <div class="detail-image">
-                        <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=600&auto=format&fit=crop" alt="Gà Rán Giòn Cay">
+        <section class="container" style="padding: 40px 0;">
+            <div class="menu-layout">
+
+                <aside class="left-sidebar">
+                    <h2 class="section-title left-title">DANH MỤC MÓN ĂN</h2>
+                    <div class="left-menu">
+                        <ul class="menu-list">
+                            <li><a href="TrangChu.jsp#uu-dai">Ưu Đãi</a></li>
+                            <li><a href="TrangChu.jsp#mon-moi">Món Mới</a></li>
+                            <li><a href="TrangChu.jsp#combo-1-nguoi">Combo 1 Người</a></li>
+                            <li><a href="TrangChu.jsp#ga-ran">Gà Rán - Gà Quay</a></li>
+                        </ul>
                     </div>
-                    <div class="detail-info">
-                        <span class="tag tag-hot">Hot</span>
-                        <h2 class="detail-name">Gà Rán Giòn Cay</h2>
-                        <p class="code">Mã sản phẩm: <strong>GR001</strong> | Tình trạng: <strong>Còn hàng</strong></p>
+                </aside>
 
-                        <div class="detail-price">35.000đ</div>
+                <main class="right-content">
+                    <h2 class="section-title" style="background-color: var(--primary); color: #fff; padding: 12px 20px; border-radius: 6px;">CHI TIẾT SẢN PHẨM</h2>
 
-                        <div class="detail-description">
-                            <p>Trải nghiệm hương vị bùng nổ với Gà Rán Giòn Cay tẩm ướp công thức đặc biệt. Lớp vỏ ngoài vàng ươm, giòn rụm hoàn hảo, bao bọc phần thịt gà tươi ngon, mọng nước bên trong. Vị cay nồng đậm đà thấm sâu vào từng thớ thịt sẽ làm hài lòng bất kỳ tín đồ ăn cay nào.</p>
+                    <div class="product-detail-container">
+                        <div class="detail-image">
+                            <img src="https://static.kfcvietnam.com.vn/images/items/lg/D-CBO-CHICKEN-1.jpg?v=LwnZog" alt="Combo Gà Rán">
                         </div>
+                        <div class="detail-info">
+                            <!--<p class="code">Mã SP: CBO-001</p>-->
+                            <h3 class="detail-name">Combo Gà Ưu Đãi 1</h3>
+                            <div class="detail-price">89.000đ</div>
+                            <p class="detail-description">
+                                Combo hấp dẫn bao gồm: 2 Miếng Gà Rán giòn cay, 1 Khoai Tây Chiên (Vừa), và 1 Pepsi (Vừa). Món ăn được chế biến từ gà tươi 100% tẩm ướp với 11 loại gia vị bí mật.
+                            </p>
 
-                        <div class="quantity-box">
-                            <span style="margin-right: 15px; font-weight: 600;">Số lượng:</span>
-                            <button class="btn-qty">-</button>
-                            <input type="number" value="1" min="1" class="input-qty">
-                            <button class="btn-qty">+</button>
-                        </div>
-
-                        <div class="action-btns">
-                            <a href="#" class="btn btn-primary"><i class="fas fa-cart-plus"></i> Thêm Vào Giỏ</a>
-                            <a href="#" class="btn btn-buy-now">Mua Ngay</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div style="margin-top: 50px;">
-                    <h2 class="title" style="margin-bottom: 20px; font-family: var(--f-sub);">Có Thể Bạn Sẽ Thích</h2>
-                    <div class="product-grid">
-                        <div class="product-card">
-                            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=600&auto=format&fit=crop" alt="Burger Bò Phô Mai">
-                            <div class="product-info">
-                                <p class="code">Mã: BG001</p>
-                                <h3 class="name" style="font-family: var(--f-sub);">Burger Bò Phô Mai</h3>
-                                <div class="flex-between price-row">
-                                    <span class="price">45.000đ</span>
-                                    <a href="#" class="btn-add"><i class="fas fa-cart-plus"></i> Thêm</a>
-                                </div>
+                            <div class="quantity-box">
+                                <label style="margin-right: 15px; font-weight: bold; font-family: var(--f-sub);">Số lượng:</label>
+                                <button class="btn-qty">-</button>
+                                <input type="number" value="1" class="input-qty" min="1">
+                                <button class="btn-qty">+</button>
                             </div>
-                        </div>
-                        <div class="product-card">
-                            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=600&auto=format&fit=crop" alt="Pizza Phô Mai">
-                            <div class="product-info">
-                                <p class="code">Mã: PZ001</p>
-                                <h3 class="name" style="font-family: var(--f-sub);">Pizza Xúc Xích Phô Mai</h3>
-                                <div class="flex-between price-row">
-                                    <span class="price">120.000đ</span>
-                                    <a href="#" class="btn-add"><i class="fas fa-cart-plus"></i> Thêm</a>
-                                </div>
+
+                            <div class="action-buttons">
+                                <button class="btn-add-cart-large"><i class="fas fa-shopping-cart"></i> Thêm vào giỏ</button>
                             </div>
                         </div>
                     </div>
-                </div>
+                </main>
 
             </div>
         </section>

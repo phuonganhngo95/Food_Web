@@ -1,119 +1,97 @@
-/* =========================================
-   CSS DÀNH CHO TRANG CHI TIẾT SẢN PHẨM
-   ========================================= */
-
 .product-detail-container {
     display: flex;
-    gap: 40px;
+    gap: 30px;
     background: #fff;
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border: 1px solid #eaeaea;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
 .detail-image {
     flex: 1;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
 }
 
 .detail-image img {
     width: 100%;
     height: auto;
-    border-radius: 8px;
-    object-fit: cover;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    object-fit: contain;
+    transition: transform 0.3s;
+}
+.detail-image:hover img {
+    transform: scale(1.05);
 }
 
 .detail-info {
     flex: 1.2;
 }
-
 .detail-name {
-    font-size: 32px;
+    font-size: 28px;
     font-family: var(--f-sub);
-    margin: 10px 0;
-    color: var(--text-color);
-    line-height: 1.2;
+    color: #333;
+    margin-bottom: 5px;
 }
-
-.detail-info .code {
-    color: #666;
+.code {
+    color: #888;
     font-size: 14px;
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-    border-bottom: 1px dashed #ddd;
+    margin-bottom: 10px;
 }
-
 .detail-price {
-    font-size: 36px;
-    color: var(--primary-color);
+    font-size: 32px;
+    color: var(--primary);
     font-weight: 700;
     margin-bottom: 20px;
 }
-
 .detail-description {
     font-size: 15px;
     color: #555;
-    line-height: 1.7;
-    margin-bottom: 30px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #ddd;
 }
 
-/* Bộ chọn số lượng */
 .quantity-box {
     display: flex;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
-
 .btn-qty {
-    width: 40px;
-    height: 40px;
-    background: #f1f1f1;
+    width: 35px;
+    height: 35px;
+    background: #f4f5f7;
     border: 1px solid #ddd;
-    font-size: 20px;
     cursor: pointer;
-    transition: all 0.2s;
+    font-size: 18px;
 }
-
-.btn-qty:hover {
-    background: #e2e2e2;
-}
-
 .input-qty {
-    width: 60px;
-    height: 40px;
+    width: 50px;
+    height: 35px;
     text-align: center;
-    border: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
     border-left: none;
     border-right: none;
-    font-size: 16px;
-    font-weight: 600;
+    font-weight: bold;
 }
 
-/* Nút bấm hành động */
-.action-btns {
-    display: flex;
-    gap: 15px;
-}
-
-.action-btns .btn {
-    padding: 12px 30px;
-    font-size: 16px;
-    margin-top: 0;
-}
-
-.btn-buy-now {
-    background: #28a745;
+.btn-add-cart-large {
+    background: var(--primary);
     color: #fff;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-family: var(--f-sub);
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.3s;
 }
-
-.btn-buy-now:hover {
-    background: #218838;
-}
-
-.breadcrumb a {
-    transition: color 0.3s;
-}
-
-.breadcrumb a:hover {
-    color: var(--primary-color);
+.btn-add-cart-large:hover {
+    background: #bf360c;
+    box-shadow: 0 4px 10px rgba(230, 74, 25, 0.3);
 }

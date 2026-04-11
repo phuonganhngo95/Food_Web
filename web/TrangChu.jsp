@@ -1,9 +1,3 @@
-<%-- 
-    Document   : TrangChu
-    Created on : Apr 7, 2026, 8:30:53 AM
-    Author     : Administrator
---%>
-
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="vi">
@@ -23,7 +17,7 @@
             <div class="container flex-between">
                 <a href="index.html" class="logo">Fast<span class="highlight">Food</span></a>
                 <nav class="menu-center">
-                    <a href="index.html" class="active">Trang Chủ</a>
+                    <a href="#" class="active">Trang Chủ</a>
                     <a href="#thuc-don">Thực Đơn</a>
                     <a href="#khuyen-mai">Khuyến Mãi</a>
                     <a href="contact.html">Liên Hệ</a>
