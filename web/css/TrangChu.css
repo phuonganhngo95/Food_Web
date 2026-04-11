@@ -149,11 +149,31 @@ h3, .menu-title {
     display: none;
 }
 
+.dropdown-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 150; 
+    cursor: default;
+}
+
+.dropdown-check:checked ~ .dropdown-overlay {
+    display: block;
+}
+
 .account-link {
+    position: relative;
+    z-index: 200; 
     cursor: pointer;
     display: flex;
     align-items: center;
+    color: #333;
+    transition: all 0.3s ease;
     user-select: none;
+    margin-right: 10px;
 }
 
 .dropdown-check {
@@ -166,7 +186,6 @@ h3, .menu-title {
     align-items: center;
     color: #333;
     transition: all 0.3s ease;
-    user-select: none;
     margin-right: 10px;
 }
 

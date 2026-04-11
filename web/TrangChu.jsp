@@ -32,6 +32,8 @@
                     <div class="account-dropdown">
                         <input type="checkbox" id="account-check" class="dropdown-check">
 
+                        <label for="account-check" class="dropdown-overlay"></label>
+
                         <label for="account-check" class="account-link">
                             <i class="fas fa-user-circle"></i> 
                             <span>Tài khoản</span> <i class="fas fa-chevron-down arrow-icon"></i>
