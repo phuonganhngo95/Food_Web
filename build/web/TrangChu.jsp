@@ -62,14 +62,14 @@
 
                     <div class="left-menu">
                         <ul class="menu-list">
-                            <li><a href="#uu-dai">Ưu Đãi</a></li>
-                            <li><a href="#mon-moi">Món Mới</a></li>
-                            <li><a href="#combo-1-nguoi">Combo 1 Người</a></li>
-                            <li><a href="#combo-nhom">Combo Nhóm</a></li>
-                            <li><a href="#ga-ran">Gà Rán - Gà Quay</a></li>
+                            <li><a href="#uu-dai"><i class="fa-solid fa-tags"></i> Ưu Đãi</a></li>
+                            <li><a href="#mon-moi"><i class="fa-solid fa-star"></i> Món Mới</a></li>
+                            <li><a href="#combo-1-nguoi"><i class="fa-solid fa-user"></i> Combo 1 Người</a></li>
+                            <li><a href="#combo-nhom"><i class="fa-solid fa-users"></i> Combo Nhóm</a></li>
+<!--                            <li><a href="#ga-ran">Gà Rán - Gà Quay</a></li>
                             <li><a href="#burger">Burger - Cơm - Mì Ý</a></li>
                             <li><a href="#thuc-an-nhe">Thức Ăn Nhẹ</a></li>
-                            <li><a href="#thuc-uong">Thức Uống & Tráng Miệng</a></li>
+                            <li><a href="#thuc-uong">Thức Uống & Tráng Miệng</a></li>-->
                         </ul>
                     </div>
                 </aside>

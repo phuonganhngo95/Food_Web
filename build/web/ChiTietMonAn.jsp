@@ -87,7 +87,7 @@
                             <div class="quantity-box">
                                 <label style="margin-right: 15px; font-weight: bold; font-family: var(--f-sub);">Số lượng:</label>
                                 <button class="btn-qty">-</button>
-                                <input type="number" value="1" class="input-qty" min="1">
+                                <input type="text" value="1" class="input-qty" min="1">
                                 <button class="btn-qty">+</button>
                             </div>
 
