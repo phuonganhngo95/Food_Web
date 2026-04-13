@@ -55,3 +55,8 @@
     color: var(--primary);
     font-weight: bold;
 }
+
+.form-link a:hover {
+    color: #bf360c;
+    font-weight: bold;
+}

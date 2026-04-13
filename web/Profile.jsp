@@ -4,13 +4,13 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Chi Tiết Món Ăn - FastFood</title>
+        <title>Trang cá nhân - FastFood</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700&family=Playwrite+IE:wght@100..400&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
         <link rel="stylesheet" href="./css/ThucDon.css">
-        <link rel="stylesheet" href="./css/ChiTietMonAn.css">
+        <link rel="stylesheet" href="./css/Form.css">
     </head>
     <body>
         <header class="top-menu">
@@ -45,60 +45,51 @@
             </div>
         </header>
 
-        <section class="banner">
+        <section class="banner" style="padding: 80px 0; background-position: center 40%;">
             <div class="container">
-                <div class="banner-text">
-                    <h1>Hương vị Tuyệt Đỉnh, <span class="highlight">Không Thể Cưỡng Lại!</span></h1>
-                    <p>Khám phá menu đa dạng với những món ăn nhanh giòn rụm, tẩm vị đậm đà.</p>
-                    <a href="./ThucDon.jsp#thuc-don" class="btn btn-primary">Đặt Ngay</a>
+                <div class="banner-text" style="text-align: center; margin: 0 auto;">
+                    <h1>Hồ Sơ <span class="highlight">Của Bạn</span></h1>
+                    <p>Quản lý thông tin cá nhân và địa chỉ giao hàng.</p>
                 </div>
             </div>
         </section>
 
         <section class="container" style="padding: 40px 0;">
             <div class="menu-layout">
-
                 <aside class="left-sidebar">
                     <h2 class="section-title left-title">DANH MỤC MÓN ĂN</h2>
                     <div class="left-menu">
                         <ul class="menu-list">
                             <li><a href="./ThucDon.jsp#uu-dai">Ưu Đãi</a></li>
                             <li><a href="./ThucDon.jsp#mon-moi">Món Mới</a></li>
-                            <li><a href="./ThucDon.jsp#combo-1-nguoi">Combo 1 Người</a></li>
-                            <li><a href="./ThucDon.jsp#ga-ran">Gà Rán - Gà Quay</a></li>
                         </ul>
                     </div>
                 </aside>
 
                 <main class="right-content">
-                    <h2 class="section-title" style="background-color: var(--primary); color: #fff; padding: 12px 20px; border-radius: 6px;">CHI TIẾT SẢN PHẨM</h2>
-
-                    <div class="product-detail-container">
-                        <div class="detail-image">
-                            <img src="https://static.kfcvietnam.com.vn/images/items/lg/D-CBO-CHICKEN-1.jpg?v=LwnZog" alt="Combo Gà Rán">
-                        </div>
-                        <div class="detail-info">
-                            <!--<p class="code">Mã SP: CBO-001</p>-->
-                            <h3 class="detail-name">Combo Gà Ưu Đãi 1</h3>
-                            <div class="detail-price">89.000đ</div>
-                            <p class="detail-description">
-                                Combo hấp dẫn bao gồm: 2 Miếng Gà Rán giòn cay, 1 Khoai Tây Chiên (Vừa), và 1 Pepsi (Vừa). Món ăn được chế biến từ gà tươi 100% tẩm ướp với 11 loại gia vị bí mật.
-                            </p>
-
-                            <div class="quantity-box">
-                                <label style="margin-right: 15px; font-weight: bold; font-family: var(--f-sub);">Số lượng:</label>
-                                <button class="btn-qty">-</button>
-                                <input type="text" value="1" class="input-qty" min="1">
-                                <button class="btn-qty">+</button>
+                    <div class="form-wrapper">
+                        <h2 class="section-title" style="text-align: center; margin-bottom: 25px;">THÔNG TIN TÀI KHOẢN</h2>
+                        <form action="#" method="POST">
+                            <div class="form-group">
+                                <label>Họ và tên</label>
+                                <input type="text" name="hoTen" value="Ngô Phương Anh">
                             </div>
-
-                            <div class="action-buttons">
-                                <button class="btn-add-cart-large"><i class="fas fa-shopping-cart"></i> Thêm vào giỏ</button>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <!--<input type="email" name="email" value="phuonganh@example.com" disabled style="background-color: #f4f5f7; cursor: not-allowed;">-->
+                                <input type="email" name="email" value="contact@gmail.com">
                             </div>
-                        </div>
+                            <div class="form-group">
+                                <label>Số điện thoại</label>
+                                <input type="tel" name="sdt" value="0987654321">
+                            </div>
+                            <div class="form-group">
+                                <label>Địa chỉ nhận hàng mặc định</label>
+                                <input type="text" name="dc" value="Hà Nội, Việt Nam">
+                            </div>
+                            <button type="button" class="btn-submit" style="margin-top: 10px;">CẬP NHẬT THÔNG TIN</button>
+                        </form>
                     </div>
-                </main>
-
             </div>
         </section>
 

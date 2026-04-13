@@ -10,17 +10,17 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700&family=Playwrite+IE:wght@100..400&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-        <link rel="stylesheet" href="./css/TrangChu.css">
+        <link rel="stylesheet" href="./css/ThucDon.css">
     </head>
     <body>
         <header class="top-menu">
             <div class="container flex-between">
-                <a href="index.html" class="logo">Fast<span class="highlight">Food</span></a>
+                <a href="#" class="logo">Fast<span class="highlight">Food</span></a>
                 <nav class="menu-center">
                     <a href="#" class="active">Trang Chủ</a>
                     <a href="#thuc-don">Thực Đơn</a>
-                    <a href="#khuyen-mai">Khuyến Mãi</a>
-                    <a href="contact.html">Liên Hệ</a>
+                    <a href="ThucDon.jsp#uu-dai">Khuyến Mãi</a>
+                    <a href="./LienHe.jsp">Liên Hệ</a>
                 </nav>
                 <div class="menu-right">
                     <div class="account-dropdown">
@@ -34,9 +34,10 @@
                         </label>
 
                         <div class="dropdown-content">
-                            <a href="login.html"><i class="fas fa-sign-in-alt"></i> Đăng nhập</a>
-                            <a href="register.html"><i class="fas fa-user-plus"></i> Đăng ký</a>
+                            <a href="./DangNhap.jsp"><i class="fas fa-sign-in-alt"></i> Đăng nhập</a>
+                            <a href="./DangKi.jsp"><i class="fas fa-user-plus"></i> Đăng ký</a>
                             <a href="profile.html"><i class="fas fa-id-badge"></i> Trang cá nhân</a>
+                            <a href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i> Thoát</a>
                         </div>
                     </div>
                     <a href="cart.html" class="cart-link"><i class="fas fa-shopping-cart"></i> Giỏ Hàng (0)</a>
