@@ -34,6 +34,14 @@ a {
     padding: 0 20px;
 }
 
+/* Mở rộng section nội dung, cách lề trái/phải 5px */
+section.container {
+    max-width: 100% !important;   /* Phá bỏ giới hạn chiều rộng cũ */
+    width: 100% !important;       /* Chiếm toàn bộ chiều rộng màn hình */
+    padding: 0 100px !important;    /* Cách lề 2 bên đúng 5px */
+    /*box-sizing: border-box !important;*/
+}
+
 .flex-between {
     display: flex;
     justify-content: space-between;
@@ -156,7 +164,7 @@ h3, .menu-title {
     left: 0;
     width: 95vw;
     height: 100vh;
-    z-index: 150; 
+    z-index: 150;
     cursor: default;
 }
 
@@ -166,7 +174,7 @@ h3, .menu-title {
 
 .account-link {
     position: relative;
-    z-index: 200; 
+    z-index: 200;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -302,15 +310,15 @@ h3, .menu-title {
 /* ================= MENU ================= */
 .menu-layout {
     display: flex;
-    gap: 30px;
+    gap: 50px;
     align-items: flex-start;
 }
 
 .left-sidebar {
-    width: 260px;
+    width: 300px;
     flex-shrink: 0;
     position: sticky;
-    top: 120px;
+    top: 100px;
 }
 
 .left-menu {
@@ -321,14 +329,15 @@ h3, .menu-title {
 }
 
 .left-title {
-    font-size: 20px !important;
+    font-size: 24px !important;
+    text-align: center;
 }
 
 .section-title {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: 700;
     color: #333;
-    margin-top: 20px;
+    margin-top: 30px;
     margin-bottom: 12px;
     font-family: var(--f-sub);
     text-transform: uppercase;
@@ -348,7 +357,7 @@ h3, .menu-title {
     display: block;
     padding: 14px 20px;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 20px;
     color: #444;
     border-left: 4px solid transparent;
     transition: all 0.3s ease;
@@ -370,19 +379,13 @@ h3, .menu-title {
 
 
 #thuc-don {
-    scroll-margin-top: 80px;
+    scroll-margin-top: 10px;
 }
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr); /* Đổi từ 3 thành 4 cột */
+    gap: 20px; /* Khoảng cách giữa các món ăn */
 }
 
 .product-card {
@@ -444,7 +447,7 @@ h3, .menu-title {
 
 .product-title {
     font-family: var(--f-sub);
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
     color: #333;
     flex: 1;
@@ -467,14 +470,13 @@ h3, .menu-title {
 
 .current-price {
     font-family: var(--f-sub);
-    font-size: 17px;
+    font-size: 20px;
     font-weight: 700;
     color: #000;
-    line-height: 1.1;
 }
 
 .old-price {
-    font-size: 13px;
+    font-size: 18px;
     color: #888;
     text-decoration: line-through;
     margin-top: 4px;
