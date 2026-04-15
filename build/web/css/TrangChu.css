@@ -5,7 +5,6 @@
     --card-bg: #FFFFFF;
     --text-main: #333333;
     --text-muted: #666666;
-
     --f-title: 'Playwrite IE', cursive;
     --f-sub: 'Nunito', sans-serif;
     --f-body: 'Quicksand', sans-serif;
@@ -277,99 +276,199 @@ h1, h2, .logo {
 .section-block {
     margin-bottom: 60px;
 }
+
 .section-title {
-    font-size: 18px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 25px;
+    font-size: 28px;
+    margin-left: 5px;
+    margin-bottom: 5px;
     color: var(--text-main);
 }
 
-/* THIẾT KẾ THẺ SẢN PHẨM (CARDS) GIỐNG ẢNH */
+/* ================= THIẾT KẾ THẺ SẢN PHẨM ================= */
 .ui-card {
-    background: transparent;
+    background: var(--card-bg);
+    border-radius: 16px;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid #F0F0F0;
 }
 
+.ui-card:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(230, 74, 25, 0.15);
+    border-color: var(--primary-light);
+}
+
+/* Ảnh món ăn */
 .ui-card .card-img {
-    background: var(--card-bg);
-    border-radius: 20px;
-    padding: 10px;
-    margin-bottom: 15px;
+    display: block;
+    width: calc(100% - 20px);
+    margin: 10px 10px 0 10px;
     aspect-ratio: 4/3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
 }
 
 .ui-card .card-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 12px;
+    transition: transform 0.4s ease;
+}
+
+.ui-card:hover .card-img img {
+    transform: scale(1.05);
 }
 
 .ui-card .card-info {
-    background: var(--card-bg);
-    padding: 15px 20px;
-    border-radius: 16px;
-    text-align: left;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; 
 }
 
-.ui-card .card-info h3 {
+.ui-card .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 8px;
+}
+
+.ui-card .card-title {
+    flex: 1;
+}
+
+.ui-card .card-title h3 {
     font-size: 16px;
     font-family: var(--f-body);
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-
-.ui-card .card-info p {
-    font-size: 15px;
     font-weight: 700;
     color: var(--text-main);
+    margin: 0;
+    line-height: 1.3;
+    transition: color 0.2s;
+}
+
+.ui-card .card-title:hover h3 {
+    color: var(--primary); 
+}
+
+.ui-card .price-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+    flex-shrink: 0; 
+}
+
+.ui-card .old-price {
+    font-size: 12px;
+    color: #999999;
+    text-decoration: line-through;
+    font-weight: 500;
+    margin-bottom: 2px;
+    line-height: 1;
+}
+
+.ui-card .new-price {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0;
+    line-height: 1;
+}
+
+/* MÔ TẢ MÓN ĂN */
+.ui-card .card-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.ui-card .add-btn {
+    margin-top: auto; 
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    color: var(--primary);
+    border: 1.5px solid var(--primary);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: var(--f-body);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; 
+}
+
+.ui-card .add-btn:hover {
+    background: var(--primary);
+    color: #FFFFFF;
+    box-shadow: 0 4px 10px rgba(230, 74, 25, 0.2);
 }
 
 /* ================= BỐ CỤC SIDEBAR + FEATURED PRODUCTS ================= */
 .featured-layout {
     display: flex;
-    align-items: flex-start; 
-    gap: 40px; 
+    align-items: flex-start;
+    gap: 30px;
 }
 
 .sidebar {
-    width: 200px;
+    width: 260px; 
     flex-shrink: 0;
 }
 
 .sidebar-menu {
     list-style: none;
-    background: transparent;
+    background: #FFFFFF;
+    /*padding: 20px;*/
+    border-radius: 5px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid #EAEAEA;
+}
+
+.sidebar-menu li:last-child {
+    margin-bottom: 0;
 }
 
 .sidebar-menu li a {
     display: block;
-    padding: 12px 15px;
-    font-size: 13px;
+    padding: 17px 18px;
+    font-size: 22px;
     font-weight: 700;
     color: var(--text-muted);
-    border-left: 3px solid transparent;
-    transition: 0.3s;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
 }
 
-.sidebar-menu li a:hover, .sidebar-menu li a.active {
-    color: var(--text-main);
-    border-left-color: var(--primary); /* Viền màu cam đỏ Fastfood */
+.sidebar-menu li:hover a{
+    color: #FFFFFF;
+    background: var(--primary);
+    box-shadow: 0 4px 12px rgba(230, 74, 25, 0.25);
+    transform: translateY(-2px); 
 }
 
 .featured-products {
-    flex: 1; 
-    min-width: 0; 
-    padding-bottom: 40px; 
-    display: block !important; 
+    flex: 1;
+    min-width: 0;
+    padding-bottom: 40px;
+    display: block !important;
 }
 
 .featured-products .slick-slide {
@@ -379,7 +478,6 @@ h1, h2, .logo {
     margin: 0 -10px;
 }
 
-/* TÙY CHỈNH DOTS THÀNH THANH NGANG */
 .featured-products .slick-dots {
     position: absolute;
     bottom: -10px;
@@ -418,43 +516,15 @@ h1, h2, .logo {
 }
 
 .featured-products .slick-dots li.slick-active button {
-    background-color: var(--primary); 
+    background-color: var(--primary);
 }
 
-.sidebar-menu {
-    list-style: none;
-}
-
-.sidebar-menu li a {
-    display: block;
-    padding: 12px 15px;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--text-muted);
-    border-left: 3px solid transparent;
-    transition: 0.3s;
-}
-
-.sidebar-menu li a:hover, .sidebar-menu li a.active {
-    color: var(--text-main);
-    border-left-color: #A3C9A8;
-}
-
-.featured-products {
-    flex: 1;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-/* BỐ CỤC GRID 4 CỘT */
 .grid-4-cols {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 
-/* BANNER KHUYẾN MÃI (PROMO BANNER DƯỚI CÙNG) */
 .promo-banner {
     background: #FAFAF5;
     border: 1px solid #EAEAEA;
@@ -517,7 +587,7 @@ h1, h2, .logo {
     gap: 15px;
 }
 
-/* ================= FOOTER GIỮ NGUYÊN ================= */
+/* ================= FOOTER ================= */
 .footer {
     background: #F2EFE9;
     color: #555;

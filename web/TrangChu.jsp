@@ -61,46 +61,124 @@
                 <div class="featured-layout">
                     <aside class="sidebar">
                         <ul class="sidebar-menu">
-                            <li><a href="#" class="active">GÀ RÁN</a></li>
-                            <li><a href="#">BURGER</a></li>
-                            <li><a href="#">PIZZA</a></li>
-                            <li><a href="#">ĐỒ UỐNG</a></li>
+                            <!--<li><a href="#" class="active" data-filter="all">TẤT CẢ</a></li>-->
+                            <li><a href="#" data-filter="ga-ran">GÀ RÁN</a></li>
+                            <li><a href="#" data-filter="burger">BURGER</a></li>
+                            <li><a href="#" data-filter="pizza">PIZZA</a></li>
+                            <li><a href="#" data-filter="khac">MÓN KHÁC</a></li>
                         </ul>
                     </aside>
+
                     <div class="featured-products">
-                        <div class="ui-card">
-                            <div class="card-img"><img src="https://placehold.co/250x200/F5D7C4/333?text=Combo+Ga" alt="Product"></div>
+                        <div class="ui-card ga-ran">
+                            <a href="#" class="card-img">
+                                <img src="./img/dishes/food1.jpg" alt="Combo Gà Rán">
+                            </a>
+
                             <div class="card-info">
-                                <h3>Combo Gà Rán</h3>
-                                <p>150.000đ</p>
+                                <div class="card-header">
+                                    <a href="ChiTietMon.jsp" class="card-title">
+                                        <h3>Combo Gà Rán</h3>
+                                    </a>
+
+                                    <div class="price-box">
+                                        <span class="old-price">180.000đ</span>
+                                        <span class="new-price">150.000đ</span>
+                                    </div>
+                                </div>
+
+                                <p class="card-desc">Gồm 2 miếng gà rán giòn rụm, 1 khoai tây chiên vừa và 1 ly Pepsi mát lạnh.</p>
+
+                                <button class="add-btn"><i class="fas fa-plus"></i> Thêm</button>
                             </div>
                         </div>
-                        <div class="ui-card">
-                            <div class="card-img"><img src="https://placehold.co/250x200/F5D7C4/333?text=Burger+Bo" alt="Product"></div>
+                        
+                        <div class="ui-card ga-ran">
+                            <a href="#" class="card-img">
+                                <img src="./img/dishes/food1.jpg" alt="Combo Gà Rán">
+                            </a>
+
                             <div class="card-info">
-                                <h3>Burger Bò Phô Mai</h3>
-                                <p>65.000đ</p>
+                                <div class="card-header">
+                                    <a href="ChiTietMon.jsp" class="card-title">
+                                        <h3>Combo Gà Rán</h3>
+                                    </a>
+
+                                    <div class="price-box">
+                                        <span class="old-price">180.000đ</span>
+                                        <span class="new-price">150.000đ</span>
+                                    </div>
+                                </div>
+
+                                <p class="card-desc">Gồm 2 miếng gà rán giòn rụm, 1 khoai tây chiên vừa và 1 ly Pepsi mát lạnh.</p>
+
+                                <button class="add-btn"><i class="fas fa-plus"></i> Thêm</button>
                             </div>
                         </div>
-                        <div class="ui-card">
-                            <div class="card-img"><img src="https://placehold.co/250x200/F5D7C4/333?text=Pizza+Xuc+Xich" alt="Product"></div>
+                        
+                        <div class="ui-card ga-ran">
+                            <a href="#" class="card-img">
+                                <img src="./img/dishes/food1.jpg" alt="Combo Gà Rán">
+                            </a>
+
                             <div class="card-info">
-                                <h3>Pizza Xúc Xích</h3>
-                                <p>120.000đ</p>
+                                <div class="card-header">
+                                    <a href="#" class="card-title">
+                                        <h3>Combo Gà Rán</h3>
+                                    </a>
+
+                                    <div class="price-box">
+                                        <span class="old-price">180.000đ</span>
+                                        <span class="new-price">150.000đ</span>
+                                    </div>
+                                </div>
+
+                                <p class="card-desc">Gồm 2 miếng gà rán giòn rụm, 1 khoai tây chiên vừa và 1 ly Pepsi mát lạnh.</p>
+
+                                <button class="add-btn"><i class="fas fa-plus"></i> Thêm</button>
                             </div>
                         </div>
-                        <div class="ui-card">
-                            <div class="card-img"><img src="https://placehold.co/250x200/F5D7C4/333?text=Mi+Y+Bo+Bam" alt="Product"></div>
+                        
+                        <div class="ui-card ga-ran">
+                            <a href="#" class="card-img">
+                                <img src="./img/dishes/food1.jpg" alt="Combo Gà Rán">
+                            </a>
+
                             <div class="card-info">
-                                <h3>Mì Ý Bò Băm</h3>
-                                <p>85.000đ</p>
+                                <div class="card-header">
+                                    <a href="ChiTietMon.jsp" class="card-title">
+                                        <h3>Combo Gà Rán</h3>
+                                    </a>
+
+                                    <div class="price-box">
+                                        <span class="old-price">180.000đ</span>
+                                        <span class="new-price">150.000đ</span>
+                                    </div>
+                                </div>
+
+                                <p class="card-desc">Gồm 2 miếng gà rán giòn rụm, 1 khoai tây chiên vừa và 1 ly Pepsi mát lạnh.</p>
+
+                                <button class="add-btn"><i class="fas fa-plus"></i> Thêm</button>
                             </div>
                         </div>
-                        <div class="ui-card">
-                            <div class="card-img"><img src="https://placehold.co/250x200/F5D7C4/333?text=Ga+Phu+Pho+Mai" alt="Product"></div>
+
+                        <div class="ui-card burger">
+                            <a href="#" class="card-img">
+                                <img src="https://placehold.co/250x200/F5D7C4/333?text=Burger+Bo" alt="Burger Bò Phô Mai">
+                            </a>
+
                             <div class="card-info">
-                                <h3>Gà Phủ Phô Mai</h3>
-                                <p>95.000đ</p>
+                                <div class="card-header">
+                                    <a href="ChiTietMon.jsp" class="card-title">
+                                        <h3>Burger Bò Phô Mai</h3>
+                                    </a>
+                                    <div class="price-box">
+                                        <span class="new-price">65.000đ</span>
+                                    </div>
+                                </div>
+                                <p class="card-desc">Bò băm nướng mọng nước, phô mai Cheddar tan chảy cùng xà lách tươi sạch.</p>
+
+                                <button class="add-btn"><i class="fas fa-plus"></i> Thêm</button>
                             </div>
                         </div>
                     </div>
@@ -108,7 +186,7 @@
             </section>
 
             <section class="section-block" id="uu-dai">
-                <h2 class="section-title">MÓN ĂN KÈM</h2>
+                <h2 class="section-title">MÓN GIẢM GIÁ</h2>
                 <div class="grid-4-cols">
                     <div class="ui-card">
                         <div class="card-img"><img src="https://placehold.co/200x180/F5D7C4/333?text=Khoai+Tay" alt="Product"></div>
