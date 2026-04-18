@@ -18,18 +18,17 @@
                 <div class="row">
                     <div class="col-lg-2">
                         <div class="header-logo">
-                            <a href="./TrangChu.jsp">
-                                <img src="./logo.png" alt="Logo" width="160" height="36">
+                            <a href="index.html">
+                                <img src="logo.png" width="160" height="36" alt="Logo">
                             </a>
                         </div>
                     </div>
-
                     <div class="col-lg-10">
                         <div class="main-navigation">
                             <button class="menu-toggle"><span></span><span></span></button>
                             <nav class="header-menu">
                                 <ul class="menu food-nav-menu">
-                                    <li><a href="home">Home</a></li>
+                                    <li><a href="#home">Home</a></li>
                                     <li><a href="#about">About</a></li>
                                     <li><a href="#menu">Menu</a></li>
                                     <li><a href="#gallery">Gallery</a></li>
@@ -38,7 +37,7 @@
                                 </ul>
                             </nav>
                             <div class="header-right">
-                                <form action="#" method="post" class="header-search-form for-des">
+                                <form action="#" class="header-search-form for-des">
                                     <input type="search" class="form-input" placeholder="Search Here...">
                                     <button type="submit">
                                         <i class="uil uil-search"></i>
@@ -57,6 +56,7 @@
                 </div>
             </div>
         </header>
+        <!-- header ends  -->
 
         <div id="viewport">
             <div id="js-scroll-content">
