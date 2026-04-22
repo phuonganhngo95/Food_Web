@@ -6,8 +6,8 @@ $(document).ready(function () {
         autoplay: true,
         autoplaySpeed: 3000,
         arrows: true,
-        prevArrow: $('.custom-prev'), /* Gắn nút Prev */
-        nextArrow: $('.custom-next'), /* Gắn nút Next */
+        prevArrow: $('.custom-prev'),
+        nextArrow: $('.custom-next'), 
         dots: false,
         responsive: [
             {
@@ -30,16 +30,15 @@ $(document).ready(function () {
             }
         ]
     });
-
-    // Khởi tạo Slick Slider cho phần Đánh giá khách hàng (Testimonial)
+    
     $('.testimonial-slider').slick({
         infinite: true,
         slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 4000, // Tự động trượt sau 4 giây
-        arrows: false, // Tắt nút mũi tên hai bên
-        dots: true, // Bật dấu chấm điều hướng ở dưới
+        autoplaySpeed: 4000, 
+        arrows: false,
+        dots: true, 
         responsive: [
             {
                 breakpoint: 1024,
@@ -54,5 +53,17 @@ $(document).ready(function () {
                 }
             }
         ]
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const backTopBtn = document.querySelector("[data-back-top-btn]");
+
+    window.addEventListener("scroll", function () {
+        if (window.scrollY >= 400) {
+            backTopBtn.classList.add("active");
+        } else {
+            backTopBtn.classList.remove("active");
+        }
     });
 });

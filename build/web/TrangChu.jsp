@@ -9,57 +9,55 @@
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
         <link rel="stylesheet" href="./css/TrangChu.css">
     </head>
 
     <body>
         <nav class="navbar navbar-expand-lg fixed-top">
-            <div class="container">
-                <a class="navbar-brand fs-3 logo" href="#">Foodie<span class="text-primary-custom">.</span></a>
+            <div class="container align-items-center">
+                <a class="navbar-brand logo" href="#home">
+                    <img src="./img/logo.png" alt="Fast Food Logo" style="height: 65px; width: auto; object-fit: contain; transition: transform 0.3s ease;">
+                </a>
 
-                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <i class="fas fa-bars fs-2"></i>
+                <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <i class="fas fa-bars fs-2 text-dark"></i>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item"><a class="nav-link active" href="#">Trang chủ</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#about">Giới thiệu</a></li>
+                    <ul class="navbar-nav mx-auto fw-bold">
+                        <li class="nav-item"><a class="nav-link active" href="#home">Trang chủ</a></li>
                         <li class="nav-item"><a class="nav-link" href="#menu">Thực đơn</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#blog">Tin tức</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#promo">Khuyến mãi</a></li> <li class="nav-item"><a class="nav-link" href="#about">Giới thiệu</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Liên hệ</a></li>
                     </ul>
 
-                    <div class="d-flex align-items-center gap-3 mt-3 mt-lg-0">
+                    <div class="d-flex align-items-center gap-3 mt-3 mt-lg-0 pb-3 pb-lg-0">
                         <form class="d-flex position-relative" role="search" action="#" method="GET">
-                            <input class="form-control rounded-pill shadow-none pe-5" type="search" placeholder="Tìm kiếm món ăn..."
-                                   aria-label="Search" style="border: 1px solid var(--primary-color); width: 220px; font-size: 0.9rem;">
-                            <button class="btn position-absolute end-0 top-50 translate-middle-y border-0 text-primary-custom hover-primary"
-                                    type="submit" style="background: transparent; z-index: 10;">
+                            <input class="form-control rounded-pill shadow-none pe-5 search-input" type="search" placeholder="Tìm món ăn..." aria-label="Search">
+                            <button class="btn position-absolute end-0 top-50 translate-middle-y border-0 text-muted hover-primary" type="submit" style="background: transparent; z-index: 10;">
                                 <i class="fas fa-search"></i>
                             </button>
                         </form>
 
-                        <a href="#" class="text-dark fs-5 position-relative me-2 ms-2">
-                            <i class="fas fa-shopping-bag"></i>
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary-custom" style="font-size: 0.6rem;">3</span>
+                        <a href="#" class="text-dark fs-5 position-relative ms-2 icon-action">
+                            <i class="fas fa-shopping-cart"></i> <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem;">3</span>
                         </a>
 
-                        <div class="dropdown ms-1">
-                            <a href="#" class="text-dark fs-4 text-decoration-none" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="dropdown ms-2">
+                            <a href="#" class="text-dark fs-4 text-decoration-none icon-action" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-user-circle"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 mt-3" aria-labelledby="accountDropdown">
                                 <li><a class="dropdown-item py-2" href="#"><i class="fas fa-sign-in-alt me-2 text-muted"></i> Đăng nhập</a></li>
                                 <li><a class="dropdown-item py-2" href="#"><i class="fas fa-user-plus me-2 text-muted"></i> Đăng ký</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item py-2" href="#"><i class="fas fa-id-card me-2 text-muted"></i> Trang cá nhân</a></li>
+                                <li><a class="dropdown-item py-2" href="#"><i class="fas fa-clipboard-list me-2 text-muted"></i> Đơn hàng</a></li>
                                 <li><a class="dropdown-item py-2 text-danger" href="#"><i class="fas fa-sign-out-alt me-2"></i> Thoát</a></li>
                             </ul>
                         </div>
@@ -79,6 +77,94 @@
                     </div>
                     <div class="col-lg-6 text-center">
                         <img src="./img/dishes/food1.jpg" alt="Hero Burger" class="hero-img rounded-circle shadow-lg" style="object-fit: cover; height: 500px; width: 500px;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu-section" id="menu">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <p class="section-subtitle">Thực Đơn Của Chúng Tôi</p>
+                    <h2 class="display-5 fw-bold">Các Món Ăn <span class="text-primary-custom">Nổi Bật</span></h2>
+                </div>
+
+                <ul class="nav nav-pills justify-content-center mb-5 menu-tabs" id="menu-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab">Tất cả</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-burger-tab" data-bs-toggle="pill" data-bs-target="#pills-burger" type="button" role="tab">Burger</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-pizza-tab" data-bs-toggle="pill" data-bs-target="#pills-pizza" type="button" role="tab">Pizza</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-drink-tab" data-bs-toggle="pill" data-bs-target="#pills-drink" type="button" role="tab">Đồ uống</button>
+                    </li>
+                </ul>
+
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-all" role="tabpanel">
+                        <div class="row g-4">
+                            <div class="col-lg-3 col-md-6">
+                                <div class="food-card">
+                                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Beef Burger" class="food-img rounded-circle shadow-sm">
+                                    <div class="text-warning mb-2">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <h4 class="fw-bold fs-5 mb-1">Beef Burger Classic</h4>
+                                    <p class="text-muted small mb-3">Thịt bò, Phô mai, Rau thơm</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">45.000đ</span>
+                                        <button class="btn btn-add-cart rounded-circle"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="food-card position-relative">
+                                    <span class="badge bg-danger position-absolute top-0 start-0 m-3 p-2">-15%</span>
+                                    <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Pepperoni Pizza" class="food-img rounded-circle shadow-sm">
+                                    <div class="text-warning mb-2">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    </div>
+                                    <h4 class="fw-bold fs-5 mb-1">Pepperoni Pizza</h4>
+                                    <p class="text-muted small mb-3">Pizza viền phô mai, Xúc xích</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price"><del class="text-muted fs-6 me-1">150.000d</del> 125.000đ</span>
+                                        <button class="btn btn-add-cart rounded-circle"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="food-card">
+                                    <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Chicken Burger" class="food-img rounded-circle shadow-sm">
+                                    <div class="text-warning mb-2">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                                    </div>
+                                    <h4 class="fw-bold fs-5 mb-1">Chicken Burger</h4>
+                                    <p class="text-muted small mb-3">Gà rán giòn rụm, Xà lách</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">35.000đ</span>
+                                        <button class="btn btn-add-cart rounded-circle"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="food-card">
+                                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Vegetarian Pizza" class="food-img rounded-circle shadow-sm">
+                                    <div class="text-warning mb-2">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    </div>
+                                    <h4 class="fw-bold fs-5 mb-1">Margarita Pizza</h4>
+                                    <p class="text-muted small mb-3">Cà chua, Phô mai Mozzarella</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price">99.000đ</span>
+                                        <button class="btn btn-add-cart rounded-circle"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -218,94 +304,6 @@
             </div>
         </section>
 
-        <section class="menu-section" id="menu">
-            <div class="container">
-                <div class="text-center mb-5">
-                    <p class="section-subtitle">Thực Đơn Của Chúng Tôi</p>
-                    <h2 class="display-5 fw-bold">Các Món Ăn <span class="text-primary-custom">Nổi Bật</span></h2>
-                </div>
-
-                <ul class="nav nav-pills justify-content-center mb-5 menu-tabs" id="menu-tab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab">Tất cả</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-burger-tab" data-bs-toggle="pill" data-bs-target="#pills-burger" type="button" role="tab">Burger</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-pizza-tab" data-bs-toggle="pill" data-bs-target="#pills-pizza" type="button" role="tab">Pizza</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-drink-tab" data-bs-toggle="pill" data-bs-target="#pills-drink" type="button" role="tab">Đồ uống</button>
-                    </li>
-                </ul>
-
-                <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="pills-all" role="tabpanel">
-                        <div class="row g-4">
-                            <div class="col-lg-3 col-md-6">
-                                <div class="food-card">
-                                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Beef Burger" class="food-img rounded-circle shadow-sm">
-                                    <div class="text-warning mb-2">
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                                    </div>
-                                    <h4 class="fw-bold fs-5 mb-1">Beef Burger Classic</h4>
-                                    <p class="text-muted small mb-3">Thịt bò, Phô mai, Rau thơm</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <span class="price">45.000đ</span>
-                                        <button class="btn btn-add-cart rounded-circle"><i class="fas fa-plus"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6">
-                                <div class="food-card position-relative">
-                                    <span class="badge bg-danger position-absolute top-0 start-0 m-3 p-2">-15%</span>
-                                    <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Pepperoni Pizza" class="food-img rounded-circle shadow-sm">
-                                    <div class="text-warning mb-2">
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                    </div>
-                                    <h4 class="fw-bold fs-5 mb-1">Pepperoni Pizza</h4>
-                                    <p class="text-muted small mb-3">Pizza viền phô mai, Xúc xích</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <span class="price"><del class="text-muted fs-6 me-1">150.000d</del> 125.000đ</span>
-                                        <button class="btn btn-add-cart rounded-circle"><i class="fas fa-plus"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6">
-                                <div class="food-card">
-                                    <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Chicken Burger" class="food-img rounded-circle shadow-sm">
-                                    <div class="text-warning mb-2">
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                                    </div>
-                                    <h4 class="fw-bold fs-5 mb-1">Chicken Burger</h4>
-                                    <p class="text-muted small mb-3">Gà rán giòn rụm, Xà lách</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <span class="price">35.000đ</span>
-                                        <button class="btn btn-add-cart rounded-circle"><i class="fas fa-plus"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6">
-                                <div class="food-card">
-                                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Vegetarian Pizza" class="food-img rounded-circle shadow-sm">
-                                    <div class="text-warning mb-2">
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                    </div>
-                                    <h4 class="fw-bold fs-5 mb-1">Margarita Pizza</h4>
-                                    <p class="text-muted small mb-3">Cà chua, Phô mai Mozzarella</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <span class="price">99.000đ</span>
-                                        <button class="btn btn-add-cart rounded-circle"><i class="fas fa-plus"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section class="banner-section text-center position-relative">
             <div style="background: rgba(0,0,0,0.7); position: absolute; top:0; left:0; width:100%; height:100%;"></div>
             <div class="container position-relative" style="z-index: 1;">
@@ -323,7 +321,9 @@
             <div class="container">
                 <div class="row g-4 mb-5">
                     <div class="col-lg-3 col-md-6">
-                        <a class="navbar-brand fs-2 logo d-block mb-3" href="#">Foodie<span class="text-primary-custom">.</span></a>
+                        <a class="navbar-brand logo d-block mb-3" href="#">
+                            <img src="./img/logo.png" alt="Fast Food Logo" style="height: 80px; width: auto; object-fit: contain;">
+                        </a>
                         <p class="text-muted">Đem đến cho bạn những trải nghiệm ẩm thực nhanh gọn, ngon miệng và an toàn nhất cho gia đình.</p>
                         <div class="mt-4">
                             <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
@@ -368,6 +368,10 @@
                 </div>
             </div>
         </footer>
+
+        <a href="#" class="back-top-btn active" aria-label="Back to top" data-back-top-btn>
+            <i class="fas fa-chevron-up"></i>
+        </a>
 
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
