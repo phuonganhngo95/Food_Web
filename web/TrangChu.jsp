@@ -14,7 +14,8 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
         <link rel="stylesheet" href="./css/TrangChu.css">
     </head>
 
@@ -22,7 +23,7 @@
         <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container align-items-center">
                 <a class="navbar-brand logo" href="#home">
-                    <img src="./img/logo.png" alt="Fast Food Logo" style="height: 65px; width: auto; object-fit: contain; transition: transform 0.3s ease;">
+                    <img src="./img/logo.png" alt="Logo" style="height: 80px; width: auto; object-fit: contain; transition: transform 0.3s ease;">
                 </a>
 
                 <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -49,11 +50,11 @@
                             <i class="fas fa-shopping-cart"></i> <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem;">3</span>
                         </a>
 
-                        <div class="dropdown ms-2">
-                            <a href="#" class="text-dark fs-4 text-decoration-none icon-action" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="dropdown ms-2 position-relative">
+                            <a href="#" class="text-dark fs-4 text-decoration-none icon-action d-flex align-items-center justify-content-center" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="width: 40px; height: 40px; border-radius: 50%;">
                                 <i class="fas fa-user-circle"></i>
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 mt-3" aria-labelledby="accountDropdown">
+                            <ul class="dropdown-menu dropdown-menu-center border-0" aria-labelledby="accountDropdown">
                                 <li><a class="dropdown-item py-2" href="#"><i class="fas fa-sign-in-alt me-2 text-muted"></i> Đăng nhập</a></li>
                                 <li><a class="dropdown-item py-2" href="#"><i class="fas fa-user-plus me-2 text-muted"></i> Đăng ký</a></li>
                                 <li><hr class="dropdown-divider"></li>
@@ -84,7 +85,7 @@
 
         <section class="menu-section" id="menu">
             <div class="container">
-                <div class="text-center mb-5">
+                <div class="text-center mb-4">
                     <p class="section-subtitle">Thực Đơn Của Chúng Tôi</p>
                     <h2 class="display-5 fw-bold">Các Món Ăn <span class="text-primary-custom">Nổi Bật</span></h2>
                 </div>
@@ -104,67 +105,118 @@
                     </li>
                 </ul>
 
-                <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="pills-all" role="tabpanel">
-                        <div class="row g-4">
-                            <div class="col-lg-3 col-md-6">
-                                <div class="food-card">
-                                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Beef Burger" class="food-img rounded-circle shadow-sm">
-                                    <div class="text-warning mb-2">
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                                    </div>
-                                    <h4 class="fw-bold fs-5 mb-1">Beef Burger Classic</h4>
-                                    <p class="text-muted small mb-3">Thịt bò, Phô mai, Rau thơm</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <span class="price">45.000đ</span>
-                                        <button class="btn btn-add-cart rounded-circle"><i class="fas fa-plus"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6">
-                                <div class="food-card position-relative">
+                <div class="tab-pane fade show active" id="pills-all" role="tabpanel">
+                    <div class="position-relative px-2 px-md-4">
+
+                        <button class="btn btn-custom-arrow menu-prev arrow-left"><i class="fas fa-chevron-left"></i></button>
+                        <div class="menu-slider mx-n2">
+
+                            <div class="px-3 py-4">
+                                <div class="food-card position-relative"> 
                                     <span class="badge bg-danger position-absolute top-0 start-0 m-3 p-2">-15%</span>
-                                    <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Pepperoni Pizza" class="food-img rounded-circle shadow-sm">
-                                    <div class="text-warning mb-2">
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                    </div>
-                                    <h4 class="fw-bold fs-5 mb-1">Pepperoni Pizza</h4>
-                                    <p class="text-muted small mb-3">Pizza viền phô mai, Xúc xích</p>
+                                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Beef Burger" class="food-img rounded-circle shadow-sm">
+                                    <div class="text-warning mb-2"></div>
+
+                                    <h4 class="fw-bold fs-5 mb-1">
+                                        <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">
+                                            Beef Burger Classic
+                                        </a>
+                                    </h4>
+
+                                    <p class="text-muted small mb-3">Thịt bò, Phô mai, Rau thơm</p>
+
                                     <div class="d-flex justify-content-between align-items-center">
                                         <span class="price"><del class="text-muted fs-6 me-1">150.000d</del> 125.000đ</span>
                                         <button class="btn btn-add-cart rounded-circle"><i class="fas fa-plus"></i></button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-6">
-                                <div class="food-card">
-                                    <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Chicken Burger" class="food-img rounded-circle shadow-sm">
-                                    <div class="text-warning mb-2">
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                                    </div>
-                                    <h4 class="fw-bold fs-5 mb-1">Chicken Burger</h4>
-                                    <p class="text-muted small mb-3">Gà rán giòn rụm, Xà lách</p>
+
+                            <div class="px-3 py-4">
+                                <div class="food-card position-relative"> 
+                                    <span class="badge bg-danger position-absolute top-0 start-0 m-3 p-2">-15%</span>
+                                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Beef Burger" class="food-img rounded-circle shadow-sm">
+                                    <div class="text-warning mb-2"></div>
+
+                                    <h4 class="fw-bold fs-5 mb-1">
+                                        <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">
+                                            Beef Burger Classic
+                                        </a>
+                                    </h4>
+
+                                    <p class="text-muted small mb-3">Thịt bò, Phô mai, Rau thơm</p>
+
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <span class="price">35.000đ</span>
+                                        <span class="price"><del class="text-muted fs-6 me-1">150.000d</del> 125.000đ</span>
                                         <button class="btn btn-add-cart rounded-circle"><i class="fas fa-plus"></i></button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-6">
-                                <div class="food-card">
-                                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Vegetarian Pizza" class="food-img rounded-circle shadow-sm">
-                                    <div class="text-warning mb-2">
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                    </div>
-                                    <h4 class="fw-bold fs-5 mb-1">Margarita Pizza</h4>
-                                    <p class="text-muted small mb-3">Cà chua, Phô mai Mozzarella</p>
+
+                            <div class="px-3 py-4">
+                                <div class="food-card position-relative"> 
+                                    <span class="badge bg-danger position-absolute top-0 start-0 m-3 p-2">-15%</span>
+                                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Beef Burger" class="food-img rounded-circle shadow-sm">
+                                    <div class="text-warning mb-2"></div>
+
+                                    <h4 class="fw-bold fs-5 mb-1">
+                                        <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">
+                                            Beef Burger Classic
+                                        </a>
+                                    </h4>
+
+                                    <p class="text-muted small mb-3">Thịt bò, Phô mai, Rau thơm</p>
+
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <span class="price">99.000đ</span>
+                                        <span class="price"><del class="text-muted fs-6 me-1">150.000d</del> 125.000đ</span>
+                                        <button class="btn btn-add-cart rounded-circle"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="px-3 py-4">
+                                <div class="food-card position-relative"> 
+                                    <span class="badge bg-danger position-absolute top-0 start-0 m-3 p-2">-15%</span>
+                                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Beef Burger" class="food-img rounded-circle shadow-sm">
+                                    <div class="text-warning mb-2"></div>
+
+                                    <h4 class="fw-bold fs-5 mb-1">
+                                        <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">
+                                            Beef Burger Classic
+                                        </a>
+                                    </h4>
+
+                                    <p class="text-muted small mb-3">Thịt bò, Phô mai, Rau thơm</p>
+
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price"><del class="text-muted fs-6 me-1">150.000d</del> 125.000đ</span>
+                                        <button class="btn btn-add-cart rounded-circle"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="px-3 py-4">
+                                <div class="food-card position-relative"> 
+                                    <span class="badge bg-danger position-absolute top-0 start-0 m-3 p-2">-15%</span>
+                                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Beef Burger" class="food-img rounded-circle shadow-sm">
+                                    <div class="text-warning mb-2"></div>
+
+                                    <h4 class="fw-bold fs-5 mb-1">
+                                        <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">
+                                            Beef Burger Classic
+                                        </a>
+                                    </h4>
+
+                                    <p class="text-muted small mb-3">Thịt bò, Phô mai, Rau thơm</p>
+
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="price"><del class="text-muted fs-6 me-1">150.000d</del> 125.000đ</span>
                                         <button class="btn btn-add-cart rounded-circle"><i class="fas fa-plus"></i></button>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <button class="btn btn-custom-arrow menu-next arrow-right"><i class="fas fa-chevron-right"></i></button>
                     </div>
                 </div>
             </div>
