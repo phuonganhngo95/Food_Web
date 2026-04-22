@@ -222,12 +222,34 @@
             </div>
         </section>
 
-        <section class="promo-section py-5">
+        <section class="about-promo-section py-5" id="about">
             <div class="container">
+                <div class="row align-items-center mb-5">
+                    <div class="col-lg-6 text-center mb-5 mb-lg-0 px-lg-4">
+                        <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Về Chúng Tôi - Foodie" class="about-img shadow-lg">
+                    </div>
+                    <div class="col-lg-6 ps-lg-5">
+                        <p class="section-subtitle mb-2">Về Chúng Tôi</p>
+                        <h2 class="display-5 fw-bold mb-4">Khám Phá Hương Vị Burger & Pizza <span class="text-primary-custom">Tuyệt Hảo Nhất!</span></h2>
+                        <p class="text-muted mb-4 lead" style="font-size: 1rem;">Chúng tôi mang đến trải nghiệm ẩm thực độc đáo với các nguyên liệu tươi ngon nhất. Từ những chiếc burger đậm đà đến những khay pizza giòn rụm, tất cả đều được chế biến bằng cả đam mê.</p>
+
+                        <ul class="list-unstyled about-list">
+                            <li class="d-flex align-items-center mb-3">
+                                <i class="fas fa-check-circle fs-5 me-3 text-primary-custom"></i> 
+                                <span class="fw-semibold text-dark">Thực phẩm ngon & Tốt cho sức khỏe</span>
+                            </li>
+                            <li class="d-flex align-items-center mb-3">
+                                <i class="fas fa-check-circle fs-5 me-3 text-primary-custom"></i> 
+                                <span class="fw-semibold text-dark">Dịch vụ phục vụ nhanh chóng</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
                 <div class="row g-4 justify-content-center">
                     <div class="col-lg-4 col-md-6">
-                        <div class="promo-card d-flex align-items-center p-4">
-                            <div class="rounded-circle d-flex justify-content-center align-items-center me-3" style="width: 70px; height: 70px; background-color: var(--bg-color); color: var(--primary-color);">
+                        <div class="promo-card d-flex align-items-center p-4 shadow-sm border-0">
+                            <div class="rounded-circle d-flex justify-content-center align-items-center me-3 icon-box">
                                 <i class="fas fa-truck fs-3"></i>
                             </div>
                             <div>
@@ -237,8 +259,8 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
-                        <div class="promo-card d-flex align-items-center p-4">
-                            <div class="rounded-circle d-flex justify-content-center align-items-center me-3" style="width: 70px; height: 70px; background-color: var(--bg-color); color: var(--primary-color);">
+                        <div class="promo-card d-flex align-items-center p-4 shadow-sm border-0">
+                            <div class="rounded-circle d-flex justify-content-center align-items-center me-3 icon-box">
                                 <i class="fas fa-utensils fs-3"></i>
                             </div>
                             <div>
@@ -248,8 +270,8 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
-                        <div class="promo-card d-flex align-items-center p-4">
-                            <div class="rounded-circle d-flex justify-content-center align-items-center me-3" style="width: 70px; height: 70px; background-color: var(--bg-color); color: var(--primary-color);">
+                        <div class="promo-card d-flex align-items-center p-4 shadow-sm border-0">
+                            <div class="rounded-circle d-flex justify-content-center align-items-center me-3 icon-box">
                                 <i class="fas fa-headset fs-3"></i>
                             </div>
                             <div>
@@ -320,37 +342,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="about-section" id="about">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 text-center mb-5 mb-lg-0">
-                        <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="About Us Image" class="img-fluid rounded-4 shadow-lg" style="object-fit: cover; max-height: 500px;">
-                    </div>
-                    <div class="col-lg-6 ps-lg-5">
-                        <p class="section-subtitle mb-2">Về Chúng Tôi</p>
-                        <h2 class="display-5 fw-bold mb-4">Khám Phá Hương Vị Burger & Pizza <span class="text-primary-custom">Tuyệt Hảo Nhất!</span></h2>
-                        <p class="text-muted mb-4 lead" style="font-size: 1rem;">Chúng tôi mang đến trải nghiệm ẩm thực độc đáo với các nguyên liệu tươi ngon nhất. Từ những chiếc burger đậm đà đến những khay pizza giòn rụm, tất cả đều được chế biến bằng cả đam mê.</p>
-
-                        <ul class="list-unstyled about-list mb-4">
-                            <li class="d-flex align-items-center mb-3">
-                                <i class="fas fa-check-circle fs-5 me-3"></i> 
-                                <span class="fw-semibold text-dark">Thực phẩm ngon & Tốt cho sức khỏe</span>
-                            </li>
-                            <li class="d-flex align-items-center mb-3">
-                                <i class="fas fa-check-circle fs-5 me-3"></i> 
-                                <span class="fw-semibold text-dark">Dịch vụ phục vụ nhanh chóng</span>
-                            </li>
-                            <li class="d-flex align-items-center mb-3">
-                                <i class="fas fa-check-circle fs-5 me-3"></i> 
-                                <span class="fw-semibold text-dark">Đặt hàng dễ dàng qua ứng dụng</span>
-                            </li>
-                        </ul>
-                        <a href="#menu" class="btn btn-custom mt-2">Đặt Hàng Ngay <i class="fas fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
             </div>
