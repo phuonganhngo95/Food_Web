@@ -32,8 +32,8 @@
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mx-auto fw-bold">
-                        <li class="nav-item"><a class="nav-link active" href="#home">Trang chủ</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#menu">Thực đơn</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="./TrangChu.jsp">Trang chủ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./ThucDon.jsp">Thực đơn</a></li>
                         <li class="nav-item"><a class="nav-link" href="#promo">Khuyến mãi</a></li> <li class="nav-item"><a class="nav-link" href="#about">Giới thiệu</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Liên hệ</a></li>
                     </ul>
