@@ -60,6 +60,23 @@ h1, h2, h3, h4, h5, h6, .logo, .price {
 }
 
 /* ==========================================================================
+   NÚT XEM THÊM (OUTLINE BUTTON)
+   ========================================================================== */
+.btn-outline-custom {
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-custom:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(234, 106, 71, 0.3); /* Hiệu ứng tỏa sáng màu cam */
+}
+
+/* ==========================================================================
    3. NAVBAR
    ========================================================================== */
 .navbar {
@@ -70,7 +87,7 @@ h1, h2, h3, h4, h5, h6, .logo, .price {
 }
 
 .nav-link {
-    font-weight: 700;
+    font-weight: 600;
     color: var(--title-color) !important;
     margin: 0 10px;
     transition: 0.3s;
@@ -175,7 +192,7 @@ h1, h2, h3, h4, h5, h6, .logo, .price {
 .large-coupon {
     min-height: 400px;
     background-color: #E6B931;
-} 
+}
 .small-coupon {
     min-height: 220px;
 }
@@ -225,7 +242,7 @@ h1, h2, h3, h4, h5, h6, .logo, .price {
 .icon-box {
     width: 70px;
     height: 70px;
-    background-color: #ffffff; 
+    background-color: #ffffff;
     color: var(--primary-color);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     transition: 0.3s;
@@ -278,25 +295,13 @@ h1, h2, h3, h4, h5, h6, .logo, .price {
     box-shadow: 0 5px 15px rgba(234, 106, 71, 0.3);
 }
 
-.food-card {
-    border-radius: 5px;
-    border: none;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
-    text-align: center;
-    padding: 20px;
-    background: white;
-    transition: 0.3s;
-}
-
-.food-card:hover {
-    transform: translateY(-10px);
-}
-
 .food-img {
-    width: 100%;
-    height: 200px;
-    object-fit: contain;
-    margin-bottom: 15px;
+    width: 180px; 
+    height: 180px; 
+    object-fit: cover; 
+    margin: 0 auto 15px auto; 
+    display: block; 
+    border-radius: 50%; 
 }
 
 .price {
@@ -389,7 +394,7 @@ h1, h2, h3, h4, h5, h6, .logo, .price {
    8. MENU SECTION
    ========================================================================== */
 .food-card {
-    border-radius: 15px;
+    border-radius: 5px;
     border: none;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
     text-align: center;
@@ -420,20 +425,39 @@ h1, h2, h3, h4, h5, h6, .logo, .price {
 }
 
 .footer {
-    background-color: white;
-    padding: 60px 0 20px;
+    background-color: #1a1a1a;
+    padding: 70px 0 20px;
+    color: #e0e0e0; /* Màu chữ cơ bản sáng lên */
 }
 
 .footer-title {
     margin-bottom: 20px;
+    color: #ffffff; /* Tiêu đề cột màu trắng tinh */
 }
 
+/* 2. Ép chữ của các thẻ text-muted sáng lên trên nền tối */
+.footer .text-muted {
+    color: #a0a0a0 !important;
+}
+
+/* 3. Hiệu ứng Hover cho các đường link ở Footer */
+.footer a.text-muted {
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer a.text-muted:hover {
+    color: var(--primary-color) !important;
+    transform: translateX(5px); /* Dịch sang phải 1 chút khi rê chuột vào */
+}
+
+/* 4. Định dạng lại nút Mạng xã hội cho hợp nền tối */
 .social-link {
     display: inline-block;
     width: 40px;
     height: 40px;
-    background: var(--bg-color);
-    color: var(--title-color);
+    background: #333333; /* Nền nút xám đậm */
+    color: #ffffff; /* Icon trắng */
     border-radius: 50%;
     text-align: center;
     line-height: 40px;
@@ -444,6 +468,13 @@ h1, h2, h3, h4, h5, h6, .logo, .price {
 .social-link:hover {
     background: var(--primary-color);
     color: white;
+    transform: translateY(-3px); /* Nảy nhẹ lên khi rê chuột */
+}
+
+/* Làm mờ nhẹ thanh gạch ngang (hr) ở cuối footer */
+.footer hr {
+    border-color: #444444;
+    margin-top: 20px;
 }
 
 .back-top-btn {
