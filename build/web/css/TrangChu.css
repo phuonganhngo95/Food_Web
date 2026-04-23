@@ -517,7 +517,6 @@ h1, h2, h3, h4, h5, h6, .logo, .price {
     left: 50% !important;
     right: auto !important;
     transform: translateX(-50%) !important;
-    border-radius: 15px;
     padding: 10px;
     min-width: 220px;
     margin-top: 15px !important;
@@ -557,7 +556,6 @@ h1, h2, h3, h4, h5, h6, .logo, .price {
    POPUP GIỎ HÀNG
    ========================================================================== */
 .cart-dropdown-menu {
-    border-radius: 15px;
     margin-top: 15px !important;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12) !important;
 }
@@ -566,13 +564,12 @@ h1, h2, h3, h4, h5, h6, .logo, .price {
     content: '';
     position: absolute;
     top: -8px;
-    right: 15px; /* Mũi tên trỏ đúng vào icon giỏ hàng */
+    right: 15px;
     border-width: 0 8px 8px 8px;
     border-style: solid;
     border-color: transparent transparent #ffffff transparent;
 }
 
-/* Custom thanh cuộn cho danh sách giỏ hàng */
 .cart-items-list::-webkit-scrollbar {
     width: 6px;
 }
@@ -586,4 +583,54 @@ h1, h2, h3, h4, h5, h6, .logo, .price {
 }
 .cart-items-list::-webkit-scrollbar-thumb:hover {
     background: var(--primary-hover);
+}
+
+/* ==========================================================================
+   DROPDOWN PROFILE (TÀI KHOẢN)
+   ========================================================================== */
+.profile-dropdown {
+    width: 340px;
+    border-radius: 12px !important;
+    padding: 10px 0;
+}
+
+/* Header hover */
+.profile-header {
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.profile-header:hover {
+    background-color: #f2f2f2;
+}
+
+/* Khối item menu */
+.profile-item {
+    border-radius: 8px;
+    padding: 10px 8px;
+    margin-bottom: 2px;
+    white-space: normal; 
+}
+.profile-item:active, .profile-item:focus {
+    background-color: #f2f2f2;
+    color: var(--title-color) !important;
+}
+
+.icon-wrap {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #e4e6eb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 12px;
+    font-size: 1.1rem;
+    color: #050505;
+    transition: background-color 0.2s;
+}
+
+.profile-dropdown .dropdown-item:hover,
+.profile-dropdown .dropdown-item:focus {
+    background-color: #f2f2f2 !important;
+    color: inherit;
 }

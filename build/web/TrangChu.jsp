@@ -53,8 +53,8 @@
                                 // Hướng dẫn test: Đổi giá trị true/false ở 2 biến dưới đây để xem 3 trạng thái
                                 // =================================================================
         
-                                boolean isLogged = false;       // Đổi thành false để xem trạng thái CHƯA ĐĂNG NHẬP
-                                boolean hasItemsInCart = false; // Đổi thành false để xem trạng thái GIỎ HÀNG TRỐNG
+                                boolean isLogged = true;       // Đổi thành false để xem trạng thái CHƯA ĐĂNG NHẬP
+                                boolean hasItemsInCart = true; // Đổi thành false để xem trạng thái GIỎ HÀNG TRỐNG
         
                                 int cartSize = hasItemsInCart ? 3 : 0; // Số lượng hiển thị trên icon (Giả sử là 3 món)
                             %>
@@ -124,16 +124,49 @@
                         </div>
 
                         <div class="dropdown ms-2 position-relative">
+                            <% if (!isLogged) { %>
                             <a href="#" class="text-dark fs-4 text-decoration-none icon-action d-flex align-items-center justify-content-center" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="width: 40px; height: 40px; border-radius: 50%;">
                                 <i class="fas fa-user-circle"></i>
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-center border-0" aria-labelledby="accountDropdown">
-                                <li><a class="dropdown-item py-2" href="./DangNhap.jsp"><i class="fas fa-sign-in-alt me-2 text-muted"></i> Đăng nhập</a></li>
-                                <li><a class="dropdown-item py-2" href="./DangKi.jsp"><i class="fas fa-user-plus me-2 text-muted"></i> Đăng ký</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item py-2" href="#"><i class="fas fa-clipboard-list me-2 text-muted"></i> Đơn hàng</a></li>
-                                <li><a class="dropdown-item py-2 text-danger" href="#"><i class="fas fa-sign-out-alt me-2"></i> Thoát</a></li>
+                            <ul class="dropdown-menu dropdown-menu-center border-0 shadow" aria-labelledby="accountDropdown" style="width: 220px; border-radius: 10px;">
+                                <li><a class="dropdown-item py-2 fw-semibold" href="./DangNhap.jsp"><i class="fas fa-sign-in-alt me-2 text-muted"></i> Đăng nhập</a></li>
+                                <li><a class="dropdown-item py-2 fw-semibold" href="./DangKi.jsp"><i class="fas fa-user-plus me-2 text-muted"></i> Đăng ký</a></li>
                             </ul>
+
+                            <% } else { %>
+                            <a href="#" class="text-dark text-decoration-none d-flex align-items-center justify-content-center border border-2 border-primary rounded-circle" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="width: 42px; height: 42px; padding: 2px; border-color: var(--primary-color) !important;">
+                                <img src="https://ui-avatars.com/api/?name=Ngo+Phuong+Anh&background=ea6a47&color=fff" alt="Avatar" class="rounded-circle w-100 h-100" style="object-fit: cover;">
+                            </a>
+
+                            <ul class="dropdown-menu dropdown-menu-center border-0 shadow-lg profile-dropdown" aria-labelledby="accountDropdown">
+
+                                <div class="profile-header mx-2 my-1 p-2 rounded d-flex align-items-center">
+                                    <img src="https://ui-avatars.com/api/?name=Ngo+Phuong+Anh&background=ea6a47&color=fff" alt="Avatar" class="rounded-circle" style="width: 40px; height: 40px;">
+                                    <div class="ms-3">
+                                        <h6 class="mb-0 fw-bold fs-6">Ngô Phương Anh</h6>
+                                    </div>
+                                </div>
+
+                                <div class="px-2 mb-2">
+                                    <a href="#" class="btn w-100 fw-bold text-primary-custom" style="background-color: var(--bg-color); font-size: 0.9rem;">Xem tất cả trang cá nhân</a>
+                                </div>
+
+                                <li><hr class="dropdown-divider mb-2"></li>
+
+                                <li class="px-2">
+                                    <a class="dropdown-item profile-item d-flex align-items-center" href="#">
+                                        <div class="icon-wrap"><i class="fas fa-clipboard-list"></i></div>
+                                        <span class="fw-semibold">Đơn hàng của tôi</span>
+                                    </a>
+                                </li>
+                                <li class="px-2">
+                                    <a class="dropdown-item profile-item d-flex align-items-center" href="#">
+                                        <div class="icon-wrap"><i class="fas fa-sign-out-alt"></i></div>
+                                        <span class="fw-semibold">Đăng xuất</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <% } %>
                         </div>
                     </div>
                 </div>
