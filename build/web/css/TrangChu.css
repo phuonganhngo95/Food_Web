@@ -296,12 +296,12 @@ h1, h2, h3, h4, h5, h6, .logo, .price {
 }
 
 .food-img {
-    width: 180px; 
-    height: 180px; 
-    object-fit: cover; 
-    margin: 0 auto 15px auto; 
-    display: block; 
-    border-radius: 50%; 
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    margin: 0 auto 15px auto;
+    display: block;
+    border-radius: 50%;
 }
 
 .price {
@@ -551,4 +551,39 @@ h1, h2, h3, h4, h5, h6, .logo, .price {
 
 .dropdown-item:hover i.text-muted {
     color: var(--primary-color) !important;
+}
+
+/* ==========================================================================
+   POPUP GIỎ HÀNG
+   ========================================================================== */
+.cart-dropdown-menu {
+    border-radius: 15px;
+    margin-top: 15px !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12) !important;
+}
+
+.cart-dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    right: 15px; /* Mũi tên trỏ đúng vào icon giỏ hàng */
+    border-width: 0 8px 8px 8px;
+    border-style: solid;
+    border-color: transparent transparent #ffffff transparent;
+}
+
+/* Custom thanh cuộn cho danh sách giỏ hàng */
+.cart-items-list::-webkit-scrollbar {
+    width: 6px;
+}
+.cart-items-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+.cart-items-list::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+}
+.cart-items-list::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-hover);
 }

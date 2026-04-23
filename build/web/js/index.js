@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const filterBtns = document.querySelectorAll('.filter-btn');
         const menuItems = Array.from(document.querySelectorAll('.food-item'));
 
-        const itemsPerPage = 15; 
+        const itemsPerPage = 15;
         let currentPage = 1;
         let currentCategory = 'all';
 
@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
         function scrollToMenu() {
             const menuSection = document.getElementById('menu');
             if (menuSection) {
-                const offset = 100; 
+                const offset = 100;
                 const bodyRect = document.body.getBoundingClientRect().top;
                 const elementRect = menuSection.getBoundingClientRect().top;
                 const offsetPosition = (elementRect - bodyRect) - offset;
@@ -165,11 +165,43 @@ document.addEventListener("DOMContentLoaded", function () {
                 this.classList.add('active');
 
                 currentCategory = this.getAttribute('data-filter');
-                currentPage = 1; 
+                currentPage = 1;
                 updateView();
             });
         });
 
         updateView();
     }
+
+    // --- XỬ LÝ BẬT POPUP GIỎ HÀNG ---
+    const addCartBtns = document.querySelectorAll('.btn-add-cart');
+    const cartDropdownToggle = document.getElementById('cartDropdown');
+
+    if (addCartBtns.length > 0 && cartDropdownToggle) {
+        // Khởi tạo API Dropdown của Bootstrap 5
+        const cartDropdown = new bootstrap.Dropdown(cartDropdownToggle);
+
+        addCartBtns.forEach(btn => {
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Mở dropdown giỏ hàng
+                cartDropdown.show();
+
+                // (Tùy chọn Frontend) Hiệu ứng tăng số lượng trên icon
+                const badge = document.querySelector('.cart-badge');
+                if (badge) {
+                    let currentCount = parseInt(badge.innerText || 0);
+                    badge.innerText = currentCount + 1;
+
+                    // Tạo hiệu ứng nảy nhẹ khi thêm số lượng
+                    badge.style.transform = "scale(1.5)";
+                    setTimeout(() => {
+                        badge.style.transform = "scale(1)";
+                    }, 200);
+                }
+            });
+        });
+    }
 });
+
