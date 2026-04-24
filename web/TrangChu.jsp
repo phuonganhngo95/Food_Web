@@ -22,7 +22,7 @@
     <body>
         <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container align-items-center">
-                <a class="navbar-brand logo" href="#home">
+                <a class="navbar-brand logo" href="./TrangChu.jsp">
                     <img src="./img/logo.png" alt="Logo" style="height: 80px; width: auto; object-fit: contain; transition: transform 0.3s ease;">
                 </a>
 
@@ -53,7 +53,7 @@
                                 // Hướng dẫn test: Đổi giá trị true/false ở 2 biến dưới đây để xem 3 trạng thái
                                 // =================================================================
         
-                                boolean isLogged = true;       // Đổi thành false để xem trạng thái CHƯA ĐĂNG NHẬP
+                                boolean isLogged = false;       // Đổi thành false để xem trạng thái CHƯA ĐĂNG NHẬP
                                 boolean hasItemsInCart = true; // Đổi thành false để xem trạng thái GIỎ HÀNG TRỐNG
         
                                 int cartSize = hasItemsInCart ? 3 : 0; // Số lượng hiển thị trên icon (Giả sử là 3 món)
@@ -168,10 +168,75 @@
                             </ul>
                             <% } %>
                         </div>
+
+                        <a class="text-dark fs-4 text-decoration-none icon-action d-flex align-items-center justify-content-center ms-2" 
+                           data-bs-toggle="offcanvas" href="#offcanvasLeftMenu" role="button" aria-controls="offcanvasLeftMenu" 
+                           style="width: 40px; height: 40px; border-radius: 50%;">
+                            <i class="fa-solid fa-bars"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </nav>
+
+        <div class="offcanvas offcanvas-start border-0 shadow" tabindex="-1" id="offcanvasLeftMenu" aria-labelledby="offcanvasLeftMenuLabel" style="width: 320px;">
+
+            <div class="offcanvas-header border-bottom position-relative d-flex justify-content-end align-items-center" style="height: 75px;">
+                <div class="d-flex justify-content-center mt-auto position-absolute start-50 translate-middle d-flex" style="gap: 8px;">
+                    <div style="width: 18px; height: 40px; background-color: var(--primary-color);"></div>
+                    <div style="width: 18px; height: 40px; background-color: var(--primary-color);"></div>
+                    <div style="width: 18px; height: 40px; background-color: var(--primary-color);"></div>
+                </div>
+                <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Close" style="z-index: 1;"></button>
+            </div>
+
+            <div class="offcanvas-body px-0 custom-scrollbar d-flex flex-column pb-0">
+
+                <div class="side-menu-group px-4 mb-2 mt-2">
+                    <h5 class="fw-bold text-dark mb-3 text-uppercase">Danh Mục Món Ăn</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="side-menu-link">Ưu Đãi <i class="fas fa-chevron-right"></i></a></li>
+                        <li><a href="#" class="side-menu-link">Món Mới <i class="fas fa-chevron-right"></i></a></li>
+                        <li><a href="#" class="side-menu-link">Combo 1 Người <i class="fas fa-chevron-right"></i></a></li>
+                        <li><a href="#" class="side-menu-link">Combo Nhóm <i class="fas fa-chevron-right"></i></a></li>
+                        <li><a href="#" class="side-menu-link">Gà Rán - Gà Quay <i class="fas fa-chevron-right"></i></a></li>
+                        <li><a href="#" class="side-menu-link">Burger - Cơm - Mì Ý <i class="fas fa-chevron-right"></i></a></li>
+                        <li><a href="#" class="side-menu-link">Thức Ăn Nhẹ <i class="fas fa-chevron-right"></i></a></li>
+                        <li><a href="#" class="side-menu-link">Thức Uống & Tráng Miệng <i class="fas fa-chevron-right"></i></a></li>
+                    </ul>
+                </div>
+
+                <hr class="border-secondary opacity-10 mx-3 my-3">
+
+                <div class="side-menu-group px-4 mb-2">
+                    <h5 class="fw-bold text-dark mb-3 text-uppercase">Hỗ Trợ Khách Hàng</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="side-menu-link">Theo Dõi Đơn Hàng <i class="fas fa-chevron-right"></i></a></li>
+                        <li><a href="#" class="side-menu-link">Liên Hệ Với Chúng Tôi <i class="fas fa-chevron-right"></i></a></li>
+                        <li><a href="#" class="side-menu-link">Góp Ý & Khiếu Nại</a></li>
+                    </ul>
+                </div>
+
+                <hr class="border-secondary opacity-10 mx-3 my-3">
+
+                <div class="side-menu-group px-4 mb-3">
+                    <h5 class="fw-bold text-dark mb-3 text-uppercase">Chính Sách</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="side-menu-link">Chính Sách Hoạt Động <i class="fas fa-chevron-right"></i></a></li>
+                        <li><a href="#" class="side-menu-link">Chính Sách & Quy Định <i class="fas fa-chevron-right"></i></a></li>
+                        <li><a href="#" class="side-menu-link">Chính Sách Bảo Mật Thông Tin <i class="fas fa-chevron-right"></i></a></li>
+                    </ul>
+                </div>
+
+                <hr class="border-secondary opacity-10 mx-3 my-3">
+
+                <div class="d-flex justify-content-center mt-auto" style="gap: 8px;">
+                    <div style="width: 18px; height: 40px; background-color: var(--primary-color);"></div>
+                    <div style="width: 18px; height: 40px; background-color: var(--primary-color);"></div>
+                    <div style="width: 18px; height: 40px; background-color: var(--primary-color);"></div>
+                </div>
+            </div>
+        </div>        
 
         <section class="hero-section" id="home">
             <div class="container">
@@ -609,46 +674,21 @@
         </section>
 
         <footer class="footer">
-            <div class="container">
-                <div class="row g-4 mb-5">
-                    <div class="col-lg-3 col-md-6">
-                        <a class="navbar-brand logo d-block mb-3" href="#">
-                            <img src="./img/logo.png" alt="Fast Food Logo" style="height: 80px; width: auto; object-fit: contain;">
-                        </a>
-                        <p class="text-muted">Đem đến cho bạn những trải nghiệm ẩm thực nhanh gọn, ngon miệng và an toàn nhất cho gia đình.</p>
-                        <div class="mt-4">
-                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        </div>
+            <div class="container text-center">
+                <h4 class="footer-title mb-4">Các thành viên trong nhóm:</h4>
+
+                <div class="d-flex flex-column align-items-center gap-3">
+
+                    <div class="member-item">
+                        <div class="member-name">1. Ngô Phương Anh - 09/05/2005</div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6">
-                        <h5 class="footer-title fw-bold">Liên Kết Hữu Ích</h5>
-                        <ul class="list-unstyled text-muted">
-                            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-primary">Về Chúng Tôi</a></li>
-                            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-primary">Thực Đơn</a></li>
-                            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-primary">Chính sách giao hàng</a></li>
-                            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-primary">Liên hệ</a></li>
-                        </ul>
+                    <div class="member-item">
+                        <div class="member-name">2. Phùng Ngọc Bảo - 13/12/2005</div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6">
-                        <h5 class="footer-title fw-bold">Thông Tin Liên Hệ</h5>
-                        <ul class="list-unstyled text-muted">
-                            <li class="mb-3"><i class="fas fa-map-marker-alt text-primary-custom me-2"></i> 298 Đ. Cầu Diễn, Bắc Từ Liêm, Hà Nội</li>
-                            <li class="mb-3"><i class="fas fa-phone-alt text-primary-custom me-2"></i> +84 123 456 789</li>
-                            <li class="mb-3"><i class="fas fa-envelope text-primary-custom me-2"></i> info@foodie.com</li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <h5 class="footer-title fw-bold">Đăng Ký Nhận Tin</h5>
-                        <p class="text-muted">Nhận ngay mã giảm giá 20% khi đăng ký email.</p>
-                        <div class="input-group mb-3">
-                            <input type="email" class="form-control shadow-none" placeholder="Email của bạn...">
-                            <button class="btn btn-custom rounded-end" type="button"><i class="fas fa-paper-plane"></i></button>
-                        </div>
+                    <div class="member-item">
+                        <div class="member-name">3. Vũ Ngọc Hương Giang - 25/12/2005</div>
                     </div>
                 </div>
             </div>

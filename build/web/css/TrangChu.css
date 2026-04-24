@@ -73,7 +73,7 @@ h1, h2, h3, h4, h5, h6, .logo, .price {
     background-color: var(--primary-color);
     color: white;
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(234, 106, 71, 0.3); /* Hiệu ứng tỏa sáng màu cam */
+    box-shadow: 0 8px 20px rgba(234, 106, 71, 0.3);
 }
 
 /* ==========================================================================
@@ -424,40 +424,37 @@ h1, h2, h3, h4, h5, h6, .logo, .price {
     color: white;
 }
 
+/* ==========================================================================
+   FOOTER CUSTOM - NAVY BLUE & PRIMARY BORDER
+   ========================================================================== */
 .footer {
-    background-color: #1a1a1a;
-    padding: 70px 0 20px;
-    color: #e0e0e0; /* Màu chữ cơ bản sáng lên */
+    background-color: #0f172a !important; 
+    border-top: 4px solid var(--primary-color); 
+    padding: 60px 0 40px;
 }
 
 .footer-title {
-    margin-bottom: 20px;
-    color: #ffffff; /* Tiêu đề cột màu trắng tinh */
+    color: #e0e0e0;
 }
 
-/* 2. Ép chữ của các thẻ text-muted sáng lên trên nền tối */
-.footer .text-muted {
-    color: #a0a0a0 !important;
+.member-name {
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
 }
 
-/* 3. Hiệu ứng Hover cho các đường link ở Footer */
-.footer a.text-muted {
-    transition: all 0.3s ease;
-    display: inline-block;
+.member-dob {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.95rem;
 }
 
-.footer a.text-muted:hover {
-    color: var(--primary-color) !important;
-    transform: translateX(5px); /* Dịch sang phải 1 chút khi rê chuột vào */
-}
-
-/* 4. Định dạng lại nút Mạng xã hội cho hợp nền tối */
 .social-link {
     display: inline-block;
     width: 40px;
     height: 40px;
-    background: #333333; /* Nền nút xám đậm */
-    color: #ffffff; /* Icon trắng */
+    background: #333333; 
+    color: #ffffff; 
     border-radius: 50%;
     text-align: center;
     line-height: 40px;
@@ -468,10 +465,9 @@ h1, h2, h3, h4, h5, h6, .logo, .price {
 .social-link:hover {
     background: var(--primary-color);
     color: white;
-    transform: translateY(-3px); /* Nảy nhẹ lên khi rê chuột */
+    transform: translateY(-3px);
 }
 
-/* Làm mờ nhẹ thanh gạch ngang (hr) ở cuối footer */
 .footer hr {
     border-color: #444444;
     margin-top: 20px;
@@ -608,7 +604,7 @@ h1, h2, h3, h4, h5, h6, .logo, .price {
     border-radius: 8px;
     padding: 10px 8px;
     margin-bottom: 2px;
-    white-space: normal; 
+    white-space: normal;
 }
 .profile-item:active, .profile-item:focus {
     background-color: #f2f2f2;
@@ -633,4 +629,54 @@ h1, h2, h3, h4, h5, h6, .logo, .price {
 .profile-dropdown .dropdown-item:focus {
     background-color: #f2f2f2 !important;
     color: inherit;
+}
+
+/* ==========================================================================
+   SIDE MENU NAVIGATION (GENERIC BRANDING)
+   ========================================================================== */
+.side-menu-group h5 {
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    color: #212121 !important;
+}
+
+.side-menu-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    color: #424242;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.side-menu-link:hover {
+    color: var(--primary-color) !important;
+    padding-left: 5px; 
+}
+
+.side-menu-link i.fa-chevron-right {
+    font-size: 0.7rem;
+    color: #9e9e9e;
+}
+
+.side-menu-link:hover i.fa-chevron-right {
+    color: var(--primary-color);
+}
+
+/* Tùy chỉnh thanh cuộn cho menu */
+.custom-scrollbar {
+    overflow-y: auto;
+}
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #e0e0e0;
+    border-radius: 10px;
 }

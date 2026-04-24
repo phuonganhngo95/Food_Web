@@ -203,5 +203,62 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     }
+
+    // --- XỬ LÝ THANH TRƯỢT GIÁ (DUAL RANGE SLIDER) ---
+    const minPriceInput = document.getElementById('minPrice');
+    const maxPriceInput = document.getElementById('maxPrice');
+    const priceDisplay = document.getElementById('priceDisplay');
+    const sliderTrack = document.getElementById('sliderTrack');
+
+    if (minPriceInput && maxPriceInput && priceDisplay && sliderTrack) {
+        // Hàm định dạng tiền tệ VNĐ
+        function formatCurrency(value) {
+            return new Intl.NumberFormat('vi-VN').format(value) + 'đ';
+        }
+
+        // Cập nhật giao diện thanh trượt
+        function updateSlider() {
+            let minVal = parseInt(minPriceInput.value);
+            let maxVal = parseInt(maxPriceInput.value);
+            const maxLimit = parseInt(minPriceInput.max);
+
+            // Tính toán phần trăm để vẽ dải màu cam ở giữa
+            const percent1 = (minVal / maxLimit) * 100;
+            const percent2 = (maxVal / maxLimit) * 100;
+
+            sliderTrack.style.left = percent1 + '%';
+            sliderTrack.style.width = (percent2 - percent1) + '%';
+
+            // Cập nhật text hiển thị giá
+            priceDisplay.textContent = formatCurrency(minVal) + ' - ' + formatCurrency(maxVal);
+        }
+
+        // Bắt sự kiện khi kéo nút Min
+        minPriceInput.addEventListener('input', function () {
+            let minVal = parseInt(minPriceInput.value);
+            let maxVal = parseInt(maxPriceInput.value);
+
+            // Không cho nút Min vượt quá nút Max (giữ khoảng cách tối thiểu là 10.000đ)
+            if (minVal >= maxVal) {
+                minPriceInput.value = maxVal - 10000;
+            }
+            updateSlider();
+        });
+
+        // Bắt sự kiện khi kéo nút Max
+        maxPriceInput.addEventListener('input', function () {
+            let minVal = parseInt(minPriceInput.value);
+            let maxVal = parseInt(maxPriceInput.value);
+
+            // Không cho nút Max tụt xuống thấp hơn nút Min
+            if (maxVal <= minVal) {
+                maxPriceInput.value = minVal + 10000;
+            }
+            updateSlider();
+        });
+
+        // Chạy lần đầu để set UI
+        updateSlider();
+    }
 });
 

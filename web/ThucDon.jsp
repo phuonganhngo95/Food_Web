@@ -20,7 +20,7 @@
     <body>
         <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container align-items-center">
-                <a class="navbar-brand logo" href="#home">
+                <a class="navbar-brand logo" href="./TrangChu.jsp">
                     <img src="./img/logo.png" alt="Logo" style="height: 80px; width: auto; object-fit: contain; transition: transform 0.3s ease;">
                 </a>
 
@@ -44,26 +44,197 @@
                             </button>
                         </form>
 
-                        <a href="#" class="text-dark fs-5 position-relative ms-2 icon-action">
-                            <i class="fas fa-shopping-cart"></i> <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem;">3</span>
-                        </a>
+                        <div class="dropdown ms-2 position-relative" id="cartDropdownContainer">
+                            <%
+                                // =================================================================
+                                // MOCK DATA (Dùng để test giao diện khi chưa có Backend)
+                                // Hướng dẫn test: Đổi giá trị true/false ở 2 biến dưới đây để xem 3 trạng thái
+                                // =================================================================
+        
+                                boolean isLogged = false;       // Đổi thành false để xem trạng thái CHƯA ĐĂNG NHẬP
+                                boolean hasItemsInCart = true; // Đổi thành false để xem trạng thái GIỎ HÀNG TRỐNG
+        
+                                int cartSize = hasItemsInCart ? 3 : 0; // Số lượng hiển thị trên icon (Giả sử là 3 món)
+                            %>
+
+                            <a href="#" class="text-dark fs-4 text-decoration-none icon-action d-flex align-items-center justify-content-center" 
+                               id="cartDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" 
+                               style="width: 40px; height: 40px; border-radius: 50%;">
+                                <i class="fas fa-shopping-cart"></i> 
+
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-badge" style="font-size: 0.6rem;">
+                                    <%= isLogged ? cartSize : 0 %>
+                                </span>
+                            </a>
+
+                            <ul class="dropdown-menu dropdown-menu-end border-0 cart-dropdown-menu p-3 shadow" aria-labelledby="cartDropdown" style="width: 350px;">
+
+                                <% if (!isLogged) { %>
+                                <div class="cart-empty-guest text-center py-4">
+                                    <i class="fas fa-shopping-basket fs-1 text-muted mb-3 d-block"></i>
+                                    <p class="text-muted mb-3">Giỏ hàng trống. Đăng nhập để tiếp tục!</p>
+                                    <div class="d-flex gap-2 justify-content-center">
+                                        <a href="DangNhap.jsp" class="btn btn-outline-custom btn-sm w-50">Đăng nhập</a>
+                                        <a href="DangKi.jsp" class="btn btn-custom btn-sm w-50 text-decoration-none">Đăng ký</a>
+                                    </div>
+                                </div>
+
+                                <% } else if (!hasItemsInCart) { %>
+                                <div class="cart-empty-user text-center py-4">
+                                    <i class="fas fa-shopping-basket fs-1 text-muted mb-3 d-block"></i>
+                                    <p class="text-muted mb-3">Giỏ hàng của bạn đang trống!</p>
+                                    <a href="#menu" class="btn btn-custom w-100 text-decoration-none">Đặt món ngay</a>
+                                </div>
+
+                                <% } else { %>
+                                <div class="cart-has-items"> 
+                                    <h6 class="fw-bold mb-3 border-bottom pb-2">Giỏ hàng của bạn</h6>
+                                    <div class="cart-items-list mb-3" style="max-height: 250px; overflow-y: auto;">
+
+                                        <div class="d-flex align-items-center mb-3">
+                                            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Burger" class="rounded" style="width: 50px; height: 50px; object-fit: cover;">
+                                            <div class="ms-3 flex-grow-1">
+                                                <h6 class="mb-0 fs-6 fw-bold">Beef Burger Classic</h6>
+                                                <span class="text-primary-custom fw-bold">125.000đ</span> <span class="text-muted small">x 1</span>
+                                            </div>
+                                            <button class="btn btn-link text-danger p-0 ms-2"><i class="fas fa-trash-alt"></i></button>
+                                        </div>
+
+                                        <div class="d-flex align-items-center mb-3">
+                                            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Pizza" class="rounded" style="width: 50px; height: 50px; object-fit: cover;">
+                                            <div class="ms-3 flex-grow-1">
+                                                <h6 class="mb-0 fs-6 fw-bold">Tasty Buzzed Pizza</h6>
+                                                <span class="text-primary-custom fw-bold">99.000đ</span> <span class="text-muted small">x 2</span>
+                                            </div>
+                                            <button class="btn btn-link text-danger p-0 ms-2"><i class="fas fa-trash-alt"></i></button>
+                                        </div>
+
+                                    </div>
+                                    <div class="d-flex justify-content-between border-top pt-2 mb-3 fw-bold">
+                                        <span>Tổng cộng:</span>
+                                        <span class="text-primary-custom">323.000đ</span>
+                                    </div>
+                                    <a href="ThanhToan.jsp" class="btn btn-custom w-100 text-center text-decoration-none">Thanh toán ngay</a>
+                                </div>
+                                <% } %>
+
+                            </ul>
+                        </div>
 
                         <div class="dropdown ms-2 position-relative">
+                            <% if (!isLogged) { %>
                             <a href="#" class="text-dark fs-4 text-decoration-none icon-action d-flex align-items-center justify-content-center" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="width: 40px; height: 40px; border-radius: 50%;">
                                 <i class="fas fa-user-circle"></i>
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-center border-0" aria-labelledby="accountDropdown">
-                                <li><a class="dropdown-item py-2" href="#"><i class="fas fa-sign-in-alt me-2 text-muted"></i> Đăng nhập</a></li>
-                                <li><a class="dropdown-item py-2" href="#"><i class="fas fa-user-plus me-2 text-muted"></i> Đăng ký</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item py-2" href="#"><i class="fas fa-clipboard-list me-2 text-muted"></i> Đơn hàng</a></li>
-                                <li><a class="dropdown-item py-2 text-danger" href="#"><i class="fas fa-sign-out-alt me-2"></i> Thoát</a></li>
+                            <ul class="dropdown-menu dropdown-menu-center border-0 shadow" aria-labelledby="accountDropdown" style="width: 220px; border-radius: 10px;">
+                                <li><a class="dropdown-item py-2 fw-semibold" href="./DangNhap.jsp"><i class="fas fa-sign-in-alt me-2 text-muted"></i> Đăng nhập</a></li>
+                                <li><a class="dropdown-item py-2 fw-semibold" href="./DangKi.jsp"><i class="fas fa-user-plus me-2 text-muted"></i> Đăng ký</a></li>
                             </ul>
+
+                            <% } else { %>
+                            <a href="#" class="text-dark text-decoration-none d-flex align-items-center justify-content-center border border-2 border-primary rounded-circle" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="width: 42px; height: 42px; padding: 2px; border-color: var(--primary-color) !important;">
+                                <img src="https://ui-avatars.com/api/?name=Ngo+Phuong+Anh&background=ea6a47&color=fff" alt="Avatar" class="rounded-circle w-100 h-100" style="object-fit: cover;">
+                            </a>
+
+                            <ul class="dropdown-menu dropdown-menu-center border-0 shadow-lg profile-dropdown" aria-labelledby="accountDropdown">
+
+                                <div class="profile-header mx-2 my-1 p-2 rounded d-flex align-items-center">
+                                    <img src="https://ui-avatars.com/api/?name=Ngo+Phuong+Anh&background=ea6a47&color=fff" alt="Avatar" class="rounded-circle" style="width: 40px; height: 40px;">
+                                    <div class="ms-3">
+                                        <h6 class="mb-0 fw-bold fs-6">Ngô Phương Anh</h6>
+                                    </div>
+                                </div>
+
+                                <div class="px-2 mb-2">
+                                    <a href="#" class="btn w-100 fw-bold text-primary-custom" style="background-color: var(--bg-color); font-size: 0.9rem;">Xem tất cả trang cá nhân</a>
+                                </div>
+
+                                <li><hr class="dropdown-divider mb-2"></li>
+
+                                <li class="px-2">
+                                    <a class="dropdown-item profile-item d-flex align-items-center" href="#">
+                                        <div class="icon-wrap"><i class="fas fa-clipboard-list"></i></div>
+                                        <span class="fw-semibold">Đơn hàng của tôi</span>
+                                    </a>
+                                </li>
+                                <li class="px-2">
+                                    <a class="dropdown-item profile-item d-flex align-items-center" href="#">
+                                        <div class="icon-wrap"><i class="fas fa-sign-out-alt"></i></div>
+                                        <span class="fw-semibold">Đăng xuất</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <% } %>
                         </div>
+
+                        <a class="text-dark fs-4 text-decoration-none icon-action d-flex align-items-center justify-content-center ms-2" 
+                           data-bs-toggle="offcanvas" href="#offcanvasLeftMenu" role="button" aria-controls="offcanvasLeftMenu" 
+                           style="width: 40px; height: 40px; border-radius: 50%;">
+                            <i class="fa-solid fa-bars"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </nav>
+
+        <div class="offcanvas offcanvas-start border-0 shadow" tabindex="-1" id="offcanvasLeftMenu" aria-labelledby="offcanvasLeftMenuLabel" style="width: 320px;">
+
+            <div class="offcanvas-header border-bottom position-relative d-flex justify-content-end align-items-center" style="height: 75px;">
+                <div class="d-flex justify-content-center mt-auto position-absolute start-50 translate-middle d-flex" style="gap: 8px;">
+                    <div style="width: 18px; height: 40px; background-color: var(--primary-color);"></div>
+                    <div style="width: 18px; height: 40px; background-color: var(--primary-color);"></div>
+                    <div style="width: 18px; height: 40px; background-color: var(--primary-color);"></div>
+                </div>
+                <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Close" style="z-index: 1;"></button>
+            </div>
+
+            <div class="offcanvas-body px-0 custom-scrollbar d-flex flex-column pb-0">
+
+                <div class="side-menu-group px-4 mb-2 mt-2">
+                    <h5 class="fw-bold text-dark mb-3 text-uppercase">Danh Mục Món Ăn</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="side-menu-link">Ưu Đãi <i class="fas fa-chevron-right"></i></a></li>
+                        <li><a href="#" class="side-menu-link">Món Mới <i class="fas fa-chevron-right"></i></a></li>
+                        <li><a href="#" class="side-menu-link">Combo 1 Người <i class="fas fa-chevron-right"></i></a></li>
+                        <li><a href="#" class="side-menu-link">Combo Nhóm <i class="fas fa-chevron-right"></i></a></li>
+                        <li><a href="#" class="side-menu-link">Gà Rán - Gà Quay <i class="fas fa-chevron-right"></i></a></li>
+                        <li><a href="#" class="side-menu-link">Burger - Cơm - Mì Ý <i class="fas fa-chevron-right"></i></a></li>
+                        <li><a href="#" class="side-menu-link">Thức Ăn Nhẹ <i class="fas fa-chevron-right"></i></a></li>
+                        <li><a href="#" class="side-menu-link">Thức Uống & Tráng Miệng <i class="fas fa-chevron-right"></i></a></li>
+                    </ul>
+                </div>
+
+                <hr class="border-secondary opacity-10 mx-3 my-3">
+
+                <div class="side-menu-group px-4 mb-2">
+                    <h5 class="fw-bold text-dark mb-3 text-uppercase">Hỗ Trợ Khách Hàng</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="side-menu-link">Theo Dõi Đơn Hàng <i class="fas fa-chevron-right"></i></a></li>
+                        <li><a href="#" class="side-menu-link">Liên Hệ Với Chúng Tôi <i class="fas fa-chevron-right"></i></a></li>
+                        <li><a href="#" class="side-menu-link">Góp Ý & Khiếu Nại</a></li>
+                    </ul>
+                </div>
+
+                <hr class="border-secondary opacity-10 mx-3 my-3">
+
+                <div class="side-menu-group px-4 mb-3">
+                    <h5 class="fw-bold text-dark mb-3 text-uppercase">Chính Sách</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="side-menu-link">Chính Sách Hoạt Động <i class="fas fa-chevron-right"></i></a></li>
+                        <li><a href="#" class="side-menu-link">Chính Sách & Quy Định <i class="fas fa-chevron-right"></i></a></li>
+                        <li><a href="#" class="side-menu-link">Chính Sách Bảo Mật Thông Tin <i class="fas fa-chevron-right"></i></a></li>
+                    </ul>
+                </div>
+
+                <hr class="border-secondary opacity-10 mx-3 my-3">
+
+                <div class="d-flex justify-content-center mt-auto" style="gap: 8px;">
+                    <div style="width: 18px; height: 40px; background-color: var(--primary-color);"></div>
+                    <div style="width: 18px; height: 40px; background-color: var(--primary-color);"></div>
+                    <div style="width: 18px; height: 40px; background-color: var(--primary-color);"></div>
+                </div>
+            </div>
+        </div>   
 
         <section class="hero-section" id="home">
             <div class="container">
@@ -81,288 +252,235 @@
             </div>
         </section>
 
-        <section class="menu-section pt-4" id="menu" style="background-color: #fffafa;">
+        <section class="menu-section pt-5 pb-5" id="menu" style="background-color: var(--bg-color);">
             <div class="container">
-                <ul class="nav nav-pills justify-content-center mb-5 menu-tabs" id="menu-filter">
-                    <li class="nav-item"><button class="nav-link active filter-btn" data-filter="all">Tất cả</button></li>
-                    <li class="nav-item"><button class="nav-link filter-btn" data-filter="burger">Burger</button></li>
-                    <li class="nav-item"><button class="nav-link filter-btn" data-filter="pizza">Pizza</button></li>
-                    <li class="nav-item"><button class="nav-link filter-btn" data-filter="chicken">Gà Rán</button></li>
-                    <li class="nav-item"><button class="nav-link filter-btn" data-filter="drink">Đồ uống</button></li>
-                </ul>
+                <div class="row g-4">
+                    <div class="col-lg-3">
+                        <div class="sidebar-wrapper p-4 rounded-4 bg-white shadow-sm" style="min-height: 100%;">
 
-                <div class="mx-auto" style="max-width: 1050px;">
-                    <div class="row g-4 justify-content-center" id="menu-grid">
+                            <h5 class="fw-bold mb-3" style="font-size: 1rem;">Các sản phẩm chỉ với giá</h5>
+                            <div class="dual-slider-container position-relative mb-3 mt-4" style="height: 6px; background-color: #e0e0e0; border-radius: 5px;">
+                                <div class="slider-track position-absolute" id="sliderTrack" style="height: 100%; background-color: var(--primary-color); border-radius: 5px; z-index: 1;"></div>
 
-                        <div class="col-lg-4 col-md-6 col-sm-12 food-item" data-category="burger">
-                            <div class="food-card position-relative h-100 border border-danger border-opacity-25 mx-auto" style="max-width: 280px; width: 100%;"> 
-                                <span class="badge bg-danger position-absolute top-0 start-0 m-3 p-2">-15%</span>
-                                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Beef Burger" class="food-img rounded-circle shadow-sm">
-                                <h4 class="fw-bold fs-5 mb-1"><a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Beef Burger Classic</a></h4>
-                                <p class="text-muted small mb-3">Thịt bò, Phô mai, Rau thơm</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="price"><del class="text-muted fs-6 me-1">150k</del> 125.000đ</span>
-                                    <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
+                                <input type="range" min="0" max="2000000" step="10000" value="0" id="minPrice" class="dual-range w-100 position-absolute m-0 top-50 translate-middle-y">
+                                <input type="range" min="0" max="2000000" step="10000" value="2000000" id="maxPrice" class="dual-range w-100 position-absolute m-0 top-50 translate-middle-y">
+                            </div>
+                            <div class="text-center mb-3 fw-bold text-primary-custom fs-6" id="priceDisplay">0đ - 2.000.000đ</div>
+                            <button class="btn btn-custom w-100 rounded-pill mb-4 shadow-sm">Xác nhận</button>
+
+                            <div class="filter-box mb-4">
+                                <h5 class="fw-bold mb-3 border-bottom pb-2" style="font-size: 1rem;">Loại sản phẩm</h5>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input shadow-none" type="checkbox" value="burger" id="catBurger">
+                                    <label class="form-check-label text-muted fw-medium" for="catBurger">Burger</label>
                                 </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input shadow-none" type="checkbox" value="pizza" id="catPizza">
+                                    <label class="form-check-label text-muted fw-medium" for="catPizza">Pizza</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input shadow-none" type="checkbox" value="chicken" id="catChicken">
+                                    <label class="form-check-label text-muted fw-medium" for="catChicken">Gà rán</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input shadow-none" type="checkbox" value="drink" id="catDrink">
+                                    <label class="form-check-label text-muted fw-medium" for="catDrink">Đồ uống</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input shadow-none" type="checkbox" value="salad" id="catSalad">
+                                    <label class="form-check-label text-muted fw-medium" for="catSalad">Salad</label>
+                                </div>
+                            </div>
+
+                            <div class="filter-box">
+                                <h5 class="fw-bold mb-3 border-bottom pb-2" style="font-size: 1rem;">Hàng bán chạy</h5>
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-2"><a href="#" class="d-block text-dark fw-medium text-decoration-none px-3 py-2 text-center rounded-pill side-category">Pizza (14)</a></li>
+                                    <li class="mb-2"><a href="#" class="d-block text-dark fw-medium text-decoration-none px-3 py-2 text-center rounded-pill side-category">Đồ uống (8)</a></li>
+                                    <li><a href="#" class="d-block text-dark fw-medium text-decoration-none px-3 py-2 text-center rounded-pill side-category">Burger (4)</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-9">
+
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <button class="btn btn-custom rounded-pill d-flex align-items-center gap-2 px-4 py-2 shadow-sm">
+                                <i class="fas fa-th-large"></i> Danh mục
+                            </button>
+
+                            <div class="d-flex align-items-center gap-2">
+                                <span class="fw-medium text-muted">Sắp xếp</span>
+                                <select class="form-select border-0 rounded-pill shadow-sm text-dark fw-medium ps-3" style="width: 150px;">
+                                    <option value="new">Mới nhất</option>
+                                    <option value="asc">Giá tăng dần</option>
+                                    <option value="desc">Giá giảm dần</option>
+                                </select>
                             </div>
                         </div>
 
-                        <div class="col-lg-4 col-md-6 col-sm-12 food-item" data-category="burger">
-                            <div class="food-card position-relative h-100 border border-danger border-opacity-25 mx-auto" style="max-width: 280px; width: 100%;"> 
-                                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Burger" class="food-img rounded-circle shadow-sm">
-                                <h4 class="fw-bold fs-5 mb-1"><a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Chicken Burger</a></h4>
-                                <p class="text-muted small mb-3">Gà giòn, Sốt mayo</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="price">85.000đ</span>
-                                    <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
+                        <div class="row g-4" id="menu-grid">
+
+                            <div class="col-lg-4 col-md-6 col-sm-12 food-item" data-category="burger">
+                                <div class="food-card position-relative h-100 d-flex flex-column"> 
+                                    <span class="badge bg-danger position-absolute top-0 start-0 m-3 p-2">-15%</span>
+                                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Beef Burger" class="food-img rounded-circle shadow-sm">
+                                    <div class="text-warning mb-2"></div>
+
+                                    <h4 class="fw-bold fs-5 mb-1">
+                                        <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">
+                                            Beef Burger Classic
+                                        </a>
+                                    </h4>
+
+                                    <p class="text-muted small mb-3">Thịt bò, Phô mai, Rau thơm</p>
+
+                                    <div class="d-flex justify-content-between align-items-center mt-auto">
+                                        <span class="price"><del class="text-muted fs-6 me-1">150.000đ</del> 125.000đ</span>
+                                        <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
+                                    </div>
                                 </div>
                             </div>
+
+                            <div class="col-lg-4 col-md-6 col-sm-12 food-item" data-category="pizza">
+                                <div class="food-card position-relative h-100 d-flex flex-column"> 
+                                    <span class="badge bg-danger position-absolute top-0 start-0 m-3 p-2">-50%</span>
+                                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Pizza" class="food-img rounded-circle shadow-sm">
+                                    <div class="text-warning mb-2"></div>
+
+                                    <h4 class="fw-bold fs-5 mb-1">
+                                        <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">
+                                            Tasty Buzzed Pizza
+                                        </a>
+                                    </h4>
+
+                                    <p class="text-muted small mb-3">Phô mai, Xúc xích, Cà chua</p>
+
+                                    <div class="d-flex justify-content-between align-items-center mt-auto">
+                                        <span class="price"><del class="text-muted fs-6 me-1">198.000đ</del> 99.000đ</span>
+                                        <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 col-sm-12 food-item" data-category="burger">
+                                <div class="food-card position-relative h-100 d-flex flex-column"> 
+                                    <span class="badge bg-success position-absolute top-0 start-0 m-3 p-2">NEW</span>
+                                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Burger" class="food-img rounded-circle shadow-sm">
+                                    <div class="text-warning mb-2"></div>
+
+                                    <h4 class="fw-bold fs-5 mb-1">
+                                        <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">
+                                            Burger Bò Phô Mai Kép
+                                        </a>
+                                    </h4>
+
+                                    <p class="text-muted small mb-3">Công thức độc quyền mới</p>
+
+                                    <div class="d-flex justify-content-between align-items-center mt-auto">
+                                        <span class="price">75.000đ</span>
+                                        <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 col-sm-12 food-item" data-category="pizza">
+                                <div class="food-card position-relative h-100 d-flex flex-column"> 
+                                    <span class="badge bg-success position-absolute top-0 start-0 m-3 p-2">NEW</span>
+                                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Pizza" class="food-img rounded-circle shadow-sm">
+                                    <div class="text-warning mb-2"></div>
+
+                                    <h4 class="fw-bold fs-5 mb-1">
+                                        <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">
+                                            Pizza Hải Sản Phô Mai
+                                        </a>
+                                    </h4>
+
+                                    <p class="text-muted small mb-3">Tươi ngon từ biển cả</p>
+
+                                    <div class="d-flex justify-content-between align-items-center mt-auto">
+                                        <span class="price">165.000đ</span>
+                                        <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 col-sm-12 food-item" data-category="chicken">
+                                <div class="food-card position-relative h-100 d-flex flex-column"> 
+                                    <span class="badge bg-success position-absolute top-0 start-0 m-3 p-2">NEW</span>
+                                    <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Chicken" class="food-img rounded-circle shadow-sm">
+                                    <div class="text-warning mb-2"></div>
+
+                                    <h4 class="fw-bold fs-5 mb-1">
+                                        <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">
+                                            Gà Rán Phô Mai Kéo Sợi
+                                        </a>
+                                    </h4>
+
+                                    <p class="text-muted small mb-3">Giòn rụm, béo ngậy</p>
+
+                                    <div class="d-flex justify-content-between align-items-center mt-auto">
+                                        <span class="price">85.000đ</span>
+                                        <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 col-sm-12 food-item" data-category="salad">
+                                <div class="food-card position-relative h-100 d-flex flex-column"> 
+                                    <span class="badge bg-success position-absolute top-0 start-0 m-3 p-2">NEW</span>
+                                    <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Salad" class="food-img rounded-circle shadow-sm">
+                                    <div class="text-warning mb-2"></div>
+
+                                    <h4 class="fw-bold fs-5 mb-1">
+                                        <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">
+                                            Salad Cá Ngừ Dầu Mè
+                                        </a>
+                                    </h4>
+
+                                    <p class="text-muted small mb-3">Thanh mát, tốt cho sức khỏe</p>
+
+                                    <div class="d-flex justify-content-between align-items-center mt-auto">
+                                        <span class="price">45.000đ</span>
+                                        <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
 
-                        <div class="col-lg-4 col-md-6 col-sm-12 food-item" data-category="burger">
-                            <div class="food-card position-relative h-100 border border-danger border-opacity-25 mx-auto" style="max-width: 280px; width: 100%;"> 
-                                <span class="badge bg-success position-absolute top-0 start-0 m-3 p-2">NEW</span>
-                                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Burger" class="food-img rounded-circle shadow-sm">
-                                <h4 class="fw-bold fs-5 mb-1"><a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Double Cheese Burger</a></h4>
-                                <p class="text-muted small mb-3">Phô mai nhân đôi</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="price">140.000đ</span>
-                                    <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-sm-12 food-item" data-category="burger">
-                            <div class="food-card position-relative h-100 border border-danger border-opacity-25 mx-auto" style="max-width: 280px; width: 100%;"> 
-                                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Burger" class="food-img rounded-circle shadow-sm">
-                                <h4 class="fw-bold fs-5 mb-1"><a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Fish Burger</a></h4>
-                                <p class="text-muted small mb-3">Cá biển, Sốt Tartar</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="price">90.000đ</span>
-                                    <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-sm-12 food-item" data-category="burger">
-                            <div class="food-card position-relative h-100 border border-danger border-opacity-25 mx-auto" style="max-width: 280px; width: 100%;"> 
-                                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Burger" class="food-img rounded-circle shadow-sm">
-                                <h4 class="fw-bold fs-5 mb-1"><a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Spicy BBQ Burger</a></h4>
-                                <p class="text-muted small mb-3">Vị cay nồng, Sốt BBQ</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="price">110.000đ</span>
-                                    <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-sm-12 food-item" data-category="burger">
-                            <div class="food-card position-relative h-100 border border-danger border-opacity-25 mx-auto" style="max-width: 280px; width: 100%;"> 
-                                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Burger" class="food-img rounded-circle shadow-sm">
-                                <h4 class="fw-bold fs-5 mb-1"><a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Vegan Burger</a></h4>
-                                <p class="text-muted small mb-3">Dành cho người ăn chay</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="price">95.000đ</span>
-                                    <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-sm-12 food-item" data-category="pizza">
-                            <div class="food-card position-relative h-100 border border-danger border-opacity-25 mx-auto" style="max-width: 280px; width: 100%;">
-                                <span class="badge bg-danger position-absolute top-0 start-0 m-3 p-2 shadow-sm fs-6">-50%</span>
-                                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Pizza" class="food-img rounded-circle shadow-sm">
-                                <h4 class="fw-bold fs-5 mb-1"><a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Seafood Pizza</a></h4>
-                                <p class="text-muted small mb-3">Hải sản tươi sống</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="price"><del class="text-muted fs-6 me-2">198k</del><br><span class="text-danger fw-bold">99.000đ</span></span>
-                                    <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-sm-12 food-item" data-category="pizza">
-                            <div class="food-card position-relative h-100 border border-danger border-opacity-25 mx-auto" style="max-width: 280px; width: 100%;">
-                                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Pizza" class="food-img rounded-circle shadow-sm">
-                                <h4 class="fw-bold fs-5 mb-1"><a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Margherita Pizza</a></h4>
-                                <p class="text-muted small mb-3">Phô mai Mozzarella, Cà chua</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="price">120.000đ</span>
-                                    <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-sm-12 food-item" data-category="pizza">
-                            <div class="food-card position-relative h-100 border border-danger border-opacity-25 mx-auto" style="max-width: 280px; width: 100%;">
-                                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Pizza" class="food-img rounded-circle shadow-sm">
-                                <h4 class="fw-bold fs-5 mb-1"><a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Pepperoni Pizza</a></h4>
-                                <p class="text-muted small mb-3">Xúc xích Ý cay nồng</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="price">150.000đ</span>
-                                    <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-sm-12 food-item" data-category="pizza">
-                            <div class="food-card position-relative h-100 border border-danger border-opacity-25 mx-auto" style="max-width: 280px; width: 100%;">
-                                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Pizza" class="food-img rounded-circle shadow-sm">
-                                <h4 class="fw-bold fs-5 mb-1"><a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Hawaiian Pizza</a></h4>
-                                <p class="text-muted small mb-3">Dứa thanh mát, Dăm bông</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="price">145.000đ</span>
-                                    <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-sm-12 food-item" data-category="pizza">
-                            <div class="food-card position-relative h-100 border border-danger border-opacity-25 mx-auto" style="max-width: 280px; width: 100%;">
-                                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Pizza" class="food-img rounded-circle shadow-sm">
-                                <h4 class="fw-bold fs-5 mb-1"><a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Meat Lover Pizza</a></h4>
-                                <p class="text-muted small mb-3">Ngập tràn các loại thịt</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="price">180.000đ</span>
-                                    <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-sm-12 food-item" data-category="chicken">
-                            <div class="food-card position-relative h-100 border border-danger border-opacity-25 mx-auto" style="max-width: 280px; width: 100%;">
-                                <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Chicken" class="food-img rounded-circle shadow-sm">
-                                <h4 class="fw-bold fs-5 mb-1"><a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Gà Rán Truyền Thống</a></h4>
-                                <p class="text-muted small mb-3">Giòn rụm, mọng nước bên trong</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="price">35.000đ</span>
-                                    <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-sm-12 food-item" data-category="chicken">
-                            <div class="food-card position-relative h-100 border border-danger border-opacity-25 mx-auto" style="max-width: 280px; width: 100%;">
-                                <span class="badge bg-success position-absolute top-0 start-0 m-3 p-2">HOT</span>
-                                <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Chicken" class="food-img rounded-circle shadow-sm">
-                                <h4 class="fw-bold fs-5 mb-1"><a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Gà Phủ Sốt Cay Hàn</a></h4>
-                                <p class="text-muted small mb-3">Sốt cay ngọt đậm đà</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="price">40.000đ</span>
-                                    <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-sm-12 food-item" data-category="chicken">
-                            <div class="food-card position-relative h-100 border border-danger border-opacity-25 mx-auto" style="max-width: 280px; width: 100%;">
-                                <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Chicken" class="food-img rounded-circle shadow-sm">
-                                <h4 class="fw-bold fs-5 mb-1"><a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Combo 3 Miếng Gà</a></h4>
-                                <p class="text-muted small mb-3">Tiết kiệm hơn</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="price">99.000đ</span>
-                                    <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-sm-12 food-item" data-category="chicken">
-                            <div class="food-card position-relative h-100 border border-danger border-opacity-25 mx-auto" style="max-width: 280px; width: 100%;">
-                                <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Chicken" class="food-img rounded-circle shadow-sm">
-                                <h4 class="fw-bold fs-5 mb-1"><a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Cánh Gà BBQ (6 miếng)</a></h4>
-                                <p class="text-muted small mb-3">Thơm lừng mùi khói</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="price">85.000đ</span>
-                                    <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-sm-12 food-item" data-category="drink">
-                            <div class="food-card position-relative h-100 border border-danger border-opacity-25 mx-auto" style="max-width: 280px; width: 100%;">
-                                <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Drink" class="food-img rounded-circle shadow-sm">
-                                <h4 class="fw-bold fs-5 mb-1"><a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Trà Đào Cam Sả</a></h4>
-                                <p class="text-muted small mb-3">Thanh mát, giải nhiệt</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="price">45.000đ</span>
-                                    <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-sm-12 food-item" data-category="drink">
-                            <div class="food-card position-relative h-100 border border-danger border-opacity-25 mx-auto" style="max-width: 280px; width: 100%;">
-                                <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Drink" class="food-img rounded-circle shadow-sm">
-                                <h4 class="fw-bold fs-5 mb-1"><a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Coca Cola Tươi</a></h4>
-                                <p class="text-muted small mb-3">Size L, Kèm đá mát lạnh</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="price">20.000đ</span>
-                                    <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-sm-12 food-item" data-category="drink">
-                            <div class="food-card position-relative h-100 border border-danger border-opacity-25 mx-auto" style="max-width: 280px; width: 100%;">
-                                <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Drink" class="food-img rounded-circle shadow-sm">
-                                <h4 class="fw-bold fs-5 mb-1"><a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Nước Ép Trái Cây Mix</a></h4>
-                                <p class="text-muted small mb-3">Táo, Thơm, Cà Rốt nguyên chất</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="price">55.000đ</span>
-                                    <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
-                                </div>
-                            </div>
-                        </div>
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination justify-content-center mt-5 custom-pagination" id="pagination">
+                                <li class="page-item"><a class="page-link shadow-sm" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link shadow-sm" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link shadow-sm" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link shadow-sm" href="#">4</a></li>
+                                <li class="page-item"><a class="page-link shadow-sm" href="#">&raquo;</a></li>
+                            </ul>
+                        </nav>
 
                     </div>
-                </div> <nav aria-label="Page navigation">
-                    <ul class="pagination justify-content-center mt-5" id="pagination">
-                    </ul>
-                </nav>
+                </div>
             </div>
         </section>
 
         <footer class="footer">
-            <div class="container">
-                <div class="row g-4 mb-5">
-                    <div class="col-lg-3 col-md-6">
-                        <a class="navbar-brand logo d-block mb-3" href="#">
-                            <img src="./img/logo.png" alt="Fast Food Logo" style="height: 80px; width: auto; object-fit: contain;">
-                        </a>
-                        <p class="text-muted">Đem đến cho bạn những trải nghiệm ẩm thực nhanh gọn, ngon miệng và an toàn nhất cho gia đình.</p>
-                        <div class="mt-4">
-                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        </div>
+            <div class="container text-center">
+                <h4 class="footer-title mb-4">Các thành viên trong nhóm:</h4>
+
+                <div class="d-flex flex-column align-items-center gap-3">
+
+                    <div class="member-item">
+                        <div class="member-name">1. Ngô Phương Anh - 09/05/2005</div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6">
-                        <h5 class="footer-title fw-bold">Liên Kết Hữu Ích</h5>
-                        <ul class="list-unstyled text-muted">
-                            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-primary">Về Chúng Tôi</a></li>
-                            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-primary">Thực Đơn</a></li>
-                            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-primary">Chính sách giao hàng</a></li>
-                            <li class="mb-2"><a href="#" class="text-muted text-decoration-none hover-primary">Liên hệ</a></li>
-                        </ul>
+                    <div class="member-item">
+                        <div class="member-name">2. Phùng Ngọc Bảo - 13/12/2005</div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6">
-                        <h5 class="footer-title fw-bold">Thông Tin Liên Hệ</h5>
-                        <ul class="list-unstyled text-muted">
-                            <li class="mb-3"><i class="fas fa-map-marker-alt text-primary-custom me-2"></i> 298 Đ. Cầu Diễn, Bắc Từ Liêm, Hà Nội</li>
-                            <li class="mb-3"><i class="fas fa-phone-alt text-primary-custom me-2"></i> +84 123 456 789</li>
-                            <li class="mb-3"><i class="fas fa-envelope text-primary-custom me-2"></i> info@foodie.com</li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <h5 class="footer-title fw-bold">Đăng Ký Nhận Tin</h5>
-                        <p class="text-muted">Nhận ngay mã giảm giá 20% khi đăng ký email.</p>
-                        <div class="input-group mb-3">
-                            <input type="email" class="form-control shadow-none" placeholder="Email của bạn...">
-                            <button class="btn btn-custom rounded-end" type="button"><i class="fas fa-paper-plane"></i></button>
-                        </div>
+                    <div class="member-item">
+                        <div class="member-name">3. Vũ Ngọc Hương Giang - 25/12/2005</div>
                     </div>
                 </div>
             </div>
