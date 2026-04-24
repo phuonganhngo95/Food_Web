@@ -6,7 +6,7 @@
     -webkit-appearance: none;
     appearance: none;
     background: transparent;
-    pointer-events: none; 
+    pointer-events: none;
     z-index: 2;
 }
 
@@ -17,7 +17,7 @@
 
 .dual-range::-webkit-slider-thumb {
     -webkit-appearance: none;
-    pointer-events: all; 
+    pointer-events: all;
     width: 20px;
     height: 20px;
     background: var(--primary-color);
@@ -94,4 +94,142 @@
 .custom-pagination .page-item.active .page-link {
     background-color: #c4c4c4;
     color: #000;
+}
+
+.side-category {
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.side-category .category-count {
+    background-color: #e9ecef;
+    color: #6c757d;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.side-category:hover,
+.side-category.active {
+    background-color: var(--primary-color);
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(234, 106, 71, 0.25);
+}
+
+.side-category:hover .category-count,
+.side-category.active .category-count {
+    background-color: #ffffff;
+    color: var(--primary-color);
+}
+
+/* ==========================================================================
+   CHECKBOX (FILTER BOX)
+   ========================================================================== */
+.filter-box .form-check-input {
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 1.5px solid #ced4da;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.filter-box .form-check-input:hover {
+    border-color: var(--primary-color);
+}
+
+.filter-box .form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.filter-box .form-check-label {
+    cursor: pointer;
+    padding-left: 0.3rem;
+    margin-top: 0.1rem;
+    transition: all 0.2s ease;
+}
+
+.filter-box .form-check-input:checked ~ .form-check-label {
+    color: var(--primary-color) !important;
+    font-weight: 700 !important;
+}
+
+/* ==========================================================================
+   PHÂN TRANG 
+   ========================================================================== */
+.custom-pagination {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+}
+
+/* ==========================================================================
+   TÙY CHỈNH MÀU SẮC SỐ VÀ MŨI TÊN PHÂN TRANG
+   ========================================================================== */
+.custom-pagination .page-item .page-link {
+    background-color: #ffffff;
+    /* Đổi màu số và mũi tên sang cam đỏ */
+    color: var(--primary-color);
+    border: 1px solid #dee2e6;
+    margin: 0;
+    margin-left: -1px;
+    border-radius: 0;
+    font-weight: 700; 
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.custom-pagination .page-item:hover .page-link,
+.custom-pagination .page-item.active .page-link {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-color: var(--primary-color);
+    z-index: 2;
+    box-shadow: 0 5px 15px rgba(234, 106, 71, 0.3);
+}
+
+.custom-pagination .page-item:first-child .page-link {
+    margin-left: 0;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.custom-pagination .page-item:last-child .page-link {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+/* ==========================================================================
+   SIDEBAR CỐ ĐỊNH (STICKY) KHI SCROLL
+   ========================================================================== */
+.sticky-sidebar {
+    position: sticky;
+    top: 140px;
+    height: fit-content;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    z-index: 10;
+}
+
+.sticky-sidebar::-webkit-scrollbar {
+    width: 4px;
+}
+.sticky-sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+.sticky-sidebar::-webkit-scrollbar-thumb {
+    background: #e0e0e0;
+    border-radius: 10px;
+}
+.sticky-sidebar::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
 }

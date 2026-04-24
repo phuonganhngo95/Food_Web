@@ -256,7 +256,7 @@
             <div class="container">
                 <div class="row g-4">
                     <div class="col-lg-3">
-                        <div class="sidebar-wrapper p-4 rounded-4 bg-white shadow-sm" style="min-height: 100%;">
+                        <div class="sidebar-wrapper p-4 rounded-4 bg-white shadow-sm sticky-sidebar">
 
                             <h5 class="fw-bold mb-3" style="font-size: 1rem;">Các sản phẩm chỉ với giá</h5>
                             <div class="dual-slider-container position-relative mb-3 mt-4" style="height: 6px; background-color: #e0e0e0; border-radius: 5px;">
@@ -266,7 +266,6 @@
                                 <input type="range" min="0" max="2000000" step="10000" value="2000000" id="maxPrice" class="dual-range w-100 position-absolute m-0 top-50 translate-middle-y">
                             </div>
                             <div class="text-center mb-3 fw-bold text-primary-custom fs-6" id="priceDisplay">0đ - 2.000.000đ</div>
-                            <button class="btn btn-custom w-100 rounded-pill mb-4 shadow-sm">Xác nhận</button>
 
                             <div class="filter-box mb-4">
                                 <h5 class="fw-bold mb-3 border-bottom pb-2" style="font-size: 1rem;">Loại sản phẩm</h5>
@@ -295,9 +294,24 @@
                             <div class="filter-box">
                                 <h5 class="fw-bold mb-3 border-bottom pb-2" style="font-size: 1rem;">Hàng bán chạy</h5>
                                 <ul class="list-unstyled mb-0">
-                                    <li class="mb-2"><a href="#" class="d-block text-dark fw-medium text-decoration-none px-3 py-2 text-center rounded-pill side-category">Pizza (14)</a></li>
-                                    <li class="mb-2"><a href="#" class="d-block text-dark fw-medium text-decoration-none px-3 py-2 text-center rounded-pill side-category">Đồ uống (8)</a></li>
-                                    <li><a href="#" class="d-block text-dark fw-medium text-decoration-none px-3 py-2 text-center rounded-pill side-category">Burger (4)</a></li>
+                                    <li class="mb-2">
+                                        <a href="javascript:void(0)" class="filter-btn d-flex justify-content-between align-items-center text-dark fw-medium text-decoration-none px-4 py-2 rounded-pill side-category" data-filter="pizza">
+                                            <span>Pizza</span>
+                                            <span class="category-count">14</span>
+                                        </a>
+                                    </li>
+                                    <li class="mb-2">
+                                        <a href="javascript:void(0)" class="filter-btn d-flex justify-content-between align-items-center text-dark fw-medium text-decoration-none px-4 py-2 rounded-pill side-category" data-filter="drink">
+                                            <span>Đồ uống</span>
+                                            <span class="category-count">8</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" class="filter-btn d-flex justify-content-between align-items-center text-dark fw-medium text-decoration-none px-4 py-2 rounded-pill side-category" data-filter="burger">
+                                            <span>Burger</span>
+                                            <span class="category-count">4</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -422,6 +436,175 @@
 
                                     <div class="d-flex justify-content-between align-items-center mt-auto">
                                         <span class="price">85.000đ</span>
+                                        <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 col-sm-12 food-item" data-category="salad">
+                                <div class="food-card position-relative h-100 d-flex flex-column"> 
+                                    <span class="badge bg-success position-absolute top-0 start-0 m-3 p-2">NEW</span>
+                                    <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Salad" class="food-img rounded-circle shadow-sm">
+                                    <div class="text-warning mb-2"></div>
+
+                                    <h4 class="fw-bold fs-5 mb-1">
+                                        <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">
+                                            Salad Cá Ngừ Dầu Mè
+                                        </a>
+                                    </h4>
+
+                                    <p class="text-muted small mb-3">Thanh mát, tốt cho sức khỏe</p>
+
+                                    <div class="d-flex justify-content-between align-items-center mt-auto">
+                                        <span class="price">45.000đ</span>
+                                        <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 col-sm-12 food-item" data-category="salad">
+                                <div class="food-card position-relative h-100 d-flex flex-column"> 
+                                    <span class="badge bg-success position-absolute top-0 start-0 m-3 p-2">NEW</span>
+                                    <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Salad" class="food-img rounded-circle shadow-sm">
+                                    <div class="text-warning mb-2"></div>
+
+                                    <h4 class="fw-bold fs-5 mb-1">
+                                        <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">
+                                            Salad Cá Ngừ Dầu Mè
+                                        </a>
+                                    </h4>
+
+                                    <p class="text-muted small mb-3">Thanh mát, tốt cho sức khỏe</p>
+
+                                    <div class="d-flex justify-content-between align-items-center mt-auto">
+                                        <span class="price">45.000đ</span>
+                                        <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 col-sm-12 food-item" data-category="salad">
+                                <div class="food-card position-relative h-100 d-flex flex-column"> 
+                                    <span class="badge bg-success position-absolute top-0 start-0 m-3 p-2">NEW</span>
+                                    <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Salad" class="food-img rounded-circle shadow-sm">
+                                    <div class="text-warning mb-2"></div>
+
+                                    <h4 class="fw-bold fs-5 mb-1">
+                                        <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">
+                                            Salad Cá Ngừ Dầu Mè
+                                        </a>
+                                    </h4>
+
+                                    <p class="text-muted small mb-3">Thanh mát, tốt cho sức khỏe</p>
+
+                                    <div class="d-flex justify-content-between align-items-center mt-auto">
+                                        <span class="price">45.000đ</span>
+                                        <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 col-sm-12 food-item" data-category="salad">
+                                <div class="food-card position-relative h-100 d-flex flex-column"> 
+                                    <span class="badge bg-success position-absolute top-0 start-0 m-3 p-2">NEW</span>
+                                    <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Salad" class="food-img rounded-circle shadow-sm">
+                                    <div class="text-warning mb-2"></div>
+
+                                    <h4 class="fw-bold fs-5 mb-1">
+                                        <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">
+                                            Salad Cá Ngừ Dầu Mè
+                                        </a>
+                                    </h4>
+
+                                    <p class="text-muted small mb-3">Thanh mát, tốt cho sức khỏe</p>
+
+                                    <div class="d-flex justify-content-between align-items-center mt-auto">
+                                        <span class="price">45.000đ</span>
+                                        <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-4 col-md-6 col-sm-12 food-item" data-category="salad">
+                                <div class="food-card position-relative h-100 d-flex flex-column"> 
+                                    <span class="badge bg-success position-absolute top-0 start-0 m-3 p-2">NEW</span>
+                                    <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Salad" class="food-img rounded-circle shadow-sm">
+                                    <div class="text-warning mb-2"></div>
+
+                                    <h4 class="fw-bold fs-5 mb-1">
+                                        <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">
+                                            Salad Cá Ngừ Dầu Mè
+                                        </a>
+                                    </h4>
+
+                                    <p class="text-muted small mb-3">Thanh mát, tốt cho sức khỏe</p>
+
+                                    <div class="d-flex justify-content-between align-items-center mt-auto">
+                                        <span class="price">45.000đ</span>
+                                        <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 col-sm-12 food-item" data-category="salad">
+                                <div class="food-card position-relative h-100 d-flex flex-column"> 
+                                    <span class="badge bg-success position-absolute top-0 start-0 m-3 p-2">NEW</span>
+                                    <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Salad" class="food-img rounded-circle shadow-sm">
+                                    <div class="text-warning mb-2"></div>
+
+                                    <h4 class="fw-bold fs-5 mb-1">
+                                        <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">
+                                            Salad Cá Ngừ Dầu Mè
+                                        </a>
+                                    </h4>
+
+                                    <p class="text-muted small mb-3">Thanh mát, tốt cho sức khỏe</p>
+
+                                    <div class="d-flex justify-content-between align-items-center mt-auto">
+                                        <span class="price">45.000đ</span>
+                                        <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 col-sm-12 food-item" data-category="salad">
+                                <div class="food-card position-relative h-100 d-flex flex-column"> 
+                                    <span class="badge bg-success position-absolute top-0 start-0 m-3 p-2">NEW</span>
+                                    <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Salad" class="food-img rounded-circle shadow-sm">
+                                    <div class="text-warning mb-2"></div>
+
+                                    <h4 class="fw-bold fs-5 mb-1">
+                                        <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">
+                                            Salad Cá Ngừ Dầu Mè
+                                        </a>
+                                    </h4>
+
+                                    <p class="text-muted small mb-3">Thanh mát, tốt cho sức khỏe</p>
+
+                                    <div class="d-flex justify-content-between align-items-center mt-auto">
+                                        <span class="price">45.000đ</span>
+                                        <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 col-sm-12 food-item" data-category="salad">
+                                <div class="food-card position-relative h-100 d-flex flex-column"> 
+                                    <span class="badge bg-success position-absolute top-0 start-0 m-3 p-2">NEW</span>
+                                    <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Salad" class="food-img rounded-circle shadow-sm">
+                                    <div class="text-warning mb-2"></div>
+
+                                    <h4 class="fw-bold fs-5 mb-1">
+                                        <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">
+                                            Salad Cá Ngừ Dầu Mè
+                                        </a>
+                                    </h4>
+
+                                    <p class="text-muted small mb-3">Thanh mát, tốt cho sức khỏe</p>
+
+                                    <div class="d-flex justify-content-between align-items-center mt-auto">
+                                        <span class="price">45.000đ</span>
                                         <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
                                     </div>
                                 </div>

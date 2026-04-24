@@ -263,16 +263,16 @@
 
                 <ul class="nav nav-pills justify-content-center mb-5 menu-tabs" id="menu-tab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab">Tất cả</button>
+                        <button class="nav-link active" id="pills-all-tab" data-bs-target="#pills-all" type="button" role="tab">Tất cả</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-burger-tab" data-bs-toggle="pill" data-bs-target="#pills-burger" type="button" role="tab">Burger</button>
+                        <button class="nav-link" id="pills-burger-tab" data-bs-target="#pills-burger" type="button" role="tab">Burger</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-pizza-tab" data-bs-toggle="pill" data-bs-target="#pills-pizza" type="button" role="tab">Pizza</button>
+                        <button class="nav-link" id="pills-pizza-tab" data-bs-target="#pills-pizza" type="button" role="tab">Pizza</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-drink-tab" data-bs-toggle="pill" data-bs-target="#pills-drink" type="button" role="tab">Đồ uống</button>
+                        <button class="nav-link" id="pills-drink-tab" data-bs-target="#pills-drink" type="button" role="tab">Đồ uống</button>
                     </li>
                 </ul>
 
@@ -282,7 +282,7 @@
                         <button class="btn btn-custom-arrow menu-prev arrow-left"><i class="fas fa-chevron-left"></i></button>
                         <div class="menu-slider mx-n2">
 
-                            <div class="px-3 py-4">
+                            <div class="px-3 py-4" data-category="burger">
                                 <div class="food-card position-relative"> 
                                     <span class="badge bg-danger position-absolute top-0 start-0 m-3 p-2">-15%</span>
                                     <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Beef Burger" class="food-img rounded-circle shadow-sm">
@@ -303,7 +303,7 @@
                                 </div>
                             </div>
 
-                            <div class="px-3 py-4">
+                            <div class="px-3 py-4" data-category="burger">
                                 <div class="food-card position-relative"> 
                                     <span class="badge bg-danger position-absolute top-0 start-0 m-3 p-2">-15%</span>
                                     <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Beef Burger" class="food-img rounded-circle shadow-sm">
@@ -324,7 +324,7 @@
                                 </div>
                             </div>
 
-                            <div class="px-3 py-4">
+                            <div class="px-3 py-4" data-category="burger">
                                 <div class="food-card position-relative"> 
                                     <span class="badge bg-danger position-absolute top-0 start-0 m-3 p-2">-15%</span>
                                     <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Beef Burger" class="food-img rounded-circle shadow-sm">
@@ -345,7 +345,7 @@
                                 </div>
                             </div>
 
-                            <div class="px-3 py-4">
+                            <div class="px-3 py-4" data-category="drink">
                                 <div class="food-card position-relative"> 
                                     <span class="badge bg-danger position-absolute top-0 start-0 m-3 p-2">-15%</span>
                                     <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Beef Burger" class="food-img rounded-circle shadow-sm">
@@ -366,7 +366,7 @@
                                 </div>
                             </div>
 
-                            <div class="px-3 py-4">
+                            <div class="px-3 py-4" data-category="pizza">
                                 <div class="food-card position-relative"> 
                                     <span class="badge bg-danger position-absolute top-0 start-0 m-3 p-2">-15%</span>
                                     <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Beef Burger" class="food-img rounded-circle shadow-sm">
