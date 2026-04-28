@@ -1,0 +1,131 @@
+body {
+    background-color: var(--bg-color);
+}
+
+.profile-section {
+    padding-top: 120px;
+    padding-bottom: 80px;
+}
+
+/* Sidebar Menu */
+.profile-sidebar .list-group-item {
+    border: none;
+    padding: 15px 20px;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    margin-bottom: 5px;
+}
+
+.profile-sidebar .list-group-item:hover {
+    background-color: #f8f9fa;
+    color: var(--primary-color);
+    transform: translateX(5px); /* Hiệu ứng dịch nhẹ sang phải khi di chuột */
+}
+
+.profile-sidebar .list-group-item.active {
+    background-color: #fff0ed; /* Màu nền cam nhạt */
+    color: var(--primary-color);
+    border-left: 4px solid var(--primary-color);
+    font-weight: 700;
+}
+
+/* Form Styling */
+.form-control {
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    background-color: #fff;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(234, 106, 71, 0.25);
+}
+
+/* Nút thay đổi Avatar */
+.btn-primary-custom {
+    background-color: var(--primary-color);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary-custom:hover {
+    background-color: var(--primary-hover);
+    transform: scale(1.1);
+}
+
+.theme-sidebar {
+    background-color: var(--primary-color, #ea6a47) !important; /* Cam chủ đạo */
+    border-radius: 12px;
+}
+
+/* Đổi màu sọc trang trí sang trắng mờ để nổi bật trên nền cam */
+.theme-sidebar .red-stripes {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 4px;
+}
+
+.theme-sidebar .red-stripes div {
+    width: 14px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.3); /* Sọc trắng mờ */
+}
+
+/* Chỉnh lại màu chữ của menu trên nền cam */
+.theme-sidebar .profile-sidebar .text-secondary {
+    color: rgba(255, 255, 255, 0.7) !important; /* Chuyển class xám mặc định thành trắng mờ */
+}
+
+.theme-sidebar .profile-sidebar .list-group-item {
+    padding: 12px 30px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.theme-sidebar .profile-sidebar .list-group-item:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+    transform: none;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.theme-sidebar .profile-sidebar .active-custom {
+    color: #ffffff !important;
+    font-weight: 600;
+}
+
+/* Giao diện Form Line (Chỉ có viền dưới) */
+.form-control-line {
+    background-color: transparent !important;
+    border: none;
+    border-bottom: 1px solid #d1d1d1;
+    border-radius: 0;
+    padding-left: 0;
+    padding-right: 0;
+    box-shadow: none !important;
+    font-size: 16px;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+.form-control-line:focus {
+    border-bottom: 2px solid #ea6a47; /* Đổi viền khi focus thành màu cam */
+}
+
+/* Nút Submit màu chủ đạo */
+.btn-red-custom {
+    background-color: #ea6a47;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-red-custom:hover {
+    background-color: #d85a3a;
+}

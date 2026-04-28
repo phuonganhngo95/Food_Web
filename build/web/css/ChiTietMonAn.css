@@ -1,97 +1,166 @@
-.product-detail-container {
-    display: flex;
-    gap: 30px;
+body {
+    background-color: var(--bg-color);
+}
+
+.product-detail-card {
     background: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    border: 1px solid #eaeaea;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
-.detail-image {
-    flex: 1;
-    border: 1px solid #eee;
-    border-radius: 8px;
-    padding: 20px;
+.product-title {
+    color: var(--title-color);
+    font-size: 2.2rem;
+    font-weight: 800;
 }
 
-.detail-image img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    transition: transform 0.3s;
-}
-.detail-image:hover img {
-    transform: scale(1.05);
-}
-
-.detail-info {
-    flex: 1.2;
-}
-.detail-name {
-    font-size: 28px;
-    font-family: var(--f-sub);
-    color: #333;
-    margin-bottom: 5px;
-}
-.code {
-    color: #888;
-    font-size: 14px;
-    margin-bottom: 10px;
-}
-.detail-price {
-    font-size: 32px;
-    color: var(--primary);
+.price-current {
+    color: var(--primary-color);
+    font-size: 2rem;
     font-weight: 700;
-    margin-bottom: 20px;
-}
-.detail-description {
-    font-size: 15px;
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 25px;
-    padding-bottom: 20px;
-    border-bottom: 1px dashed #ddd;
 }
 
-.quantity-box {
+.price-old {
+    color: #999;
+    font-size: 1.2rem;
+    text-decoration: line-through;
+}
+
+.saving-text {
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.saving-text span {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.dashed-divider {
+    border-top: 1px dashed #d1d1d1;
+    margin: 20px 0;
+}
+
+.desc-text {
+    color: #555;
+    line-height: 1.8;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* Nút Trở về (Back) */
+.btn-back {
+    color: var(--primary-color);
+    border: 1.5px solid var(--primary-color);
+    background-color: transparent;
+    border-radius: 50px;
+    padding: 6px 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+/* Box Tùy Chọn (Topping / Nước) */
+.option-box {
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.option-header {
+    background-color: #fdfdfd;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.option-header h5 {
+    color: var(--title-color);
+    font-weight: 700;
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.option-body {
+    padding: 0 20px;
+}
+
+.option-item {
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.option-item:last-child {
+    border-bottom: none;
+}
+
+.remove-icon {
+    color: #ccc;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: 0.2s;
+}
+
+.remove-icon:hover {
+    color: var(--primary-color);
+}
+
+/* Khu vực Số lượng & Nút Thêm vào giỏ */
+.qty-btn {
+    background-color: #f4f5f7;
+    color: var(--primary-color);
+    border: none;
+    width: 40px;
+    height: 40px;
+    font-weight: bold;
+    font-size: 1.2rem;
     display: flex;
     align-items: center;
-    margin-bottom: 25px;
-}
-.btn-qty {
-    width: 35px;
-    height: 35px;
-    background: #f4f5f7;
-    border: 1px solid #ddd;
-    cursor: pointer;
-    font-size: 18px;
-}
-.input-qty {
-    width: 50px;
-    height: 35px;
-    text-align: center;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    border-left: none;
-    border-right: none;
-    font-weight: bold;
-}
-
-.btn-add-cart-large {
-    background: var(--primary);
-    color: #fff;
-    padding: 12px 30px;
-    border: none;
-    border-radius: 25px;
-    font-size: 16px;
-    font-family: var(--f-sub);
-    font-weight: 700;
-    cursor: pointer;
-    width: 100%;
+    justify-content: center;
     transition: 0.3s;
 }
-.btn-add-cart-large:hover {
-    background: #bf360c;
-    box-shadow: 0 4px 10px rgba(230, 74, 25, 0.3);
+
+.qty-btn:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.qty-input {
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    border: none;
+    background-color: #fff;
+    border-top: 1px solid #f4f5f7;
+    border-bottom: 1px solid #f4f5f7;
+    color: var(--title-color);
+    font-weight: 700;
+}
+
+.btn-add-cart-main {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: 0.3s;
+    font-family: var(--ff-heading);
+}
+
+.btn-add-cart-main:hover {
+    background-color: var(--primary-hover);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(234, 106, 71, 0.3);
 }

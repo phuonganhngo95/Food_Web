@@ -54,7 +54,7 @@
                                 // =================================================================
         
                                 boolean isLogged = false;       // Đổi thành false để xem trạng thái CHƯA ĐĂNG NHẬP
-                                boolean hasItemsInCart = true; // Đổi thành false để xem trạng thái GIỎ HÀNG TRỐNG
+                                boolean hasItemsInCart = false; // Đổi thành false để xem trạng thái GIỎ HÀNG TRỐNG
         
                                 int cartSize = hasItemsInCart ? 3 : 0; // Số lượng hiển thị trên icon (Giả sử là 3 món)
                             %>

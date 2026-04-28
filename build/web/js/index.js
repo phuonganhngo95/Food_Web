@@ -303,6 +303,62 @@ $(document).ready(function () {
             });
         });
     }
+
+//    Giỏ hàng
+    $('#btn-plus').click(function () {
+        let currentVal = parseInt($('#qty-input').val());
+        if (!isNaN(currentVal)) {
+            $('#qty-input').val(currentVal + 1);
+        }
+    });
+
+    $('#btn-minus').click(function () {
+        let currentVal = parseInt($('#qty-input').val());
+        if (!isNaN(currentVal) && currentVal > 1) {
+            $('#qty-input').val(currentVal - 1);
+        }
+    });
+
+    // 2. Logic cho Món ăn kèm (Nhấn vào hàng để tăng, nhấn dấu trừ để giảm)
+    $('.addable-item').click(function (e) {
+        // Ngăn sự kiện khi người dùng click vào dấu (-) để xóa
+        if ($(e.target).hasClass('remove-icon')) {
+            return;
+        }
+
+        let qtySpan = $(this).find('.item-qty');
+        let removeBtn = $(this).find('.remove-icon');
+        let currentQty = parseInt(qtySpan.attr('data-qty') || 0);
+        let maxQty = parseInt($(this).attr('data-max') || 99);
+
+        // Tăng số lượng và hiển thị
+        if (currentQty < maxQty) {
+            currentQty++;
+            qtySpan.attr('data-qty', currentQty).text(currentQty + 'x').fadeIn(150);
+            removeBtn.fadeIn(150); // Hiện dấu trừ
+        }
+    });
+
+    // 3. Logic cho nút Giảm/Xóa món ăn kèm
+    $('.remove-icon').click(function (e) {
+        e.stopPropagation(); // Không cho sự kiện click truyền lên dòng (tránh bị hiểu nhầm là click tăng)
+        let parentItem = $(this).closest('.addable-item');
+        let qtySpan = parentItem.find('.item-qty');
+        let currentQty = parseInt(qtySpan.attr('data-qty') || 0);
+
+        if (currentQty > 0) {
+            currentQty--;
+            qtySpan.attr('data-qty', currentQty);
+
+            // Nếu giảm về 0 thì ẩn số x và ẩn nút (-)
+            if (currentQty === 0) {
+                qtySpan.fadeOut(150);
+                $(this).fadeOut(150);
+            } else {
+                qtySpan.text(currentQty + 'x');
+            }
+        }
+    });
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -548,6 +604,169 @@ document.addEventListener("DOMContentLoaded", function () {
                     setTimeout(() => badge.style.transform = "scale(1)", 200);
                 }
             });
+        });
+    }
+});
+
+// --- XỬ LÝ CHUYỂN TAB TRONG TRANG CÁ NHÂN ---
+document.addEventListener("DOMContentLoaded", function () {
+    const profileTabs = document.querySelectorAll('.profile-sidebar .list-group-item');
+    const tabContents = document.querySelectorAll('.profile-tab-content');
+
+    if (profileTabs.length > 0) {
+        for (let i = 0; i < profileTabs.length; i++) {
+            profileTabs[i].addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Lấy ID của phần nội dung cần hiển thị
+                const targetId = this.getAttribute('data-target');
+                if (!targetId)
+                    return;
+
+                // 1. Đặt lại màu chữ và xóa class active của tất cả các thẻ trong menu
+                for (let j = 0; j < profileTabs.length; j++) {
+                    profileTabs[j].classList.remove('text-white', 'active-custom');
+                    profileTabs[j].classList.add('text-secondary');
+                }
+
+                // 2. Làm nổi bật mục menu vừa được click
+                this.classList.remove('text-secondary');
+                this.classList.add('text-white', 'active-custom');
+
+                // 3. Ẩn toàn bộ nội dung của các tab
+                for (let k = 0; k < tabContents.length; k++) {
+                    tabContents[k].classList.add('d-none');
+                }
+
+                // 4. Hiển thị nội dung của tab tương ứng
+                const targetContent = document.getElementById(targetId);
+                if (targetContent) {
+                    targetContent.classList.remove('d-none');
+                }
+            });
+        }
+    }
+});
+
+// --- XỬ LÝ QUẢN LÝ ĐỊA CHỈ (THÊM, SỬA, XÓA, MẶC ĐỊNH) TẠI TRANG PROFILE ---
+document.addEventListener("DOMContentLoaded", function () {
+    const btnShowAdd = document.getElementById('btn-show-add-address');
+    const formAdd = document.getElementById('form-add-address');
+    const btnCancelAdd = document.getElementById('btn-cancel-address');
+    const btnSubmitAdd = document.getElementById('btn-submit-address');
+    const addressList = document.getElementById('address-list');
+    const formTitle = document.getElementById('form-address-title');
+
+    // Biến dùng để lưu thẻ div chứa địa chỉ đang được sửa (Nếu là null thì nghĩa là đang Thêm mới)
+    let editingItem = null;
+
+    if (btnShowAdd && formAdd && btnCancelAdd && btnSubmitAdd && addressList) {
+
+        // 1. Hàm dùng chung để mở form (Cập nhật tiêu đề và điền dữ liệu)
+        function openForm(isEdit, name = '', phone = '', detail = '') {
+            if (formTitle)
+                formTitle.innerText = isEdit ? 'Cập nhật địa chỉ' : 'Thêm địa chỉ giao hàng';
+            document.getElementById('new-addr-name').value = name;
+            document.getElementById('new-addr-phone').value = phone;
+            document.getElementById('new-addr-detail').value = detail;
+
+            formAdd.classList.remove('d-none');
+            btnShowAdd.classList.add('d-none');
+        }
+
+        // 2. Click "Thêm địa chỉ mới"
+        btnShowAdd.addEventListener('click', function () {
+            editingItem = null; // Đặt về chế độ Thêm mới
+            openForm(false);
+        });
+
+        // 3. Click "Hủy thao tác"
+        btnCancelAdd.addEventListener('click', function () {
+            formAdd.classList.add('d-none');
+            btnShowAdd.classList.remove('d-none');
+            editingItem = null;
+        });
+
+        // 4. Lắng nghe sự kiện Sửa/Xóa/Thiết lập mặc định cho toàn bộ danh sách
+        addressList.addEventListener('click', function (e) {
+            const item = e.target.closest('.address-item');
+            if (!item)
+                return;
+
+            // Nếu người dùng bấm "Cập nhật"
+            if (e.target.classList.contains('btn-edit-address')) {
+                editingItem = item;
+                const currentName = item.querySelector('.addr-name').innerText.trim();
+                const currentPhone = item.querySelector('.addr-phone').innerText.trim();
+                const currentDetail = item.querySelector('.addr-detail').innerText.trim();
+                openForm(true, currentName, currentPhone, currentDetail);
+            }
+
+            // Nếu người dùng bấm "Xóa"
+            if (e.target.classList.contains('btn-delete-address')) {
+                item.remove();
+                if (editingItem === item) {
+                    btnCancelAdd.click();
+                }
+            }
+
+            // Nếu người dùng bấm "Thiết lập mặc định"
+            if (e.target.classList.contains('btn-set-default')) {
+                // Bước 1: Xóa tag "Mặc định" ở tất cả các địa chỉ khác và hiện lại nút "Thiết lập mặc định"
+                const allItems = addressList.querySelectorAll('.address-item');
+                for (let i = 0; i < allItems.length; i++) {
+                    const badge = allItems[i].querySelector('.default-badge');
+                    if (badge)
+                        badge.remove(); // Xóa tag
+
+                    const setDefBtn = allItems[i].querySelector('.btn-set-default');
+                    if (setDefBtn)
+                        setDefBtn.classList.remove('d-none'); // Hiện lại nút thiết lập
+                }
+
+                // Bước 2: Thêm tag "Mặc định" vào địa chỉ vừa bấm
+                const badgeHTML = `<span class="badge bg-danger position-absolute top-0 end-0 m-3 rounded-pill default-badge">Mặc định</span>`;
+                item.insertAdjacentHTML('afterbegin', badgeHTML);
+
+                // Bước 3: Ẩn nút "Thiết lập mặc định" của chính địa chỉ này đi
+                e.target.classList.add('d-none');
+            }
+        });
+
+        // 5. Xử lý khi bấm nút "Hoàn thành"
+        btnSubmitAdd.addEventListener('click', function () {
+            const nameVal = document.getElementById('new-addr-name').value.trim();
+            const phoneVal = document.getElementById('new-addr-phone').value.trim();
+            const detailVal = document.getElementById('new-addr-detail').value.trim();
+
+            if (nameVal === '' || phoneVal === '' || detailVal === '') {
+                alert('Vui lòng điền đầy đủ Họ tên, Số điện thoại và Địa chỉ cụ thể!');
+                return;
+            }
+
+            if (editingItem) {
+                // CHẾ ĐỘ SỬA
+                editingItem.querySelector('.addr-name').innerText = nameVal;
+                editingItem.querySelector('.addr-phone').innerText = phoneVal;
+                editingItem.querySelector('.addr-detail').innerText = detailVal;
+            } else {
+                // CHẾ ĐỘ THÊM
+                const newAddressHTML = `
+                    <div class="p-4 border rounded mb-3 bg-white position-relative shadow-sm address-item">
+                        <p class="mb-1 fw-bold fs-5 text-dark"><span class="addr-name">${nameVal}</span> <span class="fw-normal text-muted fs-6">| <span class="addr-phone">${phoneVal}</span></span></p>
+                        <p class="mb-2 text-muted addr-detail">${detailVal}</p>
+                        <div class="mt-2 d-flex gap-3">
+                            <a href="javascript:void(0)" class="text-primary text-decoration-none small fw-bold btn-edit-address">Cập nhật</a>
+                            <a href="javascript:void(0)" class="text-danger text-decoration-none small fw-bold btn-delete-address">Xóa</a>
+                            <a href="javascript:void(0)" class="text-secondary text-decoration-none small fw-bold btn-set-default">Thiết lập mặc định</a>
+                        </div>
+                    </div>
+                `;
+                addressList.insertAdjacentHTML('beforeend', newAddressHTML);
+            }
+
+            // Đóng form
+            btnCancelAdd.click();
         });
     }
 });

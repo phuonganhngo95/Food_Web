@@ -319,19 +319,17 @@
 
                     <div class="col-lg-9">
 
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <button class="btn btn-custom rounded-pill d-flex align-items-center gap-2 px-4 py-2 shadow-sm">
-                                <i class="fas fa-th-large"></i> Danh mục
-                            </button>
+                        <div class="d-flex justify-content-end align-items-center mb-4 border-bottom pb-3">
 
                             <div class="d-flex align-items-center gap-2">
-                                <span class="fw-medium text-muted">Sắp xếp</span>
-                                <select class="form-select border-0 rounded-pill shadow-sm text-dark fw-medium ps-3" style="width: 150px;">
-                                    <option value="new">Mới nhất</option>
-                                    <option value="asc">Giá tăng dần</option>
-                                    <option value="desc">Giá giảm dần</option>
+                                <span class="fw-medium text-muted text-nowrap d-none d-sm-inline">Sắp xếp theo:</span>
+                                <select class="form-select border-0 shadow-sm text-dark ps-3" style="width: 180px; background-color: #fff; cursor: pointer;">
+                                    <option value="popular">Bán chạy nhất</option>
+                                    <option value="new">Món mới ra</option>
+                                    <option value="az">Tên món</option>
                                 </select>
                             </div>
+
                         </div>
 
                         <div class="row g-4" id="menu-grid">
