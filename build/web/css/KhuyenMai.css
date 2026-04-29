@@ -1,0 +1,139 @@
+/* ==========================================================================
+   CSS DÀNH RIÊNG CHO TRANG KHUYẾN MÃI (KhuyenMai.css)
+   ========================================================================== */
+
+/* 1. HERO BANNER KHUYẾN MÃI */
+.promo-hero {
+    background: linear-gradient(135deg, #1a1a1a 0%, #3d0000 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.promo-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(var(--primary-color) 2px, transparent 2px);
+    background-size: 30px 30px;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.font-heading {
+    font-family: var(--ff-heading);
+}
+
+/* ==========================================================================
+   2. GIAO DIỆN VÍ VOUCHER (TICKET STYLE)
+   ========================================================================== */
+.voucher-card {
+    display: flex;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    position: relative;
+    border: 1px solid #f0f0f0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 24px; /* <-- Thêm dòng này để các vé cách nhau ra */
+}
+
+.voucher-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Phần bên trái chứa Mức Giảm (Màu nền) */
+.voucher-left {
+    width: 30%;
+    background-color: var(--primary-color);
+    border-radius: 12px 0 0 12px;
+    padding: 20px 10px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-right: 2px dashed rgba(255, 255, 255, 0.7);
+    position: relative;
+}
+
+/* Hiệu ứng đục lỗ (Cắt xén hình tròn ở mép) */
+.voucher-left::before,
+.voucher-left::after {
+    content: '';
+    position: absolute;
+    right: -12px; /* Dịch vào đúng đường line dashed */
+    width: 24px;
+    height: 24px;
+    background-color: #f8f9fa; /* Màu phải khớp với background-color của <body> */
+    border-radius: 50%;
+    z-index: 5;
+    box-shadow: inset 1px 0 0 rgba(0,0,0,0.05);
+}
+
+.voucher-left::before {
+    top: -12px;
+}
+.voucher-left::after {
+    bottom: -12px;
+}
+
+/* Voucher Freeship thì màu Xanh lá */
+.voucher-freeship .voucher-left {
+    background-color: #10b981;
+}
+
+/* Phần bên phải chứa Nội dung chi tiết */
+.voucher-right {
+    width: 70%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Nút Lưu Mã */
+.copy-btn {
+    background-color: #ffebe6;
+    color: var(--primary-color);
+    border: none;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.copy-btn:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.voucher-freeship .copy-btn {
+    background-color: #d1fae5;
+    color: #10b981;
+}
+
+.voucher-freeship .copy-btn:hover {
+    background-color: #10b981;
+    color: #fff;
+}
+
+/* ==========================================================================
+   3. NÚT ADD TO CART TRONG FLASH SALE
+   ========================================================================== */
+.food-card .action-btn {
+    width: 45px;
+    height: 45px;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.food-card .action-btn:hover {
+    background-color: var(--title-color);
+    transform: translateY(-3px);
+}

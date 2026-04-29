@@ -1,70 +1,137 @@
 /* ==========================================================================
-   CART PAGE SPECIFIC STYLES
+   CART PAGE STYLES - MODERN RE-DESIGN
    ========================================================================== */
 
-/* Tránh xung đột với CSS toàn cục, style riêng biệt cho ảnh giỏ hàng */
-.cart-item-img {
-    width: 80px;
-    height: 80px;
+/* Thẻ sản phẩm trong giỏ */
+.cart-item-card {
+    transition: all 0.3s ease;
+    border-color: #f0f0f0 !important;
+}
+
+.cart-item-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08) !important;
+/*    border-color: var(--primary-color) !important;*/
+}
+
+.item-img {
+    width: 90px;
+    height: 90px;
     object-fit: cover;
-    border: 1px solid #f0f0f0;
+    border: 1px solid #eee;
 }
 
-/* Khối nhập số lượng (Cộng/Trừ) */
-.qty-box {
-    width: 110px;
-    background-color: #fff;
-    margin: 0 auto;
+/* Bộ điều khiển số lượng */
+.qty-control {
+    width: 100px;
 }
 
-.qty-btn {
-    width: 32px;
-    background-color: transparent !important;
+.btn-qty {
+    border: none;
+    background: transparent;
     color: var(--text-color);
-    transition: all 0.2s ease;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    transition: all 0.2s;
 }
 
-.qty-btn:hover {
+.btn-qty:hover {
     color: var(--primary-color);
-    background-color: var(--bg-color) !important;
+    transform: scale(1.2);
 }
 
-/* Ẩn mũi tên mặc định của input type="number" (nếu có dùng sau này) */
-.qty-box input::-webkit-outer-spin-button,
-.qty-box input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-.qty-box input {
+.qty-val {
+    width: 30px;
+    border: none;
+    background: transparent;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.95rem;
     color: var(--title-color);
 }
 
-/* Hiệu ứng di chuột vào item giỏ hàng */
-.cart-item {
-    transition: background-color 0.3s ease;
-    padding: 10px 0;
-    border-radius: 8px;
+/* Nút xóa món ăn */
+.btn-remove-item {
+    background: transparent;
+    border: none;
+    color: #ccc;
+    font-size: 1.1rem;
+    transition: all 0.2s;
 }
 
-.cart-item:hover {
-    background-color: var(--bg-color);
+.btn-remove-item:hover {
+    color: #dc3545;
 }
 
-/* Tương tác khi di chuột */
-.hover-scale {
-    transition: transform 0.2s ease, color 0.2s ease;
+/* Nút quay lại shop */
+.btn-back-shop {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1.5px solid #eee;
+    background: white;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s;
 }
 
-.hover-scale:hover {
-    transform: scale(1.2);
-    color: #dc3545 !important; /* Đỏ đậm hơn khi hover vào icon rác */
+.btn-back-shop:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
 }
 
-.hover-primary {
-    transition: color 0.3s ease;
+/* Đường gạch ngang nét đứt trong tóm tắt */
+.border-dashed {
+    border-top: 2px dashed #f0f0f0;
 }
 
-.hover-primary:hover {
-    color: var(--primary-color) !important;
+/* Tùy chỉnh button cho đồng bộ */
+.btn-custom {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    font-weight: 700;
+    font-family: var(--ff-heading);
+    transition: 0.3s;
+}
+
+.btn-custom:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(234, 106, 71, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+    .cart-item-card {
+        flex-direction: column;
+        align-items: flex-start !important;
+        text-align: left;
+    }
+
+    .item-img {
+        width: 100%;
+        height: 150px;
+        margin-bottom: 15px;
+    }
+
+    .ms-3 {
+        margin-left: 0 !important;
+    }
+
+    .d-flex.flex-column.align-items-end {
+        flex-direction: row-reverse !important;
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 15px;
+        align-items: center !important;
+    }
 }

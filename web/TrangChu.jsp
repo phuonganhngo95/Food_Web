@@ -34,7 +34,7 @@
                     <ul class="navbar-nav mx-auto fw-bold">
                         <li class="nav-item"><a class="nav-link active" href="./TrangChu.jsp">Trang chủ</a></li>
                         <li class="nav-item"><a class="nav-link" href="./ThucDon.jsp">Thực đơn</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#promo">Khuyến mãi</a></li> 
+                        <li class="nav-item"><a class="nav-link" href="./KhuyenMai.jsp">Khuyến mãi</a></li> 
                         <li class="nav-item"><a class="nav-link" href="./LienHe.jsp">Liên hệ</a></li>
                     </ul>
 
@@ -213,7 +213,6 @@
                     <ul class="list-unstyled">
                         <li><a href="#" class="side-menu-link">Theo Dõi Đơn Hàng <i class="fas fa-chevron-right"></i></a></li>
                         <li><a href="#" class="side-menu-link">Liên Hệ Với Chúng Tôi <i class="fas fa-chevron-right"></i></a></li>
-                        <li><a href="#" class="side-menu-link">Góp Ý & Khiếu Nại</a></li>
                     </ul>
                 </div>
 
@@ -467,7 +466,7 @@
                     <div class="col-lg-8">
                         <h2 class="display-4 fw-bold text-white mb-4">Chúng Tôi Có Những Chiếc Burger <span class="text-primary-custom">Chất Lượng Tuyệt Hảo Nhất!</span></h2>
                         <p class="text-light mb-5 fs-5">Hãy đến và chia sẻ những khoảnh khắc vui vẻ bên những món ăn ngon miệng cùng gia đình và người thân.</p>
-                        <a href="#menu" class="btn btn-custom btn-lg">Đặt Hàng Ngay <i class="fas fa-shopping-cart ms-2"></i></a>
+                        <a href="./ThucDon.jsp" class="btn btn-custom btn-lg">Đặt Hàng Ngay <i class="fas fa-shopping-cart ms-2"></i></a>
                     </div>
                 </div>
             </div>

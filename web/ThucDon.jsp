@@ -32,8 +32,8 @@
                     <ul class="navbar-nav mx-auto fw-bold">
                         <li class="nav-item"><a class="nav-link" href="./TrangChu.jsp">Trang chủ</a></li>
                         <li class="nav-item"><a class="nav-link active" href="./ThucDon.jsp">Thực đơn</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#promo">Khuyến mãi</a></li> 
-                        <li class="nav-item"><a class="nav-link" href="#contact">Liên hệ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./KhuyenMai.jsp">Khuyến mãi</a></li> 
+                        <li class="nav-item"><a class="nav-link" href="./LienHe.jsp">Liên hệ</a></li>
                     </ul>
 
                     <div class="d-flex align-items-center gap-3 mt-3 mt-lg-0 pb-3 pb-lg-0">
@@ -292,23 +292,23 @@
                             </div>
 
                             <div class="filter-box">
-                                <h5 class="fw-bold mb-3 border-bottom pb-2" style="font-size: 1rem;">Hàng bán chạy</h5>
+                                <h5 class="fw-bold mb-3 border-bottom pb-2" style="font-size: 1rem;">Các Loại Combo</h5>
                                 <ul class="list-unstyled mb-0">
                                     <li class="mb-2">
-                                        <a href="javascript:void(0)" class="filter-btn d-flex justify-content-between align-items-center text-dark fw-medium text-decoration-none px-4 py-2 rounded-pill side-category" data-filter="pizza">
-                                            <span>Pizza</span>
-                                            <span class="category-count">14</span>
+                                        <a href="javascript:void(0)" class="filter-btn d-flex justify-content-between align-items-center text-dark fw-medium text-decoration-none px-4 py-2 rounded-pill side-category" data-filter="combo-1">
+                                            <span>Combo 1 Người</span>
+                                            <span class="category-count">5</span>
                                         </a>
                                     </li>
                                     <li class="mb-2">
-                                        <a href="javascript:void(0)" class="filter-btn d-flex justify-content-between align-items-center text-dark fw-medium text-decoration-none px-4 py-2 rounded-pill side-category" data-filter="drink">
-                                            <span>Đồ uống</span>
+                                        <a href="javascript:void(0)" class="filter-btn d-flex justify-content-between align-items-center text-dark fw-medium text-decoration-none px-4 py-2 rounded-pill side-category" data-filter="combo-nhom">
+                                            <span>Combo Nhóm</span>
                                             <span class="category-count">8</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void(0)" class="filter-btn d-flex justify-content-between align-items-center text-dark fw-medium text-decoration-none px-4 py-2 rounded-pill side-category" data-filter="burger">
-                                            <span>Burger</span>
+                                        <a href="javascript:void(0)" class="filter-btn d-flex justify-content-between align-items-center text-dark fw-medium text-decoration-none px-4 py-2 rounded-pill side-category" data-filter="combo-family">
+                                            <span>Combo Gia Đình</span>
                                             <span class="category-count">4</span>
                                         </a>
                                     </li>

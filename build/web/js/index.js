@@ -366,7 +366,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const backTopBtn = document.querySelector("[data-back-top-btn]");
     if (backTopBtn) {
         window.addEventListener("scroll", function () {
-            backTopBtn.classList.toggle("active", window.scrollY >= 400);
+            backTopBtn.classList.toggle("active", window.scrollY >= 100);
         });
     }
 
@@ -769,4 +769,29 @@ document.addEventListener("DOMContentLoaded", function () {
             btnCancelAdd.click();
         });
     }
+
+    // =========================================================
+    // XỬ LÝ LỰA CHỌN "TỐI ĐA CHỌN 1" TRONG CHI TIẾT MÓN ĂN
+    // =========================================================
+    const max1Checkboxes = document.querySelectorAll('.max-1-checkbox');
+
+    max1Checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function () {
+            // Nếu ô này vừa được check
+            if (this.checked) {
+                // Lấy thuộc tính 'name' của ô này (VD: 'anHopVoi' hoặc 'monAnKem')
+                const groupName = this.getAttribute('name');
+
+                // Tìm tất cả các ô checkbox có CÙNG 'name'
+                const sameGroupCheckboxes = document.querySelectorAll(`.max-1-checkbox[name="${groupName}"]`);
+
+                // Gỡ check tất cả các ô khác trong cùng nhóm
+                sameGroupCheckboxes.forEach(cb => {
+                    if (cb !== this) {
+                        cb.checked = false;
+                    }
+                });
+            }
+        });
+    });
 });

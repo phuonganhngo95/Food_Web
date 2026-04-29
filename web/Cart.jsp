@@ -30,15 +30,15 @@
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mx-auto fw-bold">
-                        <li class="nav-item"><a class="nav-link active" href="./TrangChu.jsp">Trang chủ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./TrangChu.jsp">Trang chủ</a></li>
                         <li class="nav-item"><a class="nav-link" href="./ThucDon.jsp">Thực đơn</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#promo">Khuyến mãi</a></li> 
-                        <li class="nav-item"><a class="nav-link" href="#contact">Liên hệ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./KhuyenMai.jsp">Khuyến mãi</a></li> 
+                        <li class="nav-item"><a class="nav-link" href="./LienHe.jsp">Liên hệ</a></li>
                     </ul>
 
                     <div class="d-flex align-items-center gap-3 mt-3 mt-lg-0 pb-3 pb-lg-0">
                         <form class="d-flex position-relative" role="search" action="#" method="GET">
-                            <input class="form-controlr shadow-none pe-5 search-input" type="search" placeholder="Tìm món ăn..." aria-label="Search">
+                            <input class="form-control rounded-pill shadow-none pe-5 search-input" type="search" placeholder="Tìm món ăn..." aria-label="Search">
                             <button class="btn position-absolute end-0 top-50 translate-middle-y border-0 text-muted hover-primary" type="submit" style="background: transparent; z-index: 10;">
                                 <i class="fas fa-search"></i>
                             </button>
@@ -51,8 +51,8 @@
                                 // Hướng dẫn test: Đổi giá trị true/false ở 2 biến dưới đây để xem 3 trạng thái
                                 // =================================================================
         
-                                boolean isLogged = true;       // Đổi thành false để xem trạng thái CHƯA ĐĂNG NHẬP
-                                boolean hasItemsInCart = true; // Đổi thành false để xem trạng thái GIỎ HÀNG TRỐNG
+                                boolean isLogged = false;       // Đổi thành false để xem trạng thái CHƯA ĐĂNG NHẬP
+                                boolean hasItemsInCart = false; // Đổi thành false để xem trạng thái GIỎ HÀNG TRỐNG
         
                                 int cartSize = hasItemsInCart ? 3 : 0; // Số lượng hiển thị trên icon (Giả sử là 3 món)
                             %>
@@ -60,9 +60,9 @@
                             <a href="#" class="text-dark fs-4 text-decoration-none icon-action d-flex align-items-center justify-content-center" 
                                id="cartDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" 
                                style="width: 40px; height: 40px; border-radius: 50%;">
-                                <i class="fas fa-shopping-cart"></i> 
+                                <i class="fas fa-shopping-cart active"></i> 
 
-                                <span class="position-absolute top-0 start-100 translate-middle badger bg-danger cart-badge" style="font-size: 0.6rem;">
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-badge" style="font-size: 0.6rem;">
                                     <%= isLogged ? cartSize : 0 %>
                                 </span>
                             </a>
@@ -211,7 +211,6 @@
                     <ul class="list-unstyled">
                         <li><a href="#" class="side-menu-link">Theo Dõi Đơn Hàng <i class="fas fa-chevron-right"></i></a></li>
                         <li><a href="#" class="side-menu-link">Liên Hệ Với Chúng Tôi <i class="fas fa-chevron-right"></i></a></li>
-                        <li><a href="#" class="side-menu-link">Góp Ý & Khiếu Nại</a></li>
                     </ul>
                 </div>
 
@@ -234,113 +233,89 @@
                     <div style="width: 18px; height: 40px; background-color: var(--primary-color);"></div>
                 </div>
             </div>
-        </div>       
+        </div>     
 
-        <section class="cart-section" style="margin-top: 120px; padding-bottom: 80px;">
+        <section class="cart-page" style="margin-top: 130px; padding-bottom: 80px;">
             <div class="container">
                 <div class="d-flex align-items-center mb-4">
-                    <a href="TrangChu.jsp" class="text-muted text-decoration-none me-3 hover-primary"><i class="fas fa-arrow-left"></i> Tiếp tục mua hàng</a>
-                    <h2 class="fw-bold mb-0">Giỏ Hàng Của Bạn</h2>
+                    <a href="ThucDon.jsp" class="btn-back-shop me-3"><i class="fas fa-chevron-left"></i></a>
+                    <h2 class="fw-bold mb-0">Giỏ hàng của bạn <span class="text-muted fw-normal fs-5">(2 món)</span></h2>
                 </div>
 
                 <div class="row g-4">
                     <div class="col-lg-8">
-                        <div class="card border-0 shadow-sm rounded-4 mb-4">
-                            <div class="card-body p-4">
-                                <div class="row text-muted fw-semibold small mb-3 d-none d-md-flex border-bottom pb-2">
-                                    <div class="col-md-6">MÓN ĂN</div>
-                                    <div class="col-md-2 text-center">ĐƠN GIÁ</div>
-                                    <div class="col-md-2 text-center">SỐ LƯỢNG</div>
-                                    <div class="col-md-2 text-end">TỔNG</div>
-                                </div>
+                        <div class="cart-list">
+                            <div class="cart-item-card border rounded-4 p-3 mb-3 bg-white shadow-sm d-flex align-items-center">
+                                <a href="ChiTietMonAn.jsp" class="d-flex align-items-center text-decoration-none flex-grow-1">
+                                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300&q=80" alt="Beef Burger" class="item-img rounded-3">
 
-                                <div class="row align-items-center mb-4 cart-item">
-                                    <div class="col-12 col-md-6 d-flex align-items-center mb-3 mb-md-0">
-                                        <div class="position-relative">
-                                            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Beef Burger" class="cart-item-img rounded-3 shadow-sm">
-                                            <button class="btn btn-sm btn-danger rounded-circle position-absolute top-0 start-0 translate-middle d-md-none"><i class="fas fa-times"></i></button>
-                                        </div>
-                                        <div class="ms-3">
-                                            <h5 class="fw-bold mb-1 fs-6">Beef Burger Classic</h5>
-                                            <p class="text-muted small mb-0">Thịt bò, Phô mai, Rau thơm</p>
-                                        </div>
+                                    <div class="ms-3">
+                                        <h5 class="fw-bold mb-1 text-dark">Beef Burger Classic</h5>
+                                        <p class="text-muted small mb-2">Thêm Phô Mai, Khoai Tây Chiên</p>
+                                        <div class="price-unit fw-bold text-primary-custom">125.000đ</div>
                                     </div>
-                                    <div class="col-4 col-md-2 text-center">
-                                        <span class="text-muted d-md-none small">Giá: </span>
-                                        <span class="fw-semibold">125.000đ</span>
-                                    </div>
-                                    <div class="col-4 col-md-2">
-                                        <div class="input-group input-group-sm qty-box borderr overflow-hidden">
-                                            <button class="btn btn-light border-0 qty-btn" type="button">-</button>
-                                            <input type="text" class="form-control text-center border-0 fw-bold px-0" value="1" readonly>
-                                            <button class="btn btn-light border-0 qty-btn" type="button">+</button>
-                                        </div>
-                                    </div>
-                                    <div class="col-4 col-md-2 text-end d-flex justify-content-between justify-content-md-end align-items-center">
-                                        <span class="text-primary-custom fw-bold">125.000đ</span>
-                                        <button class="btn text-danger p-0 ms-3 d-none d-md-block hover-scale"><i class="fas fa-trash-alt"></i></button>
+                                </a>
+
+                                <div class="d-flex flex-column align-items-end gap-3 position-relative" style="z-index: 2;">
+                                    <button class="btn-remove-item" title="Xóa món này"><i class="far fa-trash-alt"></i></button>
+                                    <div class="qty-control d-flex align-items-center bg-light rounded-pill p-1">
+                                        <button class="btn-qty"><i class="fas fa-minus"></i></button>
+                                        <input type="text" class="qty-val" value="1" readonly>
+                                        <button class="btn-qty"><i class="fas fa-plus"></i></button>
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="row align-items-center cart-item">
-                                    <div class="col-12 col-md-6 d-flex align-items-center mb-3 mb-md-0">
-                                        <div class="position-relative">
-                                            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Pizza" class="cart-item-img rounded-3 shadow-sm">
-                                        </div>
-                                        <div class="ms-3">
-                                            <h5 class="fw-bold mb-1 fs-6">Tasty Buzzed Pizza</h5>
-                                            <p class="text-muted small mb-0">Pizza đế mỏng, phô mai ngập ngụa</p>
-                                        </div>
+                            <div class="cart-item-card border rounded-4 p-3 mb-3 bg-white shadow-sm d-flex align-items-center">
+                                <a href="ChiTietMonAn.jsp" class="d-flex align-items-center text-decoration-none flex-grow-1">
+                                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300&q=80" alt="Beef Burger" class="item-img rounded-3">
+
+                                    <div class="ms-3">
+                                        <h5 class="fw-bold mb-1 text-dark">Beef Burger Classic</h5>
+                                        <p class="text-muted small mb-2">Thêm Phô Mai, Khoai Tây Chiên</p>
+                                        <div class="price-unit fw-bold text-primary-custom">125.000đ</div>
                                     </div>
-                                    <div class="col-4 col-md-2 text-center">
-                                        <span class="text-muted d-md-none small">Giá: </span>
-                                        <span class="fw-semibold">99.000đ</span>
-                                    </div>
-                                    <div class="col-4 col-md-2">
-                                        <div class="input-group input-group-sm qty-box borderr overflow-hidden">
-                                            <button class="btn btn-light border-0 qty-btn" type="button">-</button>
-                                            <input type="text" class="form-control text-center border-0 fw-bold px-0" value="2" readonly>
-                                            <button class="btn btn-light border-0 qty-btn" type="button">+</button>
-                                        </div>
-                                    </div>
-                                    <div class="col-4 col-md-2 text-end d-flex justify-content-between justify-content-md-end align-items-center">
-                                        <span class="text-primary-custom fw-bold">198.000đ</span>
-                                        <button class="btn text-danger p-0 ms-3 d-none d-md-block hover-scale"><i class="fas fa-trash-alt"></i></button>
+                                </a>
+
+                                <div class="d-flex flex-column align-items-end gap-3 position-relative" style="z-index: 2;">
+                                    <button class="btn-remove-item" title="Xóa món này"><i class="far fa-trash-alt"></i></button>
+                                    <div class="qty-control d-flex align-items-center bg-light rounded-pill p-1">
+                                        <button class="btn-qty"><i class="fas fa-minus"></i></button>
+                                        <input type="text" class="qty-val" value="1" readonly>
+                                        <button class="btn-qty"><i class="fas fa-plus"></i></button>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
 
                     <div class="col-lg-4">
-                        <div class="card border-0 shadow-sm rounded-4 sticky-top" style="top: 100px;">
-                            <div class="card-body p-4">
-                                <h5 class="fw-bold mb-4 border-bottom pb-3">Tóm Tắt Đơn Hàng</h5>
+                        <div class="summary-card border rounded-4 p-4 bg-white shadow-sm sticky-top" style="top: 110px;">
+                            <h4 class="fw-bold mb-4 border-bottom pb-3">Thanh toán</h4>
 
-                                <div class="d-flex justify-content-between mb-3 text-muted">
-                                    <span>Tạm tính (3 sản phẩm):</span>
-                                    <span class="fw-semibold text-dark">323.000đ</span>
-                                </div>
-                                <div class="d-flex justify-content-between mb-3 text-muted">
-                                    <span>Phí giao hàng:</span>
-                                    <span class="fw-semibold text-dark">15.000đ</span>
-                                </div>
-
-                                <div class="input-group mb-4 mt-3">
-                                    <input type="text" class="form-control" placeholder="Mã giảm giá (nếu có)" style="font-size: 0.9rem;">
-                                    <button class="btn btn-outline-custom" type="button">Áp dụng</button>
-                                </div>
-
-                                <hr class="border-secondary opacity-25">
-
-                                <div class="d-flex justify-content-between align-items-center mb-4">
-                                    <span class="fw-bold fs-5">Tổng cộng:</span>
-                                    <span class="fw-bold fs-4 text-primary-custom">338.000đ</span>
-                                </div>
-
-                                <a href="ThanhToan.jsp" class="btn btn-custom w-100 py-3 fs-6r">Tiến Hành Đặt Hàng <i class="fas fa-arrow-right ms-2"></i></a>
+                            <div class="d-flex justify-content-between mb-3 text-muted fw-medium">
+                                <span>Tạm tính</span>
+                                <span class="text-dark">323.000đ</span>
                             </div>
+                            <div class="d-flex justify-content-between mb-3 text-muted fw-medium">
+                                <span>Phí giao hàng</span>
+                                <span class="text-dark">15.000đ</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-3 text-muted fw-medium">
+                                <span>Giảm giá</span>
+                                <span class="text-success">-20.000đ</span>
+                            </div>
+
+                            <hr class="my-4 border-dashed">
+
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <span class="fw-bold fs-5">Tổng tiền</span>
+                                <span class="fw-bold fs-4 text-primary-custom">318.000đ</span>
+                            </div>
+
+                            <a href="ThanhToan.jsp" class="btn btn-custom w-100 py-3 rounded-pill fs-5 shadow-sm">
+                                Đặt hàng ngay <i class="fas fa-arrow-right ms-2"></i>
+                            </a>
                         </div>
                     </div>
                 </div>

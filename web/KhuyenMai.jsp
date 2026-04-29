@@ -15,6 +15,7 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
         <link rel="stylesheet" href="./css/TrangChu.css">
+        <link rel="stylesheet" href="./css/KhuyenMai.css"/>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg fixed-top">
@@ -237,99 +238,138 @@
 
         <section class="promo-hero mt-5 pt-5">
             <div class="container position-relative py-5 mt-4 text-center text-white z-1">
-                <span class="badge bg-danger px-3 py-2 fs-6 mb-3 rounded-pill shadow-sm"><i class="fas fa-gift me-2"></i>Siêu Ưu Đãi Tháng Này</span>
-                <h1 class="display-4 fw-bold mb-3 font-heading">Săn Deal Nửa Giá - Ăn Thả Ga</h1>
-                <p class="lead opacity-75 mx-auto" style="max-width: 600px;">Tổng hợp tất cả mã giảm giá, voucher freeship và các món ăn đang được trợ giá cực sốc tại Foodie.</p>
+                <h1 class="display-4 fw-bold mb-3 font-heading"><i class="fas fa-ticket-alt me-3"></i>Kho Voucher Foodie</h1>
+                <p class="lead opacity-75 mx-auto" style="max-width: 600px;">Lưu ngay các mã giảm giá dưới đây và áp dụng tại bước thanh toán để tận hưởng bữa ăn siêu tiết kiệm!</p>
             </div>
         </section>
 
         <section class="py-5">
             <div class="container">
-                <div class="text-center mb-5">
-                    <h2 class="fw-bold"><i class="fas fa-ticket-alt text-primary-custom me-2"></i> Kho Voucher Của Bạn</h2>
-                    <p class="text-muted">Nhấn sao chép mã và áp dụng tại bước thanh toán nhé!</p>
-                </div>
+                <div class="row g-5">
 
-                <div class="row g-4">
                     <div class="col-lg-6">
-                        <div class="coupon-card large-coupon p-4 p-lg-5 position-relative overflow-hidden h-100 d-flex align-items-center rounded-4 shadow">
-                            <div class="position-relative z-1" style="max-width: 65%;">
-                                <span class="badge bg-dark text-white mb-3">Tín đồ Burger</span>
-                                <h3 class="fw-bold text-white mb-2 fs-2 lh-sm">Giảm Ngay 50%</h3>
-                                <p class="mb-4 text-white opacity-75">Áp dụng cho mọi loại Burger cỡ lớn. Tối đa 50K.</p>
+                        <div class="d-flex align-items-center mb-4">
+                            <i class="fas fa-tags fs-3 text-primary-custom me-2"></i>
+                            <h3 class="fw-bold mb-0">Giảm Theo Đơn Hàng</h3>
+                        </div>
 
-                                <div class="code-box d-flex align-items-center bg-white rounded-pill p-1 shadow-sm" style="width: max-content;">
-                                    <span class="fw-bold text-dark px-3 py-1 font-monospace" id="code1">BURGER50</span>
-                                    <button class="btn btn-coupon btn-sm rounded-pill ms-2" onclick="copyCode('code1', this)">Sao chép</button>
+                        <div class="voucher-card">
+                            <div class="voucher-left">
+                                <h2 class="fw-bold mb-0">30K</h2>
+                                <span class="small opacity-75">GIẢM GIÁ</span>
+                            </div>
+                            <div class="voucher-right">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <div>
+                                        <h5 class="fw-bold mb-1 fs-6">Giảm 30.000đ</h5>
+                                        <p class="text-muted small mb-0">Đơn tối thiểu 150k</p>
+                                    </div>
+                                    <button class="copy-btn" onclick="copyCode('code-order-1', this)">Lưu mã</button>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-end mt-2">
+                                    <span class="badge bg-light text-dark border">HSD: 30/12/2026</span>
+                                    <span class="fw-bold font-monospace text-primary-custom small" id="code-order-1">GIAM30K</span>
                                 </div>
                             </div>
-                            <div class="position-absolute food-img-wrapper" style="right: -10%; top: 10%; width: 55%; height: 80%;">
-                                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Burger Voucher" class="rounded-circle shadow-lg w-100 h-100" style="object-fit: cover;">
+                        </div>
+
+                        <div class="voucher-card">
+                            <div class="voucher-left">
+                                <h2 class="fw-bold mb-0">50K</h2>
+                                <span class="small opacity-75">GIẢM GIÁ</span>
+                            </div>
+                            <div class="voucher-right">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <div>
+                                        <h5 class="fw-bold mb-1 fs-6">Giảm 50.000đ</h5>
+                                        <p class="text-muted small mb-0">Đơn tối thiểu 250k</p>
+                                    </div>
+                                    <button class="copy-btn" onclick="copyCode('code-order-2', this)">Lưu mã</button>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-end mt-2">
+                                    <span class="badge bg-light text-dark border">HSD: 30/12/2026</span>
+                                    <span class="fw-bold font-monospace text-primary-custom small" id="code-order-2">GIAM50K</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="voucher-card opacity-75">
+                            <div class="voucher-left" style="background-color: #6c757d;"> <h2 class="fw-bold mb-0">100K</h2>
+                                <span class="small opacity-75">GIẢM GIÁ</span>
+                            </div>
+                            <div class="voucher-right">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <div>
+                                        <h5 class="fw-bold mb-1 fs-6">Giảm 100.000đ</h5>
+                                        <p class="text-muted small mb-0">Đơn tối thiểu 400k</p>
+                                    </div>
+                                    <button class="btn btn-secondary btn-sm rounded-pill px-3" disabled>Đã hết</button>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-end mt-2">
+                                    <span class="badge bg-light text-muted border">Hết lượt sử dụng</span>
+                                    <span class="fw-bold font-monospace text-muted small text-decoration-line-through">VIP100K</span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-lg-6">
-                        <div class="row g-4 h-100">
-                            <div class="col-md-6">
-                                <div class="coupon-card small-coupon red-bg p-4 position-relative overflow-hidden h-100 rounded-4 shadow">
-                                    <div class="position-relative z-1" style="max-width: 75%;">
-                                        <h3 class="fw-bold text-white mb-1 fs-4">Pizza Ngon</h3>
-                                        <p class="mb-3 text-white opacity-75 small">Đồng giá 99K</p>
-                                        <div class="code-box d-flex bg-white rounded-pill p-1 shadow-sm mt-2">
-                                            <span class="fw-bold text-dark px-2 font-monospace align-self-center small" id="code2">PIZZA99</span>
-                                            <button class="btn btn-dark btn-sm rounded-pill ms-auto small p-1 px-2" onclick="copyCode('code2', this)"><i class="fas fa-copy"></i></button>
-                                        </div>
+                        <div class="d-flex align-items-center mb-4">
+                            <i class="fas fa-motorcycle fs-3 text-success me-2"></i>
+                            <h3 class="fw-bold mb-0">Ưu Đãi Vận Chuyển</h3>
+                        </div>
+
+                        <div class="voucher-card voucher-freeship">
+                            <div class="voucher-left">
+                                <h2 class="fw-bold mb-0">15K</h2>
+                                <span class="small opacity-75">FREESHIP</span>
+                            </div>
+                            <div class="voucher-right">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <div>
+                                        <h5 class="fw-bold mb-1 fs-6">Miễn phí vận chuyển</h5>
+                                        <p class="text-muted small mb-0">Giảm tối đa 15k cho mọi đơn</p>
                                     </div>
-                                    <div class="position-absolute food-img-wrapper" style="right: -25%; bottom: -20%; width: 80%; height: 110%;">
-                                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Pizza" class="rounded-circle shadow w-100 h-100" style="object-fit: cover;">
-                                    </div>
+                                    <button class="copy-btn" onclick="copyCode('code-ship-1', this)">Lưu mã</button>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-end mt-2">
+                                    <span class="badge bg-light text-dark border">HSD: 30/12/2026</span>
+                                    <span class="fw-bold font-monospace text-success small" id="code-ship-1">FSS15K</span>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="col-md-6">
-                                <div class="coupon-card small-coupon green-bg p-4 position-relative overflow-hidden h-100 rounded-4 shadow">
-                                    <div class="position-relative z-1" style="max-width: 75%;">
-                                        <h3 class="fw-bold text-white mb-1 fs-4">Freeship</h3>
-                                        <p class="mb-3 text-white opacity-75 small">Đơn từ 150K</p>
-                                        <div class="code-box d-flex bg-white rounded-pill p-1 shadow-sm mt-2">
-                                            <span class="fw-bold text-dark px-2 font-monospace align-self-center small" id="code3">FREESHIP</span>
-                                            <button class="btn btn-dark btn-sm rounded-pill ms-auto small p-1 px-2" onclick="copyCode('code3', this)"><i class="fas fa-copy"></i></button>
-                                        </div>
-                                    </div>
-                                    <div class="position-absolute food-img-wrapper" style="right: -20%; bottom: -15%; width: 75%; height: 90%;">
-                                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Burger" class="rounded-circle shadow w-100 h-100" style="object-fit: cover;">
-                                    </div>
-                                </div>
+                        <div class="voucher-card voucher-freeship">
+                            <div class="voucher-left">
+                                <h2 class="fw-bold mb-0">30K</h2>
+                                <span class="small opacity-75">FREESHIP</span>
                             </div>
-
-                            <div class="col-12">
-                                <div class="coupon-card medium-coupon black-bg p-4 position-relative overflow-hidden h-100 d-flex align-items-center rounded-4 shadow">
-                                    <div class="position-absolute food-img-wrapper" style="left: -5%; top: -20%; width: 35%; height: 140%;">
-                                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Pizza" class="rounded-circle shadow-lg w-100 h-100" style="object-fit: cover;">
+                            <div class="voucher-right">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <div>
+                                        <h5 class="fw-bold mb-1 fs-6">Freeship Xtra</h5>
+                                        <p class="text-muted small mb-0">Giảm tối đa 30k cho đơn từ 200k</p>
                                     </div>
-                                    <div class="position-relative z-1 ms-auto text-end ps-4" style="width: 70%;">
-                                        <h3 class="fw-bold text-white mb-2 fs-3 lh-sm">Combo Tụ Tập</h3>
-                                        <p class="mb-3 text-white opacity-75" style="font-size: 0.95rem;">Tặng ngay 1 Pepsi 1.5L cho hóa đơn trên 300K</p>
-                                        <div class="code-box d-flex bg-white rounded-pill p-1 shadow-sm ms-auto" style="width: max-content;">
-                                            <span class="fw-bold text-dark px-3 py-1 font-monospace" id="code4">PARTY300</span>
-                                            <button class="btn btn-coupon btn-sm rounded-pill ms-2" onclick="copyCode('code4', this)">Sao chép</button>
-                                        </div>
-                                    </div>
+                                    <button class="copy-btn" onclick="copyCode('code-ship-2', this)">Lưu mã</button>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-end mt-2">
+                                    <span class="badge bg-light text-dark border">HSD: 30/12/2026</span>
+                                    <span class="fw-bold font-monospace text-success small" id="code-ship-2">FSS30K</span>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
 
-        <section class="flash-sale-section py-5 bg-white">
+        <section class="flash-sale-section py-5 bg-white shadow-sm border-top">
             <div class="container">
                 <div class="d-flex justify-content-between align-items-end mb-4 border-bottom pb-3">
                     <div>
-                        <h2 class="fw-bold mb-0"><i class="fas fa-bolt text-warning me-2"></i> Giá Sốc Hôm Nay</h2>
-                        <p class="text-muted mb-0 mt-1">Số lượng có hạn, đặt ngay kẻo lỡ!</p>
+                        <h2 class="fw-bold mb-0"><i class="fas fa-bolt text-warning me-2"></i> Món Ăn Đang Giảm Giá</h2>
+                        <p class="text-muted mb-0 mt-1">Săn ngay các món ngon với mức giá cực hời, số lượng có hạn!</p>
                     </div>
                 </div>
 
@@ -345,7 +385,7 @@
                                     <del class="text-muted fs-6">198.000đ</del><br>
                                     <span class="text-danger fw-bold fs-5">99.000đ</span>
                                 </span>
-                                <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-cart-plus"></i></button>
+                                <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
                             </div>
                         </div>
                     </div>
@@ -361,7 +401,7 @@
                                     <del class="text-muted fs-6">125.000đ</del><br>
                                     <span class="text-danger fw-bold fs-5">100.000đ</span>
                                 </span>
-                                <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-cart-plus"></i></button>
+                                <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
                             </div>
                         </div>
                     </div>
@@ -377,7 +417,7 @@
                                     <del class="text-muted fs-6">100.000đ</del><br>
                                     <span class="text-danger fw-bold fs-5">85.000đ</span>
                                 </span>
-                                <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-cart-plus"></i></button>
+                                <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
                             </div>
                         </div>
                     </div>
@@ -393,7 +433,7 @@
                                     <del class="text-muted fs-6">50.000đ</del><br>
                                     <span class="text-danger fw-bold fs-5">35.000đ</span>
                                 </span>
-                                <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-cart-plus"></i></button>
+                                <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
                             </div>
                         </div>
                     </div>
