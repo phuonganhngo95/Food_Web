@@ -46,7 +46,7 @@ h1, h2, h3, h4, h5, h6, .logo, .price {
     background-color: var(--primary-color);
     color: white;
     padding: 10px 25px;
-    border-radius: 50px;
+    /*border-radius: 50px;*/
     font-family: var(--ff-rubik);
     font-weight: 500;
     transition: 0.3s;
@@ -428,8 +428,8 @@ h1, h2, h3, h4, h5, h6, .logo, .price {
    FOOTER CUSTOM - NAVY BLUE & PRIMARY BORDER
    ========================================================================== */
 .footer {
-    background-color: #0f172a !important; 
-    border-top: 4px solid var(--primary-color); 
+    background-color: #0f172a !important;
+    border-top: 4px solid var(--primary-color);
     padding: 60px 0 40px;
 }
 
@@ -453,8 +453,8 @@ h1, h2, h3, h4, h5, h6, .logo, .price {
     display: inline-block;
     width: 40px;
     height: 40px;
-    background: #333333; 
-    color: #ffffff; 
+    background: #333333;
+    color: #ffffff;
     border-radius: 50%;
     text-align: center;
     line-height: 40px;
@@ -654,7 +654,7 @@ h1, h2, h3, h4, h5, h6, .logo, .price {
 
 .side-menu-link:hover {
     color: var(--primary-color) !important;
-    padding-left: 5px; 
+    padding-left: 5px;
 }
 
 .side-menu-link i.fa-chevron-right {

@@ -32,7 +32,7 @@
                     <ul class="navbar-nav mx-auto fw-bold">
                         <li class="nav-item"><a class="nav-link active" href="./TrangChu.jsp">Trang chủ</a></li>
                         <li class="nav-item"><a class="nav-link" href="./ThucDon.jsp">Thực đơn</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#promo">Khuyến mãi</a></li> <li class="nav-item"><a class="nav-link" href="#about">Giới thiệu</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#promo">Khuyến mãi</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Liên hệ</a></li>
                     </ul>
 
@@ -52,7 +52,7 @@
                                 // =================================================================
         
                                 boolean isLogged = true;       // Đổi thành false để xem trạng thái CHƯA ĐĂNG NHẬP
-                                boolean hasItemsInCart = false; // Đổi thành false để xem trạng thái GIỎ HÀNG TRỐNG
+                                boolean hasItemsInCart = true; // Đổi thành false để xem trạng thái GIỎ HÀNG TRỐNG
         
                                 int cartSize = hasItemsInCart ? 3 : 0; // Số lượng hiển thị trên icon (Giả sử là 3 món)
                             %>
@@ -349,7 +349,7 @@
 
                                     <%
                                         // MOCK DATA: Đổi thành false để xem giao diện lúc chưa có đơn hàng
-                                        boolean hasOrderHistory = false; 
+                                        boolean hasOrderHistory = true; 
                                     %>
 
                                     <% if (hasOrderHistory) { %>

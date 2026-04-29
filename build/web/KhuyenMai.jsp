@@ -1,10 +1,9 @@
-<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="vi">
+<html>
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Liên hệ</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Khuyến Mãi</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,19 +15,6 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
         <link rel="stylesheet" href="./css/TrangChu.css">
-        <link rel="stylesheet" href="./css/Form.css"/>
-
-        <style>
-            /* Tắt hiệu ứng chuyển đổi từ từ, ép lỗi đỏ hiện lên ngay lập tức */
-            .form-control.is-invalid {
-                transition: none !important;
-            }
-
-            .invalid-feedback {
-                animation: none !important;
-                transition: none !important;
-            }
-        </style>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg fixed-top">
@@ -43,9 +29,9 @@
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mx-auto fw-bold">
-                        <li class="nav-item"><a class="nav-link active" href="./TrangChu.jsp">Trang chủ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./TrangChu.jsp">Trang chủ</a></li>
                         <li class="nav-item"><a class="nav-link" href="./ThucDon.jsp">Thực đơn</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#promo">Khuyến mãi</a></li> 
+                        <li class="nav-item"><a class="nav-link active" href="#promo">Khuyến mãi</a></li> 
                         <li class="nav-item"><a class="nav-link" href="./LienHe.jsp">Liên hệ</a></li>
                     </ul>
 
@@ -247,65 +233,176 @@
                     <div style="width: 18px; height: 40px; background-color: var(--primary-color);"></div>
                 </div>
             </div>
-        </div>    
+        </div>
 
-        <section class="auth-section">
+        <section class="promo-hero mt-5 pt-5">
+            <div class="container position-relative py-5 mt-4 text-center text-white z-1">
+                <span class="badge bg-danger px-3 py-2 fs-6 mb-3 rounded-pill shadow-sm"><i class="fas fa-gift me-2"></i>Siêu Ưu Đãi Tháng Này</span>
+                <h1 class="display-4 fw-bold mb-3 font-heading">Săn Deal Nửa Giá - Ăn Thả Ga</h1>
+                <p class="lead opacity-75 mx-auto" style="max-width: 600px;">Tổng hợp tất cả mã giảm giá, voucher freeship và các món ăn đang được trợ giá cực sốc tại Foodie.</p>
+            </div>
+        </section>
+
+        <section class="py-5">
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-10 col-lg-7">
-                        <div class="auth-card">
-                            <h2 class="auth-title">Gửi Lời Nhắn Cho Chúng Tôi</h2>
-                            <p class="auth-subtitle">Bạn có câu hỏi hay góp ý? Vui lòng điền thông tin vào form bên dưới.</p>
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold"><i class="fas fa-ticket-alt text-primary-custom me-2"></i> Kho Voucher Của Bạn</h2>
+                    <p class="text-muted">Nhấn sao chép mã và áp dụng tại bước thanh toán nhé!</p>
+                </div>
 
-                            <form id="contactForm" action="./XuLyLienHe" method="POST" novalidate>
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="coupon-card large-coupon p-4 p-lg-5 position-relative overflow-hidden h-100 d-flex align-items-center rounded-4 shadow">
+                            <div class="position-relative z-1" style="max-width: 65%;">
+                                <span class="badge bg-dark text-white mb-3">Tín đồ Burger</span>
+                                <h3 class="fw-bold text-white mb-2 fs-2 lh-sm">Giảm Ngay 50%</h3>
+                                <p class="mb-4 text-white opacity-75">Áp dụng cho mọi loại Burger cỡ lớn. Tối đa 50K.</p>
 
-                                <div class="mb-3">
-                                    <label for="fullname" class="form-label">Họ và tên <span class="text-danger">*</span></label>
-                                    <div class="input-group">
-                                        <span class="input-group-text bg-white border-end-0 text-muted"><i class="fas fa-user"></i></span>
-                                        <input type="text" class="form-control border-start-0" id="fullname" name="fullname" placeholder="Nhập họ tên của bạn..." required>
-                                        <div class="invalid-feedback w-100" id="error-fullname">Vui lòng nhập họ và tên.</div>
-                                    </div>
+                                <div class="code-box d-flex align-items-center bg-white rounded-pill p-1 shadow-sm" style="width: max-content;">
+                                    <span class="fw-bold text-dark px-3 py-1 font-monospace" id="code1">BURGER50</span>
+                                    <button class="btn btn-coupon btn-sm rounded-pill ms-2" onclick="copyCode('code1', this)">Sao chép</button>
                                 </div>
-
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-                                        <div class="input-group">
-                                            <span class="input-group-text bg-white border-end-0 text-muted"><i class="fas fa-envelope"></i></span>
-                                            <input type="email" class="form-control border-start-0" id="email" name="email" placeholder="example@gmail.com" required>
-                                            <div class="invalid-feedback w-100" id="error-email">Vui lòng nhập Email hợp lệ.</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="phone" class="form-label">Số điện thoại <span class="text-danger">*</span></label>
-                                        <div class="input-group">
-                                            <span class="input-group-text bg-white border-end-0 text-muted"><i class="fas fa-phone-alt"></i></span>
-                                            <input type="tel" class="form-control border-start-0" id="phone" name="phone" placeholder="VD: 0912345678" required>
-                                            <div class="invalid-feedback w-100" id="error-phone">Vui lòng nhập số điện thoại hợp lệ (10 số).</div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="subject" class="form-label">Tiêu đề <span class="text-danger">*</span></label>
-                                    <div class="input-group">
-                                        <span class="input-group-text bg-white border-end-0 text-muted"><i class="fas fa-heading"></i></span>
-                                        <input type="text" class="form-control border-start-0" id="subject" name="subject" placeholder="Chủ đề bạn cần hỗ trợ..." required>
-                                        <div class="invalid-feedback w-100" id="error-subject">Vui lòng nhập tiêu đề.</div>
-                                    </div>
-                                </div>
-
-                                <div class="mb-4">
-                                    <label for="message" class="form-label">Nội dung chi tiết <span class="text-danger">*</span></label>
-                                    <textarea class="form-control" id="message" name="message" rows="5" placeholder="Mô tả chi tiết ý kiến của bạn..." required></textarea>
-                                    <div class="invalid-feedback" id="error-message" style="display: none; color: #dc3545; font-size: .875em; margin-top: .25rem;">Vui lòng nhập nội dung (tối thiểu 10 ký tự).</div>
-                                </div>
-
-                                <button type="submit" class="btn btn-custom w-100 py-2 fs-5 mt-2">Gửi Ý Kiến <i class="fas fa-paper-plane ms-2"></i></button>
-                            </form>
+                            </div>
+                            <div class="position-absolute food-img-wrapper" style="right: -10%; top: 10%; width: 55%; height: 80%;">
+                                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Burger Voucher" class="rounded-circle shadow-lg w-100 h-100" style="object-fit: cover;">
+                            </div>
                         </div>
                     </div>
+
+                    <div class="col-lg-6">
+                        <div class="row g-4 h-100">
+                            <div class="col-md-6">
+                                <div class="coupon-card small-coupon red-bg p-4 position-relative overflow-hidden h-100 rounded-4 shadow">
+                                    <div class="position-relative z-1" style="max-width: 75%;">
+                                        <h3 class="fw-bold text-white mb-1 fs-4">Pizza Ngon</h3>
+                                        <p class="mb-3 text-white opacity-75 small">Đồng giá 99K</p>
+                                        <div class="code-box d-flex bg-white rounded-pill p-1 shadow-sm mt-2">
+                                            <span class="fw-bold text-dark px-2 font-monospace align-self-center small" id="code2">PIZZA99</span>
+                                            <button class="btn btn-dark btn-sm rounded-pill ms-auto small p-1 px-2" onclick="copyCode('code2', this)"><i class="fas fa-copy"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="position-absolute food-img-wrapper" style="right: -25%; bottom: -20%; width: 80%; height: 110%;">
+                                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Pizza" class="rounded-circle shadow w-100 h-100" style="object-fit: cover;">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="coupon-card small-coupon green-bg p-4 position-relative overflow-hidden h-100 rounded-4 shadow">
+                                    <div class="position-relative z-1" style="max-width: 75%;">
+                                        <h3 class="fw-bold text-white mb-1 fs-4">Freeship</h3>
+                                        <p class="mb-3 text-white opacity-75 small">Đơn từ 150K</p>
+                                        <div class="code-box d-flex bg-white rounded-pill p-1 shadow-sm mt-2">
+                                            <span class="fw-bold text-dark px-2 font-monospace align-self-center small" id="code3">FREESHIP</span>
+                                            <button class="btn btn-dark btn-sm rounded-pill ms-auto small p-1 px-2" onclick="copyCode('code3', this)"><i class="fas fa-copy"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="position-absolute food-img-wrapper" style="right: -20%; bottom: -15%; width: 75%; height: 90%;">
+                                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Burger" class="rounded-circle shadow w-100 h-100" style="object-fit: cover;">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="coupon-card medium-coupon black-bg p-4 position-relative overflow-hidden h-100 d-flex align-items-center rounded-4 shadow">
+                                    <div class="position-absolute food-img-wrapper" style="left: -5%; top: -20%; width: 35%; height: 140%;">
+                                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Pizza" class="rounded-circle shadow-lg w-100 h-100" style="object-fit: cover;">
+                                    </div>
+                                    <div class="position-relative z-1 ms-auto text-end ps-4" style="width: 70%;">
+                                        <h3 class="fw-bold text-white mb-2 fs-3 lh-sm">Combo Tụ Tập</h3>
+                                        <p class="mb-3 text-white opacity-75" style="font-size: 0.95rem;">Tặng ngay 1 Pepsi 1.5L cho hóa đơn trên 300K</p>
+                                        <div class="code-box d-flex bg-white rounded-pill p-1 shadow-sm ms-auto" style="width: max-content;">
+                                            <span class="fw-bold text-dark px-3 py-1 font-monospace" id="code4">PARTY300</span>
+                                            <button class="btn btn-coupon btn-sm rounded-pill ms-2" onclick="copyCode('code4', this)">Sao chép</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="flash-sale-section py-5 bg-white">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-end mb-4 border-bottom pb-3">
+                    <div>
+                        <h2 class="fw-bold mb-0"><i class="fas fa-bolt text-warning me-2"></i> Giá Sốc Hôm Nay</h2>
+                        <p class="text-muted mb-0 mt-1">Số lượng có hạn, đặt ngay kẻo lỡ!</p>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="food-card position-relative h-100 border border-danger border-opacity-25 rounded-4 shadow-sm">
+                            <span class="badge bg-danger position-absolute top-0 start-0 m-3 p-2 shadow-sm fs-6">-50%</span>
+                            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Pizza" class="food-img rounded-circle shadow-sm mt-2">
+                            <h4 class="fw-bold fs-5 mb-1"><a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Tasty Buzzed Pizza</a></h4>
+                            <p class="text-muted small mb-3">Chỉ áp dụng mua online</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price text-start">
+                                    <del class="text-muted fs-6">198.000đ</del><br>
+                                    <span class="text-danger fw-bold fs-5">99.000đ</span>
+                                </span>
+                                <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-cart-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="food-card position-relative h-100 border border-danger border-opacity-25 rounded-4 shadow-sm">
+                            <span class="badge bg-danger position-absolute top-0 start-0 m-3 p-2 shadow-sm fs-6">-20%</span>
+                            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Burger" class="food-img rounded-circle shadow-sm mt-2">
+                            <h4 class="fw-bold fs-5 mb-1"><a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Beef Burger Classic</a></h4>
+                            <p class="text-muted small mb-3">Siêu phô mai, bò mọng nước</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price text-start">
+                                    <del class="text-muted fs-6">125.000đ</del><br>
+                                    <span class="text-danger fw-bold fs-5">100.000đ</span>
+                                </span>
+                                <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-cart-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="food-card position-relative h-100 border border-danger border-opacity-25 rounded-4 shadow-sm">
+                            <span class="badge bg-danger position-absolute top-0 start-0 m-3 p-2 shadow-sm fs-6">-15%</span>
+                            <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Chicken" class="food-img rounded-circle shadow-sm mt-2">
+                            <h4 class="fw-bold fs-5 mb-1"><a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Gà Rán Sốt Cay Hàn</a></h4>
+                            <p class="text-muted small mb-3">Giòn rụm, cay bùng nổ</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price text-start">
+                                    <del class="text-muted fs-6">100.000đ</del><br>
+                                    <span class="text-danger fw-bold fs-5">85.000đ</span>
+                                </span>
+                                <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-cart-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="food-card position-relative h-100 border border-danger border-opacity-25 rounded-4 shadow-sm">
+                            <span class="badge bg-danger position-absolute top-0 start-0 m-3 p-2 shadow-sm fs-6">-30%</span>
+                            <img src="https://images.unsplash.com/photo-1627042633145-b780d842ba45?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Drink" class="food-img rounded-circle shadow-sm mt-2">
+                            <h4 class="fw-bold fs-5 mb-1"><a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Trà Đào Cam Sả Khổng Lồ</a></h4>
+                            <p class="text-muted small mb-3">Giải nhiệt mùa hè cực đã</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price text-start">
+                                    <del class="text-muted fs-6">50.000đ</del><br>
+                                    <span class="text-danger fw-bold fs-5">35.000đ</span>
+                                </span>
+                                <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-cart-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-5">
+                    <a href="ThucDon.jsp" class="btn btn-outline-custom rounded-pill px-5 py-3 fw-bold fs-6">
+                        <i class="fas fa-utensils me-2"></i> Xem Thêm Menu Chính
+                    </a>
                 </div>
             </div>
         </section>
@@ -339,71 +436,5 @@
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
         <script src="./js/index.js"></script>
-
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const form = document.getElementById('contactForm');
-
-                form.addEventListener('submit', function (event) {
-                    event.preventDefault(); // Ngăn form gửi đi để kiểm tra
-
-                    let isValid = true;
-
-                    // 1. Lấy các phần tử input
-                    const fullname = document.getElementById('fullname');
-                    const email = document.getElementById('email');
-                    const phone = document.getElementById('phone');
-                    const subject = document.getElementById('subject');
-                    const message = document.getElementById('message');
-                    const msgErrorDiv = document.getElementById('error-message');
-
-                    // Regex kiểm tra định dạng
-                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    const phoneRegex = /^(0|\+84)[3|5|7|8|9][0-9]{8}$/;
-
-                    // 2. Reset toàn bộ thông báo lỗi trước mỗi lần bấm Gửi
-                    const inputs = form.querySelectorAll('.form-control');
-                    inputs.forEach(input => input.classList.remove('is-invalid'));
-                    msgErrorDiv.style.display = 'none';
-
-                    // 3. Kiểm tra từng trường hợp và báo lỗi
-                    if (fullname.value.trim() === '') {
-                        fullname.classList.add('is-invalid');
-                        isValid = false;
-                    }
-
-                    if (email.value.trim() === '' || !emailRegex.test(email.value.trim())) {
-                        email.classList.add('is-invalid');
-                        isValid = false;
-                    }
-
-                    if (phone.value.trim() === '' || !phoneRegex.test(phone.value.trim())) {
-                        phone.classList.add('is-invalid');
-                        isValid = false;
-                    }
-
-                    if (subject.value.trim() === '') {
-                        subject.classList.add('is-invalid');
-                        isValid = false;
-                    }
-
-                    if (message.value.trim().length < 10) {
-                        message.classList.add('is-invalid');
-                        msgErrorDiv.style.display = 'block';
-                        isValid = false;
-                    }
-
-                    // 4. Nếu mọi thứ hợp lệ
-                    if (isValid) {
-                        alert('Cảm ơn ' + fullname.value + '! Lời nhắn của bạn đã được gửi thành công.');
-
-                        // Reset form trống trơn
-                        form.reset();
-
-                        // form.submit(); // Bỏ comment dòng này để đẩy dữ liệu lên server (Servlet/JSP)
-                    }
-                });
-            });
-        </script>
     </body>
 </html>
