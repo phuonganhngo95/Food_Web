@@ -418,9 +418,8 @@
 
                     // Nếu hợp lệ
                     if (isValid) {
-                        alert('ĐẶT MÓN THÀNH CÔNG!\nCảm ơn bạn đã đặt món. Quán sẽ chuẩn bị và giao  đến bạn sớm nhất.');
-                        // form.submit(); // Bỏ comment để gửi dữ liệu về Backend
-                        window.location.href = "TrangChu.jsp";
+                        // Chuyển hướng sang trang Thanh Toán Thành Công
+                        window.location.href = "ThanhToanThanhCong.jsp";
                     }
                 });
             });

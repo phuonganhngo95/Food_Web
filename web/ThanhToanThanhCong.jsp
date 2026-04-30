@@ -5,20 +5,82 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Thanh Toán - Foodie</title>
+        <title>Thanh Toán Thành Công - Foodie</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
         <link rel="stylesheet" href="./css/TrangChu.css">
-        <link rel="stylesheet" href="./css/ThanhToan.css"> <!-- Đã trỏ link file CSS mới -->
+
+        <style>
+            .success-section {
+                background-color: #f5f5f5;
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding-top: 80px; /* Bù khoảng cách navbar */
+            }
+
+            .success-card {
+                background: #ffffff;
+                border-radius: 8px;
+                box-shadow: 0 4px 20px rgba(0,0,0,.08);
+                padding: 50px 40px;
+                text-align: center;
+                max-width: 500px;
+                width: 100%;
+            }
+
+            .success-icon-wrap {
+                width: 80px;
+                height: 80px;
+                background-color: #e8f5e9;
+                color: #4caf50;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 40px;
+                margin: 0 auto 20px;
+            }
+
+            .btn-view-order {
+                background-color: var(--primary-color);
+                color: white;
+                border: none;
+                padding: 12px 30px;
+                border-radius: 4px;
+                font-weight: 600;
+                transition: 0.3s;
+            }
+
+            .btn-view-order:hover {
+                background-color: var(--primary-hover);
+                color: white;
+                transform: translateY(-2px);
+            }
+
+            .btn-home {
+                background-color: transparent;
+                color: var(--text-color);
+                border: 1px solid #ddd;
+                padding: 12px 30px;
+                border-radius: 4px;
+                font-weight: 500;
+                transition: 0.3s;
+            }
+
+            .btn-home:hover {
+                background-color: #f8f9fa;
+            }
+        </style>
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
+        <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container align-items-center">
                 <a class="navbar-brand logo" href="./TrangChu.jsp">
                     <img src="./img/logo.png" alt="Logo" style="height: 80px; width: auto; object-fit: contain; transition: transform 0.3s ease;">
@@ -46,15 +108,21 @@
 
                         <div class="dropdown ms-2 position-relative" id="cartDropdownContainer">
                             <%
-                                boolean isLogged = false;       
-                                boolean hasItemsInCart = false; 
-                                int cartSize = hasItemsInCart ? 3 : 0; 
+                                // =================================================================
+                                // MOCK DATA (Dùng để test giao diện khi chưa có Backend)
+                                // Hướng dẫn test: Đổi giá trị true/false ở 2 biến dưới đây để xem 3 trạng thái
+                                // =================================================================
+        
+                                boolean isLogged = false;       // Đổi thành false để xem trạng thái CHƯA ĐĂNG NHẬP
+                                boolean hasItemsInCart = false; // Đổi thành false để xem trạng thái GIỎ HÀNG TRỐNG
+        
+                                int cartSize = hasItemsInCart ? 3 : 0; // Số lượng hiển thị trên icon (Giả sử là 3 món)
                             %>
 
                             <a href="#" class="text-dark fs-4 text-decoration-none icon-action d-flex align-items-center justify-content-center" 
                                id="cartDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" 
                                style="width: 40px; height: 40px; border-radius: 50%;">
-                                <i class="fas fa-shopping-cart text-primary-custom"></i> 
+                                <i class="fas fa-shopping-cart"></i> 
 
                                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-badge" style="font-size: 0.6rem;">
                                     <%= isLogged ? cartSize : 0 %>
@@ -62,6 +130,7 @@
                             </a>
 
                             <ul class="dropdown-menu dropdown-menu-end border-0 cart-dropdown-menu p-3 shadow" aria-labelledby="cartDropdown" style="width: 350px;">
+
                                 <% if (!isLogged) { %>
                                 <div class="cart-empty-guest text-center py-4">
                                     <i class="fas fa-shopping-basket fs-1 text-muted mb-3 d-block"></i>
@@ -71,12 +140,14 @@
                                         <a href="DangKi.jsp" class="btn btn-custom btn-sm w-50 text-decoration-none">Đăng ký</a>
                                     </div>
                                 </div>
+
                                 <% } else if (!hasItemsInCart) { %>
                                 <div class="cart-empty-user text-center py-4">
                                     <i class="fas fa-shopping-basket fs-1 text-muted mb-3 d-block"></i>
                                     <p class="text-muted mb-3">Giỏ hàng của bạn đang trống!</p>
                                     <a href="#menu" class="btn btn-custom w-100 text-decoration-none">Đặt món ngay</a>
                                 </div>
+
                                 <% } else { %>
                                 <div class="cart-has-items"> 
                                     <h6 class="fw-bold mb-3 border-bottom pb-2">Giỏ hàng của bạn</h6>
@@ -91,6 +162,15 @@
                                             <button class="btn btn-link text-danger p-0 ms-2"><i class="fas fa-trash-alt"></i></button>
                                         </div>
 
+                                        <div class="d-flex align-items-center mb-3">
+                                            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Pizza" class="rounded" style="width: 50px; height: 50px; object-fit: cover;">
+                                            <div class="ms-3 flex-grow-1">
+                                                <h6 class="mb-0 fs-6 fw-bold">Tasty Buzzed Pizza</h6>
+                                                <span class="text-primary-custom fw-bold">99.000đ</span> <span class="text-muted small">x 2</span>
+                                            </div>
+                                            <button class="btn btn-link text-danger p-0 ms-2"><i class="fas fa-trash-alt"></i></button>
+                                        </div>
+
                                     </div>
                                     <div class="d-flex justify-content-between border-top pt-2 mb-3 fw-bold">
                                         <span>Tổng cộng:</span>
@@ -99,6 +179,7 @@
                                     <a href="ThanhToan.jsp" class="btn btn-custom w-100 text-center text-decoration-none">Thanh toán ngay</a>
                                 </div>
                                 <% } %>
+
                             </ul>
                         </div>
 
@@ -111,21 +192,27 @@
                                 <li><a class="dropdown-item py-2 fw-semibold" href="./DangNhap.jsp"><i class="fas fa-sign-in-alt me-2 text-muted"></i> Đăng nhập</a></li>
                                 <li><a class="dropdown-item py-2 fw-semibold" href="./DangKi.jsp"><i class="fas fa-user-plus me-2 text-muted"></i> Đăng ký</a></li>
                             </ul>
+
                             <% } else { %>
                             <a href="#" class="text-dark text-decoration-none d-flex align-items-center justify-content-center border border-2 border-primary rounded-circle" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="width: 42px; height: 42px; padding: 2px; border-color: var(--primary-color) !important;">
                                 <img src="https://ui-avatars.com/api/?name=Ngo+Phuong+Anh&background=ea6a47&color=fff" alt="Avatar" class="rounded-circle w-100 h-100" style="object-fit: cover;">
                             </a>
+
                             <ul class="dropdown-menu dropdown-menu-center border-0 shadow-lg profile-dropdown" aria-labelledby="accountDropdown">
+
                                 <div class="profile-header mx-2 my-1 p-2 rounded d-flex align-items-center">
                                     <img src="https://ui-avatars.com/api/?name=Ngo+Phuong+Anh&background=ea6a47&color=fff" alt="Avatar" class="rounded-circle" style="width: 40px; height: 40px;">
                                     <div class="ms-3">
                                         <h6 class="mb-0 fw-bold fs-6">Ngô Phương Anh</h6>
                                     </div>
                                 </div>
+
                                 <div class="px-2 mb-2">
                                     <a href="#" class="btn w-100 fw-bold text-primary-custom" style="background-color: var(--bg-color); font-size: 0.9rem;">Xem tất cả trang cá nhân</a>
                                 </div>
+
                                 <li><hr class="dropdown-divider mb-2"></li>
+
                                 <li class="px-2">
                                     <a class="dropdown-item profile-item d-flex align-items-center" href="#">
                                         <div class="icon-wrap"><i class="fas fa-clipboard-list"></i></div>
@@ -208,146 +295,44 @@
                     <div style="width: 18px; height: 40px; background-color: var(--primary-color);"></div>
                 </div>
             </div>
-        </div>    
+        </div> 
 
-        <!-- ================= CHECKOUT SECTION ================= -->
-        <section class="checkout-section">
-            <div class="container">
+        <!-- ================= SUCCESS SECTION ================= -->
+        <section class="success-section">
+            <div class="container d-flex justify-content-center">
+                <div class="success-card">
+                    <div class="success-icon-wrap">
+                        <i class="fas fa-check"></i>
+                    </div>
 
-                <form id="checkoutForm" action="./XyLyThanhToan" method="POST" novalidate>
+                    <h2 class="fw-bold mb-3" style="font-family: var(--ff-heading); color: #333;">Thanh toán thành công!</h2>
+                    <p class="text-muted mb-4">Cảm ơn bạn đã đặt món tại Fast Food. Đơn hàng của bạn đang được chuẩn bị và sẽ giao đến trong thời gian sớm nhất.</p>
 
-                    <!-- Địa Chỉ Nhận Hàng -->
-                    <div class="checkout-card p-0 overflow-hidden">
-                        <div class="address-border"></div>
-                        <div class="px-4 pb-4">
-                            <div class="section-title fw-bold">
-                                <i class="fas fa-map-marker-alt me-2 fs-5"></i> Địa Chỉ Nhận Đơn
-                            </div>
-
-                            <div class="row g-3 px-3">
-                                <div class="col-md-6">
-                                    <label class="form-label small fw-semibold text-muted">Họ và tên <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="fullname" placeholder="Nhập họ và tên" required>
-                                    <div class="invalid-feedback">Vui lòng nhập họ và tên.</div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label small fw-semibold text-muted">Số điện thoại <span class="text-danger">*</span></label>
-                                    <input type="tel" class="form-control" id="phone" placeholder="Nhập số điện thoại" required>
-                                    <div class="invalid-feedback">Vui lòng nhập số điện thoại hợp lệ.</div>
-                                </div>
-                                <div class="col-12">
-                                    <label class="form-label small fw-semibold text-muted">Địa chỉ cụ thể <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="address" placeholder="Ví dụ: Tòa nhà, Tên đường, Phường/Xã..." required>
-                                    <div class="invalid-feedback">Vui lòng nhập địa chỉ.</div>
-                                </div>
-                            </div>
+                    <div class="bg-light rounded p-3 mb-4 text-start">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-muted small">Mã đơn hàng:</span>
+                            <span class="fw-bold text-dark">#FD-89231A</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-muted small">Phương thức:</span>
+                            <span class="text-dark fw-medium small">Thanh toán khi nhận hàng (COD)</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span class="text-muted small">Tổng tiền:</span>
+                            <span class="fw-bold text-primary-custom">318.000đ</span>
                         </div>
                     </div>
 
-                    <!-- Danh Sách Sản Phẩm -->
-                    <div class="checkout-card p-0">
-                        <div class="cart-header-row d-none d-md-flex row m-0 align-items-center bg-light">
-                            <div class="col-6 fw-bold text-dark fs-6">Sản phẩm</div>
-                            <div class="col-2 text-center">Đơn giá</div>
-                            <div class="col-2 text-center">Số lượng</div>
-                            <div class="col-2 text-end">Thành tiền</div>
-                        </div>
-
-                        <!-- Item 1 -->
-                        <div class="cart-item-row row m-0 align-items-center">
-                            <div class="col-md-6 d-flex align-items-center mb-3 mb-md-0">
-                                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=150&q=80" alt="Burger" class="item-img rounded">
-                                <div class="ms-3">
-                                    <span class="fw-medium text-dark d-block text-truncate" style="max-width: 250px;">Beef Burger Classic</span>
-                                    <span class="text-muted small">Phân loại: Kèm Phô Mai, Nước</span>
-                                </div>
-                            </div>
-                            <div class="col-4 col-md-2 text-md-center text-muted">125.000đ</div>
-                            <div class="col-4 col-md-2 text-center text-muted">1</div>
-                            <div class="col-4 col-md-2 text-end text-dark fw-medium">125.000đ</div>
-                        </div>
-
-                        <!-- Item 2 -->
-                        <div class="cart-item-row row m-0 align-items-center">
-                            <div class="col-md-6 d-flex align-items-center mb-3 mb-md-0">
-                                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=150&q=80" alt="Pizza" class="item-img rounded">
-                                <div class="ms-3">
-                                    <span class="fw-medium text-dark d-block text-truncate" style="max-width: 250px;">Tasty Buzzed Pizza</span>
-                                    <span class="text-muted small">Phân loại: Đế mỏng</span>
-                                </div>
-                            </div>
-                            <div class="col-4 col-md-2 text-md-center text-muted">99.000đ</div>
-                            <div class="col-4 col-md-2 text-center text-muted">2</div>
-                            <div class="col-4 col-md-2 text-end text-dark fw-medium">198.000đ</div>
-                        </div>
-
-                        <!-- Note & Shipping -->
-                        <div class="border-top px-4 py-3 bg-light d-flex flex-wrap align-items-center">
-                            <div class="col-md-5 d-flex align-items-center mb-3 mb-md-0">
-                                <span class="text-nowrap me-3 fw-medium">Lời nhắn:</span>
-                                <input type="text" class="form-control" placeholder="Lưu ý cho quán...">
-                            </div>
-                            <div class="col-md-7 d-flex justify-content-md-end align-items-center text-muted small">
-                                <i class="fas fa-truck text-success me-2"></i> Đơn vị vận chuyển: <span class="text-dark fw-medium ms-1">Giao Hỏa Tốc</span>
-                                <span class="ms-3 text-dark fw-medium">15.000đ</span>
-                            </div>
-                        </div>
+                    <div class="d-grid gap-3">
+                        <!-- Gắn link trỏ tới trang Quản lý tài khoản (phần Đơn mua) -->
+                        <a href="TrangCaNhan.jsp" class="btn btn-view-order text-decoration-none">
+                            <i class="fas fa-clipboard-list me-2"></i> Xem đơn hàng
+                        </a>
+                        <a href="TrangChu.jsp" class="btn btn-home text-decoration-none">
+                            Quay lại Trang chủ
+                        </a>
                     </div>
-
-                    <!-- Phương Thức Thanh Toán -->
-                    <div class="checkout-card">
-                        <div class="d-flex align-items-center mb-4">
-                            <h5 class="fw-medium text-dark mb-0 me-4">Phương thức thanh toán</h5>
-                            <div class="d-flex gap-3">
-                                <div>
-                                    <input type="radio" name="paymentMethod" id="payCOD" class="d-none payment-method-input" checked>
-                                    <label class="payment-method-box mb-0 text-center fw-medium" for="payCOD">
-                                        Thanh toán khi nhận đơn
-                                    </label>
-                                </div>
-                                <div>
-                                    <input type="radio" name="paymentMethod" id="payCard" class="d-none payment-method-input">
-                                    <label class="payment-method-box mb-0 text-center fw-medium" for="payCard">
-                                        Chuyển khoản Ngân hàng
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="bg-light p-4 rounded-1 mb-4 border">
-                            <p class="mb-0 text-muted small">Phí thu hộ: ₫0 VNĐ. Thanh toán bằng tiền mặt khi nhận đơn.</p>
-                        </div>
-
-                        <div class="d-flex justify-content-end border-top pt-4">
-                            <div style="min-width: 300px;">
-                                <div class="d-flex justify-content-between mb-3 text-muted small">
-                                    <span>Tổng tiền đơn </span>
-                                    <span>323.000đ</span>
-                                </div>
-                                <div class="d-flex justify-content-between mb-3 text-muted small">
-                                    <span>Phí vận chuyển</span>
-                                    <span>15.000đ</span>
-                                </div>
-                                <div class="d-flex justify-content-between mb-3 text-muted small">
-                                    <span>Tổng cộng Voucher giảm giá:</span>
-                                    <span class="text-primary-custom">-20.000đ</span>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center mb-4">
-                                    <span class="text-muted fw-medium">Tổng thanh toán</span>
-                                    <span class="fw-bold text-primary-custom" style="font-size: 1.75rem;">318.000đ</span>
-                                </div>
-
-                                <hr class="mb-4 border-light">
-
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="small text-muted w-50">Nhấn "Đặt ngay" đồng nghĩa với việc bạn đồng ý tuân theo <a href="#" class="text-primary-custom text-decoration-none">Điều khoản Foodie</a></span>
-                                    <button type="submit" class="btn btn-order fw-bold shadow-sm">Đặt ngay</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </form>
+                </div>
             </div>
         </section>
 
@@ -380,49 +365,5 @@
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
         <script src="./js/index.js"></script>
-
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const form = document.getElementById('checkoutForm');
-
-                form.addEventListener('submit', function (event) {
-                    event.preventDefault();
-
-                    let isValid = true;
-                    const fullname = document.getElementById('fullname');
-                    const phone = document.getElementById('phone');
-                    const address = document.getElementById('address');
-                    const phoneRegex = /^(0|\+84)[3|5|7|8|9][0-9]{8}$/;
-
-                    // Xóa lỗi cũ
-                    const inputs = form.querySelectorAll('.form-control');
-                    inputs.forEach(input => input.classList.remove('is-invalid'));
-
-                    // Check Tên
-                    if (fullname.value.trim() === '') {
-                        fullname.classList.add('is-invalid');
-                        isValid = false;
-                    }
-
-                    // Check SĐT
-                    if (phone.value.trim() === '' || !phoneRegex.test(phone.value.trim())) {
-                        phone.classList.add('is-invalid');
-                        isValid = false;
-                    }
-
-                    // Check Địa chỉ
-                    if (address.value.trim() === '') {
-                        address.classList.add('is-invalid');
-                        isValid = false;
-                    }
-
-                    // Nếu hợp lệ
-                    if (isValid) {
-                        // Chuyển hướng sang trang Thanh Toán Thành Công
-                        window.location.href = "ThanhToanThanhCong.jsp";
-                    }
-                });
-            });
-        </script>
     </body>
 </html>

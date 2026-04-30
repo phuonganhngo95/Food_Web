@@ -62,7 +62,6 @@ body {
     color: #fff;
 }
 
-/* Box Tùy Chọn (Topping / Nước) */
 .option-box {
     background-color: #fff;
     border: 1px solid #eaeaea;
@@ -114,7 +113,6 @@ body {
     color: var(--primary-color);
 }
 
-/* Khu vực Số lượng & Nút Thêm vào giỏ */
 .qty-btn {
     background-color: #f4f5f7;
     color: var(--primary-color);
@@ -165,7 +163,6 @@ body {
     box-shadow: 0 8px 20px rgba(234, 106, 71, 0.3);
 }
 
-/* Tùy chỉnh màu sắc Checkbox cho Foodie */
 .custom-checkbox {
     cursor: pointer;
     width: 1.2em;
@@ -177,7 +174,6 @@ body {
     background-color: var(--primary-color) !important;
 }
 
-/* Hiệu ứng khi rê chuột vào cả dòng */
 .option-item {
     cursor: pointer;
 }

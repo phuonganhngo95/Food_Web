@@ -1,7 +1,3 @@
-/* ==========================================================================
-   CHECKOUT PAGE STYLES - SHOPEE STYLE
-   ========================================================================== */
-
 .checkout-section {
     background-color: #f5f5f5;
     padding: 130px 0 80px 0;
@@ -16,7 +12,6 @@
     margin-bottom: 20px;
 }
 
-/* Border phong cách bao thư Shopee */
 .address-border {
     height: 3px;
     width: 100%;
@@ -34,7 +29,6 @@
     align-items: center;
 }
 
-/* Custom Input & Radio */
 .form-control {
     border-radius: 2px;
     border: 1px solid #e0e0e0;
@@ -63,7 +57,7 @@
     border-color: var(--primary-color);
     color: var(--primary-color);
 }
-/* Dấu tick đỏ ở góc nút thanh toán */
+
 .payment-method-input:checked + .payment-method-box::after {
     content: "";
     position: absolute;
@@ -74,7 +68,7 @@
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path fill="%23ea6a47" d="M12 12H0L12 0v12z"/><path fill="white" d="M5.5 8.5L3 6l1-1 1.5 1.5L9 3l1 1-4.5 4.5z"/></svg>');
 }
 
-/* Danh sách sản phẩm mua hàng */
+
 .cart-header-row {
     padding: 15px 30px;
     font-size: 0.875rem;
@@ -113,7 +107,6 @@
     color: white;
 }
 
-/* Tắt hiệu ứng validation chậm */
 .form-control.is-invalid {
     transition: none !important;
 }

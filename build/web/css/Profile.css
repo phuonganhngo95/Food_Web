@@ -7,7 +7,6 @@ body {
     padding-bottom: 80px;
 }
 
-/* Sidebar Menu */
 .profile-sidebar .list-group-item {
     border: none;
     padding: 15px 20px;
@@ -21,17 +20,16 @@ body {
 .profile-sidebar .list-group-item:hover {
     background-color: #f8f9fa;
     color: var(--primary-color);
-    transform: translateX(5px); /* Hiệu ứng dịch nhẹ sang phải khi di chuột */
+    transform: translateX(5px); 
 }
 
 .profile-sidebar .list-group-item.active {
-    background-color: #fff0ed; /* Màu nền cam nhạt */
+    background-color: #fff0ed; 
     color: var(--primary-color);
     border-left: 4px solid var(--primary-color);
     font-weight: 700;
 }
 
-/* Form Styling */
 .form-control {
     background-color: #f8f9fa;
     border: 1px solid #e0e0e0;
@@ -44,7 +42,6 @@ body {
     box-shadow: 0 0 0 0.25rem rgba(234, 106, 71, 0.25);
 }
 
-/* Nút thay đổi Avatar */
 .btn-primary-custom {
     background-color: var(--primary-color);
     border: none;
@@ -57,11 +54,10 @@ body {
 }
 
 .theme-sidebar {
-    background-color: var(--primary-color, #ea6a47) !important; /* Cam chủ đạo */
+    background-color: var(--primary-color, #ea6a47) !important; 
     border-radius: 12px;
 }
 
-/* Đổi màu sọc trang trí sang trắng mờ để nổi bật trên nền cam */
 .theme-sidebar .red-stripes {
     position: absolute;
     top: 0;
@@ -74,12 +70,11 @@ body {
 .theme-sidebar .red-stripes div {
     width: 14px;
     height: 40px;
-    background-color: rgba(255, 255, 255, 0.3); /* Sọc trắng mờ */
+    background-color: rgba(255, 255, 255, 0.3); 
 }
 
-/* Chỉnh lại màu chữ của menu trên nền cam */
 .theme-sidebar .profile-sidebar .text-secondary {
-    color: rgba(255, 255, 255, 0.7) !important; /* Chuyển class xám mặc định thành trắng mờ */
+    color: rgba(255, 255, 255, 0.7) !important; 
 }
 
 .theme-sidebar .profile-sidebar .list-group-item {
@@ -101,7 +96,6 @@ body {
     font-weight: 600;
 }
 
-/* Giao diện Form Line (Chỉ có viền dưới) */
 .form-control-line {
     background-color: transparent !important;
     border: none;
@@ -116,10 +110,9 @@ body {
 }
 
 .form-control-line:focus {
-    border-bottom: 2px solid #ea6a47; /* Đổi viền khi focus thành màu cam */
+    border-bottom: 2px solid #ea6a47; 
 }
 
-/* Nút Submit màu chủ đạo */
 .btn-red-custom {
     background-color: #ea6a47;
     border: none;

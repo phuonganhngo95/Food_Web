@@ -1,8 +1,3 @@
-/* ==========================================================================
-   CSS DÀNH RIÊNG CHO TRANG KHUYẾN MÃI (KhuyenMai.css)
-   ========================================================================== */
-
-/* 1. HERO BANNER KHUYẾN MÃI */
 .promo-hero {
     background: linear-gradient(135deg, #1a1a1a 0%, #3d0000 100%);
     position: relative;
@@ -37,7 +32,7 @@
     position: relative;
     border: 1px solid #f0f0f0;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-bottom: 24px; /* <-- Thêm dòng này để các vé cách nhau ra */
+    margin-bottom: 24px; 
 }
 
 .voucher-card:hover {
@@ -45,7 +40,6 @@
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
-/* Phần bên trái chứa Mức Giảm (Màu nền) */
 .voucher-left {
     width: 30%;
     background-color: var(--primary-color);
@@ -60,15 +54,14 @@
     position: relative;
 }
 
-/* Hiệu ứng đục lỗ (Cắt xén hình tròn ở mép) */
 .voucher-left::before,
 .voucher-left::after {
     content: '';
     position: absolute;
-    right: -12px; /* Dịch vào đúng đường line dashed */
+    right: -12px; 
     width: 24px;
     height: 24px;
-    background-color: #f8f9fa; /* Màu phải khớp với background-color của <body> */
+    background-color: #f8f9fa; 
     border-radius: 50%;
     z-index: 5;
     box-shadow: inset 1px 0 0 rgba(0,0,0,0.05);
@@ -81,12 +74,10 @@
     bottom: -12px;
 }
 
-/* Voucher Freeship thì màu Xanh lá */
 .voucher-freeship .voucher-left {
     background-color: #10b981;
 }
 
-/* Phần bên phải chứa Nội dung chi tiết */
 .voucher-right {
     width: 70%;
     padding: 20px;
@@ -95,7 +86,6 @@
     justify-content: center;
 }
 
-/* Nút Lưu Mã */
 .copy-btn {
     background-color: #ffebe6;
     color: var(--primary-color);
