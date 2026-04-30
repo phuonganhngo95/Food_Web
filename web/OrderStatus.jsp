@@ -5,78 +5,16 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Thanh Toán Thành Công - Foodie</title>
+        <title>Tình Trạng Đơn Hàng - Foodie</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
         <link rel="stylesheet" href="./css/TrangChu.css">
-
-        <style>
-            .success-section {
-                background-color: #f5f5f5;
-                min-height: 100vh;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding-top: 80px; /* Bù khoảng cách navbar */
-            }
-
-            .success-card {
-                background: #ffffff;
-                border-radius: 8px;
-                box-shadow: 0 4px 20px rgba(0,0,0,.08);
-                padding: 50px 40px;
-                text-align: center;
-                max-width: 500px;
-                width: 100%;
-            }
-
-            .success-icon-wrap {
-                width: 80px;
-                height: 80px;
-                background-color: #e8f5e9;
-                color: #4caf50;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 40px;
-                margin: 0 auto 20px;
-            }
-
-            .btn-view-order {
-                background-color: var(--primary-color);
-                color: white;
-                border: none;
-                padding: 12px 30px;
-                border-radius: 4px;
-                font-weight: 600;
-                transition: 0.3s;
-            }
-
-            .btn-view-order:hover {
-                background-color: var(--primary-hover);
-                color: white;
-                transform: translateY(-2px);
-            }
-
-            .btn-home {
-                background-color: transparent;
-                color: var(--text-color);
-                border: 1px solid #ddd;
-                padding: 12px 30px;
-                border-radius: 4px;
-                font-weight: 500;
-                transition: 0.3s;
-            }
-
-            .btn-home:hover {
-                background-color: #f8f9fa;
-            }
-        </style>
+        <link rel="stylesheet" href="./css/OrderStatus.css">
     </head>
 
     <body>
@@ -295,44 +233,85 @@
                     <div style="width: 18px; height: 40px; background-color: var(--primary-color);"></div>
                 </div>
             </div>
-        </div> 
+        </div>   
 
-        <!-- ================= SUCCESS SECTION ================= -->
-        <section class="success-section">
-            <div class="container d-flex justify-content-center">
-                <div class="success-card">
-                    <div class="success-icon-wrap">
-                        <i class="fas fa-check"></i>
-                    </div>
+        <!-- ================= ORDER TABLE SECTION ================= -->
+        <section class="order-status-section">
+            <div class="container mb-5">
 
-                    <h2 class="fw-bold mb-3" style="font-family: var(--ff-heading); color: #333;">Thanh toán thành công!</h2>
-                    <p class="text-muted mb-4">Cảm ơn bạn đã đặt món tại Fast Food. Đơn hàng của bạn đang được chuẩn bị và sẽ giao đến trong thời gian sớm nhất.</p>
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="fw-bold mb-0 text-dark">Trạng thái đơn hàng</h3>
+                    <a href="TrangChu.jsp" class="text-muted text-decoration-none hover-primary fw-medium">
+                        <i class="fas fa-chevron-left me-1"></i> Quay lại trang chủ
+                    </a>
+                </div>
 
-                    <div class="bg-light rounded p-3 mb-4 text-start">
-                        <div class="d-flex justify-content-between mb-2">
-                            <span class="text-muted small">Mã đơn hàng:</span>
-                            <span class="fw-bold text-dark">#FD-89231A</span>
-                        </div>
-                        <div class="d-flex justify-content-between mb-2">
-                            <span class="text-muted small">Phương thức:</span>
-                            <span class="text-dark fw-medium small">Thanh toán khi nhận hàng (COD)</span>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <span class="text-muted small">Tổng tiền:</span>
-                            <span class="fw-bold text-primary-custom">318.000đ</span>
-                        </div>
-                    </div>
+                <div class="bg-white shadow-sm border rounded p-0 overflow-hidden">
+                    <div class="table-responsive">
+                        <table class="table table-bordered custom-order-table mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th scope="col" style="width: 30%;">Mã đơn hàng</th>
+                                    <th scope="col" style="width: 12%;">Ngày đặt</th>
+                                    <th scope="col" style="width: 18%;">Chi tiết món</th>
+                                    <th scope="col" style="width: 20%;">Giá tiền</th>
+                                    <th scope="col" style="width: 12%;">Trạng thái</th>
+                                    <th scope="col" style="width: 8%; text-align: center;">Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Dòng 1: Đã hủy (Cancelled) -->
+                                <tr>
+                                    <td class="fw-bold text-dark">2460ed41-6323-4065-9b37-3d1668050639</td>
+                                    <td>2026-04-30</td>
+                                    <td>Bánh</td>
+                                    <td>
+                                        <div>Số lượng: 1</div>
+                                        <div>Đơn giá: 120000.0</div>
+                                        <div>Tổng tiền: 120000.0</div>
+                                    </td>
+                                    <td>Đã hủy</td>
+                                    <td class="text-center">
+                                        <button class="btn btn-cancel disabled-btn" disabled>Hủy đơn</button>
+                                    </td>
+                                </tr>
 
-                    <div class="d-grid gap-3">
-                        <!-- Gắn link trỏ tới trang Quản lý tài khoản (phần Đơn mua) -->
-                        <a href="./OrderStatus.jsp" class="btn btn-view-order text-decoration-none">
-                            <i class="fas fa-clipboard-list me-2"></i> Xem đơn hàng
-                        </a>
-                        <a href="TrangChu.jsp" class="btn btn-home text-decoration-none">
-                            Quay lại Trang chủ
-                        </a>
+                                <!-- Dòng 2: Đang xử lý (In progress) -->
+                                <tr>
+                                    <td class="fw-bold text-dark">65e46ae9-b4ca-477e-8966-b9943e04c7ac</td>
+                                    <td>2026-04-30</td>
+                                    <td>Bánh</td>
+                                    <td>
+                                        <div>Số lượng: 1</div>
+                                        <div>Đơn giá: 120000.0</div>
+                                        <div>Tổng tiền: 120000.0</div>
+                                    </td>
+                                    <td>Đang xử lý</td>
+                                    <td class="text-center">
+                                        <button class="btn btn-cancel active-btn">Hủy đơn</button>
+                                    </td>
+                                </tr>
+
+                                <!-- Dòng 3: Đang xử lý (In progress) -->
+                                <tr>
+                                    <td class="fw-bold text-dark">735e7744-f83f-41e0-867f-da0756d17f44</td>
+                                    <td>2026-04-30</td>
+                                    <td>Bánh</td>
+                                    <td>
+                                        <div>Số lượng: 1</div>
+                                        <div>Đơn giá: 120000.0</div>
+                                        <div>Tổng tiền: 120000.0</div>
+                                    </td>
+                                    <td>Đang xử lý</td>
+                                    <td class="text-center">
+                                        <button class="btn btn-cancel active-btn">Hủy đơn</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
+
             </div>
         </section>
 

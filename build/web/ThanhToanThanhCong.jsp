@@ -325,7 +325,7 @@
 
                     <div class="d-grid gap-3">
                         <!-- Gắn link trỏ tới trang Quản lý tài khoản (phần Đơn mua) -->
-                        <a href="TrangCaNhan.jsp" class="btn btn-view-order text-decoration-none">
+                        <a href="./OrderStatus.jsp" class="btn btn-view-order text-decoration-none">
                             <i class="fas fa-clipboard-list me-2"></i> Xem đơn hàng
                         </a>
                         <a href="TrangChu.jsp" class="btn btn-home text-decoration-none">
