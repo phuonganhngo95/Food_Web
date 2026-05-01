@@ -171,7 +171,6 @@
    ========================================================================== */
 .custom-pagination .page-item .page-link {
     background-color: #ffffff;
-    /* Đổi màu số và mũi tên sang cam đỏ */
     color: var(--primary-color);
     border: 1px solid #dee2e6;
     margin: 0;

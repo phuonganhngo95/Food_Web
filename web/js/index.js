@@ -1,270 +1,20 @@
-//$(document).ready(function () {
-//    $('.popular-food-slider').slick({
-//        infinite: true,
-//        slidesToShow: 4,
-//        slidesToScroll: 1,
-//        autoplay: true,
-//        autoplaySpeed: 3000,
-//        arrows: true,
-//        prevArrow: $('.custom-prev'),
-//        nextArrow: $('.custom-next'),
-//        dots: false,
-//        responsive: [
-//            {breakpoint: 1024, settings: {slidesToShow: 3, }},
-//            {breakpoint: 768, settings: {slidesToShow: 2, }},
-//            {breakpoint: 576, settings: {slidesToShow: 1, }}
-//        ]
-//    });
-//
-//    $('.testimonial-slider').slick({
-//        infinite: true,
-//        slidesToShow: 3,
-//        slidesToScroll: 1,
-//        autoplay: true,
-//        autoplaySpeed: 4000,
-//        arrows: false,
-//        dots: true,
-//        responsive: [
-//            {breakpoint: 1024, settings: {slidesToShow: 2, }},
-//            {breakpoint: 768, settings: {slidesToShow: 1, }}
-//        ]
-//    });
-//
-//    $('.menu-slider').slick({
-//        infinite: true,
-//        slidesToShow: 4,
-//        slidesToScroll: 1,
-//        autoplay: true,
-//        autoplaySpeed: 3000,
-//        arrows: true,
-//        prevArrow: $('.menu-prev'),
-//        nextArrow: $('.menu-next'),
-//        dots: false,
-//        responsive: [
-//            {breakpoint: 1024, settings: {slidesToShow: 3, }},
-//            {breakpoint: 768, settings: {slidesToShow: 2, }},
-//            {breakpoint: 576, settings: {slidesToShow: 1, }}
-//        ]
-//    });
-//});
-//
-//document.addEventListener("DOMContentLoaded", function () {
-//    const backTopBtn = document.querySelector("[data-back-top-btn]");
-//    if (backTopBtn) {
-//        window.addEventListener("scroll", function () {
-//            if (window.scrollY >= 400) {
-//                backTopBtn.classList.add("active");
-//            } else {
-//                backTopBtn.classList.remove("active");
-//            }
-//        });
-//    }
-//
-//    const paginationContainer = document.getElementById('pagination');
-//
-//    if (paginationContainer) {
-//        const filterBtns = document.querySelectorAll('.filter-btn');
-//        const menuItems = Array.from(document.querySelectorAll('.food-item'));
-//
-//        const itemsPerPage = 15;
-//        let currentPage = 1;
-//        let currentCategory = 'all';
-//
-//        function updateView() {
-//            let filteredItems = menuItems.filter(item => {
-//                return currentCategory === 'all' || item.getAttribute('data-category') === currentCategory;
-//            });
-//
-//            const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
-//            if (currentPage > totalPages && totalPages > 0)
-//                currentPage = totalPages;
-//
-//            const startIndex = (currentPage - 1) * itemsPerPage;
-//            const endIndex = startIndex + itemsPerPage;
-//
-//            menuItems.forEach(item => {
-//                item.classList.remove('show');
-//                item.style.display = 'none';
-//            });
-//
-//            const itemsToShow = filteredItems.slice(startIndex, endIndex);
-//            itemsToShow.forEach(item => {
-//                item.style.display = 'block';
-//                setTimeout(() => {
-//                    item.classList.add('show');
-//                }, 10);
-//            });
-//
-//            renderPagination(totalPages);
-//        }
-//
-//        function renderPagination(totalPages) {
-//            paginationContainer.innerHTML = '';
-//
-//            if (totalPages <= 1)
-//                return;
-//
-//            let prevLi = document.createElement('li');
-//            prevLi.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
-//            prevLi.innerHTML = `<a class="page-link" href="#" aria-label="Previous">&laquo;</a>`;
-//            prevLi.addEventListener('click', (e) => {
-//                e.preventDefault();
-//                if (currentPage > 1) {
-//                    currentPage--;
-//                    updateView();
-//                    scrollToMenu();
-//                }
-//            });
-//            paginationContainer.appendChild(prevLi);
-//
-//            for (let i = 1; i <= totalPages; i++) {
-//                let li = document.createElement('li');
-//                li.className = `page-item ${currentPage === i ? 'active' : ''}`;
-//                li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
-//                li.addEventListener('click', (e) => {
-//                    e.preventDefault();
-//                    currentPage = i;
-//                    updateView();
-//                    scrollToMenu();
-//                });
-//                paginationContainer.appendChild(li);
-//            }
-//
-//            let nextLi = document.createElement('li');
-//            nextLi.className = `page-item ${currentPage === totalPages ? 'disabled' : ''}`;
-//            nextLi.innerHTML = `<a class="page-link" href="#" aria-label="Next">&raquo;</a>`;
-//            nextLi.addEventListener('click', (e) => {
-//                e.preventDefault();
-//                if (currentPage < totalPages) {
-//                    currentPage++;
-//                    updateView();
-//                    scrollToMenu();
-//                }
-//            });
-//            paginationContainer.appendChild(nextLi);
-//        }
-//
-//        function scrollToMenu() {
-//            const menuSection = document.getElementById('menu');
-//            if (menuSection) {
-//                const offset = 100;
-//                const bodyRect = document.body.getBoundingClientRect().top;
-//                const elementRect = menuSection.getBoundingClientRect().top;
-//                const offsetPosition = (elementRect - bodyRect) - offset;
-//
-//                window.scrollTo({
-//                    top: offsetPosition,
-//                    behavior: "smooth"
-//                });
-//            }
-//        }
-//
-//        filterBtns.forEach(btn => {
-//            btn.addEventListener('click', function () {
-//                filterBtns.forEach(b => b.classList.remove('active'));
-//                this.classList.add('active');
-//
-//                currentCategory = this.getAttribute('data-filter');
-//                currentPage = 1;
-//                updateView();
-//            });
-//        });
-//
-//        updateView();
-//    }
-//
-//    // --- XỬ LÝ BẬT POPUP GIỎ HÀNG ---
-//    const addCartBtns = document.querySelectorAll('.btn-add-cart');
-//    const cartDropdownToggle = document.getElementById('cartDropdown');
-//
-//    if (addCartBtns.length > 0 && cartDropdownToggle) {
-//        // Khởi tạo API Dropdown của Bootstrap 5
-//        const cartDropdown = new bootstrap.Dropdown(cartDropdownToggle);
-//
-//        addCartBtns.forEach(btn => {
-//            btn.addEventListener('click', function (e) {
-//                e.preventDefault();
-//
-//                // Mở dropdown giỏ hàng
-//                cartDropdown.show();
-//
-//                // (Tùy chọn Frontend) Hiệu ứng tăng số lượng trên icon
-//                const badge = document.querySelector('.cart-badge');
-//                if (badge) {
-//                    let currentCount = parseInt(badge.innerText || 0);
-//                    badge.innerText = currentCount + 1;
-//
-//                    // Tạo hiệu ứng nảy nhẹ khi thêm số lượng
-//                    badge.style.transform = "scale(1.5)";
-//                    setTimeout(() => {
-//                        badge.style.transform = "scale(1)";
-//                    }, 200);
-//                }
-//            });
-//        });
-//    }
-//
-//    // --- XỬ LÝ THANH TRƯỢT GIÁ (DUAL RANGE SLIDER) ---
-//    const minPriceInput = document.getElementById('minPrice');
-//    const maxPriceInput = document.getElementById('maxPrice');
-//    const priceDisplay = document.getElementById('priceDisplay');
-//    const sliderTrack = document.getElementById('sliderTrack');
-//
-//    if (minPriceInput && maxPriceInput && priceDisplay && sliderTrack) {
-//        // Hàm định dạng tiền tệ VNĐ
-//        function formatCurrency(value) {
-//            return new Intl.NumberFormat('vi-VN').format(value) + 'đ';
-//        }
-//
-//        // Cập nhật giao diện thanh trượt
-//        function updateSlider() {
-//            let minVal = parseInt(minPriceInput.value);
-//            let maxVal = parseInt(maxPriceInput.value);
-//            const maxLimit = parseInt(minPriceInput.max);
-//
-//            // Tính toán phần trăm để vẽ dải màu cam ở giữa
-//            const percent1 = (minVal / maxLimit) * 100;
-//            const percent2 = (maxVal / maxLimit) * 100;
-//
-//            sliderTrack.style.left = percent1 + '%';
-//            sliderTrack.style.width = (percent2 - percent1) + '%';
-//
-//            // Cập nhật text hiển thị giá
-//            priceDisplay.textContent = formatCurrency(minVal) + ' - ' + formatCurrency(maxVal);
-//        }
-//
-//        // Bắt sự kiện khi kéo nút Min
-//        minPriceInput.addEventListener('input', function () {
-//            let minVal = parseInt(minPriceInput.value);
-//            let maxVal = parseInt(maxPriceInput.value);
-//
-//            // Không cho nút Min vượt quá nút Max (giữ khoảng cách tối thiểu là 10.000đ)
-//            if (minVal >= maxVal) {
-//                minPriceInput.value = maxVal - 10000;
-//            }
-//            updateSlider();
-//        });
-//
-//        // Bắt sự kiện khi kéo nút Max
-//        maxPriceInput.addEventListener('input', function () {
-//            let minVal = parseInt(minPriceInput.value);
-//            let maxVal = parseInt(maxPriceInput.value);
-//
-//            // Không cho nút Max tụt xuống thấp hơn nút Min
-//            if (maxVal <= minVal) {
-//                maxPriceInput.value = minVal + 10000;
-//            }
-//            updateSlider();
-//        });
-//
-//        // Chạy lần đầu để set UI
-//        updateSlider();
-//    }
-//});
-//
-
-
 $(document).ready(function () {
+    // Khởi tạo Slick Slider cho Hero Banner (Tràn màn hình)
+    $('.hero-banner-slider').slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 4000,
+        arrows: true, // Bật nút chuyển (Next/Prev)
+        dots: true, // Bật dấu chấm ở dưới
+        // Thiết kế lại giao diện nút Next/Prev
+        prevArrow: '<button class="hero-arrow-btn position-absolute top-50 translate-middle-y shadow-sm" style="z-index: 10; left: 30px; width: 45px; height: 45px; border-radius: 50%;"><i class="fas fa-chevron-left"></i></button>',
+        nextArrow: '<button class="hero-arrow-btn position-absolute top-50 translate-middle-y shadow-sm" style="z-index: 10; right: 30px; width: 45px; height: 45px; border-radius: 50%;"><i class="fas fa-chevron-right"></i></button>'
+    });
+
+
+
     // 1. Khởi tạo Slick Slider cho Trang Chủ
     $('.popular-food-slider').slick({
         infinite: true, slidesToShow: 4, slidesToScroll: 1, autoplay: true, autoplaySpeed: 3000, arrows: true, prevArrow: $('.custom-prev'), nextArrow: $('.custom-next'), dots: false,
@@ -359,8 +109,8 @@ $(document).ready(function () {
             }
         }
     });
-    
-    
+
+
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -797,3 +547,139 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+
+
+// =========================================================
+// XỬ LÝ LOGIC POPUP (TOAST) DÙNG CHUNG
+// =========================================================
+const toastEl = document.getElementById('wishlistToast');
+let toast = null;
+if (toastEl) {
+    toast = new bootstrap.Toast(toastEl, {delay: 2500}); 
+}
+const toastBody = toastEl ? toastEl.querySelector('.toast-body') : null;
+
+// =========================================================
+// XỬ LÝ LOGIC MÓN YÊU THÍCH (WISHLIST)
+// =========================================================
+const btnWishlists = document.querySelectorAll('.btn-wishlist');
+const wishlistBadge = document.querySelector('.wishlist-badge');
+const wishlistCountTexts = document.querySelectorAll('.wishlist-count-text');
+const wishlistEmpty = document.querySelector('.wishlist-empty');
+const wishlistHasItems = document.querySelector('.wishlist-has-items');
+const wishlistItemsList = document.querySelector('.wishlist-items-list');
+
+let wishlistItems = [];
+
+function updateWishlistUI() {
+    const count = wishlistItems.length;
+
+    if (wishlistBadge) {
+        wishlistBadge.innerText = count;
+        wishlistBadge.style.transform = "scale(1.5) translate(-30%, -30%)";
+        setTimeout(() => {
+            wishlistBadge.style.transform = "scale(1) translate(-50%, -50%)";
+        }, 200);
+    }
+
+    wishlistCountTexts.forEach(el => el.innerText = count);
+
+    if (count === 0) {
+        if (wishlistEmpty)
+            wishlistEmpty.classList.remove('d-none');
+        if (wishlistHasItems)
+            wishlistHasItems.classList.add('d-none');
+    } else {
+        if (wishlistEmpty)
+            wishlistEmpty.classList.add('d-none');
+        if (wishlistHasItems)
+            wishlistHasItems.classList.remove('d-none');
+    }
+
+    if (wishlistItemsList) {
+        wishlistItemsList.innerHTML = ''; 
+        wishlistItems.forEach(item => {
+            const html = `
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="${item.image}" alt="${item.name}" class="rounded shadow-sm" style="width: 50px; height: 50px; object-fit: cover;">
+                        <div class="ms-3 flex-grow-1">
+                            <h6 class="mb-0 fs-6 fw-bold text-truncate" style="max-width: 200px;">${item.name}</h6>
+                            <span class="text-primary-custom fw-bold">${item.price}</span>
+                        </div>
+                    </div>
+                `;
+            wishlistItemsList.insertAdjacentHTML('beforeend', html);
+        });
+    }
+}
+
+if (btnWishlists.length > 0) {
+    btnWishlists.forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            const foodCard = this.closest('.food-card');
+
+            const itemName = foodCard.querySelector('.food-title').innerText.trim();
+            const itemImage = foodCard.querySelector('.food-img').src;
+
+            const priceDanger = foodCard.querySelector('.price .text-danger');
+            const itemPrice = priceDanger ? priceDanger.innerText.trim() : foodCard.querySelector('.price').innerText.replace(/<del>.*<\/del>/, '').trim();
+
+            const isActive = this.classList.contains('active');
+
+            if (!isActive) {
+                this.classList.add('active');
+                wishlistItems.push({name: itemName, price: itemPrice, image: itemImage});
+
+                if (toastEl && toastBody) {
+                    toastEl.classList.remove('bg-secondary');
+                    toastEl.classList.add('bg-primary-custom'); 
+                    toastBody.innerHTML = `<i class="fas fa-heart me-2"></i> Đã thêm <b>${itemName}</b> vào yêu thích!`;
+                    toast.show();
+                }
+            } else {
+                this.classList.remove('active');
+                wishlistItems = wishlistItems.filter(item => item.name !== itemName);
+
+                if (toastEl && toastBody) {
+                    toastEl.classList.remove('bg-primary-custom');
+                    toastEl.classList.add('bg-secondary');
+                    toastBody.innerHTML = `<i class="fas fa-heart-broken me-2"></i> Đã xóa <b>${itemName}</b> khỏi yêu thích!`;
+                    toast.show();
+                }
+            }
+
+            updateWishlistUI();
+        });
+    });
+}
+
+// =========================================================
+// XỬ LÝ LOGIC GIỎ HÀNG (HIỆN TOAST KHI BẤM NÚT CỘNG)
+// =========================================================
+const addToCartBtns = document.querySelectorAll('.btn-add-cart');
+
+if (addToCartBtns.length > 0) {
+    addToCartBtns.forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            const foodCard = this.closest('.food-card');
+            const itemName = foodCard.querySelector('.food-title').innerText.trim();
+
+            const badge = document.querySelector('.cart-badge');
+            if (badge) {
+                badge.innerText = parseInt(badge.innerText || 0) + 1;
+                badge.style.transform = "scale(1.5) translate(-30%, -30%)";
+                setTimeout(() => badge.style.transform = "scale(1) translate(-50%, -50%)", 200);
+            }
+
+            if (toastEl && toastBody) {
+                toastEl.classList.remove('bg-secondary');
+                toastEl.classList.add('bg-primary-custom');
+                toastBody.innerHTML = `<i class="fas fa-cart-plus me-2"></i> Đã thêm <b>${itemName}</b> vào giỏ hàng!`;
+                toast.show();
+            }
+        });
+    });
+}

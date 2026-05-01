@@ -1,13 +1,12 @@
 :root {
     --primary-color: hsl(9, 100%, 62%);
     --primary-hover: hsl(9, 100%, 52%);
-    --bg-color: hsl(35, 100%, 97%);
+    --bg-color: #ffffff;
     --title-color: hsl(0, 0%, 13%);
     --text-color: hsl(0, 0%, 30%);
     --ff-body: 'Be Vietnam Pro', sans-serif;
     --ff-heading: 'Montserrat', sans-serif;
 }
-
 html {
     scroll-behavior: smooth;
 }
@@ -41,7 +40,6 @@ h1, h2, h3, h4, h5, h6, .logo, .price {
     text-transform: uppercase;
 }
 
-/* Button Custom */
 .btn-custom {
     background-color: var(--primary-color);
     color: white;
@@ -150,6 +148,52 @@ h1, h2, h3, h4, h5, h6, .logo, .price {
     100% {
         transform: translateY(0px);
     }
+}
+
+.hero-banner-slider {
+    margin-bottom: 0;
+}
+.hero-banner-slider .slick-dots {
+    bottom: 25px;
+}
+.hero-banner-slider .slick-dots li button:before {
+    font-size: 16px;
+    color: #ffffff;
+    opacity: 0.5;
+}
+.hero-banner-slider .slick-dots li.slick-active button:before {
+    color: var(--primary-color); 
+    opacity: 1;
+}
+
+/* ==========================================================================
+   TÙY CHỈNH HERO BANNER SLIDER
+   ========================================================================== */
+.hero-banner-slider h1 {
+    color: #ffffff !important;
+}
+
+.hero-arrow-btn {
+    background-color: #ffffff;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.hero-arrow-btn i {
+    color: var(--primary-color); 
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.hero-arrow-btn:hover {
+    background-color: var(--primary-color) !important; 
+}
+
+.hero-arrow-btn:hover i {
+    color: #ffffff !important; 
 }
 
 /* ==========================================================================
@@ -268,7 +312,7 @@ h1, h2, h3, h4, h5, h6, .logo, .price {
    8. MENU SECTION
    ========================================================================== */
 .menu-section {
-    background-color: #fffafa;
+    background-color: #fff;
     padding: 80px 0;
 }
 
@@ -590,7 +634,6 @@ h1, h2, h3, h4, h5, h6, .logo, .price {
     padding: 10px 0;
 }
 
-/* Header hover */
 .profile-header {
     cursor: pointer;
     transition: background-color 0.2s;
@@ -599,7 +642,6 @@ h1, h2, h3, h4, h5, h6, .logo, .price {
     background-color: #f2f2f2;
 }
 
-/* Khối item menu */
 .profile-item {
     border-radius: 8px;
     padding: 10px 8px;
@@ -678,4 +720,19 @@ h1, h2, h3, h4, h5, h6, .logo, .price {
 .custom-scrollbar::-webkit-scrollbar-thumb {
     background: #e0e0e0;
     border-radius: 10px;
+}
+
+.btn-wishlist i {
+    transition: all 0.3s ease;
+}
+
+.btn-wishlist:hover i {
+    color: #dc3545 !important; 
+    font-weight: 900;
+    transform: scale(1.1);
+}
+
+.btn-wishlist.active i {
+    color: #dc3545 !important;
+    font-weight: 900;
 }
