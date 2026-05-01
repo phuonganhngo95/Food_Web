@@ -337,12 +337,14 @@
                                         <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Beef Burger Classic</a>
                                     </h4>
                                     <p class="text-muted small mb-3">Thịt bò, Phô mai, Rau thơm</p>
-                                    <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex justify-content-between align-items-end">
                                         <span class="price text-start">
                                             <del class="text-muted fs-6 me-2">150.000đ</del><br>
                                             <span class="text-danger fw-bold">125.000đ</span>
                                         </span>
-                                        <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
+                                        <button class="btn btn-add-cart action-btn btn-outline-custom rounded-pill px-4 py-2 fw-bold d-flex align-items-center gap-2" style="font-size: 0.9rem;">
+                                            Thêm <i class="fas fa-cart-plus"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -358,12 +360,14 @@
                                         <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Beef Burger Classic</a>
                                     </h4>
                                     <p class="text-muted small mb-3">Thịt bò, Phô mai, Rau thơm</p>
-                                    <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex justify-content-between align-items-end">
                                         <span class="price text-start">
                                             <del class="text-muted fs-6 me-2">150.000đ</del><br>
                                             <span class="text-danger fw-bold">125.000đ</span>
                                         </span>
-                                        <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
+                                        <button class="btn btn-add-cart action-btn btn-outline-custom rounded-pill px-4 py-2 fw-bold d-flex align-items-center gap-2" style="font-size: 0.9rem;">
+                                            Thêm <i class="fas fa-cart-plus"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -379,12 +383,14 @@
                                         <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Beef Burger Classic</a>
                                     </h4>
                                     <p class="text-muted small mb-3">Thịt bò, Phô mai, Rau thơm</p>
-                                    <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex justify-content-between align-items-end">
                                         <span class="price text-start">
                                             <del class="text-muted fs-6 me-2">150.000đ</del><br>
                                             <span class="text-danger fw-bold">125.000đ</span>
                                         </span>
-                                        <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
+                                        <button class="btn btn-add-cart action-btn btn-outline-custom rounded-pill px-4 py-2 fw-bold d-flex align-items-center gap-2" style="font-size: 0.9rem;">
+                                            Thêm <i class="fas fa-cart-plus"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -400,12 +406,14 @@
                                         <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Beef Burger Classic</a>
                                     </h4>
                                     <p class="text-muted small mb-3">Thịt bò, Phô mai, Rau thơm</p>
-                                    <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex justify-content-between align-items-end">
                                         <span class="price text-start">
                                             <del class="text-muted fs-6 me-2">150.000đ</del><br>
                                             <span class="text-danger fw-bold">125.000đ</span>
                                         </span>
-                                        <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
+                                        <button class="btn btn-add-cart action-btn btn-outline-custom rounded-pill px-4 py-2 fw-bold d-flex align-items-center gap-2" style="font-size: 0.9rem;">
+                                            Thêm <i class="fas fa-cart-plus"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -421,12 +429,14 @@
                                         <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Beef Burger Classic</a>
                                     </h4>
                                     <p class="text-muted small mb-3">Thịt bò, Phô mai, Rau thơm</p>
-                                    <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex justify-content-between align-items-end">
                                         <span class="price text-start">
                                             <del class="text-muted fs-6 me-2">150.000đ</del><br>
                                             <span class="text-danger fw-bold">125.000đ</span>
                                         </span>
-                                        <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
+                                        <button class="btn btn-add-cart action-btn btn-outline-custom rounded-pill px-4 py-2 fw-bold d-flex align-items-center gap-2" style="font-size: 0.9rem;">
+                                            Thêm <i class="fas fa-cart-plus"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -536,12 +546,14 @@
                                 <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Tasty Buzzed Pizza</a>
                             </h4>
                             <p class="text-muted small mb-3">Áp dụng mã Coupon</p>
-                            <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex justify-content-between align-items-end">
                                 <span class="price text-start">
                                     <del class="text-muted fs-6 me-2">198.000đ</del><br>
                                     <span class="text-danger fw-bold">99.000đ</span>
                                 </span>
-                                <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
+                                <button class="btn btn-add-cart action-btn btn-outline-custom rounded-pill px-4 py-2 fw-bold d-flex align-items-center gap-2" style="font-size: 0.9rem;">
+                                    Thêm <i class="fas fa-cart-plus"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -557,12 +569,14 @@
                                 <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Tasty Buzzed Pizza</a>
                             </h4>
                             <p class="text-muted small mb-3">Áp dụng mã Coupon</p>
-                            <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex justify-content-between align-items-end">
                                 <span class="price text-start">
                                     <del class="text-muted fs-6 me-2">198.000đ</del><br>
                                     <span class="text-danger fw-bold">99.000đ</span>
                                 </span>
-                                <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
+                                <button class="btn btn-add-cart action-btn btn-outline-custom rounded-pill px-4 py-2 fw-bold d-flex align-items-center gap-2" style="font-size: 0.9rem;">
+                                    Thêm <i class="fas fa-cart-plus"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -578,12 +592,14 @@
                                 <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Tasty Buzzed Pizza</a>
                             </h4>
                             <p class="text-muted small mb-3">Áp dụng mã Coupon</p>
-                            <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex justify-content-between align-items-end">
                                 <span class="price text-start">
                                     <del class="text-muted fs-6 me-2">198.000đ</del><br>
                                     <span class="text-danger fw-bold">99.000đ</span>
                                 </span>
-                                <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
+                                <button class="btn btn-add-cart action-btn btn-outline-custom rounded-pill px-4 py-2 fw-bold d-flex align-items-center gap-2" style="font-size: 0.9rem;">
+                                    Thêm <i class="fas fa-cart-plus"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -599,12 +615,14 @@
                                 <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Tasty Buzzed Pizza</a>
                             </h4>
                             <p class="text-muted small mb-3">Áp dụng mã Coupon</p>
-                            <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex justify-content-between align-items-end">
                                 <span class="price text-start">
                                     <del class="text-muted fs-6 me-2">198.000đ</del><br>
                                     <span class="text-danger fw-bold">99.000đ</span>
                                 </span>
-                                <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
+                                <button class="btn btn-add-cart action-btn btn-outline-custom rounded-pill px-4 py-2 fw-bold d-flex align-items-center gap-2" style="font-size: 0.9rem;">
+                                    Thêm <i class="fas fa-cart-plus"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -637,12 +655,14 @@
                                 <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Burger Bò Phô Mai Kép</a>
                             </h4>
                             <p class="text-muted small mb-3">Công thức độc quyền mới</p>
-                            <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex justify-content-between align-items-end">
                                 <span class="price text-start">
                                     <del class="text-muted fs-6 me-2" style="opacity: 0;">&nbsp;</del><br>
                                     <span class="text-danger fw-bold">75.000đ</span>
                                 </span>
-                                <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
+                                <button class="btn btn-add-cart action-btn btn-outline-custom rounded-pill px-4 py-2 fw-bold d-flex align-items-center gap-2" style="font-size: 0.9rem;">
+                                    Thêm <i class="fas fa-cart-plus"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -658,12 +678,14 @@
                                 <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Pizza Hải Sản Phô Mai</a>
                             </h4>
                             <p class="text-muted small mb-3">Tươi ngon từ biển cả</p>
-                            <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex justify-content-between align-items-end">
                                 <span class="price text-start">
                                     <del class="text-muted fs-6 me-2" style="opacity: 0;">&nbsp;</del><br>
                                     <span class="text-danger fw-bold">165.000đ</span>
                                 </span>
-                                <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
+                                <button class="btn btn-add-cart action-btn btn-outline-custom rounded-pill px-4 py-2 fw-bold d-flex align-items-center gap-2" style="font-size: 0.9rem;">
+                                    Thêm <i class="fas fa-cart-plus"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -679,12 +701,14 @@
                                 <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Gà Rán Phô Mai Kéo Sợi</a>
                             </h4>
                             <p class="text-muted small mb-3">Giòn rụm, béo ngậy</p>
-                            <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex justify-content-between align-items-end">
                                 <span class="price text-start">
                                     <del class="text-muted fs-6 me-2" style="opacity: 0;">&nbsp;</del><br>
                                     <span class="text-danger fw-bold">85.000đ</span>
                                 </span>
-                                <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
+                                <button class="btn btn-add-cart action-btn btn-outline-custom rounded-pill px-4 py-2 fw-bold d-flex align-items-center gap-2" style="font-size: 0.9rem;">
+                                    Thêm <i class="fas fa-cart-plus"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -700,12 +724,14 @@
                                 <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Salad Cá Ngồi Dầu Mè</a>
                             </h4>
                             <p class="text-muted small mb-3">Thanh mát, tốt cho sức khỏe</p>
-                            <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex justify-content-between align-items-end">
                                 <span class="price text-start">
                                     <del class="text-muted fs-6 me-2" style="opacity: 0;">&nbsp;</del><br>
                                     <span class="text-danger fw-bold">45.000đ</span>
                                 </span>
-                                <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
+                                <button class="btn btn-add-cart action-btn btn-outline-custom rounded-pill px-4 py-2 fw-bold d-flex align-items-center gap-2" style="font-size: 0.9rem;">
+                                    Thêm <i class="fas fa-cart-plus"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -810,7 +836,7 @@
             <div id="wishlistToast" class="toast align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="d-flex">
                     <div class="toast-body">
-                       
+
                     </div>
                     <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
                 </div>

@@ -339,25 +339,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     }
-
-    // --- POPUP GIỎ HÀNG ---
-    const addCartBtns = document.querySelectorAll('.btn-add-cart');
-    const cartDropdownToggle = document.getElementById('cartDropdown');
-    if (addCartBtns.length > 0 && cartDropdownToggle) {
-        const cartDropdown = new bootstrap.Dropdown(cartDropdownToggle);
-        addCartBtns.forEach(btn => {
-            btn.addEventListener('click', function (e) {
-                e.preventDefault();
-                cartDropdown.show();
-                const badge = document.querySelector('.cart-badge');
-                if (badge) {
-                    badge.innerText = parseInt(badge.innerText || 0) + 1;
-                    badge.style.transform = "scale(1.5)";
-                    setTimeout(() => badge.style.transform = "scale(1)", 200);
-                }
-            });
-        });
-    }
 });
 
 // --- XỬ LÝ CHUYỂN TAB TRONG TRANG CÁ NHÂN ---
@@ -556,7 +537,7 @@ document.addEventListener("DOMContentLoaded", function () {
 const toastEl = document.getElementById('wishlistToast');
 let toast = null;
 if (toastEl) {
-    toast = new bootstrap.Toast(toastEl, {delay: 2500}); 
+    toast = new bootstrap.Toast(toastEl, {delay: 2500});
 }
 const toastBody = toastEl ? toastEl.querySelector('.toast-body') : null;
 
@@ -598,7 +579,7 @@ function updateWishlistUI() {
     }
 
     if (wishlistItemsList) {
-        wishlistItemsList.innerHTML = ''; 
+        wishlistItemsList.innerHTML = '';
         wishlistItems.forEach(item => {
             const html = `
                     <div class="d-flex align-items-center mb-3">
@@ -634,7 +615,7 @@ if (btnWishlists.length > 0) {
 
                 if (toastEl && toastBody) {
                     toastEl.classList.remove('bg-secondary');
-                    toastEl.classList.add('bg-primary-custom'); 
+                    toastEl.classList.add('bg-primary-custom');
                     toastBody.innerHTML = `<i class="fas fa-heart me-2"></i> Đã thêm <b>${itemName}</b> vào yêu thích!`;
                     toast.show();
                 }
@@ -656,7 +637,7 @@ if (btnWishlists.length > 0) {
 }
 
 // =========================================================
-// XỬ LÝ LOGIC GIỎ HÀNG (HIỆN TOAST KHI BẤM NÚT CỘNG)
+// XỬ LÝ LOGIC GIỎ HÀNG (HIỆN TOAST KHI BẤM NÚT THÊM)
 // =========================================================
 const addToCartBtns = document.querySelectorAll('.btn-add-cart');
 
@@ -669,6 +650,7 @@ if (addToCartBtns.length > 0) {
 
             const badge = document.querySelector('.cart-badge');
             if (badge) {
+                // SẼ CHỈ CỘNG +1 VÌ CODE BỊ TRÙNG ĐÃ XÓA
                 badge.innerText = parseInt(badge.innerText || 0) + 1;
                 badge.style.transform = "scale(1.5) translate(-30%, -30%)";
                 setTimeout(() => badge.style.transform = "scale(1) translate(-50%, -50%)", 200);
