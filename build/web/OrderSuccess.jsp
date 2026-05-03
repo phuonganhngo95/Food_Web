@@ -5,7 +5,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Thanh Toán Thành Công</title>
+        <title>Đặt Món Thành Công</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -371,7 +371,7 @@
                         <i class="fas fa-check"></i>
                     </div>
 
-                    <h2 class="fw-bold mb-3" style="font-family: var(--ff-heading); color: #333;">Thanh toán thành công!</h2>
+                    <h2 class="fw-bold mb-3" style="font-family: var(--ff-heading); color: #333;">Đặt món thành công!</h2>
                     <p class="text-muted mb-4">Cảm ơn bạn đã đặt món tại Fast Food. Đơn hàng của bạn đang được chuẩn bị và sẽ giao đến trong thời gian sớm nhất.</p>
 
                     <div class="bg-light rounded p-3 mb-4 text-start">

@@ -303,7 +303,7 @@
         <section class="checkout-section">
             <div class="container">
 
-                <form id="checkoutForm" action="./XyLyThanhToan" method="POST" novalidate>
+                <form id="checkoutForm" action="./OrderSuccess.jsp" method="POST" novalidate>
                     <div class="checkout-card p-0 overflow-hidden">
                         <div class="address-border"></div>
                         <div class="px-4 pb-4">
@@ -507,7 +507,7 @@
 
                     if (isValid) {
                         // Chuyển hướng sang trang Thanh Toán Thành Công
-                        window.location.href = "ThanhToanThanhCong.jsp";
+                        window.location.href = "OrderSuccess.jsp";
                     }
                 });
             });
