@@ -445,23 +445,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Nếu người dùng bấm "Thiết lập mặc định"
             if (e.target.classList.contains('btn-set-default')) {
-                // Bước 1: Xóa tag "Mặc định" ở tất cả các địa chỉ khác và hiện lại nút "Thiết lập mặc định"
+                // Bước 1: Xóa tag "Mặc định" ở tất cả các địa chỉ khác và hiện lại nút
                 const allItems = addressList.querySelectorAll('.address-item');
                 for (let i = 0; i < allItems.length; i++) {
                     const badge = allItems[i].querySelector('.default-badge');
                     if (badge)
-                        badge.remove(); // Xóa tag
+                        badge.remove();
 
                     const setDefBtn = allItems[i].querySelector('.btn-set-default');
                     if (setDefBtn)
-                        setDefBtn.classList.remove('d-none'); // Hiện lại nút thiết lập
+                        setDefBtn.classList.remove('d-none');
                 }
 
-                // Bước 2: Thêm tag "Mặc định" vào địa chỉ vừa bấm
-                const badgeHTML = `<span class="badge bg-danger position-absolute top-0 end-0 m-3 rounded-pill default-badge">Mặc định</span>`;
-                item.insertAdjacentHTML('afterbegin', badgeHTML);
+                // Bước 2: Thêm tag "Mặc định" vào khối bên trái (.pe-3) của địa chỉ vừa bấm
+                const badgeHTML = `<span class="badge border border-danger text-danger bg-white rounded-1 fw-normal default-badge mt-1" style="padding: 4px 8px;">Mặc định</span>`;
+                item.querySelector('.pe-3').insertAdjacentHTML('beforeend', badgeHTML);
 
-                // Bước 3: Ẩn nút "Thiết lập mặc định" của chính địa chỉ này đi
+                // Bước 3: Ẩn nút "Thiết lập mặc định" đi
                 e.target.classList.add('d-none');
             }
         });
@@ -485,16 +485,26 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 // CHẾ ĐỘ THÊM
                 const newAddressHTML = `
-                    <div class="p-4 border rounded mb-3 bg-white position-relative shadow-sm address-item">
-                        <p class="mb-1 fw-bold fs-5 text-dark"><span class="addr-name">${nameVal}</span> <span class="fw-normal text-muted fs-6">| <span class="addr-phone">${phoneVal}</span></span></p>
-                        <p class="mb-2 text-muted addr-detail">${detailVal}</p>
-                        <div class="mt-2 d-flex gap-3">
-                            <a href="javascript:void(0)" class="text-primary text-decoration-none small fw-bold btn-edit-address">Cập nhật</a>
-                            <a href="javascript:void(0)" class="text-danger text-decoration-none small fw-bold btn-delete-address">Xóa</a>
-                            <a href="javascript:void(0)" class="text-secondary text-decoration-none small fw-bold btn-set-default">Thiết lập mặc định</a>
+                    <div class="border-bottom pb-4 mb-4 position-relative address-item d-flex justify-content-between align-items-start">
+                        <div class="pe-3">
+                            <div class="mb-1">
+                                <span class="addr-name fw-bold text-dark fs-6 border-end pe-2 me-2">${nameVal}</span> 
+                                <span class="addr-phone text-muted">${phoneVal}</span>
+                            </div>
+                            <div class="addr-detail text-muted mb-2" style="font-size: 0.9rem;">
+                                ${detailVal.replace(/\n/g, '<br>')}
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-column justify-content-between align-items-end text-end" style="height: 100%; min-width: 150px;">
+                            <div class="mb-2">
+                                <a href="javascript:void(0)" class="text-primary text-decoration-none me-2 btn-edit-address">Cập nhật</a>
+                                <a href="javascript:void(0)" class="text-primary text-decoration-none btn-delete-address">Xóa</a>
+                            </div>
+                            <button class="btn btn-outline-secondary bg-white text-dark rounded-1 px-3 py-1 btn-set-default" style="font-size: 0.85rem; border-color: #d9d9d9;">Thiết lập mặc định</button>
                         </div>
                     </div>
-                `;
+`               ;
                 addressList.insertAdjacentHTML('beforeend', newAddressHTML);
             }
 
@@ -532,56 +542,55 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // =========================================================
-// XỬ LÝ LOGIC POPUP (TOAST) DÙNG CHUNG
+// XỬ LÝ LOGIC POPUP, YÊU THÍCH VÀ GIỎ HÀNG (Đã bọc an toàn)
 // =========================================================
-const toastEl = document.getElementById('wishlistToast');
-let toast = null;
-if (toastEl) {
-    toast = new bootstrap.Toast(toastEl, {delay: 2500});
-}
-const toastBody = toastEl ? toastEl.querySelector('.toast-body') : null;
-
-// =========================================================
-// XỬ LÝ LOGIC MÓN YÊU THÍCH (WISHLIST)
-// =========================================================
-const btnWishlists = document.querySelectorAll('.btn-wishlist');
-const wishlistBadge = document.querySelector('.wishlist-badge');
-const wishlistCountTexts = document.querySelectorAll('.wishlist-count-text');
-const wishlistEmpty = document.querySelector('.wishlist-empty');
-const wishlistHasItems = document.querySelector('.wishlist-has-items');
-const wishlistItemsList = document.querySelector('.wishlist-items-list');
-
-let wishlistItems = [];
-
-function updateWishlistUI() {
-    const count = wishlistItems.length;
-
-    if (wishlistBadge) {
-        wishlistBadge.innerText = count;
-        wishlistBadge.style.transform = "scale(1.5) translate(-30%, -30%)";
-        setTimeout(() => {
-            wishlistBadge.style.transform = "scale(1) translate(-50%, -50%)";
-        }, 200);
+document.addEventListener("DOMContentLoaded", function () {
+    const toastEl = document.getElementById('wishlistToast');
+    let toast = null;
+    if (toastEl) {
+        toast = new bootstrap.Toast(toastEl, {delay: 2500});
     }
+    const toastBody = toastEl ? toastEl.querySelector('.toast-body') : null;
 
-    wishlistCountTexts.forEach(el => el.innerText = count);
+    // --- WISHLIST ---
+    const btnWishlists = document.querySelectorAll('.btn-wishlist');
+    const wishlistBadge = document.querySelector('.wishlist-badge');
+    const wishlistCountTexts = document.querySelectorAll('.wishlist-count-text');
+    const wishlistEmpty = document.querySelector('.wishlist-empty');
+    const wishlistHasItems = document.querySelector('.wishlist-has-items');
+    const wishlistItemsList = document.querySelector('.wishlist-items-list');
 
-    if (count === 0) {
-        if (wishlistEmpty)
-            wishlistEmpty.classList.remove('d-none');
-        if (wishlistHasItems)
-            wishlistHasItems.classList.add('d-none');
-    } else {
-        if (wishlistEmpty)
-            wishlistEmpty.classList.add('d-none');
-        if (wishlistHasItems)
-            wishlistHasItems.classList.remove('d-none');
-    }
+    let wishlistItems = [];
 
-    if (wishlistItemsList) {
-        wishlistItemsList.innerHTML = '';
-        wishlistItems.forEach(item => {
-            const html = `
+    function updateWishlistUI() {
+        const count = wishlistItems.length;
+
+        if (wishlistBadge) {
+            wishlistBadge.innerText = count;
+            wishlistBadge.style.transform = "scale(1.5) translate(-30%, -30%)";
+            setTimeout(() => {
+                wishlistBadge.style.transform = "scale(1) translate(-50%, -50%)";
+            }, 200);
+        }
+
+        wishlistCountTexts.forEach(el => el.innerText = count);
+
+        if (count === 0) {
+            if (wishlistEmpty)
+                wishlistEmpty.classList.remove('d-none');
+            if (wishlistHasItems)
+                wishlistHasItems.classList.add('d-none');
+        } else {
+            if (wishlistEmpty)
+                wishlistEmpty.classList.add('d-none');
+            if (wishlistHasItems)
+                wishlistHasItems.classList.remove('d-none');
+        }
+
+        if (wishlistItemsList) {
+            wishlistItemsList.innerHTML = '';
+            wishlistItems.forEach(item => {
+                const html = `
                     <div class="d-flex align-items-center mb-3">
                         <img src="${item.image}" alt="${item.name}" class="rounded shadow-sm" style="width: 50px; height: 50px; object-fit: cover;">
                         <div class="ms-3 flex-grow-1">
@@ -590,78 +599,96 @@ function updateWishlistUI() {
                         </div>
                     </div>
                 `;
-            wishlistItemsList.insertAdjacentHTML('beforeend', html);
+                wishlistItemsList.insertAdjacentHTML('beforeend', html);
+            });
+        }
+    }
+
+    if (btnWishlists.length > 0) {
+        btnWishlists.forEach(btn => {
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                const foodCard = this.closest('.food-card');
+                if (!foodCard)
+                    return; // Chặn lỗi nếu DOM bất thường
+
+                // Quét dữ liệu an toàn, nếu thiếu class vẫn không sập JS
+                const titleEl = foodCard.querySelector('.food-title');
+                const imgEl = foodCard.querySelector('.food-img');
+                const priceEl = foodCard.querySelector('.price .text-danger') || foodCard.querySelector('.price');
+
+                const itemName = titleEl ? titleEl.innerText.trim() : 'Món ăn';
+                const itemImage = imgEl ? imgEl.src : '';
+                const itemPrice = priceEl ? priceEl.innerText.replace(/<del>.*<\/del>/, '').trim() : '0 đ';
+
+                const isActive = this.classList.contains('active');
+
+                if (!isActive) {
+                    this.classList.add('active');
+                    wishlistItems.push({name: itemName, price: itemPrice, image: itemImage});
+
+                    if (toastEl && toastBody) {
+                        toastEl.classList.remove('bg-secondary');
+                        toastEl.classList.add('bg-primary-custom');
+                        toastBody.innerHTML = `<i class="fas fa-heart me-2"></i> Đã thêm <b>${itemName}</b> vào yêu thích!`;
+                        toast.show();
+                    }
+                } else {
+                    this.classList.remove('active');
+                    wishlistItems = wishlistItems.filter(item => item.name !== itemName);
+
+                    if (toastEl && toastBody) {
+                        toastEl.classList.remove('bg-primary-custom');
+                        toastEl.classList.add('bg-secondary');
+                        toastBody.innerHTML = `<i class="fas fa-heart-broken me-2"></i> Đã xóa <b>${itemName}</b> khỏi yêu thích!`;
+                        toast.show();
+                    }
+                }
+                updateWishlistUI();
+            });
         });
     }
-}
 
-if (btnWishlists.length > 0) {
-    btnWishlists.forEach(btn => {
-        btn.addEventListener('click', function (e) {
-            e.preventDefault();
-            const foodCard = this.closest('.food-card');
+    // --- GIỎ HÀNG ---
+    const addToCartBtns = document.querySelectorAll('.btn-add-cart');
+    if (addToCartBtns.length > 0) {
+        addToCartBtns.forEach(btn => {
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                const foodCard = this.closest('.food-card');
+                if (!foodCard)
+                    return;
 
-            const itemName = foodCard.querySelector('.food-title').innerText.trim();
-            const itemImage = foodCard.querySelector('.food-img').src;
+                const titleEl = foodCard.querySelector('.food-title');
+                const itemName = titleEl ? titleEl.innerText.trim() : 'Món ăn';
 
-            const priceDanger = foodCard.querySelector('.price .text-danger');
-            const itemPrice = priceDanger ? priceDanger.innerText.trim() : foodCard.querySelector('.price').innerText.replace(/<del>.*<\/del>/, '').trim();
-
-            const isActive = this.classList.contains('active');
-
-            if (!isActive) {
-                this.classList.add('active');
-                wishlistItems.push({name: itemName, price: itemPrice, image: itemImage});
+                const badge = document.querySelector('.cart-badge');
+                if (badge) {
+                    badge.innerText = parseInt(badge.innerText || 0) + 1;
+                    badge.style.transform = "scale(1.5) translate(-30%, -30%)";
+                    setTimeout(() => badge.style.transform = "scale(1) translate(-50%, -50%)", 200);
+                }
 
                 if (toastEl && toastBody) {
                     toastEl.classList.remove('bg-secondary');
                     toastEl.classList.add('bg-primary-custom');
-                    toastBody.innerHTML = `<i class="fas fa-heart me-2"></i> Đã thêm <b>${itemName}</b> vào yêu thích!`;
+                    toastBody.innerHTML = `<i class="fas fa-cart-plus me-2"></i> Đã thêm <b>${itemName}</b> vào giỏ hàng!`;
                     toast.show();
                 }
-            } else {
-                this.classList.remove('active');
-                wishlistItems = wishlistItems.filter(item => item.name !== itemName);
-
-                if (toastEl && toastBody) {
-                    toastEl.classList.remove('bg-primary-custom');
-                    toastEl.classList.add('bg-secondary');
-                    toastBody.innerHTML = `<i class="fas fa-heart-broken me-2"></i> Đã xóa <b>${itemName}</b> khỏi yêu thích!`;
-                    toast.show();
-                }
-            }
-
-            updateWishlistUI();
+            });
         });
+    }
+});
+
+$(document).ready(function () {
+    // Lắng nghe sự kiện click vào các nút danh mục món ăn
+    $('.menu-tabs .nav-link').on('click', function (e) {
+        e.preventDefault(); // Ngăn hành vi mặc định của thẻ (nếu cần)
+
+        // 1. Xóa class 'active' khỏi tất cả các nút
+        $('.menu-tabs .nav-link').removeClass('active');
+
+        // 2. Thêm class 'active' vào chính nút vừa được click
+        $(this).addClass('active');
     });
-}
-
-// =========================================================
-// XỬ LÝ LOGIC GIỎ HÀNG (HIỆN TOAST KHI BẤM NÚT THÊM)
-// =========================================================
-const addToCartBtns = document.querySelectorAll('.btn-add-cart');
-
-if (addToCartBtns.length > 0) {
-    addToCartBtns.forEach(btn => {
-        btn.addEventListener('click', function (e) {
-            e.preventDefault();
-            const foodCard = this.closest('.food-card');
-            const itemName = foodCard.querySelector('.food-title').innerText.trim();
-
-            const badge = document.querySelector('.cart-badge');
-            if (badge) {
-                // SẼ CHỈ CỘNG +1 VÌ CODE BỊ TRÙNG ĐÃ XÓA
-                badge.innerText = parseInt(badge.innerText || 0) + 1;
-                badge.style.transform = "scale(1.5) translate(-30%, -30%)";
-                setTimeout(() => badge.style.transform = "scale(1) translate(-50%, -50%)", 200);
-            }
-
-            if (toastEl && toastBody) {
-                toastEl.classList.remove('bg-secondary');
-                toastEl.classList.add('bg-primary-custom');
-                toastBody.innerHTML = `<i class="fas fa-cart-plus me-2"></i> Đã thêm <b>${itemName}</b> vào giỏ hàng!`;
-                toast.show();
-            }
-        });
-    });
-}
+});

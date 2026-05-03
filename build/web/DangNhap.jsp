@@ -5,20 +5,21 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Đăng Nhập - Foodie</title>
+        <title>Đăng Nhập</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
         <link rel="stylesheet" href="./css/TrangChu.css">
         <link rel="stylesheet" href="./css/Form.css">
 
         <style>
-            /* Tắt hiệu ứng chuyển đổi từ từ, ép lỗi đỏ hiện lên ngay lập tức */
             .form-control.is-invalid {
                 transition: none !important;
             }
@@ -42,7 +43,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mx-auto fw-bold">
-                        <li class="nav-item"><a class="nav-link active" href="./TrangChu.jsp">Trang chủ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./TrangChu.jsp">Trang chủ</a></li>
                         <li class="nav-item"><a class="nav-link" href="./ThucDon.jsp">Thực đơn</a></li>
                         <li class="nav-item"><a class="nav-link" href="./KhuyenMai.jsp">Khuyến mãi</a></li> 
                         <li class="nav-item"><a class="nav-link" href="./LienHe.jsp">Liên hệ</a></li>
@@ -55,6 +56,27 @@
                                 <i class="fas fa-search"></i>
                             </button>
                         </form>
+
+                        <div class="dropdown ms-2 position-relative" id="wishlistDropdownContainer">
+                            <a href="#" class="text-dark fs-4 text-decoration-none icon-action d-flex align-items-center justify-content-center" 
+                               id="wishlistDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" 
+                               style="width: 40px; height: 40px;U">
+                                <i class="far fa-heart"></i> 
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger wishlist-badge" style="font-size: 0.6rem; margin-top: 8px; margin-left: -5px;">0</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end border-0 cart-dropdown-menu p-3 shadow" aria-labelledby="wishlistDropdown" style="width: 350px;">
+                                <div class="wishlist-empty text-center py-4">
+                                    <i class="far fa-heart fs-1 text-muted mb-3 d-block"></i>
+                                    <p class="text-muted mb-0">Bạn chưa có món ăn yêu thích nào!</p>
+                                </div>
+
+                                <div class="wishlist-has-items d-none"> 
+                                    <h6 class="fw-bold mb-3 border-bottom pb-2">Món ăn yêu thích (<span class="wishlist-count-text">0</span>)</h6>
+                                    <div class="wishlist-items-list mb-3" style="max-height: 250px; overflow-y: auto;"></div>
+                                    <a href="#" class="btn btn-custom w-100 text-center text-decoration-none">Xem chi tiết</a>
+                                </div>
+                            </ul>
+                        </div>
 
                         <div class="dropdown ms-2 position-relative" id="cartDropdownContainer">
                             <%
@@ -74,7 +96,7 @@
                                style="width: 40px; height: 40px; border-radius: 50%;">
                                 <i class="fas fa-shopping-cart"></i> 
 
-                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-badge" style="font-size: 0.6rem;">
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-badge" style="font-size: 0.6rem; margin-top: 8px; margin-left: -5px;">
                                     <%= isLogged ? cartSize : 0 %>
                                 </span>
                             </a>
@@ -135,7 +157,7 @@
 
                         <div class="dropdown ms-2 position-relative">
                             <% if (!isLogged) { %>
-                            <a href="#" class="text-dark fs-4 text-decoration-none icon-action d-flex align-items-center justify-content-center" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="width: 40px; height: 40px; border-radius: 50%;">
+                            <a href="#" class="text-primary-custom fs-4 text-decoration-none icon-action d-flex align-items-center justify-content-center" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="width: 40px; height: 40px; border-radius: 50%;">
                                 <i class="fas fa-user-circle"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-center border-0 shadow" aria-labelledby="accountDropdown" style="width: 220px; border-radius: 10px;">
@@ -245,7 +267,48 @@
                     <div style="width: 18px; height: 40px; background-color: var(--primary-color);"></div>
                 </div>
             </div>
-        </div>  
+        </div>        
+
+        <section class="hero-section" id="home" style="padding: 82px 0 0 0;">
+            <div class="hero-banner-slider">
+                <div class="position-relative">
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Banner Burger" class="w-100" style="height: 600px; object-fit: cover;">
+
+                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0,0,0,0.5);">
+                        <div class="container text-center text-white">
+                            <p class="section-subtitle text-warning mb-2 fs-5">Nhanh chóng & Ngon miệng</p>
+                            <h1 class="display-3 fw-bold mb-4">Super Delicious <span class="text-primary-custom">Food!</span></h1>
+                            <p class="lead mb-4 mx-auto" style="max-width: 700px;">Thưởng thức những món ăn nhanh nóng hổi, giòn rụm với hương vị bùng nổ. Giao hàng tận nơi trong vòng 30 phút.</p>
+                            <a href="./ThucDon.jsp" class="btn btn-custom btn-lg rounded-pill px-5">Đi tới Thực đơn</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="position-relative">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Banner Pizza" class="w-100" style="height: 600px; object-fit: cover;">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0,0,0,0.5);">
+                        <div class="container text-center text-white">
+                            <p class="section-subtitle text-warning mb-2 fs-5">Hương vị Ý đích thực</p>
+                            <h1 class="display-3 fw-bold mb-4">The Best <span class="text-primary-custom">Pizza!</span></h1>
+                            <p class="lead mb-4 mx-auto" style="max-width: 700px;">Đế bánh giòn rụm, phô mai ngập tràn hòa quyện cùng các loại topping tươi ngon nhất. Đặt hàng ngay hôm nay!</p>
+                            <a href="./ThucDon.jsp" class="btn btn-custom btn-lg rounded-pill px-5">Khám phá ngay</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="position-relative">
+                    <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Banner Fresh" class="w-100" style="height: 600px; object-fit: cover;">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0,0,0,0.5);">
+                        <div class="container text-center text-white">
+                            <p class="section-subtitle text-warning mb-2 fs-5">Tươi ngon mỗi ngày</p>
+                            <h1 class="display-3 fw-bold mb-4">Healthy & <span class="text-primary-custom">Fresh!</span></h1>
+                            <p class="lead mb-4 mx-auto" style="max-width: 700px;">Nguyên liệu được chọn lọc kỹ càng, đảm bảo an toàn vệ sinh thực phẩm cho bạn và gia đình.</p>
+                            <a href="./ThucDon.jsp" class="btn btn-custom btn-lg rounded-pill px-5">Xem thực đơn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <section class="auth-section">
             <div class="container">
@@ -256,36 +319,34 @@
                             <p class="auth-subtitle">Vui lòng đăng nhập để tiếp tục</p>
 
                             <form id="loginForm" action="./XuLyDangNhap" method="POST" novalidate>
-                                <div class="mb-3">
-                                    <label for="email" class="form-label fw-semibold">Địa chỉ Email <span class="text-danger">*</span></label>
-                                    <div class="input-group">
-                                        <span class="input-group-text bg-white border-end-0 text-muted"><i class="fas fa-envelope"></i></span>
-                                        <input type="email" class="form-control border-start-0" id="email" name="email" placeholder="example@gmail.com" required>
-                                        <div class="invalid-feedback w-100">Vui lòng nhập Email hợp lệ.</div>
-                                    </div>
+
+                                <div class="mb-4">
+                                    <label for="email" class="form-label fw-semibold"><span class="text-danger me-1">*</span>Địa chỉ Email</label>
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Nhập email" required>
+                                    <div class="invalid-feedback">Vui lòng nhập Email hợp lệ.</div>
                                 </div>
 
-                                <div class="mb-3">
-                                    <label for="password" class="form-label fw-semibold">Mật khẩu <span class="text-danger">*</span></label>
-                                    <div class="input-group">
-                                        <span class="input-group-text bg-white border-end-0 text-muted"><i class="fas fa-lock"></i></span>
-                                        <input type="password" class="form-control border-start-0" id="password" name="password" placeholder="Nhập mật khẩu" required>
-                                        <div class="invalid-feedback w-100">Vui lòng nhập mật khẩu.</div>
-                                    </div>
+                                <div class="mb-4">
+                                    <label for="password" class="form-label fw-semibold"><span class="text-danger me-1">*</span>Mật khẩu</label>
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="Nhập mật khẩu" required>
+                                    <div class="invalid-feedback">Vui lòng nhập mật khẩu.</div>
                                 </div>
 
                                 <div class="d-flex justify-content-between align-items-center mb-4">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="rememberMe">
+                                        <input class="form-check-input shadow-none border-secondary" type="checkbox" id="rememberMe">
                                         <label class="form-check-label text-muted small" for="rememberMe">Ghi nhớ đăng nhập</label>
                                     </div>
-                                    <a href="#" class="text-primary-custom text-decoration-none small fw-semibold">Quên mật khẩu?</a>
+                                    <a href="./ForgotPassword.jsp" class="text-primary-custom text-decoration-none small fw-semibold">Quên mật khẩu?</a>
                                 </div>
 
-                                <button type="submit" class="btn btn-custom w-100 py-2 fs-5 mb-3">Đăng Nhập</button>
+                                <div class="text-center mt-4">
+                                    <button type="submit" class="btn text-white w-100 py-2 fs-5 mb-3 fw-bold" style="background-color: var(--primary-color); border-radius: 4px; border: none;">ĐĂNG NHẬP</button>
+                                </div>
 
-                                <div class="text-center">
-                                    <span class="text-muted small">Chưa có tài khoản?</span> <a href="DangKi.jsp" class="text-primary-custom text-decoration-none fw-bold small">Đăng ký ngay</a>
+                                <div class="text-center mt-3 border-top pt-3">
+                                    <span class="text-muted small">Chưa có tài khoản?</span> 
+                                    <a href="DangKi.jsp" class="text-primary-custom text-decoration-none fw-bold small">Đăng ký ngay</a>
                                 </div>
                             </form>
                         </div>
@@ -319,6 +380,17 @@
             <i class="fas fa-chevron-up"></i>
         </a>
 
+        <div class="toast-container position-fixed top-0 end-0 p-3 mt-5 pt-4" style="z-index: 1055;">
+            <div id="wishlistToast" class="toast align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body">
+
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -329,7 +401,7 @@
                 const form = document.getElementById('loginForm');
 
                 form.addEventListener('submit', function (event) {
-                    event.preventDefault(); // Ngăn form gửi đi để kiểm tra
+                    event.preventDefault();
 
                     let isValid = true;
 
@@ -337,27 +409,22 @@
                     const password = document.getElementById('password');
                     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-                    // 1. Xóa toàn bộ báo lỗi cũ trước khi check lại
                     const inputs = form.querySelectorAll('.form-control');
                     inputs.forEach(input => input.classList.remove('is-invalid'));
 
-                    // 2. Kiểm tra Email
                     if (email.value.trim() === '' || !emailRegex.test(email.value.trim())) {
                         email.classList.add('is-invalid');
                         isValid = false;
                     }
 
-                    // 3. Kiểm tra Mật khẩu
                     if (password.value.trim() === '') {
                         password.classList.add('is-invalid');
                         isValid = false;
                     }
 
-                    // 4. Nếu mọi thứ hợp lệ
                     if (isValid) {
                         alert('Đăng nhập thành công!');
                         form.reset();
-                        // form.submit(); // Bỏ comment để gửi dữ liệu cho Java xử lý
                     }
                 });
             });

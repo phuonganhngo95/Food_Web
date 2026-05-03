@@ -5,7 +5,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Tình Trạng Đơn Hàng</title>
+        <title>Quên Mật Khẩu</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,17 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
         <link rel="stylesheet" href="./css/TrangChu.css">
-        <link rel="stylesheet" href="./css/OrderStatus.css">
+        <link rel="stylesheet" href="./css/Form.css">
+
+        <style>
+            .form-control.is-invalid {
+                transition: none !important;
+            }
+            .invalid-feedback {
+                animation: none !important;
+                transition: none !important;
+            }
+        </style>
     </head>
 
     <body>
@@ -147,7 +157,7 @@
 
                         <div class="dropdown ms-2 position-relative">
                             <% if (!isLogged) { %>
-                            <a href="#" class="text-dark fs-4 text-decoration-none icon-action d-flex align-items-center justify-content-center" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="width: 40px; height: 40px; border-radius: 50%;">
+                            <a href="#" class="text-primary-custom fs-4 text-decoration-none icon-action d-flex align-items-center justify-content-center" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="width: 40px; height: 40px; border-radius: 50%;">
                                 <i class="fas fa-user-circle"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-center border-0 shadow" aria-labelledby="accountDropdown" style="width: 220px; border-radius: 10px;">
@@ -300,78 +310,30 @@
             </div>
         </section>
 
-        <section class="order-status-section">
-            <div class="container mb-5">
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h3 class="fw-bold mb-0 text-dark">Trạng thái đơn hàng</h3>
-                    <a href="TrangChu.jsp" class="text-muted text-decoration-none hover-primary fw-medium">
-                        <i class="fas fa-chevron-left me-1"></i> Quay lại trang chủ
-                    </a>
-                </div>
+        <section class="auth-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 col-lg-5">
+                        <div class="auth-card" style="border-radius: 8px;">
+                            <h2 class="auth-title mb-2">Quên Mật Khẩu</h2>
 
-                <div class="bg-white shadow-sm border rounded p-0 overflow-hidden">
-                    <div class="table-responsive">
-                        <table class="table table-bordered custom-order-table mb-0">
-                            <thead class="table-light">
-                                <tr>
-                                    <th scope="col" style="width: 30%;">Mã đơn hàng</th>
-                                    <th scope="col" style="width: 12%;">Ngày đặt</th>
-                                    <th scope="col" style="width: 18%;">Chi tiết món</th>
-                                    <th scope="col" style="width: 20%;">Giá tiền</th>
-                                    <th scope="col" style="width: 12%;">Trạng thái</th>
-                                    <th scope="col" style="width: 8%; text-align: center;">Thao tác</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="fw-bold text-dark">2460ed41-6323-4065-9b37-3d1668050639</td>
-                                    <td>2026-04-30</td>
-                                    <td>Bánh</td>
-                                    <td>
-                                        <div>Số lượng: 1</div>
-                                        <div>Đơn giá: 120000.0</div>
-                                        <div>Tổng tiền: 120000.0</div>
-                                    </td>
-                                    <td>Đã hủy</td>
-                                    <td class="text-center">
-                                        <button class="btn btn-cancel disabled-btn" disabled>Hủy đơn</button>
-                                    </td>
-                                </tr>
+                            <form id="forgotPasswordForm" action="./XuLyQuenMatKhau" method="POST" novalidate>
+                                <div class="mb-4">
+                                    <label for="email" class="form-label fw-semibold"><span class="text-danger me-1">*</span>Địa chỉ Email</label>
+                                    <input type="email" class="form-control shadow-none" id="email" name="email" placeholder="Nhập email của bạn" required>
+                                    <div class="invalid-feedback">Vui lòng nhập một địa chỉ Email hợp lệ.</div>
+                                </div>
+                                
+                                <div class="text-center mt-4">
+                                    <button type="submit" class="btn text-white w-100 py-2 fs-5 mb-3 fw-bold shadow-sm" style="background-color: var(--primary-color); border-radius: 4px; border: none; transition: transform 0.2s;">
+                                        GỬI 
+                                    </button>
+                                </div>
 
-                                <tr>
-                                    <td class="fw-bold text-dark">65e46ae9-b4ca-477e-8966-b9943e04c7ac</td>
-                                    <td>2026-04-30</td>
-                                    <td>Bánh</td>
-                                    <td>
-                                        <div>Số lượng: 1</div>
-                                        <div>Đơn giá: 120000.0</div>
-                                        <div>Tổng tiền: 120000.0</div>
-                                    </td>
-                                    <td>Đang xử lý</td>
-                                    <td class="text-center">
-                                        <button class="btn btn-cancel active-btn">Hủy đơn</button>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="fw-bold text-dark">735e7744-f83f-41e0-867f-da0756d17f44</td>
-                                    <td>2026-04-30</td>
-                                    <td>Bánh</td>
-                                    <td>
-                                        <div>Số lượng: 1</div>
-                                        <div>Đơn giá: 120000.0</div>
-                                        <div>Tổng tiền: 120000.0</div>
-                                    </td>
-                                    <td>Đang xử lý</td>
-                                    <td class="text-center">
-                                        <button class="btn btn-cancel active-btn">Hủy đơn</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                            </form>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
@@ -415,5 +377,33 @@
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
         <script src="./js/index.js"></script>
+
+        <!-- Quên Mật Khẩu -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const form = document.getElementById('forgotPasswordForm');
+
+                form.addEventListener('submit', function (event) {
+                    event.preventDefault();
+
+                    let isValid = true;
+                    const email = document.getElementById('email');
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                    email.classList.remove('is-invalid');
+
+                    if (email.value.trim() === '' || !emailRegex.test(email.value.trim())) {
+                        email.classList.add('is-invalid');
+                        isValid = false;
+                    }
+
+                    if (isValid) {
+                        alert('Liên kết đặt lại mật khẩu đã được gửi đến: ' + email.value + '\nVui lòng kiểm tra hộp thư của bạn!');
+                        form.reset();
+                        // form.submit(); // Bỏ comment dòng này khi bạn đã nối với Backend
+                    }
+                });
+            });
+        </script>
     </body>
 </html>

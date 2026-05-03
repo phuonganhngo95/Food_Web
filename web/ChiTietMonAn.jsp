@@ -5,14 +5,17 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Chi Tiết Món Ăn - Foodie</title>
+        <title>Chi Tiết Món Ăn</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
 
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
         <link rel="stylesheet" href="./css/TrangChu.css">
         <link rel="stylesheet" href="./css/ChiTietMonAn.css"/>
     </head>
@@ -44,6 +47,27 @@
                             </button>
                         </form>
 
+                        <div class="dropdown ms-2 position-relative" id="wishlistDropdownContainer">
+                            <a href="#" class="text-dark fs-4 text-decoration-none icon-action d-flex align-items-center justify-content-center" 
+                               id="wishlistDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" 
+                               style="width: 40px; height: 40px;U">
+                                <i class="far fa-heart"></i> 
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger wishlist-badge" style="font-size: 0.6rem; margin-top: 8px; margin-left: -5px;">0</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end border-0 cart-dropdown-menu p-3 shadow" aria-labelledby="wishlistDropdown" style="width: 350px;">
+                                <div class="wishlist-empty text-center py-4">
+                                    <i class="far fa-heart fs-1 text-muted mb-3 d-block"></i>
+                                    <p class="text-muted mb-0">Bạn chưa có món ăn yêu thích nào!</p>
+                                </div>
+
+                                <div class="wishlist-has-items d-none"> 
+                                    <h6 class="fw-bold mb-3 border-bottom pb-2">Món ăn yêu thích (<span class="wishlist-count-text">0</span>)</h6>
+                                    <div class="wishlist-items-list mb-3" style="max-height: 250px; overflow-y: auto;"></div>
+                                    <a href="#" class="btn btn-custom w-100 text-center text-decoration-none">Xem chi tiết</a>
+                                </div>
+                            </ul>
+                        </div>
+
                         <div class="dropdown ms-2 position-relative" id="cartDropdownContainer">
                             <%
                                 // =================================================================
@@ -51,7 +75,7 @@
                                 // Hướng dẫn test: Đổi giá trị true/false ở 2 biến dưới đây để xem 3 trạng thái
                                 // =================================================================
         
-                                boolean isLogged = false;       // Đổi thành false để xem trạng thái CHƯA ĐĂNG NHẬP
+                                boolean isLogged = true;       // Đổi thành false để xem trạng thái CHƯA ĐĂNG NHẬP
                                 boolean hasItemsInCart = true; // Đổi thành false để xem trạng thái GIỎ HÀNG TRỐNG
         
                                 int cartSize = hasItemsInCart ? 3 : 0; // Số lượng hiển thị trên icon (Giả sử là 3 món)
@@ -62,7 +86,7 @@
                                style="width: 40px; height: 40px; border-radius: 50%;">
                                 <i class="fas fa-shopping-cart"></i> 
 
-                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-badge" style="font-size: 0.6rem;">
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-badge" style="font-size: 0.6rem; margin-top: 8px; margin-left: -5px;">
                                     <%= isLogged ? cartSize : 0 %>
                                 </span>
                             </a>
@@ -211,7 +235,6 @@
                     <ul class="list-unstyled">
                         <li><a href="#" class="side-menu-link">Theo Dõi Đơn Hàng <i class="fas fa-chevron-right"></i></a></li>
                         <li><a href="#" class="side-menu-link">Liên Hệ Với Chúng Tôi <i class="fas fa-chevron-right"></i></a></li>
-                        <li><a href="#" class="side-menu-link">Góp Ý & Khiếu Nại</a></li>
                     </ul>
                 </div>
 
@@ -234,105 +257,157 @@
                     <div style="width: 18px; height: 40px; background-color: var(--primary-color);"></div>
                 </div>
             </div>
-        </div>      
+        </div>        
 
-        <main class="container" style="margin-top: 200px; margin-bottom: 60px;">
-            <div class="row g-5 product-detail-card p-4 p-md-5 bg-white shadow-sm">
+        <section class="hero-section" id="home" style="padding: 82px 0 0 0;">
+            <div class="hero-banner-slider">
+                <div class="position-relative">
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Banner Burger" class="w-100" style="height: 600px; object-fit: cover;">
 
-                <div class="col-lg-6 pe-lg-5">
-                    <div class="text-center mb-4">
-                        <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fried Chicken" class="img-fluid rounded-4" style="width: 100%; max-height: 420px; object-fit: contain;">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0,0,0,0.5);">
+                        <div class="container text-center text-white">
+                            <p class="section-subtitle text-warning mb-2 fs-5">Nhanh chóng & Ngon miệng</p>
+                            <h1 class="display-3 fw-bold mb-4">Super Delicious <span class="text-primary-custom">Food!</span></h1>
+                            <p class="lead mb-4 mx-auto" style="max-width: 700px;">Thưởng thức những món ăn nhanh nóng hổi, giòn rụm với hương vị bùng nổ. Giao hàng tận nơi trong vòng 30 phút.</p>
+                            <a href="./ThucDon.jsp" class="btn btn-custom btn-lg rounded-pill px-5">Đi tới Thực đơn</a>
+                        </div>
                     </div>
-
-                    <h1 class="product-title mb-3">Gà Rán (1 Miếng)</h1>
-                    <div class="price-current" id="total-price-display">36.000 đ</div>
                 </div>
 
-                <div class="col-lg-6">
-                    <div class="d-flex justify-content-end mb-4">
-                        <a href="ThucDon.jsp" class="btn btn-back text-decoration-none d-flex align-items-center gap-1">
-                            <i class="fas fa-chevron-left fa-xs"></i> Quay lại
-                        </a>
+                <div class="position-relative">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Banner Pizza" class="w-100" style="height: 600px; object-fit: cover;">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0,0,0,0.5);">
+                        <div class="container text-center text-white">
+                            <p class="section-subtitle text-warning mb-2 fs-5">Hương vị Ý đích thực</p>
+                            <h1 class="display-3 fw-bold mb-4">The Best <span class="text-primary-custom">Pizza!</span></h1>
+                            <p class="lead mb-4 mx-auto" style="max-width: 700px;">Đế bánh giòn rụm, phô mai ngập tràn hòa quyện cùng các loại topping tươi ngon nhất. Đặt hàng ngay hôm nay!</p>
+                            <a href="./ThucDon.jsp" class="btn btn-custom btn-lg rounded-pill px-5">Khám phá ngay</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="position-relative">
+                    <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Banner Fresh" class="w-100" style="height: 600px; object-fit: cover;">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0,0,0,0.5);">
+                        <div class="container text-center text-white">
+                            <p class="section-subtitle text-warning mb-2 fs-5">Tươi ngon mỗi ngày</p>
+                            <h1 class="display-3 fw-bold mb-4">Healthy & <span class="text-primary-custom">Fresh!</span></h1>
+                            <p class="lead mb-4 mx-auto" style="max-width: 700px;">Nguyên liệu được chọn lọc kỹ càng, đảm bảo an toàn vệ sinh thực phẩm cho bạn và gia đình.</p>
+                            <a href="./ThucDon.jsp" class="btn btn-custom btn-lg rounded-pill px-5">Xem thực đơn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <main class="container" style="margin-top: 70px; margin-bottom: 60px; max-width: 1100px;">
+            <div class="d-flex justify-content-end mb-4">
+                <a href="ThucDon.jsp" class="btn-back">
+                    <i class="fas fa-chevron-left fa-xs" style="margin-right: 4px;"></i> Quay lại
+                </a>
+            </div>
+
+            <div class="row g-5 food-card text-start">
+                <div class="col-lg-6 pe-lg-4">
+                    <div class="text-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Combo Tiện Lợi 2" class="img-fluid" style="width: 100%; max-height: 400px; object-fit: contain;">
                     </div>
 
-                    <div class="option-box shadow-sm">
+                    <h1 class="product-title mb-3 food-title">Tiện Lợi 2</h1>
+                    <div class="price-current mb-1 price"><span class="text-danger">59.000 đ</span></div>
+
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-tag fa-sm tag-icon me-2"></i>
+                        <span class="price-old"><del>73.000 đ</del></span>
+                    </div>
+
+                    <div class="saving-text mb-4">
+                        Bạn tiết kiệm được <span>14.000 đ</span> sau khi giảm giá.
+                    </div>
+
+                    <hr class="dashed-divider">
+
+                    <div class="desc-text mt-4">
+                        01 H&S Chicken Rice<br>
+                        01 Soup<br>
+                        01 Pepsi (S)
+                    </div>
+                </div>
+
+                <div class="col-lg-6 ps-lg-4 d-flex flex-column">
+                    <div class="option-box mb-4">
                         <div class="option-header">
-                            <h5 class="mb-0 fw-bold text-uppercase">Ngon hơn khi ăn với</h5>
+                            <div>
+                                <h5 class="mb-0">Chọn nước</h5>
+                                <div class="option-subtitle mt-1">Chọn tối đa 1 món</div>
+                            </div>
+                            <span class="option-max">Tối đa 1</span>
                         </div>
 
                         <div class="option-body">
-                            <div class="option-item addable-item" data-price="44000" data-max="99" style="cursor: pointer;">
+                            <div class="option-item addable-item" data-price="0" data-max="1">
                                 <div class="d-flex align-items-center gap-3 user-select-none">
-                                    <span class="item-qty fw-bold" data-qty="0" style="color: var(--primary-color); display: none; min-width: 25px;">0x</span>
-                                    <img src="https://cdn-icons-png.flaticon.com/512/1046/1046786.png" alt="Shake Chicken Cheese" width="30">
-                                    <span class="text-dark fw-medium">Shake Chicken Cheese</span>
+                                    <span class="item-qty fw-bold item-qty-color" data-qty="0" style="display: none;">0x</span>
+                                    <img src="https://cdn-icons-png.flaticon.com/512/1046/1046786.png" alt="Pepsi" width="24">
+                                    <span class="item-name">Pepsi (S)</span>
                                 </div>
-                                <div class="d-flex align-items-center gap-3">
-                                    <span class="text-muted fw-medium">+ 44.000 đ</span>
-                                    <i class="fas fa-minus-circle text-secondary remove-icon" style="display: none; font-size: 1.2rem;" title="Giảm số lượng"></i>
-                                </div>
-                            </div>
-
-                            <div class="option-item addable-item" data-price="36000" data-max="99" style="cursor: pointer;">
-                                <div class="d-flex align-items-center gap-3 user-select-none">
-                                    <span class="item-qty fw-bold" data-qty="0" style="color: var(--primary-color); display: none; min-width: 25px;">0x</span>
-                                    <img src="https://cdn-icons-png.flaticon.com/512/1046/1046786.png" alt="Shake Potato Cheese" width="30">
-                                    <span class="text-dark fw-medium">Shake Potato Cheese</span>
-                                </div>
-                                <div class="d-flex align-items-center gap-3">
-                                    <span class="text-muted fw-medium">+ 36.000 đ</span>
-                                    <i class="fas fa-minus-circle text-secondary remove-icon" style="display: none; font-size: 1.2rem;" title="Giảm số lượng"></i>
-                                </div>
-                            </div>
-
-                            <div class="option-item addable-item" data-price="36000" data-max="99" style="cursor: pointer;">
-                                <div class="d-flex align-items-center gap-3 user-select-none">
-                                    <span class="item-qty fw-bold" data-qty="0" style="color: var(--primary-color); display: none; min-width: 25px;">0x</span>
-                                    <img src="https://cdn-icons-png.flaticon.com/512/783/783002.png" alt="Cheese Stick" width="30">
-                                    <span class="text-dark fw-medium">Cheese Stick</span>
-                                </div>
-                                <div class="d-flex align-items-center gap-3">
-                                    <span class="text-muted fw-medium">+ 36.000 đ</span>
-                                    <i class="fas fa-minus-circle text-secondary remove-icon" style="display: none; font-size: 1.2rem;" title="Giảm số lượng"></i>
-                                </div>
-                            </div>
-
-                            <div class="option-item addable-item" data-price="28000" data-max="99" style="cursor: pointer;">
-                                <div class="d-flex align-items-center gap-3 user-select-none">
-                                    <span class="item-qty fw-bold" data-qty="0" style="color: var(--primary-color); display: none; min-width: 25px;">0x</span>
-                                    <img src="https://cdn-icons-png.flaticon.com/512/3063/3063822.png" alt="Squid Ring" width="30">
-                                    <span class="text-dark fw-medium">Squid Ring (3 Pcs)</span>
-                                </div>
-                                <div class="d-flex align-items-center gap-3">
-                                    <span class="text-muted fw-medium">+ 28.000 đ</span>
-                                    <i class="fas fa-minus-circle text-secondary remove-icon" style="display: none; font-size: 1.2rem;" title="Giảm số lượng"></i>
-                                </div>
-                            </div>
-
-                            <div class="option-item addable-item" data-price="28000" data-max="99" style="cursor: pointer; border-bottom: none;">
-                                <div class="d-flex align-items-center gap-3 user-select-none">
-                                    <span class="item-qty fw-bold" data-qty="0" style="color: var(--primary-color); display: none; min-width: 25px;">0x</span>
-                                    <img src="https://cdn-icons-png.flaticon.com/512/1182/1182138.png" alt="French Fries" width="30">
-                                    <span class="text-dark fw-medium">French Fries</span>
-                                </div>
-                                <div class="d-flex align-items-center gap-3">
-                                    <span class="text-muted fw-medium">+ 28.000 đ</span>
-                                    <i class="fas fa-minus-circle text-secondary remove-icon" style="display: none; font-size: 1.2rem;" title="Giảm số lượng"></i>
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="item-price">+ 0 đ</span>
+                                    <i class="fas fa-times-circle remove-icon" style="display: none;" title="Bỏ chọn"></i>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="d-flex flex-wrap justify-content-between align-items-center mt-5">
-                        <div class="d-flex align-items-center gap-3 mb-3 mb-sm-0">
-                            <span class="text-dark fw-bold" style="font-size: 1.1rem;">Quantity</span>
-                            <div class="d-flex align-items-center rounded overflow-hidden border">
-                                <button class="qty-btn" id="btn-minus"><i class="fas fa-minus fa-xs"></i></button>
-                                <input type="text" class="qty-input" id="qty-input" value="1" readonly>
-                                <button class="qty-btn" id="btn-plus"><i class="fas fa-plus fa-xs"></i></button>
+                    <div class="option-box mb-5">
+                        <div class="option-header">
+                            <h5 class="mb-0">Món thêm</h5>
+                        </div>
+
+                        <div class="option-body">
+                            <div class="option-item addable-item" data-price="7000" data-max="99">
+                                <div class="d-flex align-items-center gap-3 user-select-none">
+                                    <span class="item-qty fw-bold item-qty-color" data-qty="0" style="display: none;">0x</span>
+                                    <img src="https://cdn-icons-png.flaticon.com/512/814/814115.png" alt="Fried Egg" width="24">
+                                    <span class="item-name">Cơm</span>
+                                </div>
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="item-price">+ 7.000 đ</span>
+                                    <i class="fas fa-times-circle remove-icon" style="display: none;" title="Giảm số lượng"></i>
+                                </div>
+                            </div>
+
+                            <div class="option-item addable-item border-0" data-price="7000" data-max="99">
+                                <div class="d-flex align-items-center gap-3 user-select-none">
+                                    <span class="item-qty fw-bold item-qty-color" data-qty="0" style="display: none;">0x</span>
+                                    <img src="https://cdn-icons-png.flaticon.com/512/3014/3014521.png" alt="Rice" width="24">
+                                    <span class="item-name">Mì</span>
+                                </div>
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="item-price">+ 7.000 đ</span>
+                                    <i class="fas fa-times-circle remove-icon" style="display: none;" title="Giảm số lượng"></i>
+                                </div>
                             </div>
                         </div>
-                        <button class="btn-add-cart-main shadow-sm"><i class="fas fa-shopping-cart me-2"></i> Add to cart</button>
+                    </div>
+
+                    <div class="d-flex flex-wrap justify-content-between align-items-center mt-auto pt-4">
+                        <div class="d-flex align-items-center gap-3 mb-3 mb-sm-0">
+                            <span class="text-dark" style="font-size: 1rem;">Số lượng</span>
+                            <div class="d-flex align-items-center gap-1">
+                                <button class="qty-btn-flat" id="btn-minus">-</button>
+                                <input type="text" class="qty-input-flat" id="qty-input" value="1" readonly>
+                                <button class="qty-btn-flat" id="btn-plus">+</button>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center gap-3">
+                            <button class="btn btn-wishlist border-0 shadow-none p-0 d-flex align-items-center justify-content-center" style="width: 42px; height: 42px;">
+                                <i class="far fa-heart fs-4"></i>
+                            </button>
+
+                            <button class="btn btn-add-cart btn-add-cart-flat">Thêm <i class="fas fa-cart-plus ms-1"></i></button>
+                        </div>
                     </div>
                 </div>
 
@@ -342,13 +417,17 @@
         <footer class="footer">
             <div class="container text-center">
                 <h4 class="footer-title mb-4">Các thành viên trong nhóm:</h4>
+
                 <div class="d-flex flex-column align-items-center gap-3">
+
                     <div class="member-item">
                         <div class="member-name">1. Ngô Phương Anh - 09/05/2005</div>
                     </div>
+
                     <div class="member-item">
                         <div class="member-name">2. Phùng Ngọc Bảo - 13/12/2005</div>
                     </div>
+
                     <div class="member-item">
                         <div class="member-name">3. Vũ Ngọc Hương Giang - 25/12/2005</div>
                     </div>
@@ -359,6 +438,17 @@
         <a href="#" class="back-top-btn active" aria-label="Back to top" data-back-top-btn>
             <i class="fas fa-chevron-up"></i>
         </a>
+
+        <div class="toast-container position-fixed top-0 end-0 p-3 mt-5 pt-4" style="z-index: 1055;">
+            <div id="wishlistToast" class="toast align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body">
+
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
 
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>

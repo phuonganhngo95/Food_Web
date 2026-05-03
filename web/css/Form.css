@@ -1,6 +1,6 @@
 .auth-section {
     background-color: var(--bg-color);
-    padding: 150px 0 80px 0;
+    padding: 80px 0 80px 0;
     min-height: 80vh;
     display: flex;
     align-items: center;
@@ -8,10 +8,8 @@
 
 .auth-card {
     background: #ffffff;
-    border-radius: 15px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
     padding: 40px;
-    border-top: 5px solid var(--primary-color);
 }
 
 .auth-title {
@@ -33,7 +31,6 @@
     border-radius: 8px;
     padding: 12px 15px;
     border: 1px solid #e0e0e0;
-    background-color: #f9f9f9;
     transition: all 0.3s ease;
 }
 

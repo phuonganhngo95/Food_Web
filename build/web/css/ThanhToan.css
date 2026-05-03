@@ -68,7 +68,6 @@
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path fill="%23ea6a47" d="M12 12H0L12 0v12z"/><path fill="white" d="M5.5 8.5L3 6l1-1 1.5 1.5L9 3l1 1-4.5 4.5z"/></svg>');
 }
 
-
 .cart-header-row {
     padding: 15px 30px;
     font-size: 0.875rem;

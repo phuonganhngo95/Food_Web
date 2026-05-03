@@ -5,14 +5,17 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Tình Trạng Đơn Hàng - Foodie</title>
+        <title>Tình Trạng Đơn Hàng</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
         <link rel="stylesheet" href="./css/TrangChu.css">
         <link rel="stylesheet" href="./css/OrderStatus.css">
     </head>
@@ -44,6 +47,27 @@
                             </button>
                         </form>
 
+                        <div class="dropdown ms-2 position-relative" id="wishlistDropdownContainer">
+                            <a href="#" class="text-dark fs-4 text-decoration-none icon-action d-flex align-items-center justify-content-center" 
+                               id="wishlistDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" 
+                               style="width: 40px; height: 40px;U">
+                                <i class="far fa-heart"></i> 
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger wishlist-badge" style="font-size: 0.6rem; margin-top: 8px; margin-left: -5px;">0</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end border-0 cart-dropdown-menu p-3 shadow" aria-labelledby="wishlistDropdown" style="width: 350px;">
+                                <div class="wishlist-empty text-center py-4">
+                                    <i class="far fa-heart fs-1 text-muted mb-3 d-block"></i>
+                                    <p class="text-muted mb-0">Bạn chưa có món ăn yêu thích nào!</p>
+                                </div>
+
+                                <div class="wishlist-has-items d-none"> 
+                                    <h6 class="fw-bold mb-3 border-bottom pb-2">Món ăn yêu thích (<span class="wishlist-count-text">0</span>)</h6>
+                                    <div class="wishlist-items-list mb-3" style="max-height: 250px; overflow-y: auto;"></div>
+                                    <a href="#" class="btn btn-custom w-100 text-center text-decoration-none">Xem chi tiết</a>
+                                </div>
+                            </ul>
+                        </div>
+
                         <div class="dropdown ms-2 position-relative" id="cartDropdownContainer">
                             <%
                                 // =================================================================
@@ -62,7 +86,7 @@
                                style="width: 40px; height: 40px; border-radius: 50%;">
                                 <i class="fas fa-shopping-cart"></i> 
 
-                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-badge" style="font-size: 0.6rem;">
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-badge" style="font-size: 0.6rem; margin-top: 8px; margin-left: -5px;">
                                     <%= isLogged ? cartSize : 0 %>
                                 </span>
                             </a>
@@ -233,12 +257,51 @@
                     <div style="width: 18px; height: 40px; background-color: var(--primary-color);"></div>
                 </div>
             </div>
-        </div>   
+        </div>        
 
-        <!-- ================= ORDER TABLE SECTION ================= -->
+        <section class="hero-section" id="home" style="padding: 82px 0 0 0;">
+            <div class="hero-banner-slider">
+                <div class="position-relative">
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Banner Burger" class="w-100" style="height: 600px; object-fit: cover;">
+
+                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0,0,0,0.5);">
+                        <div class="container text-center text-white">
+                            <p class="section-subtitle text-warning mb-2 fs-5">Nhanh chóng & Ngon miệng</p>
+                            <h1 class="display-3 fw-bold mb-4">Super Delicious <span class="text-primary-custom">Food!</span></h1>
+                            <p class="lead mb-4 mx-auto" style="max-width: 700px;">Thưởng thức những món ăn nhanh nóng hổi, giòn rụm với hương vị bùng nổ. Giao hàng tận nơi trong vòng 30 phút.</p>
+                            <a href="./ThucDon.jsp" class="btn btn-custom btn-lg rounded-pill px-5">Đi tới Thực đơn</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="position-relative">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Banner Pizza" class="w-100" style="height: 600px; object-fit: cover;">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0,0,0,0.5);">
+                        <div class="container text-center text-white">
+                            <p class="section-subtitle text-warning mb-2 fs-5">Hương vị Ý đích thực</p>
+                            <h1 class="display-3 fw-bold mb-4">The Best <span class="text-primary-custom">Pizza!</span></h1>
+                            <p class="lead mb-4 mx-auto" style="max-width: 700px;">Đế bánh giòn rụm, phô mai ngập tràn hòa quyện cùng các loại topping tươi ngon nhất. Đặt hàng ngay hôm nay!</p>
+                            <a href="./ThucDon.jsp" class="btn btn-custom btn-lg rounded-pill px-5">Khám phá ngay</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="position-relative">
+                    <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Banner Fresh" class="w-100" style="height: 600px; object-fit: cover;">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0,0,0,0.5);">
+                        <div class="container text-center text-white">
+                            <p class="section-subtitle text-warning mb-2 fs-5">Tươi ngon mỗi ngày</p>
+                            <h1 class="display-3 fw-bold mb-4">Healthy & <span class="text-primary-custom">Fresh!</span></h1>
+                            <p class="lead mb-4 mx-auto" style="max-width: 700px;">Nguyên liệu được chọn lọc kỹ càng, đảm bảo an toàn vệ sinh thực phẩm cho bạn và gia đình.</p>
+                            <a href="./ThucDon.jsp" class="btn btn-custom btn-lg rounded-pill px-5">Xem thực đơn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="order-status-section">
             <div class="container mb-5">
-
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h3 class="fw-bold mb-0 text-dark">Trạng thái đơn hàng</h3>
                     <a href="TrangChu.jsp" class="text-muted text-decoration-none hover-primary fw-medium">
@@ -260,7 +323,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- Dòng 1: Đã hủy (Cancelled) -->
                                 <tr>
                                     <td class="fw-bold text-dark">2460ed41-6323-4065-9b37-3d1668050639</td>
                                     <td>2026-04-30</td>
@@ -276,7 +338,6 @@
                                     </td>
                                 </tr>
 
-                                <!-- Dòng 2: Đang xử lý (In progress) -->
                                 <tr>
                                     <td class="fw-bold text-dark">65e46ae9-b4ca-477e-8966-b9943e04c7ac</td>
                                     <td>2026-04-30</td>
@@ -292,7 +353,6 @@
                                     </td>
                                 </tr>
 
-                                <!-- Dòng 3: Đang xử lý (In progress) -->
                                 <tr>
                                     <td class="fw-bold text-dark">735e7744-f83f-41e0-867f-da0756d17f44</td>
                                     <td>2026-04-30</td>
@@ -339,6 +399,17 @@
         <a href="#" class="back-top-btn active" aria-label="Back to top" data-back-top-btn>
             <i class="fas fa-chevron-up"></i>
         </a>
+
+        <div class="toast-container position-fixed top-0 end-0 p-3 mt-5 pt-4" style="z-index: 1055;">
+            <div id="wishlistToast" class="toast align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body">
+
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
 
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>

@@ -19,8 +19,7 @@
         <link rel="stylesheet" href="./css/Form.css"/>
 
         <style>
-            /* Tắt hiệu ứng chuyển đổi từ từ, ép lỗi đỏ hiện lên ngay lập tức */
-            .form-control.is-invalid {
+            .form-control.is-invalid, .form-select.is-invalid {
                 transition: none !important;
             }
 
@@ -28,9 +27,45 @@
                 animation: none !important;
                 transition: none !important;
             }
+
+            .shopee-form-container {
+                background: #ffffff;
+                padding: 40px;
+                border-radius: 4px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            }
+            .shopee-label {
+                font-weight: 500;
+                color: #222;
+                font-size: 1rem;
+                margin-bottom: 8px;
+            }
+            .shopee-input {
+                border-radius: 4px;
+                border: 1px solid #e5e5e5;
+                padding: 10px 14px;
+                font-size: 0.95rem;
+                box-shadow: none !important;
+            }
+            .shopee-input:focus {
+                border-color: var(--primary-color);
+            }
+            .shopee-upload-btn {
+                border: 1px solid #e5e5e5;
+                background: #fff;
+                color: #555;
+                border-radius: 4px;
+                padding: 8px 16px;
+                font-size: 0.9rem;
+                transition: all 0.2s;
+            }
+            .shopee-upload-btn:hover {
+                background: #f8f9fa;
+                border-color: #ccc;
+            }
         </style>
     </head>
-    <body>
+    <body style="background-color: #f5f5f5;">
         <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container align-items-center">
                 <a class="navbar-brand logo" href="./TrangChu.jsp">
@@ -57,6 +92,27 @@
                             </button>
                         </form>
 
+                        <div class="dropdown ms-2 position-relative" id="wishlistDropdownContainer">
+                            <a href="#" class="text-dark fs-4 text-decoration-none icon-action d-flex align-items-center justify-content-center" 
+                               id="wishlistDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" 
+                               style="width: 40px; height: 40px;U">
+                                <i class="far fa-heart"></i> 
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger wishlist-badge" style="font-size: 0.6rem; margin-top: 8px; margin-left: -5px;">0</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end border-0 cart-dropdown-menu p-3 shadow" aria-labelledby="wishlistDropdown" style="width: 350px;">
+                                <div class="wishlist-empty text-center py-4">
+                                    <i class="far fa-heart fs-1 text-muted mb-3 d-block"></i>
+                                    <p class="text-muted mb-0">Bạn chưa có món ăn yêu thích nào!</p>
+                                </div>
+
+                                <div class="wishlist-has-items d-none"> 
+                                    <h6 class="fw-bold mb-3 border-bottom pb-2">Món ăn yêu thích (<span class="wishlist-count-text">0</span>)</h6>
+                                    <div class="wishlist-items-list mb-3" style="max-height: 250px; overflow-y: auto;"></div>
+                                    <a href="#" class="btn btn-custom w-100 text-center text-decoration-none">Xem chi tiết</a>
+                                </div>
+                            </ul>
+                        </div>
+
                         <div class="dropdown ms-2 position-relative" id="cartDropdownContainer">
                             <%
                                 // =================================================================
@@ -75,7 +131,7 @@
                                style="width: 40px; height: 40px; border-radius: 50%;">
                                 <i class="fas fa-shopping-cart"></i> 
 
-                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-badge" style="font-size: 0.6rem;">
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-badge" style="font-size: 0.6rem; margin-top: 8px; margin-left: -5px;">
                                     <%= isLogged ? cartSize : 0 %>
                                 </span>
                             </a>
@@ -224,7 +280,6 @@
                     <ul class="list-unstyled">
                         <li><a href="#" class="side-menu-link">Theo Dõi Đơn Hàng <i class="fas fa-chevron-right"></i></a></li>
                         <li><a href="#" class="side-menu-link">Liên Hệ Với Chúng Tôi <i class="fas fa-chevron-right"></i></a></li>
-                        <li><a href="#" class="side-menu-link">Góp Ý & Khiếu Nại</a></li>
                     </ul>
                 </div>
 
@@ -247,62 +302,121 @@
                     <div style="width: 18px; height: 40px; background-color: var(--primary-color);"></div>
                 </div>
             </div>
-        </div>    
+        </div>        
 
-        <section class="auth-section">
+        <section class="hero-section" id="home" style="padding: 82px 0 0 0;">
+            <div class="hero-banner-slider">
+                <div class="position-relative">
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Banner Burger" class="w-100" style="height: 600px; object-fit: cover;">
+
+                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0,0,0,0.5);">
+                        <div class="container text-center text-white">
+                            <p class="section-subtitle text-warning mb-2 fs-5">Nhanh chóng & Ngon miệng</p>
+                            <h1 class="display-3 fw-bold mb-4">Super Delicious <span class="text-primary-custom">Food!</span></h1>
+                            <p class="lead mb-4 mx-auto" style="max-width: 700px;">Thưởng thức những món ăn nhanh nóng hổi, giòn rụm với hương vị bùng nổ. Giao hàng tận nơi trong vòng 30 phút.</p>
+                            <a href="./ThucDon.jsp" class="btn btn-custom btn-lg rounded-pill px-5">Đi tới Thực đơn</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="position-relative">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Banner Pizza" class="w-100" style="height: 600px; object-fit: cover;">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0,0,0,0.5);">
+                        <div class="container text-center text-white">
+                            <p class="section-subtitle text-warning mb-2 fs-5">Hương vị Ý đích thực</p>
+                            <h1 class="display-3 fw-bold mb-4">The Best <span class="text-primary-custom">Pizza!</span></h1>
+                            <p class="lead mb-4 mx-auto" style="max-width: 700px;">Đế bánh giòn rụm, phô mai ngập tràn hòa quyện cùng các loại topping tươi ngon nhất. Đặt hàng ngay hôm nay!</p>
+                            <a href="./ThucDon.jsp" class="btn btn-custom btn-lg rounded-pill px-5">Khám phá ngay</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="position-relative">
+                    <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Banner Fresh" class="w-100" style="height: 600px; object-fit: cover;">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0,0,0,0.5);">
+                        <div class="container text-center text-white">
+                            <p class="section-subtitle text-warning mb-2 fs-5">Tươi ngon mỗi ngày</p>
+                            <h1 class="display-3 fw-bold mb-4">Healthy & <span class="text-primary-custom">Fresh!</span></h1>
+                            <p class="lead mb-4 mx-auto" style="max-width: 700px;">Nguyên liệu được chọn lọc kỹ càng, đảm bảo an toàn vệ sinh thực phẩm cho bạn và gia đình.</p>
+                            <a href="./ThucDon.jsp" class="btn btn-custom btn-lg rounded-pill px-5">Xem thực đơn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="padding: 40px 0 60px 0;">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-md-10 col-lg-7">
-                        <div class="auth-card">
-                            <h2 class="auth-title">Gửi Lời Nhắn Cho Chúng Tôi</h2>
-                            <p class="auth-subtitle">Bạn có câu hỏi hay góp ý? Vui lòng điền thông tin vào form bên dưới.</p>
+                    <div class="col-md-10 col-lg-8">
+                        <div class="shopee-form-container">
+                            <h3 class="fw-bold mb-4 text-center" style="color: #333;">Gửi Lời Nhắn Cho Chúng Tôi</h3>
 
                             <form id="contactForm" action="./XuLyLienHe" method="POST" novalidate>
-
-                                <div class="mb-3">
-                                    <label for="fullname" class="form-label">Họ và tên <span class="text-danger">*</span></label>
-                                    <div class="input-group">
-                                        <span class="input-group-text bg-white border-end-0 text-muted"><i class="fas fa-user"></i></span>
-                                        <input type="text" class="form-control border-start-0" id="fullname" name="fullname" placeholder="Nhập họ tên của bạn..." required>
-                                        <div class="invalid-feedback w-100" id="error-fullname">Vui lòng nhập họ và tên.</div>
-                                    </div>
+                                <div class="mb-4">
+                                    <label class="shopee-label"><span class="text-danger me-1">*</span>Họ và tên</label>
+                                    <input type="text" class="form-control shopee-input" id="fullname" name="fullname" placeholder="Nhập họ và tên" required>
+                                    <div class="invalid-feedback" id="error-fullname">Vui lòng nhập họ và tên.</div>
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-                                        <div class="input-group">
-                                            <span class="input-group-text bg-white border-end-0 text-muted"><i class="fas fa-envelope"></i></span>
-                                            <input type="email" class="form-control border-start-0" id="email" name="email" placeholder="example@gmail.com" required>
-                                            <div class="invalid-feedback w-100" id="error-email">Vui lòng nhập Email hợp lệ.</div>
-                                        </div>
+                                    <div class="col-md-6 mb-4">
+                                        <label class="shopee-label"><span class="text-danger me-1">*</span>Email</label>
+                                        <input type="email" class="form-control shopee-input" id="email" name="email" placeholder="Nhập email" required>
+                                        <div class="invalid-feedback" id="error-email">Vui lòng nhập Email hợp lệ.</div>
                                     </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="phone" class="form-label">Số điện thoại <span class="text-danger">*</span></label>
-                                        <div class="input-group">
-                                            <span class="input-group-text bg-white border-end-0 text-muted"><i class="fas fa-phone-alt"></i></span>
-                                            <input type="tel" class="form-control border-start-0" id="phone" name="phone" placeholder="VD: 0912345678" required>
-                                            <div class="invalid-feedback w-100" id="error-phone">Vui lòng nhập số điện thoại hợp lệ (10 số).</div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label for="subject" class="form-label">Tiêu đề <span class="text-danger">*</span></label>
-                                    <div class="input-group">
-                                        <span class="input-group-text bg-white border-end-0 text-muted"><i class="fas fa-heading"></i></span>
-                                        <input type="text" class="form-control border-start-0" id="subject" name="subject" placeholder="Chủ đề bạn cần hỗ trợ..." required>
-                                        <div class="invalid-feedback w-100" id="error-subject">Vui lòng nhập tiêu đề.</div>
+                                    <div class="col-md-6 mb-4">
+                                        <label class="shopee-label"><span class="text-danger me-1">*</span>Số điện thoại</label>
+                                        <input type="tel" class="form-control shopee-input" id="phone" name="phone" placeholder="Nhập số điện thoại" required>
+                                        <div class="invalid-feedback" id="error-phone">Vui lòng nhập SĐT hợp lệ (10 số).</div>
                                     </div>
                                 </div>
 
                                 <div class="mb-4">
-                                    <label for="message" class="form-label">Nội dung chi tiết <span class="text-danger">*</span></label>
-                                    <textarea class="form-control" id="message" name="message" rows="5" placeholder="Mô tả chi tiết ý kiến của bạn..." required></textarea>
-                                    <div class="invalid-feedback" id="error-message" style="display: none; color: #dc3545; font-size: .875em; margin-top: .25rem;">Vui lòng nhập nội dung (tối thiểu 10 ký tự).</div>
+                                    <label class="shopee-label"><span class="text-danger me-1">*</span>Bạn thắc mắc về vấn đề nào?</label>
+                                    <select class="form-select shopee-input" id="issueType" name="issueType" required>
+                                        <option value="" selected disabled>Chọn giá trị</option>
+                                        <option value="TaiKhoan">Tài khoản & Bảo mật</option>
+                                        <option value="DonHang">Đơn hàng & Thanh toán</option>
+                                        <option value="GiaoHang">Giao hàng & Nhận hàng</option>
+                                        <option value="ChatLuong">Chất lượng món ăn</option>
+                                        <option value="Khac">Khác</option>
+                                    </select>
+                                    <div class="invalid-feedback" id="error-issue">Vui lòng chọn vấn đề bạn đang gặp phải.</div>
                                 </div>
 
-                                <button type="submit" class="btn btn-custom w-100 py-2 fs-5 mt-2">Gửi Ý Kiến <i class="fas fa-paper-plane ms-2"></i></button>
+                                <div class="mb-4">
+                                    <label class="shopee-label mb-0"><span class="text-danger me-1">*</span>Nội dung phản hồi</label>
+                                    <p class="text-muted mb-2" style="font-size: 0.85rem;">Điền thêm thông tin chi tiết về thắc mắc/ vấn đề của bạn</p>
+                                    <textarea class="form-control shopee-input" id="message" name="message" rows="4" placeholder="Nhập nội dung" required></textarea>
+                                    <div class="invalid-feedback" id="error-message">Vui lòng nhập nội dung chi tiết (tối thiểu 10 ký tự).</div>
+                                </div>
+
+                                <div class="mb-4 pt-2">
+                                    <label class="form-label" style="font-size: 0.95rem; color: #333;">Hãy tải lên hình ảnh/ clip thể hiện lỗi mà bạn đang gặp phải (nếu có)</label>
+                                    <div class="mt-2">
+                                        <h6 class="mb-1 fw-normal" style="color: #333; font-size: 1rem;">Tải Lên Tập Tin</h6>
+                                        <p class="text-muted mb-2" style="font-size: 0.85rem;">Bạn có thể đính kèm tối đa 5 tệp với đuôi là jpg / jpeg / png / pdf / mp4 / xls / xlsx / csv / zip / doc / docx. Dung lượng mỗi tệp không quá 10 MB.</p>
+                                        <button type="button" class="shopee-upload-btn">
+                                            <i class="fas fa-cloud-upload-alt me-2"></i> Nhấn để tải lên (0/5)
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="mb-4 d-flex align-items-start mt-4 pt-3 border-top">
+                                    <div class="form-check ps-0 mb-0">
+                                        <label class="form-check-label" for="agreement" style="font-size: 0.95rem; color: #333; line-height: 1.5;">
+                                            <span class="text-danger ms-0 me-1" style="margin-top: 2px;">*</span>
+                                            <input class="form-check-input shadow-none border-secondary me-2 ms-0 float-none mt-1" type="checkbox" id="agreement" required>
+                                            Bằng việc nhấn "GỬI ĐI", tôi đồng ý cho Fast Food thu thập và xử lý dữ liệu cá nhân của tôi theo <a href="#" class="text-danger text-decoration-none">Chính sách bảo mật của Fast Food</a>.
+                                        </label>
+                                        <div class="invalid-feedback">Bạn cần đồng ý với chính sách bảo mật để tiếp tục.</div>
+                                    </div>
+                                </div>
+
+                                <div class="text-center mt-4">
+                                    <button type="submit" class="btn text-white px-5 py-2 fw-bold" style="background-color: var(--primary-color); border-radius: 2px;">GỬI ĐI</button>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -335,6 +449,17 @@
             <i class="fas fa-chevron-up"></i>
         </a>
 
+        <div class="toast-container position-fixed top-0 end-0 p-3 mt-5 pt-4" style="z-index: 1055;">
+            <div id="wishlistToast" class="toast align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body">
+
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -345,62 +470,52 @@
                 const form = document.getElementById('contactForm');
 
                 form.addEventListener('submit', function (event) {
-                    event.preventDefault(); // Ngăn form gửi đi để kiểm tra
+                    event.preventDefault();
 
                     let isValid = true;
 
-                    // 1. Lấy các phần tử input
                     const fullname = document.getElementById('fullname');
                     const email = document.getElementById('email');
                     const phone = document.getElementById('phone');
-                    const subject = document.getElementById('subject');
+                    const issueType = document.getElementById('issueType'); // Field mới
                     const message = document.getElementById('message');
-                    const msgErrorDiv = document.getElementById('error-message');
+                    const agreement = document.getElementById('agreement'); // Field mới
 
-                    // Regex kiểm tra định dạng
                     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                     const phoneRegex = /^(0|\+84)[3|5|7|8|9][0-9]{8}$/;
 
-                    // 2. Reset toàn bộ thông báo lỗi trước mỗi lần bấm Gửi
-                    const inputs = form.querySelectorAll('.form-control');
+                    const inputs = form.querySelectorAll('.form-control, .form-select, .form-check-input');
                     inputs.forEach(input => input.classList.remove('is-invalid'));
-                    msgErrorDiv.style.display = 'none';
 
-                    // 3. Kiểm tra từng trường hợp và báo lỗi
                     if (fullname.value.trim() === '') {
                         fullname.classList.add('is-invalid');
                         isValid = false;
                     }
-
                     if (email.value.trim() === '' || !emailRegex.test(email.value.trim())) {
                         email.classList.add('is-invalid');
                         isValid = false;
                     }
-
                     if (phone.value.trim() === '' || !phoneRegex.test(phone.value.trim())) {
                         phone.classList.add('is-invalid');
                         isValid = false;
                     }
-
-                    if (subject.value.trim() === '') {
-                        subject.classList.add('is-invalid');
+                    if (issueType.value === '') {
+                        issueType.classList.add('is-invalid');
                         isValid = false;
                     }
-
                     if (message.value.trim().length < 10) {
                         message.classList.add('is-invalid');
-                        msgErrorDiv.style.display = 'block';
+                        isValid = false;
+                    }
+                    if (!agreement.checked) {
+                        agreement.classList.add('is-invalid');
                         isValid = false;
                     }
 
-                    // 4. Nếu mọi thứ hợp lệ
                     if (isValid) {
-                        alert('Cảm ơn ' + fullname.value + '! Lời nhắn của bạn đã được gửi thành công.');
-
-                        // Reset form trống trơn
+                        alert('Cảm ơn ' + fullname.value + '! Phản hồi của bạn đã được ghi nhận.');
                         form.reset();
-
-                        // form.submit(); // Bỏ comment dòng này để đẩy dữ liệu lên server (Servlet/JSP)
+                        // form.submit(); 
                     }
                 });
             });

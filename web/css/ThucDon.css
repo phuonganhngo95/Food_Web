@@ -125,9 +125,6 @@
     color: var(--primary-color);
 }
 
-/* ==========================================================================
-   CHECKBOX (FILTER BOX)
-   ========================================================================== */
 .filter-box .form-check-input {
     width: 1.2rem;
     height: 1.2rem;
@@ -157,18 +154,12 @@
     font-weight: 700 !important;
 }
 
-/* ==========================================================================
-   PHÂN TRANG 
-   ========================================================================== */
 .custom-pagination {
     display: flex;
     padding-left: 0;
     list-style: none;
 }
 
-/* ==========================================================================
-   TÙY CHỈNH MÀU SẮC SỐ VÀ MŨI TÊN PHÂN TRANG
-   ========================================================================== */
 .custom-pagination .page-item .page-link {
     background-color: #ffffff;
     color: var(--primary-color);
@@ -207,9 +198,6 @@
     border-bottom-right-radius: 8px;
 }
 
-/* ==========================================================================
-   SIDEBAR CỐ ĐỊNH (STICKY) KHI SCROLL
-   ========================================================================== */
 .sticky-sidebar {
     position: sticky;
     top: 140px;
