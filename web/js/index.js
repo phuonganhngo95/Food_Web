@@ -13,8 +13,6 @@ $(document).ready(function () {
         nextArrow: '<button class="hero-arrow-btn position-absolute top-50 translate-middle-y shadow-sm" style="z-index: 10; right: 30px; width: 45px; height: 45px; border-radius: 50%;"><i class="fas fa-chevron-right"></i></button>'
     });
 
-
-
     // 1. Khởi tạo Slick Slider cho Trang Chủ
     $('.popular-food-slider').slick({
         infinite: true, slidesToShow: 4, slidesToScroll: 1, autoplay: true, autoplaySpeed: 3000, arrows: true, prevArrow: $('.custom-prev'), nextArrow: $('.custom-next'), dots: false,

@@ -170,7 +170,7 @@
                                 </div>
 
                                 <div class="px-2 mb-2">
-                                    <a href="#" class="btn w-100 fw-bold text-primary-custom" style="background-color: var(--bg-color); font-size: 0.9rem;">Xem tất cả trang cá nhân</a>
+                                    <a href="./Profile.jsp" class="btn w-100 fw-bold text-primary-custom" style="background-color: var(--bg-color); font-size: 0.9rem;">Xem tất cả trang cá nhân</a>
                                 </div>
 
                                 <li><hr class="dropdown-divider mb-2"></li>
@@ -746,29 +746,34 @@
 
         <section class="coupon-section py-5">
             <div class="container">
+                <div class="text-center mb-5">
+                    <p class="section-subtitle text-danger"><i class="fas fa-star me-2"></i>Thưởng Thức Món Ngon</p>
+                    <h2 class="display-5 fw-bold mb-0">Món Tuyệt Hảo & <span class="text-primary-custom">Coupon Hấp Dẫn</span></h2>
+                </div>
+
                 <div class="row g-4">
                     <div class="col-lg-6">
                         <div class="coupon-card large-coupon p-4 p-lg-5 position-relative overflow-hidden h-100 d-flex align-items-center">
-                            <div class="position-relative z-1" style="max-width: 60%;">
-                                <h3 class="fw-bold text-white mb-2 fs-3">50% Off Now!</h3>
-                                <h2 class="fw-bold text-white mb-3 lh-sm" style="font-size: 2.2rem;">Discount For Delicious Tasty Burgers!</h2>
-                                <p class="mb-4 text-white opacity-75">Sale off 50% only this week</p>
-                                <a href="#menu" class="btn btn-coupon shadow-none">Order Now</a>
+                            <div class="position-relative z-1" style="max-width: 65%;">
+                                <h3 class="fw-bold text-white mb-2 fs-5">Burger Bò Mỹ Nướng Lửa</h3>
+                                <h2 class="fw-bold text-white mb-3 lh-sm" style="font-size: 2.2rem;">Thịt Ẩm Mọng Nước,<br>Ngon Khó Cưỡng!</h2>
+                                <p class="mb-4 text-white opacity-75">Hương vị bùng nổ trong từng miếng cắn. <strong>Tặng mã giảm 50%</strong> cho lần đầu đặt món.</p>
+                                <a href="ThucDon.jsp" class="btn btn-coupon shadow-none px-4">Đặt Ngay Kẻo Lỡ</a>
                             </div>
                             <div class="position-absolute food-img-wrapper" style="right: -15%; top: 10%; width: 60%; height: 80%;">
                                 <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Food" class="rounded-circle shadow-lg w-100 h-100" style="object-fit: cover;">
                             </div>
                         </div>
                     </div>
-
+                    
                     <div class="col-lg-6">
                         <div class="row g-4 h-100">
                             <div class="col-md-6">
                                 <div class="coupon-card small-coupon red-bg p-4 position-relative overflow-hidden h-100">
                                     <div class="position-relative z-1" style="max-width: 70%;">
-                                        <h3 class="fw-bold text-white mb-1 fs-4">Delicious Pizza</h3>
-                                        <p class="mb-3 text-white opacity-75 small">50% off Now</p>
-                                        <a href="#menu" class="btn btn-coupon btn-sm">Order Now</a>
+                                        <h3 class="fw-bold text-white mb-1 fs-5">Pizza Hải Sản Phô Mai</h3>
+                                        <p class="mb-3 text-white opacity-75 small">Hải sản tươi rói. <strong>Freeship 0đ</strong> cho đơn từ 150K</p>
+                                        <a href="ThucDon.jsp" class="btn btn-coupon btn-sm px-3">Thử Ngay</a>
                                     </div>
                                     <div class="position-absolute food-img-wrapper" style="right: -25%; bottom: -20%; width: 80%; height: 110%;">
                                         <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Pizza" class="rounded-circle shadow w-100 h-100" style="object-fit: cover;">
@@ -779,9 +784,9 @@
                             <div class="col-md-6">
                                 <div class="coupon-card small-coupon green-bg p-4 position-relative overflow-hidden h-100">
                                     <div class="position-relative z-1" style="max-width: 70%;">
-                                        <h3 class="fw-bold text-white mb-1 fs-4">American Burgers</h3>
-                                        <p class="mb-3 text-white opacity-75 small">50% off Now</p>
-                                        <a href="#menu" class="btn btn-coupon btn-sm">Order Now</a>
+                                        <h3 class="fw-bold text-white mb-1 fs-5">Gà Rán Xốt Cay Hàn</h3>
+                                        <p class="mb-3 text-white opacity-75 small">Lớp vỏ giòn tan. <strong>Mua 1 Tặng 1</strong> dịp cuối tuần</p>
+                                        <a href="ThucDon.jsp" class="btn btn-coupon btn-sm px-3">Thử Ngay</a>
                                     </div>
                                     <div class="position-absolute food-img-wrapper" style="right: -20%; bottom: -15%; width: 75%; height: 90%;">
                                         <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Burger" class="rounded-circle shadow w-100 h-100" style="object-fit: cover;">
@@ -795,12 +800,14 @@
                                         <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Pizza" class="rounded-circle shadow-lg w-100 h-100" style="object-fit: cover;">
                                     </div>
                                     <div class="position-relative z-1 ms-auto text-start ps-4" style="width: 60%;">
-                                        <h3 class="fw-bold text-white mb-2 fs-2 lh-sm">Tasty Buzzed Pizza</h3>
-                                        <p class="mb-3 text-white opacity-75" style="font-size: 0.95rem;">Sale off 50% only this week</p>
-                                        <a href="#menu" class="btn btn-coupon">Order Now</a>
+                                        <span class="badge bg-danger mb-2">Mã Giảm 20% Toàn Menu</span>
+                                        <h3 class="fw-bold text-white mb-2 fs-3 lh-sm">Pizza Xúc Xích Đút Lò</h3>
+                                        <p class="mb-3 text-white opacity-75" style="font-size: 0.95rem;">Đế bánh viền phô mai thơm lừng, ngập tràn topping béo ngậy. Nhập mã: <strong>PIZZA20</strong></p>
+                                        <a href="ThucDon.jsp" class="btn btn-coupon px-4">Đặt Món Nhận Ưu Đãi</a>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>

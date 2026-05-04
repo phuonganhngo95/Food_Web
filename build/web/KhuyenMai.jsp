@@ -305,9 +305,9 @@
                         <h3 class="fw-bold mb-0">Săn Mã Giảm Giá</h3>
                     </div>
 
-                    <div class="d-flex bg-white p-2 rounded shadow-sm border border-light" style="max-width: 400px; width: 100%;">
+                    <div class="d-flex bg-white p-2 rounded-0 shadow-none border voucher-box" style="max-width: 400px; width: 100%;">
                         <input type="text" class="form-control border-0 shadow-none bg-transparent" placeholder="Nhập mã voucher (vd: SALE50)..." style="font-size: 0.95rem;">
-                        <button type="button" class="btn text-white px-4 fw-bold rounded" style="background-color: var(--primary-color);">Lưu</button>
+                        <button type="button" class="btn text-white px-4 fw-bold rounded-0" style="background-color: var(--primary-color);">Lưu</button>
                     </div>
                 </div>
 
