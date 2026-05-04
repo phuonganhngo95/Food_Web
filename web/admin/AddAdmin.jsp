@@ -40,7 +40,7 @@
     <body>
         <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container align-items-center">
-                <a class="navbar-brand logo" href="./TrangChu.jsp">
+                <a class="navbar-brand logo" href="../TrangChu.jsp">
                     <img src="../img/logo.png" alt="Logo" style="height: 80px; width: auto; object-fit: contain; transition: transform 0.3s ease;">
                 </a>
 
@@ -50,7 +50,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mx-auto fw-bold">
-                        <li class="nav-item"><a class="nav-link" href="./TrangChu.jsp">Trang chủ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../admin/index.jsp">Trang chủ</a></li>
                         <li class="nav-item"><a class="nav-link" href="./ThucDon.jsp">Thực đơn</a></li>
                         <li class="nav-item"><a class="nav-link" href="./KhuyenMai.jsp">Khuyến mãi</a></li> 
                         <li class="nav-item"><a class="nav-link" href="./LienHe.jsp">Liên hệ</a></li>
