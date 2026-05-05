@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Quên Mật Khẩu</title>
 
+        <link rel="icon" href="./img/logo.png" type="image/png">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -323,7 +324,7 @@
                                     <input type="email" class="form-control shadow-none" id="email" name="email" placeholder="Nhập email của bạn" required>
                                     <div class="invalid-feedback">Vui lòng nhập một địa chỉ Email hợp lệ.</div>
                                 </div>
-                                
+
                                 <div class="text-center mt-4">
                                     <button type="submit" class="btn text-white w-100 py-2 fs-5 mb-3 fw-bold shadow-sm" style="background-color: var(--primary-color); border-radius: 4px; border: none; transition: transform 0.2s;">
                                         GỬI 

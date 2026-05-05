@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Chi Tiết Món Ăn</title>
 
+        <link rel="icon" href="./img/logo.png" type="image/png">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -78,7 +79,7 @@
                                 boolean isLogged = true;       // Đổi thành false để xem trạng thái CHƯA ĐĂNG NHẬP
                                 boolean hasItemsInCart = true; // Đổi thành false để xem trạng thái GIỎ HÀNG TRỐNG
         
-                                int cartSize = hasItemsInCart ? 3 : 0; // Số lượng hiển thị trên icon (Giả sử là 3 món)
+                                int cartSize = hasItemsInCart ? 3 : 0; 
                             %>
 
                             <a href="#" class="text-dark fs-4 text-decoration-none icon-action d-flex align-items-center justify-content-center" 
@@ -103,42 +104,25 @@
                                     </div>
                                 </div>
 
-                                <% } else if (!hasItemsInCart) { %>
+                                <% } else { %>
                                 <div class="cart-empty-user text-center py-4">
                                     <i class="fas fa-shopping-basket fs-1 text-muted mb-3 d-block"></i>
                                     <p class="text-muted mb-3">Giỏ hàng của bạn đang trống!</p>
                                     <a href="#menu" class="btn btn-custom w-100 text-decoration-none">Đặt món ngay</a>
                                 </div>
 
-                                <% } else { %>
-                                <div class="cart-has-items"> 
+                                <div class="cart-has-items d-none"> 
                                     <h6 class="fw-bold mb-3 border-bottom pb-2">Giỏ hàng của bạn</h6>
+
                                     <div class="cart-items-list mb-3" style="max-height: 250px; overflow-y: auto;">
 
-                                        <div class="d-flex align-items-center mb-3">
-                                            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Burger" class="rounded" style="width: 50px; height: 50px; object-fit: cover;">
-                                            <div class="ms-3 flex-grow-1">
-                                                <h6 class="mb-0 fs-6 fw-bold">Beef Burger Classic</h6>
-                                                <span class="text-primary-custom fw-bold">125.000đ</span> <span class="text-muted small">x 1</span>
-                                            </div>
-                                            <button class="btn btn-link text-danger p-0 ms-2"><i class="fas fa-trash-alt"></i></button>
-                                        </div>
-
-                                        <div class="d-flex align-items-center mb-3">
-                                            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Pizza" class="rounded" style="width: 50px; height: 50px; object-fit: cover;">
-                                            <div class="ms-3 flex-grow-1">
-                                                <h6 class="mb-0 fs-6 fw-bold">Tasty Buzzed Pizza</h6>
-                                                <span class="text-primary-custom fw-bold">99.000đ</span> <span class="text-muted small">x 2</span>
-                                            </div>
-                                            <button class="btn btn-link text-danger p-0 ms-2"><i class="fas fa-trash-alt"></i></button>
-                                        </div>
-
                                     </div>
+
                                     <div class="d-flex justify-content-between border-top pt-2 mb-3 fw-bold">
                                         <span>Tổng cộng:</span>
-                                        <span class="text-primary-custom">323.000đ</span>
+                                        <span class="text-primary-custom total-price-display">0đ</span>
                                     </div>
-                                    <a href="ThanhToan.jsp" class="btn btn-custom w-100 text-center text-decoration-none">Thanh toán ngay</a>
+                                    <a href="Cart.jsp" class="btn btn-custom w-100 text-center text-decoration-none">Xem Chi Tiết</a>
                                 </div>
                                 <% } %>
 
@@ -170,7 +154,7 @@
                                 </div>
 
                                 <div class="px-2 mb-2">
-                                    <a href="#" class="btn w-100 fw-bold text-primary-custom" style="background-color: var(--bg-color); font-size: 0.9rem;">Xem tất cả trang cá nhân</a>
+                                    <a href="./Profile.jsp" class="btn w-100 fw-bold text-primary-custom" style="background-color: var(--bg-color); font-size: 0.9rem;">Xem tất cả trang cá nhân</a>
                                 </div>
 
                                 <li><hr class="dropdown-divider mb-2"></li>

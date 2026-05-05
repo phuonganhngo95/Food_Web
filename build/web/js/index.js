@@ -29,29 +29,6 @@ $(document).ready(function () {
         responsive: [{breakpoint: 1024, settings: {slidesToShow: 3}}, {breakpoint: 768, settings: {slidesToShow: 2}}, {breakpoint: 576, settings: {slidesToShow: 1}}]
     });
 
-    // =========================================================
-    // LỌC CHO TRANG CHỦ (TABS + SLICK SLIDER)
-    // =========================================================
-    const homeMenuTabs = document.querySelectorAll('#menu-tab .nav-link');
-    if (homeMenuTabs.length > 0 && $menuSlider.length > 0) {
-        homeMenuTabs.forEach(tab => {
-            tab.addEventListener('click', function (e) {
-                // Lấy ID của tab được click (vd: pills-burger-tab -> burger)
-                let filterCategory = this.id.replace('pills-', '').replace('-tab', '');
-
-                // Xóa bộ lọc cũ của slider
-                $menuSlider.slick('slickUnfilter');
-
-                // Áp dụng bộ lọc mới nếu không phải tab "Tất cả"
-                if (filterCategory !== 'all') {
-                    $menuSlider.slick('slickFilter', function () {
-                        return $(this).attr('data-category') === filterCategory;
-                    });
-                }
-            });
-        });
-    }
-
 //    Giỏ hàng
     $('#btn-plus').click(function () {
         let currentVal = parseInt($('#qty-input').val());
@@ -192,8 +169,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             renderPagination(totalPages);
         }
-
-        // 1. Bắt sự kiện Click danh mục Hàng bán chạy
+        
         // 1. Bắt sự kiện Click danh mục Hàng bán chạy
         filterBtns.forEach(btn => {
             btn.addEventListener('click', function (e) {
@@ -228,9 +204,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 let minVal = parseInt(minPriceInput.value);
                 let maxVal = parseInt(maxPriceInput.value);
                 const maxLimit = parseInt(minPriceInput.max);
-                const gap = 0; // Khoảng cách tối thiểu giữa 2 nút (10.000đ)
-
-                // Xử lý chống đè nút
+                const gap = 0; 
+                
                 if (maxVal - minVal < gap) {
                     if (e && e.target.id === 'minPrice') {
                         // Nếu đang kéo nút Min chạm vào nút Max -> Đẩy nút Min lùi lại
@@ -243,7 +218,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 }
 
-                // Chốt chặn an toàn: Tuyệt đối không cho phép số âm hoặc vượt quá giới hạn
                 if (minVal < 0) {
                     minVal = 0;
                     minPriceInput.value = 0;
@@ -253,7 +227,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     maxPriceInput.value = maxLimit;
                 }
 
-                // Cập nhật giao diện dải màu cam
                 const percent1 = (minVal / maxLimit) * 100;
                 const percent2 = (maxVal / maxLimit) * 100;
 
@@ -261,7 +234,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 sliderTrack.style.width = (percent2 - percent1) + '%';
                 priceDisplay.textContent = formatCurrency(minVal) + ' - ' + formatCurrency(maxVal);
 
-                // Lưu giá trị vào bộ lọc và cập nhật món ăn lập tức
                 activeFilters.price.min = minVal;
                 activeFilters.price.max = maxVal;
                 currentPage = 1;
@@ -502,7 +474,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             <button class="btn btn-outline-secondary bg-white text-dark rounded-1 px-3 py-1 btn-set-default" style="font-size: 0.85rem; border-color: #d9d9d9;">Thiết lập mặc định</button>
                         </div>
                     </div>
-`               ;
+`;
                 addressList.insertAdjacentHTML('beforeend', newAddressHTML);
             }
 
@@ -537,10 +509,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
-
 // =========================================================
-// XỬ LÝ LOGIC POPUP, YÊU THÍCH VÀ GIỎ HÀNG (Đã bọc an toàn)
+// XỬ LÝ LOGIC POPUP: YÊU THÍCH VÀ GIỎ HÀNG
 // =========================================================
 document.addEventListener("DOMContentLoaded", function () {
     const toastEl = document.getElementById('wishlistToast');
@@ -550,7 +520,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     const toastBody = toastEl ? toastEl.querySelector('.toast-body') : null;
 
-    // --- WISHLIST ---
+    // -----------------------------------------------------
+    // 1. LOGIC MÓN YÊU THÍCH (WISHLIST)
+    // -----------------------------------------------------
     const btnWishlists = document.querySelectorAll('.btn-wishlist');
     const wishlistBadge = document.querySelector('.wishlist-badge');
     const wishlistCountTexts = document.querySelectorAll('.wishlist-count-text');
@@ -608,9 +580,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 e.preventDefault();
                 const foodCard = this.closest('.food-card');
                 if (!foodCard)
-                    return; // Chặn lỗi nếu DOM bất thường
+                    return;
 
-                // Quét dữ liệu an toàn, nếu thiếu class vẫn không sập JS
                 const titleEl = foodCard.querySelector('.food-title');
                 const imgEl = foodCard.querySelector('.food-img');
                 const priceEl = foodCard.querySelector('.price .text-danger') || foodCard.querySelector('.price');
@@ -647,8 +618,83 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // --- GIỎ HÀNG ---
+
+    // -----------------------------------------------------
+    // 2. LOGIC GIỎ HÀNG (CART) 
+    // -----------------------------------------------------
     const addToCartBtns = document.querySelectorAll('.btn-add-cart');
+    const cartBadge = document.querySelector('.cart-badge');
+    const cartItemsListElement = document.querySelector('.cart-items-list');
+    const cartEmptyUser = document.querySelector('.cart-empty-user');
+    const cartHasItems = document.querySelector('.cart-has-items');
+    const cartTotalPrice = document.querySelector('.total-price-display');
+
+    // Chặn đóng popup khi click xóa món
+    const cartDropdownMenu = document.querySelector('.cart-dropdown-menu');
+    if (cartDropdownMenu) {
+        cartDropdownMenu.addEventListener('click', function (e) {
+            if (!e.target.closest('a[href]')) {
+                e.stopPropagation();
+            }
+        });
+    }
+
+    let cartItems = [];
+
+    function formatCurrency(value) {
+        return new Intl.NumberFormat('vi-VN').format(value) + 'đ';
+    }
+
+    function updateCartUI() {
+        const count = cartItems.length;
+
+        // Cập nhật số đếm badge
+        if (cartBadge) {
+            cartBadge.innerText = count;
+            cartBadge.style.transform = "scale(1.5) translate(-30%, -30%)";
+            setTimeout(() => cartBadge.style.transform = "scale(1) translate(-50%, -50%)", 200);
+        }
+
+        if (count === 0) {
+            if (cartEmptyUser)
+                cartEmptyUser.classList.remove('d-none');
+            if (cartHasItems)
+                cartHasItems.classList.add('d-none');
+        } else {
+            if (cartEmptyUser)
+                cartEmptyUser.classList.add('d-none');
+            if (cartHasItems)
+                cartHasItems.classList.remove('d-none');
+
+            if (cartItemsListElement) {
+                cartItemsListElement.innerHTML = '';
+                let total = 0;
+
+                cartItems.forEach((item, index) => {
+                    total += item.price;
+                    const html = `
+                        <div class="d-flex align-items-center mb-3 cart-item-row" data-index="${index}">
+                            <a href="ChiTietMonAn.jsp" class="d-flex align-items-center flex-grow-1 text-decoration-none text-dark">
+                                <img src="${item.image}" alt="${item.name}" class="rounded" style="width: 50px; height: 50px; object-fit: cover;">
+                                <div class="ms-3 flex-grow-1">
+                                    <h6 class="mb-0 fs-6 fw-bold text-truncate" style="max-width: 150px;">${item.name}</h6>
+                                    <span class="text-primary-custom fw-bold">${formatCurrency(item.price)}</span> 
+                                    <span class="text-muted small">x 1</span>
+                                </div>
+                            </a>
+                            <button type="button" class="btn btn-link text-danger p-0 ms-2 btn-remove-item"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    `;
+                    cartItemsListElement.insertAdjacentHTML('beforeend', html);
+                });
+
+                if (cartTotalPrice)
+                    cartTotalPrice.innerText = formatCurrency(total);
+            }
+        }
+    }
+
+    // Nút thêm vào giỏ
     if (addToCartBtns.length > 0) {
         addToCartBtns.forEach(btn => {
             btn.addEventListener('click', function (e) {
@@ -658,14 +704,16 @@ document.addEventListener("DOMContentLoaded", function () {
                     return;
 
                 const titleEl = foodCard.querySelector('.food-title');
-                const itemName = titleEl ? titleEl.innerText.trim() : 'Món ăn';
+                const imgEl = foodCard.querySelector('.food-img');
+                const priceEl = foodCard.querySelector('.price .text-danger') || foodCard.querySelector('.price');
 
-                const badge = document.querySelector('.cart-badge');
-                if (badge) {
-                    badge.innerText = parseInt(badge.innerText || 0) + 1;
-                    badge.style.transform = "scale(1.5) translate(-30%, -30%)";
-                    setTimeout(() => badge.style.transform = "scale(1) translate(-50%, -50%)", 200);
-                }
+                const itemName = titleEl ? titleEl.innerText.trim() : 'Món ăn';
+                const itemImage = imgEl ? imgEl.src : '';
+                const itemPriceStr = priceEl ? priceEl.innerText.replace(/\D/g, '') : '0';
+                const itemPrice = parseInt(itemPriceStr) || 0;
+
+                cartItems.push({name: itemName, image: itemImage, price: itemPrice});
+                updateCartUI();
 
                 if (toastEl && toastBody) {
                     toastEl.classList.remove('bg-secondary');
@@ -676,17 +724,36 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     }
+
+    // Nút xóa món trong popup giỏ hàng
+    if (cartHasItems) {
+        cartHasItems.addEventListener('click', function (e) {
+            const removeBtn = e.target.closest('.btn-remove-item');
+            if (removeBtn) {
+                e.preventDefault();
+
+                const cartItemRow = removeBtn.closest('.cart-item-row');
+                if (cartItemRow) {
+                    const index = parseInt(cartItemRow.getAttribute('data-index'));
+                    if (!isNaN(index) && index >= 0 && index < cartItems.length) {
+                        cartItems.splice(index, 1);
+                        updateCartUI();
+                    }
+                }
+            }
+        });
+    }
+
+    // Khởi tạo chạy lần đầu
+    updateWishlistUI();
+    updateCartUI();
 });
 
+// Tab thực đơn home
 $(document).ready(function () {
-    // Lắng nghe sự kiện click vào các nút danh mục món ăn
     $('.menu-tabs .nav-link').on('click', function (e) {
-        e.preventDefault(); // Ngăn hành vi mặc định của thẻ (nếu cần)
-
-        // 1. Xóa class 'active' khỏi tất cả các nút
+        e.preventDefault();
         $('.menu-tabs .nav-link').removeClass('active');
-
-        // 2. Thêm class 'active' vào chính nút vừa được click
         $(this).addClass('active');
     });
 });

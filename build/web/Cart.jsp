@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Giỏ Hàng</title>
 
+        <link rel="icon" href="./img/logo.png" type="image/png">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -19,7 +20,7 @@
         <link rel="stylesheet" href="./css/Cart.css"/>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg fixed-top">
+        <nav class="navbar navbar-expand-lg fixed-top" style="z-index: 1040;">
             <div class="container align-items-center">
                 <a class="navbar-brand logo" href="./TrangChu.jsp">
                     <img src="./img/logo.png" alt="Logo" style="height: 80px; width: auto; object-fit: contain; transition: transform 0.3s ease;">
@@ -73,13 +74,13 @@
                                 // Hướng dẫn test: Đổi giá trị true/false ở 2 biến dưới đây để xem 3 trạng thái
                                 // =================================================================
         
-                                boolean isLogged = false;       // Đổi thành false để xem trạng thái CHƯA ĐĂNG NHẬP
-                                boolean hasItemsInCart = false; // Đổi thành false để xem trạng thái GIỎ HÀNG TRỐNG
+                                boolean isLogged = true;       // Đổi thành false để xem trạng thái CHƯA ĐĂNG NHẬP
+                                boolean hasItemsInCart = true; // Đổi thành false để xem trạng thái GIỎ HÀNG TRỐNG
         
-                                int cartSize = hasItemsInCart ? 3 : 0; // Số lượng hiển thị trên icon (Giả sử là 3 món)
+                                int cartSize = hasItemsInCart ? 3 : 0; 
                             %>
 
-                            <a href="#" class="text-dark fs-4 text-decoration-none icon-action d-flex align-items-center justify-content-center" 
+                            <a href="#" class="text-primary-custom fs-4 text-decoration-none icon-action d-flex align-items-center justify-content-center" 
                                id="cartDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" 
                                style="width: 40px; height: 40px; border-radius: 50%;">
                                 <i class="fas fa-shopping-cart"></i> 
@@ -101,40 +102,23 @@
                                     </div>
                                 </div>
 
-                                <% } else if (!hasItemsInCart) { %>
+                                <% } else { %>
                                 <div class="cart-empty-user text-center py-4">
                                     <i class="fas fa-shopping-basket fs-1 text-muted mb-3 d-block"></i>
                                     <p class="text-muted mb-3">Giỏ hàng của bạn đang trống!</p>
                                     <a href="#menu" class="btn btn-custom w-100 text-decoration-none">Đặt món ngay</a>
                                 </div>
 
-                                <% } else { %>
-                                <div class="cart-has-items"> 
+                                <div class="cart-has-items d-none"> 
                                     <h6 class="fw-bold mb-3 border-bottom pb-2">Giỏ hàng của bạn</h6>
+
                                     <div class="cart-items-list mb-3" style="max-height: 250px; overflow-y: auto;">
 
-                                        <div class="d-flex align-items-center mb-3">
-                                            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Burger" class="rounded" style="width: 50px; height: 50px; object-fit: cover;">
-                                            <div class="ms-3 flex-grow-1">
-                                                <h6 class="mb-0 fs-6 fw-bold">Beef Burger Classic</h6>
-                                                <span class="text-primary-custom fw-bold">125.000đ</span> <span class="text-muted small">x 1</span>
-                                            </div>
-                                            <button class="btn btn-link text-danger p-0 ms-2"><i class="fas fa-trash-alt"></i></button>
-                                        </div>
-
-                                        <div class="d-flex align-items-center mb-3">
-                                            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Pizza" class="rounded" style="width: 50px; height: 50px; object-fit: cover;">
-                                            <div class="ms-3 flex-grow-1">
-                                                <h6 class="mb-0 fs-6 fw-bold">Tasty Buzzed Pizza</h6>
-                                                <span class="text-primary-custom fw-bold">99.000đ</span> <span class="text-muted small">x 2</span>
-                                            </div>
-                                            <button class="btn btn-link text-danger p-0 ms-2"><i class="fas fa-trash-alt"></i></button>
-                                        </div>
-
                                     </div>
+
                                     <div class="d-flex justify-content-between border-top pt-2 mb-3 fw-bold">
                                         <span>Tổng cộng:</span>
-                                        <span class="text-primary-custom">323.000đ</span>
+                                        <span class="text-primary-custom total-price-display">0đ</span>
                                     </div>
                                     <a href="ThanhToan.jsp" class="btn btn-custom w-100 text-center text-decoration-none">Thanh toán ngay</a>
                                 </div>
@@ -168,7 +152,7 @@
                                 </div>
 
                                 <div class="px-2 mb-2">
-                                    <a href="#" class="btn w-100 fw-bold text-primary-custom" style="background-color: var(--bg-color); font-size: 0.9rem;">Xem tất cả trang cá nhân</a>
+                                    <a href="./Profile.jsp" class="btn w-100 fw-bold text-primary-custom" style="background-color: var(--bg-color); font-size: 0.9rem;">Xem tất cả trang cá nhân</a>
                                 </div>
 
                                 <li><hr class="dropdown-divider mb-2"></li>
@@ -635,76 +619,92 @@
 
                 <div class="row g-4">
                     <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="food-card position-relative shadow-sm h-100 bg-white"> 
-                            <span class="badge bg-danger position-absolute top-0 start-0 m-3 p-2">-15%</span>
+                        <div class="food-card position-relative h-100 border border-danger border-opacity-25 bg-white"> 
+                            <span class="badge bg-danger position-absolute top-0 start-0 m-3 p-2 shadow-sm fs-6">-15%</span>
+                            <button class="btn btn-wishlist position-absolute top-0 end-0 m-3 p-2 border-0 bg-transparent shadow-none" style="z-index: 5;">
+                                <i class="far fa-heart fs-4 text-secondary"></i>
+                            </button>
                             <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Beef Burger" class="food-img rounded-circle shadow-sm">
-
-                            <h4 class="fw-bold fs-5 mb-1 mt-3">
-                                <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">
-                                    Beef Burger Classic
-                                </a>
+                            <h4 class="fw-bold fs-5 mb-1">
+                                <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Beef Burger Classic</a>
                             </h4>
                             <p class="text-muted small mb-3">Thịt bò, Phô mai, Rau thơm</p>
-
-                            <div class="d-flex justify-content-between align-items-center">
-                                <span class="price"><del class="text-muted fs-6 me-1">150.000đ</del> 125.000đ</span>
-                                <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
+                            <div class="d-flex justify-content-between align-items-end">
+                                <span class="price text-start">
+                                    <del class="text-muted fs-6 me-2">150.000đ</del><br>
+                                    <span class="text-danger fw-bold">125.000đ</span>
+                                </span>
+                                <button class="btn btn-add-cart action-btn btn-outline-custom rounded-pill px-4 py-2 fw-bold d-flex align-items-center gap-2" style="font-size: 0.9rem;">
+                                    Thêm <i class="fas fa-cart-plus"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="food-card position-relative shadow-sm h-100 bg-white"> 
-                            <span class="badge bg-danger position-absolute top-0 start-0 m-3 p-2">HOT</span>
+                        <div class="food-card position-relative h-100 border border-danger border-opacity-25 bg-white"> 
+                            <span class="badge bg-danger position-absolute top-0 start-0 m-3 p-2 shadow-sm fs-6">HOT</span>
+                            <button class="btn btn-wishlist position-absolute top-0 end-0 m-3 p-2 border-0 bg-transparent shadow-none" style="z-index: 5;">
+                                <i class="far fa-heart fs-4 text-secondary"></i>
+                            </button>
                             <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Pizza" class="food-img rounded-circle shadow-sm">
-
-                            <h4 class="fw-bold fs-5 mb-1 mt-3">
-                                <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">
-                                    Tasty Buzzed Pizza
-                                </a>
+                            <h4 class="fw-bold fs-5 mb-1">
+                                <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Tasty Buzzed Pizza</a>
                             </h4>
                             <p class="text-muted small mb-3">Đế mỏng, ngập ngụa phô mai</p>
-
-                            <div class="d-flex justify-content-between align-items-center">
-                                <span class="price text-danger fw-bold">99.000đ</span>
-                                <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
+                            <div class="d-flex justify-content-between align-items-end">
+                                <span class="price text-start">
+                                    <del class="text-muted fs-6 me-2" style="opacity: 0;">&nbsp;</del><br>
+                                    <span class="text-danger fw-bold">99.000đ</span>
+                                </span>
+                                <button class="btn btn-add-cart action-btn btn-outline-custom rounded-pill px-4 py-2 fw-bold d-flex align-items-center gap-2" style="font-size: 0.9rem;">
+                                    Thêm <i class="fas fa-cart-plus"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="food-card position-relative shadow-sm h-100 bg-white"> 
+                        <div class="food-card position-relative h-100 border border-danger border-opacity-25 bg-white"> 
+                            <button class="btn btn-wishlist position-absolute top-0 end-0 m-3 p-2 border-0 bg-transparent shadow-none" style="z-index: 5;">
+                                <i class="far fa-heart fs-4 text-secondary"></i>
+                            </button>
                             <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=300&q=80" alt="Burger Gà" class="food-img rounded-circle shadow-sm">
-
-                            <h4 class="fw-bold fs-5 mb-1 mt-3">
-                                <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">
-                                    Burger Gà Giòn
-                                </a>
+                            <h4 class="fw-bold fs-5 mb-1">
+                                <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Burger Gà Giòn</a>
                             </h4>
                             <p class="text-muted small mb-3">Gà rán xù, sốt Mayo béo ngậy</p>
-
-                            <div class="d-flex justify-content-between align-items-center">
-                                <span class="price text-danger fw-bold">65.000đ</span>
-                                <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
+                            <div class="d-flex justify-content-between align-items-end">
+                                <span class="price text-start">
+                                    <del class="text-muted fs-6 me-2" style="opacity: 0;">&nbsp;</del><br>
+                                    <span class="text-danger fw-bold">65.000đ</span>
+                                </span>
+                                <button class="btn btn-add-cart action-btn btn-outline-custom rounded-pill px-4 py-2 fw-bold d-flex align-items-center gap-2" style="font-size: 0.9rem;">
+                                    Thêm <i class="fas fa-cart-plus"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="food-card position-relative shadow-sm h-100 bg-white"> 
-                            <span class="badge bg-success position-absolute top-0 start-0 m-3 p-2">NEW</span>
+                        <div class="food-card position-relative h-100 border border-danger border-opacity-25 bg-white"> 
+                            <span class="badge bg-success position-absolute top-0 start-0 m-3 p-2 shadow-sm fs-6">NEW</span>
+                            <button class="btn btn-wishlist position-absolute top-0 end-0 m-3 p-2 border-0 bg-transparent shadow-none" style="z-index: 5;">
+                                <i class="far fa-heart fs-4 text-secondary"></i>
+                            </button>
                             <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=300&q=80" alt="Gà rán" class="food-img rounded-circle shadow-sm">
-
-                            <h4 class="fw-bold fs-5 mb-1 mt-3">
-                                <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">
-                                    Gà Rán (1 Miếng)
-                                </a>
+                            <h4 class="fw-bold fs-5 mb-1">
+                                <a href="ChiTietMonAn.jsp" class="text-dark text-decoration-none stretched-link food-title">Gà Rán (1 Miếng)</a>
                             </h4>
                             <p class="text-muted small mb-3">Lớp vỏ giòn tan, thịt mọng nước</p>
-
-                            <div class="d-flex justify-content-between align-items-center">
-                                <span class="price text-danger fw-bold">36.000đ</span>
-                                <button class="btn btn-add-cart rounded-circle action-btn"><i class="fas fa-plus"></i></button>
+                            <div class="d-flex justify-content-between align-items-end">
+                                <span class="price text-start">
+                                    <del class="text-muted fs-6 me-2" style="opacity: 0;">&nbsp;</del><br>
+                                    <span class="text-danger fw-bold">36.000đ</span>
+                                </span>
+                                <button class="btn btn-add-cart action-btn btn-outline-custom rounded-pill px-4 py-2 fw-bold d-flex align-items-center gap-2" style="font-size: 0.9rem;">
+                                    Thêm <i class="fas fa-cart-plus"></i>
+                                </button>
                             </div>
                         </div>
                     </div>

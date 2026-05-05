@@ -343,7 +343,6 @@ h1, h2, h3, h4, h5, h6, .logo, .price {
 }
 
 .btn-custom-arrow {
-    background-color: var(--bg-color);
     color: var(--primary-color);
     border: 1px solid var(--primary-color);
     width: 40px;
@@ -581,20 +580,17 @@ h1, h2, h3, h4, h5, h6, .logo, .price {
 
 .profile-dropdown {
     width: 340px;
-    border-radius: 12px !important;
+    /*border-radius: 12px !important;*/
     padding: 10px 0;
 }
 
 .profile-header {
-    cursor: pointer;
     transition: background-color 0.2s;
 }
-.profile-header:hover {
-    background-color: #f2f2f2;
-}
+
 
 .profile-item {
-    border-radius: 8px;
+    /*border-radius: 8px;*/
     padding: 10px 8px;
     margin-bottom: 2px;
     white-space: normal;

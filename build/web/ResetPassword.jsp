@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Đặt Lại Mật Khẩu</title>
 
+        <link rel="icon" href="./img/logo.png" type="image/png">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -88,7 +89,7 @@
                                 boolean isLogged = false;       // Đổi thành false để xem trạng thái CHƯA ĐĂNG NHẬP
                                 boolean hasItemsInCart = false; // Đổi thành false để xem trạng thái GIỎ HÀNG TRỐNG
         
-                                int cartSize = hasItemsInCart ? 3 : 0; // Số lượng hiển thị trên icon (Giả sử là 3 món)
+                                int cartSize = hasItemsInCart ? 3 : 0; 
                             %>
 
                             <a href="#" class="text-dark fs-4 text-decoration-none icon-action d-flex align-items-center justify-content-center" 
@@ -309,7 +310,7 @@
                 </div>
             </div>
         </section>
-       
+
         <section class="auth-section">
             <div class="container">
                 <div class="row justify-content-center">
@@ -401,7 +402,7 @@
 
                     newPass.classList.remove('is-invalid');
                     confirmPass.classList.remove('is-invalid');
-                    
+
                     if (newPass.value.trim().length < 6) {
                         newPass.classList.add('is-invalid');
                         isValid = false;

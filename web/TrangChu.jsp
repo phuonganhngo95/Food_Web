@@ -75,10 +75,10 @@
                                 // Hướng dẫn test: Đổi giá trị true/false ở 2 biến dưới đây để xem 3 trạng thái
                                 // =================================================================
         
-                                boolean isLogged = false;       // Đổi thành false để xem trạng thái CHƯA ĐĂNG NHẬP
-                                boolean hasItemsInCart = false; // Đổi thành false để xem trạng thái GIỎ HÀNG TRỐNG
+                                boolean isLogged = true;       // Đổi thành false để xem trạng thái CHƯA ĐĂNG NHẬP
+                                boolean hasItemsInCart = true; // Đổi thành false để xem trạng thái GIỎ HÀNG TRỐNG
         
-                                int cartSize = hasItemsInCart ? 3 : 0; // Số lượng hiển thị trên icon (Giả sử là 3 món)
+                                int cartSize = hasItemsInCart ? 3 : 0; 
                             %>
 
                             <a href="#" class="text-dark fs-4 text-decoration-none icon-action d-flex align-items-center justify-content-center" 
@@ -103,42 +103,25 @@
                                     </div>
                                 </div>
 
-                                <% } else if (!hasItemsInCart) { %>
+                                <% } else { %>
                                 <div class="cart-empty-user text-center py-4">
                                     <i class="fas fa-shopping-basket fs-1 text-muted mb-3 d-block"></i>
                                     <p class="text-muted mb-3">Giỏ hàng của bạn đang trống!</p>
                                     <a href="#menu" class="btn btn-custom w-100 text-decoration-none">Đặt món ngay</a>
                                 </div>
 
-                                <% } else { %>
-                                <div class="cart-has-items"> 
+                                <div class="cart-has-items d-none"> 
                                     <h6 class="fw-bold mb-3 border-bottom pb-2">Giỏ hàng của bạn</h6>
+
                                     <div class="cart-items-list mb-3" style="max-height: 250px; overflow-y: auto;">
 
-                                        <div class="d-flex align-items-center mb-3">
-                                            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Burger" class="rounded" style="width: 50px; height: 50px; object-fit: cover;">
-                                            <div class="ms-3 flex-grow-1">
-                                                <h6 class="mb-0 fs-6 fw-bold">Beef Burger Classic</h6>
-                                                <span class="text-primary-custom fw-bold">125.000đ</span> <span class="text-muted small">x 1</span>
-                                            </div>
-                                            <button class="btn btn-link text-danger p-0 ms-2"><i class="fas fa-trash-alt"></i></button>
-                                        </div>
-
-                                        <div class="d-flex align-items-center mb-3">
-                                            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Pizza" class="rounded" style="width: 50px; height: 50px; object-fit: cover;">
-                                            <div class="ms-3 flex-grow-1">
-                                                <h6 class="mb-0 fs-6 fw-bold">Tasty Buzzed Pizza</h6>
-                                                <span class="text-primary-custom fw-bold">99.000đ</span> <span class="text-muted small">x 2</span>
-                                            </div>
-                                            <button class="btn btn-link text-danger p-0 ms-2"><i class="fas fa-trash-alt"></i></button>
-                                        </div>
-
                                     </div>
+
                                     <div class="d-flex justify-content-between border-top pt-2 mb-3 fw-bold">
                                         <span>Tổng cộng:</span>
-                                        <span class="text-primary-custom">323.000đ</span>
+                                        <span class="text-primary-custom total-price-display">0đ</span>
                                     </div>
-                                    <a href="ThanhToan.jsp" class="btn btn-custom w-100 text-center text-decoration-none">Thanh toán ngay</a>
+                                    <a href="Cart.jsp" class="btn btn-custom w-100 text-center text-decoration-none">Xem Chi Tiết</a>
                                 </div>
                                 <% } %>
 
@@ -309,16 +292,16 @@
 
                 <ul class="nav nav-pills justify-content-center mb-5 menu-tabs" id="menu-tab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="pills-all-tab" data-bs-target="#pills-all" type="button" role="tab">Tất cả</button>
+                        <button class="nav-link active" type="button" role="tab">Tất cả</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-burger-tab" data-bs-target="#pills-burger" type="button" role="tab">Burger</button>
+                        <button class="nav-link" type="button" role="tab">Burger</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-pizza-tab" data-bs-target="#pills-pizza" type="button" role="tab">Pizza</button>
+                        <button class="nav-link" type="button" role="tab">Pizza</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-drink-tab" data-bs-target="#pills-drink" type="button" role="tab">Đồ uống</button>
+                        <button class="nav-link" type="button" role="tab">Đồ uống</button>
                     </li>
                 </ul>
 
@@ -326,7 +309,7 @@
                     <div class="position-relative px-2 px-md-4">
                         <button class="btn btn-custom-arrow menu-prev arrow-left"><i class="fas fa-chevron-left"></i></button>
                         <div class="menu-slider mx-n2">
-                            <div class="px-3 py-4" data-category="burger">
+                            <div class="px-3 py-4">
                                 <div class="food-card position-relative h-100 border border-danger border-opacity-25"> 
                                     <span class="badge bg-danger position-absolute top-0 start-0 m-3 p-2 shadow-sm fs-6">-15%</span>
                                     <button class="btn btn-wishlist position-absolute top-0 end-0 m-3 p-2 border-0 bg-transparent shadow-none" style="z-index: 5;">
@@ -349,7 +332,7 @@
                                 </div>
                             </div>
 
-                            <div class="px-3 py-4" data-category="burger">
+                            <div class="px-3 py-4">
                                 <div class="food-card position-relative h-100 border border-danger border-opacity-25"> 
                                     <span class="badge bg-danger position-absolute top-0 start-0 m-3 p-2 shadow-sm fs-6">-15%</span>
                                     <button class="btn btn-wishlist position-absolute top-0 end-0 m-3 p-2 border-0 bg-transparent shadow-none" style="z-index: 5;">
@@ -372,7 +355,7 @@
                                 </div>
                             </div>
 
-                            <div class="px-3 py-4" data-category="burger">
+                            <div class="px-3 py-4">
                                 <div class="food-card position-relative h-100 border border-danger border-opacity-25"> 
                                     <span class="badge bg-danger position-absolute top-0 start-0 m-3 p-2 shadow-sm fs-6">-15%</span>
                                     <button class="btn btn-wishlist position-absolute top-0 end-0 m-3 p-2 border-0 bg-transparent shadow-none" style="z-index: 5;">
@@ -395,7 +378,7 @@
                                 </div>
                             </div>
 
-                            <div class="px-3 py-4" data-category="drink">
+                            <div class="px-3 py-4">
                                 <div class="food-card position-relative h-100 border border-danger border-opacity-25"> 
                                     <span class="badge bg-danger position-absolute top-0 start-0 m-3 p-2 shadow-sm fs-6">-15%</span>
                                     <button class="btn btn-wishlist position-absolute top-0 end-0 m-3 p-2 border-0 bg-transparent shadow-none" style="z-index: 5;">
@@ -418,7 +401,7 @@
                                 </div>
                             </div>
 
-                            <div class="px-3 py-4" data-category="pizza">
+                            <div class="px-3 py-4">
                                 <div class="food-card position-relative h-100 border border-danger border-opacity-25"> 
                                     <span class="badge bg-danger position-absolute top-0 start-0 m-3 p-2 shadow-sm fs-6">-15%</span>
                                     <button class="btn btn-wishlist position-absolute top-0 end-0 m-3 p-2 border-0 bg-transparent shadow-none" style="z-index: 5;">
@@ -765,7 +748,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="col-lg-6">
                         <div class="row g-4 h-100">
                             <div class="col-md-6">
@@ -854,5 +837,35 @@
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
         <script src="./js/index.js"></script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const cartDropdowns = document.querySelectorAll('.cart-dropdown-menu');
+
+                cartDropdowns.forEach(menu => {
+                    menu.addEventListener('click', function (e) {
+                        const removeBtn = e.target.closest('.btn-remove-item');
+
+                        if (removeBtn) {
+                            e.preventDefault(); 
+                            e.stopPropagation();
+
+                            const cartItem = removeBtn.closest('.cart-item-row');
+                            if (cartItem) {
+                                cartItem.remove();
+
+                                const badge = document.querySelector('.cart-badge');
+                                if (badge) {
+                                    let currentCount = parseInt(badge.innerText) || 0;
+                                    if (currentCount > 0) {
+                                        badge.innerText = currentCount - 1;
+                                    }
+                                }
+                            }
+                        }
+                    });
+                });
+            });
+        </script>
     </body>
 </html>
