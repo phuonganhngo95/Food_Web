@@ -322,23 +322,23 @@
 
                     <div class="col-lg-6">
                         <div class="shopee-voucher">
-                            <span class="v-qty-badge">x 3</span>
-                            <div class="v-left p-2" style="background-color: #10b981;">
-                                <div class="mb-1"><i class="fas fa-truck fs-3"></i></div>
-                                <span class="fw-bold mt-1" style="font-size: 0.8rem;">FREE</span>
-                                <span class="fw-bold" style="font-size: 0.8rem;">SHIP</span>
+                            <span class="v-qty-badge">x 2</span>
+                            <div class="v-left bg-shopee-red p-2">
+                                <div class="mb-1 border border-white p-1 rounded"><i class="fas fa-shopping-bag fs-4"></i></div>
+                                <span class="fw-bold mt-1" style="font-size: 0.8rem;">FOODIE</span>
+                                <span class="fw-bold" style="font-size: 0.8rem;">MALL</span>
                             </div>
                             <div class="v-right">
                                 <div class="v-info pe-2">
-                                    <h6 class="fw-bold mb-1">Miễn phí vận chuyển</h6>
-                                    <p class="text-muted mb-2">Giảm tối đa 30k</p>
+                                    <h6 class="fw-bold mb-1">Giảm 15% Tối đa 150k</h6>
+                                    <p class="text-muted mb-2">Đơn Tối thiểu 650k</p>
                                     <p class="text-muted small mb-0 d-flex align-items-center">
                                         <i class="far fa-clock me-1"></i> Hết hạn sau: 1 ngày 
                                         <a href="#" class="text-primary text-decoration-none ms-2">ĐK</a>
                                     </p>
                                 </div>
                                 <div class="v-action text-center ms-2">
-                                    <button class="btn btn-use-later" style="color: #10b981; border-color: #10b981;">Lưu mã</button>
+                                    <button class="btn btn-use-later">Lưu mã</button>
                                 </div>
                             </div>
                         </div>
@@ -370,23 +370,23 @@
 
                     <div class="col-lg-6">
                         <div class="shopee-voucher">
-                            <span class="v-qty-badge">x 3</span>
-                            <div class="v-left p-2" style="background-color: #10b981;">
-                                <div class="mb-1"><i class="fas fa-truck fs-3"></i></div>
-                                <span class="fw-bold mt-1" style="font-size: 0.8rem;">FREE</span>
-                                <span class="fw-bold" style="font-size: 0.8rem;">SHIP</span>
+                            <span class="v-qty-badge">x 2</span>
+                            <div class="v-left bg-shopee-red p-2">
+                                <div class="mb-1 border border-white p-1 rounded"><i class="fas fa-shopping-bag fs-4"></i></div>
+                                <span class="fw-bold mt-1" style="font-size: 0.8rem;">FOODIE</span>
+                                <span class="fw-bold" style="font-size: 0.8rem;">MALL</span>
                             </div>
                             <div class="v-right">
                                 <div class="v-info pe-2">
-                                    <h6 class="fw-bold mb-1">Miễn phí vận chuyển</h6>
-                                    <p class="text-muted mb-2">Giảm tối đa 30k</p>
+                                    <h6 class="fw-bold mb-1">Giảm 15% Tối đa 150k</h6>
+                                    <p class="text-muted mb-2">Đơn Tối thiểu 650k</p>
                                     <p class="text-muted small mb-0 d-flex align-items-center">
                                         <i class="far fa-clock me-1"></i> Hết hạn sau: 1 ngày 
                                         <a href="#" class="text-primary text-decoration-none ms-2">ĐK</a>
                                     </p>
                                 </div>
                                 <div class="v-action text-center ms-2">
-                                    <button class="btn btn-use-later" style="color: #10b981; border-color: #10b981;">Lưu mã</button>
+                                    <button class="btn btn-use-later">Lưu mã</button>
                                 </div>
                             </div>
                         </div>
@@ -418,23 +418,23 @@
 
                     <div class="col-lg-6">
                         <div class="shopee-voucher">
-                            <span class="v-qty-badge">x 3</span>
-                            <div class="v-left p-2" style="background-color: #10b981;">
-                                <div class="mb-1"><i class="fas fa-truck fs-3"></i></div>
-                                <span class="fw-bold mt-1" style="font-size: 0.8rem;">FREE</span>
-                                <span class="fw-bold" style="font-size: 0.8rem;">SHIP</span>
+                            <span class="v-qty-badge">x 2</span>
+                            <div class="v-left bg-shopee-red p-2">
+                                <div class="mb-1 border border-white p-1 rounded"><i class="fas fa-shopping-bag fs-4"></i></div>
+                                <span class="fw-bold mt-1" style="font-size: 0.8rem;">FOODIE</span>
+                                <span class="fw-bold" style="font-size: 0.8rem;">MALL</span>
                             </div>
                             <div class="v-right">
                                 <div class="v-info pe-2">
-                                    <h6 class="fw-bold mb-1">Miễn phí vận chuyển</h6>
-                                    <p class="text-muted mb-2">Giảm tối đa 30k</p>
+                                    <h6 class="fw-bold mb-1">Giảm 15% Tối đa 150k</h6>
+                                    <p class="text-muted mb-2">Đơn Tối thiểu 650k</p>
                                     <p class="text-muted small mb-0 d-flex align-items-center">
                                         <i class="far fa-clock me-1"></i> Hết hạn sau: 1 ngày 
                                         <a href="#" class="text-primary text-decoration-none ms-2">ĐK</a>
                                     </p>
                                 </div>
                                 <div class="v-action text-center ms-2">
-                                    <button class="btn btn-use-later" style="color: #10b981; border-color: #10b981;">Lưu mã</button>
+                                    <button class="btn btn-use-later">Lưu mã</button>
                                 </div>
                             </div>
                         </div>

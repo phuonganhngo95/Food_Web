@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             renderPagination(totalPages);
         }
-        
+
         // 1. Bắt sự kiện Click danh mục Hàng bán chạy
         filterBtns.forEach(btn => {
             btn.addEventListener('click', function (e) {
@@ -204,8 +204,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 let minVal = parseInt(minPriceInput.value);
                 let maxVal = parseInt(maxPriceInput.value);
                 const maxLimit = parseInt(minPriceInput.max);
-                const gap = 0; 
-                
+                const gap = 0;
+
                 if (maxVal - minVal < gap) {
                     if (e && e.target.id === 'minPrice') {
                         // Nếu đang kéo nút Min chạm vào nút Max -> Đẩy nút Min lùi lại
@@ -530,11 +530,22 @@ document.addEventListener("DOMContentLoaded", function () {
     const wishlistHasItems = document.querySelector('.wishlist-has-items');
     const wishlistItemsList = document.querySelector('.wishlist-items-list');
 
+    // Chặn dropdown đóng lại khi bấm xóa món yêu thích
+    const wishlistDropdownMenu = document.querySelector('#wishlistDropdownContainer .cart-dropdown-menu');
+    if (wishlistDropdownMenu) {
+        wishlistDropdownMenu.addEventListener('click', function (e) {
+            if (!e.target.closest('a[href]')) {
+                e.stopPropagation();
+            }
+        });
+    }
+
     let wishlistItems = [];
 
     function updateWishlistUI() {
         const count = wishlistItems.length;
 
+        // Cập nhật số đếm trên icon
         if (wishlistBadge) {
             wishlistBadge.innerText = count;
             wishlistBadge.style.transform = "scale(1.5) translate(-30%, -30%)";
@@ -545,6 +556,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         wishlistCountTexts.forEach(el => el.innerText = count);
 
+        // Đổi trạng thái hiển thị
         if (count === 0) {
             if (wishlistEmpty)
                 wishlistEmpty.classList.remove('d-none');
@@ -557,16 +569,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 wishlistHasItems.classList.remove('d-none');
         }
 
+        // Render HTML cho danh sách
         if (wishlistItemsList) {
             wishlistItemsList.innerHTML = '';
-            wishlistItems.forEach(item => {
+            wishlistItems.forEach((item, index) => {
+                // Tạo cấu trúc thẻ giống với Giỏ Hàng (Bọc thẻ a, nút xóa bên ngoài)
                 const html = `
-                    <div class="d-flex align-items-center mb-3">
-                        <img src="${item.image}" alt="${item.name}" class="rounded shadow-sm" style="width: 50px; height: 50px; object-fit: cover;">
-                        <div class="ms-3 flex-grow-1">
-                            <h6 class="mb-0 fs-6 fw-bold text-truncate" style="max-width: 200px;">${item.name}</h6>
-                            <span class="text-primary-custom fw-bold">${item.price}</span>
-                        </div>
+                    <div class="d-flex align-items-center mb-3 wishlist-item-row" data-index="${index}" data-name="${item.name}">
+                        <a href="${item.link}" class="d-flex align-items-center flex-grow-1 text-decoration-none text-dark action-go-detail">
+                            <img src="${item.image}" alt="${item.name}" class="rounded shadow-sm" style="width: 50px; height: 50px; object-fit: cover;">
+                            <div class="ms-3 flex-grow-1">
+                                <h6 class="mb-0 fs-6 fw-bold text-truncate hover-primary" style="max-width: 160px;">${item.name}</h6>
+                                <span class="text-primary-custom fw-bold">${item.price}</span>
+                            </div>
+                        </a>
+                        <button type="button" class="btn btn-link text-danger p-0 ms-2 btn-remove-wishlist-item"><i class="fas fa-trash-alt"></i></button>
                     </div>
                 `;
                 wishlistItemsList.insertAdjacentHTML('beforeend', html);
@@ -574,6 +591,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    // Xử lý sự kiện bấm tim trên thẻ món ăn
     if (btnWishlists.length > 0) {
         btnWishlists.forEach(btn => {
             btn.addEventListener('click', function (e) {
@@ -589,12 +607,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 const itemName = titleEl ? titleEl.innerText.trim() : 'Món ăn';
                 const itemImage = imgEl ? imgEl.src : '';
                 const itemPrice = priceEl ? priceEl.innerText.replace(/<del>.*<\/del>/, '').trim() : '0 đ';
+                const itemLink = titleEl ? titleEl.getAttribute('href') || 'ChiTietMonAn.jsp' : 'ChiTietMonAn.jsp';
 
                 const isActive = this.classList.contains('active');
 
                 if (!isActive) {
+                    // Thêm vào danh sách
                     this.classList.add('active');
-                    wishlistItems.push({name: itemName, price: itemPrice, image: itemImage});
+                    this.querySelector('i').classList.replace('far', 'fas');
+                    wishlistItems.push({name: itemName, price: itemPrice, image: itemImage, link: itemLink});
 
                     if (toastEl && toastBody) {
                         toastEl.classList.remove('bg-secondary');
@@ -603,7 +624,9 @@ document.addEventListener("DOMContentLoaded", function () {
                         toast.show();
                     }
                 } else {
+                    // Xóa khỏi danh sách
                     this.classList.remove('active');
+                    this.querySelector('i').classList.replace('fas', 'far');
                     wishlistItems = wishlistItems.filter(item => item.name !== itemName);
 
                     if (toastEl && toastBody) {
@@ -615,6 +638,40 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
                 updateWishlistUI();
             });
+        });
+    }
+
+    // Xử lý sự kiện xóa món yêu thích ngay trong menu Dropdown
+    if (wishlistHasItems) {
+        wishlistHasItems.addEventListener('click', function (e) {
+            const removeBtn = e.target.closest('.btn-remove-wishlist-item');
+            if (removeBtn) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const itemRow = removeBtn.closest('.wishlist-item-row');
+                if (itemRow) {
+                    const itemName = itemRow.getAttribute('data-name');
+
+                    // Xóa khỏi mảng dữ liệu
+                    wishlistItems = wishlistItems.filter(item => item.name !== itemName);
+
+                    // Cập nhật lại UI Dropdown
+                    updateWishlistUI();
+
+                    // Tìm lại tất cả các nút thả tim bên ngoài giao diện và tắt màu đỏ đi
+                    btnWishlists.forEach(btn => {
+                        const card = btn.closest('.food-card');
+                        if (card) {
+                            const titleEl = card.querySelector('.food-title');
+                            if (titleEl && titleEl.innerText.trim() === itemName) {
+                                btn.classList.remove('active');
+                                btn.querySelector('i').classList.replace('fas', 'far');
+                            }
+                        }
+                    });
+                }
+            }
         });
     }
 

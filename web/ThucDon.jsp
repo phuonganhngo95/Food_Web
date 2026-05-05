@@ -294,10 +294,10 @@
                             <div class="dual-slider-container position-relative mb-3 mt-4" style="height: 6px; background-color: #e0e0e0; border-radius: 5px;">
                                 <div class="slider-track position-absolute" id="sliderTrack" style="height: 100%; background-color: var(--primary-color); border-radius: 5px; z-index: 1;"></div>
 
-                                <input type="range" min="0" max="2000000" step="10000" value="0" id="minPrice" class="dual-range w-100 position-absolute m-0 top-50 translate-middle-y">
-                                <input type="range" min="0" max="2000000" step="10000" value="2000000" id="maxPrice" class="dual-range w-100 position-absolute m-0 top-50 translate-middle-y">
+                                <input type="range" min="0" max="1000000" step="10000" value="0" id="minPrice" class="dual-range w-100 position-absolute m-0 top-50 translate-middle-y">
+                                <input type="range" min="0" max="1000000" step="10000" value="2000000" id="maxPrice" class="dual-range w-100 position-absolute m-0 top-50 translate-middle-y">
                             </div>
-                            <div class="text-center mb-3 fw-bold text-primary-custom fs-6" id="priceDisplay">0d - 2.000.000d</div>
+                            <div class="text-center mb-3 fw-bold text-primary-custom fs-6" id="priceDisplay">0d - 1.000.000d</div>
 
                             <div class="filter-box mb-4">
                                 <h5 class="fw-bold mb-3 border-bottom pb-2" style="font-size: 1rem;">Loại sản phẩm</h5>

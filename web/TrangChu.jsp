@@ -50,20 +50,26 @@
                         <div class="dropdown ms-2 position-relative" id="wishlistDropdownContainer">
                             <a href="#" class="text-dark fs-4 text-decoration-none icon-action d-flex align-items-center justify-content-center" 
                                id="wishlistDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" 
-                               style="width: 40px; height: 40px;U">
+                               style="width: 40px; height: 40px;">
                                 <i class="far fa-heart"></i> 
                                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger wishlist-badge" style="font-size: 0.6rem; margin-top: 8px; margin-left: -5px;">0</span>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end border-0 cart-dropdown-menu p-3 shadow" aria-labelledby="wishlistDropdown" style="width: 350px;">
+
                                 <div class="wishlist-empty text-center py-4">
                                     <i class="far fa-heart fs-1 text-muted mb-3 d-block"></i>
-                                    <p class="text-muted mb-0">Bạn chưa có món ăn yêu thích nào!</p>
+                                    <p class="text-muted mb-3">Bạn chưa có món ăn yêu thích nào!</p>
+                                    <a href="./ThucDon.jsp" class="btn btn-custom w-100 text-decoration-none">Khám phá ngay</a>
                                 </div>
 
                                 <div class="wishlist-has-items d-none"> 
                                     <h6 class="fw-bold mb-3 border-bottom pb-2">Món ăn yêu thích (<span class="wishlist-count-text">0</span>)</h6>
-                                    <div class="wishlist-items-list mb-3" style="max-height: 250px; overflow-y: auto;"></div>
-                                    <a href="#" class="btn btn-custom w-100 text-center text-decoration-none">Xem chi tiết</a>
+
+                                    <div class="wishlist-items-list mb-3" style="max-height: 250px; overflow-y: auto;">
+                                      
+                                    </div>
+
+                                    <a href="YeuThich.jsp" class="btn btn-custom w-100 text-center text-decoration-none">Xem Chi Tiết</a>
                                 </div>
                             </ul>
                         </div>
@@ -847,7 +853,7 @@
                         const removeBtn = e.target.closest('.btn-remove-item');
 
                         if (removeBtn) {
-                            e.preventDefault(); 
+                            e.preventDefault();
                             e.stopPropagation();
 
                             const cartItem = removeBtn.closest('.cart-item-row');

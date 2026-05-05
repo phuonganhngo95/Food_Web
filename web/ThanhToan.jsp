@@ -371,12 +371,6 @@
                                         Thanh toán khi nhận đơn
                                     </label>
                                 </div>
-                                <div>
-                                    <input type="radio" name="paymentMethod" id="payCard" class="d-none payment-method-input">
-                                    <label class="payment-method-box mb-0 text-center fw-medium" for="payCard">
-                                        Chuyển khoản Ngân hàng
-                                    </label>
-                                </div>
                             </div>
                         </div>
 

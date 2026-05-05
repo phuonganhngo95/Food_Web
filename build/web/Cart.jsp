@@ -565,10 +565,96 @@
                     </div>
                 </div>
 
-                <div class="bg-white shadow-sm rounded-1 p-3 mb-2 d-flex justify-content-end align-items-center">
-                    <i class="fas fa-ticket-alt text-primary-custom fs-5 me-2"></i>
-                    <span class="text-dark me-auto">FastFood Voucher</span>
-                    <a href="#" class="text-primary-custom text-decoration-none small fw-medium">Chọn Hoặc Nhập Mã</a>
+                <div class="bg-white shadow-sm p-3 mb-2 d-flex justify-content-between align-items-center position-relative dropdown" style="z-index: 1999;">
+                    <div class="d-flex align-items-center me-auto">
+                        <i class="fas fa-ticket-alt text-primary-custom fs-5 me-2"></i>
+                        <span class="text-dark fw-bold">FastFood Voucher</span>
+                    </div>
+
+                    <a href="#" class="text-primary-custom text-decoration-none small fw-bold" id="cartVoucherDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                        Chọn Hoặc Nhập Mã <i class="fas fa-chevron-down ms-1"></i>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-end border-0 shadow-lg p-0" aria-labelledby="cartVoucherDropdown" style="width: 420px; max-width: 100vw; overflow: hidden; margin-top: 15px;">
+                        <div class="p-3 border-bottom bg-white">
+                            <div class="d-flex bg-white p-1 border voucher-box" style="border-radius: 2px; border-color: #e0e0e0 !important;">
+                                <input type="text" class="form-control border-0 shadow-none bg-transparent px-2" placeholder="Nhập mã voucher (vd: SALE50)..." style="font-size: 0.95rem;">
+                                <button type="button" class="btn text-white px-4 fw-bold rounded-0" style="background-color: #ff5722;">Lưu</button>
+                            </div>
+                        </div>
+
+                        <div class="p-3" style="max-height: 350px; overflow-y: auto; background-color: #f8f9fa;">
+                            <div class="d-flex flex-column gap-3">
+                                <div class="d-flex bg-white rounded border position-relative" style="box-shadow: 0 1px 4px rgba(0,0,0,0.05); cursor: pointer;" onclick="const cb = this.querySelector('input[type=checkbox]'); if (event.target !== cb) {
+                                            cb.checked = !cb.checked;
+                                            cb.dispatchEvent(new Event('change'));
+                                        }">
+                                    
+                                    <div class="p-2 d-flex flex-column justify-content-center align-items-center text-white text-center position-relative" style="background-color: #ee4d2d; width: 110px; min-width: 110px; border-right: 1px dashed #e8e8e8; border-radius: 4px 0 0 4px;">
+                                        <div style="position: absolute; top: -6px; right: -6px; width: 12px; height: 12px; background-color: #f8f9fa; border-radius: 50%; border: 1px solid #e8e8e8; border-top-color: transparent; border-right-color: transparent; transform: rotate(45deg);"></div>
+                                        <div style="position: absolute; bottom: -6px; right: -6px; width: 12px; height: 12px; background-color: #f8f9fa; border-radius: 50%; border: 1px solid #e8e8e8; border-bottom-color: transparent; border-right-color: transparent; transform: rotate(-45deg);"></div>
+
+                                        <div class="d-flex justify-content-center align-items-center mb-2" style="width: 40px; height: 48px; border: 1.5px solid #fff; border-radius: 6px;">
+                                            <i class="fas fa-shopping-bag text-white" style="font-size: 1.3rem;"></i>
+                                        </div>
+                                        
+                                        <div class="text-white text-center lh-1 mt-1">
+                                            <div class="fw-bold mb-1" style="font-size: 0.85rem; letter-spacing: 0.5px;">FOODIE</div>
+                                            <div class="fw-bold" style="font-size: 0.85rem; letter-spacing: 0.5px;">MALL</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="p-3 flex-grow-1 d-flex justify-content-between align-items-center">
+                                        <div class="pe-2">
+                                            <h6 class="fw-bold mb-1" style="font-size: 0.95rem;">Giảm 15%</h6>
+                                            <p class="text-muted mb-1" style="font-size: 0.8rem;">Đơn Tối thiểu 650k</p>
+                                            <p class="text-danger small mb-0 d-flex align-items-center fw-medium" style="font-size: 0.75rem;">
+                                                <i class="far fa-clock me-1"></i> Hết hạn: 1 ngày
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <input class="form-check-input custom-checkbox rounded-circle m-0 max-1-checkbox" type="checkbox" name="voucherSelect" style="width: 1.4em; height: 1.4em; cursor: pointer;">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex bg-white rounded border position-relative" style="box-shadow: 0 1px 4px rgba(0,0,0,0.05); cursor: pointer;" onclick="const cb = this.querySelector('input[type=checkbox]'); if (event.target !== cb) {
+                                            cb.checked = !cb.checked; cb.dispatchEvent(new Event('change'));
+                                        }">
+                                    <div class="p-2 d-flex flex-column justify-content-center align-items-center text-white text-center position-relative" style="background-color: #26aa99; width: 110px; min-width: 110px; border-right: 1px dashed #e8e8e8; border-radius: 4px 0 0 4px;">
+                                        <div style="position: absolute; top: -6px; right: -6px; width: 12px; height: 12px; background-color: #f8f9fa; border-radius: 50%; border: 1px solid #e8e8e8; border-top-color: transparent; border-right-color: transparent; transform: rotate(45deg);"></div>
+                                        <div style="position: absolute; bottom: -6px; right: -6px; width: 12px; height: 12px; background-color: #f8f9fa; border-radius: 50%; border: 1px solid #e8e8e8; border-bottom-color: transparent; border-right-color: transparent; transform: rotate(-45deg);"></div>
+
+                                        <div class="d-flex justify-content-center align-items-center mb-2" style="width: 40px; height: 48px; border: 1.5px solid #fff; border-radius: 6px;">
+                                            <i class="fas fa-truck text-white" style="font-size: 1.2rem;"></i>
+                                        </div>
+                                        <div class="text-white text-center lh-1 mt-1">
+                                            <div class="fw-bold mb-1" style="font-size: 0.85rem; letter-spacing: 0.5px;">FREE</div>
+                                            <div class="fw-bold" style="font-size: 0.85rem; letter-spacing: 0.5px;">SHIP</div>
+                                        </div>
+                                    </div>
+                                    <div class="p-3 flex-grow-1 d-flex justify-content-between align-items-center">
+                                        <div class="pe-2">
+                                            <h6 class="fw-bold mb-1" style="font-size: 0.95rem;">Giảm 15k phí VC</h6>
+                                            <p class="text-muted mb-1" style="font-size: 0.8rem;">Đơn Tối thiểu 150k</p>
+                                            <p class="text-muted small mb-0 d-flex align-items-center" style="font-size: 0.75rem;">
+                                                <i class="far fa-clock me-1"></i> Có hiệu lực sau 10 tiếng
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <input class="form-check-input custom-checkbox rounded-circle m-0 max-1-checkbox" type="checkbox" name="voucherSelect" style="width: 1.4em; height: 1.4em; cursor: pointer;">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="p-3 border-top bg-white d-flex justify-content-end gap-2 shadow-sm">
+                            <button class="btn btn-light border px-2 fw-bold text-muted" data-bs-dismiss="dropdown">QUAY LẠI</button>
+                            <button class="btn btn-custom px-2 fw-bold" data-bs-dismiss="dropdown">OK</button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -754,34 +840,34 @@
         <script src="./js/index.js"></script>
 
         <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const wrapper = document.getElementById('checkout-wrapper');
-                const bar = document.getElementById('checkout-bar');
+                                    document.addEventListener('DOMContentLoaded', function () {
+                                        const wrapper = document.getElementById('checkout-wrapper');
+                                        const bar = document.getElementById('checkout-bar');
 
-                if (wrapper && bar) {
-                    function updateBarPosition() {
-                        const barHeight = bar.offsetHeight;
-                        wrapper.style.height = barHeight + 'px';
+                                        if (wrapper && bar) {
+                                            function updateBarPosition() {
+                                                const barHeight = bar.offsetHeight;
+                                                wrapper.style.height = barHeight + 'px';
 
-                        const rect = wrapper.getBoundingClientRect();
+                                                const rect = wrapper.getBoundingClientRect();
 
-                        if (rect.top <= window.innerHeight - barHeight) {
-                            bar.classList.remove('fixed-bottom');
-                            bar.style.position = 'absolute';
-                            bar.style.bottom = '0';
-                        } else {
-                            bar.classList.add('fixed-bottom');
-                            bar.style.position = 'fixed';
-                            bar.style.bottom = '0';
-                        }
-                    }
+                                                if (rect.top <= window.innerHeight - barHeight) {
+                                                    bar.classList.remove('fixed-bottom');
+                                                    bar.style.position = 'absolute';
+                                                    bar.style.bottom = '0';
+                                                } else {
+                                                    bar.classList.add('fixed-bottom');
+                                                    bar.style.position = 'fixed';
+                                                    bar.style.bottom = '0';
+                                                }
+                                            }
 
-                    window.addEventListener('scroll', updateBarPosition);
-                    window.addEventListener('resize', updateBarPosition);
+                                            window.addEventListener('scroll', updateBarPosition);
+                                            window.addEventListener('resize', updateBarPosition);
 
-                    setTimeout(updateBarPosition, 100);
-                }
-            });
+                                            setTimeout(updateBarPosition, 100);
+                                        }
+                                    });
         </script>
     </body>
 </html>
