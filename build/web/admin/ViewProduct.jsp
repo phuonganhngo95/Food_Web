@@ -344,7 +344,12 @@
                                         <td class="text-start">12</td>
                                         <td>
                                             <div class="d-flex justify-content-center gap-2">
-                                                <a href="#" class="btn btn-sm text-white" style="background-color: var(--primary-color); border-radius: 4px;"><i class="fas fa-edit me-1"></i>Edit</a>
+                                                <button type="button" class="btn btn-sm text-white btn-edit-product" 
+                                                        style="background-color: var(--primary-color); border-radius: 4px;" 
+                                                        data-bs-toggle="modal" 
+                                                        data-bs-target="#editProductModal">
+                                                    <i class="fas fa-edit me-1"></i>Edit
+                                                </button>
                                                 <a href="#" class="btn btn-danger btn-sm" style="border-radius: 4px;"><i class="fas fa-trash-alt me-1"></i>Delete</a>
                                             </div>
                                         </td>
@@ -364,7 +369,12 @@
                                         <td class="text-start">25</td>
                                         <td>
                                             <div class="d-flex justify-content-center gap-2">
-                                                <a href="#" class="btn btn-sm text-white" style="background-color: var(--primary-color); border-radius: 4px;"><i class="fas fa-edit me-1"></i>Edit</a>
+                                                <button type="button" class="btn btn-sm text-white btn-edit-product" 
+                                                        style="background-color: var(--primary-color); border-radius: 4px;" 
+                                                        data-bs-toggle="modal" 
+                                                        data-bs-target="#editProductModal">
+                                                    <i class="fas fa-edit me-1"></i>Edit
+                                                </button>
                                                 <a href="#" class="btn btn-danger btn-sm" style="border-radius: 4px;"><i class="fas fa-trash-alt me-1"></i>Delete</a>
                                             </div>
                                         </td>
@@ -421,6 +431,82 @@
             </div>
         </footer>
 
+        <div class="modal fade" id="editProductModal" tabindex="-1" aria-labelledby="editProductModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content border-0 shadow">
+                    <div class="modal-header bg-light border-bottom-0">
+                        <h5 class="modal-title card-title-custom fw-bold" id="editProductModalLabel" style="color: var(--primary-color);">
+                            <i class="fas fa-edit me-2"></i>Chỉnh Sửa Thông Tin Món
+                        </h5>
+                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body p-4">
+                        <form id="editProductForm">
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Tên món (Title)</label>
+                                    <input type="text" class="form-control form-control-custom rounded-0" id="editTitle" placeholder="Nhập tên món">
+                                </div>
+                                <div class="col-md-6 mt-3 mt-md-0">
+                                    <label class="form-label fw-semibold">Danh mục (Category)</label>
+                                    <select class="form-select form-control-custom rounded-0" id="editCategory">
+                                        <option value="Sweet">Sweet</option>
+                                        <option value="Pizza">Pizza</option>
+                                        <option value="Burger">Burger</option>
+                                        <option value="Drink">Drink</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-4">
+                                    <label class="form-label fw-semibold">Giá gốc (Price)</label>
+                                    <input type="text" class="form-control form-control-custom rounded-0" id="editPrice">
+                                </div>
+                                <div class="col-md-4 mt-3 mt-md-0">
+                                    <label class="form-label fw-semibold">Giảm giá (%)</label>
+                                    <input type="text" class="form-control form-control-custom rounded-0" id="editDiscount">
+                                </div>
+                                <div class="col-md-4 mt-3 mt-md-0">
+                                    <label class="form-label fw-semibold">Số lượng (Stock)</label>
+                                    <input type="text" class="form-control form-control-custom rounded-0" id="editStock">
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Hình ảnh (Chọn file)</label>
+                                    <input type="file" class="form-control form-control-custom rounded-0" id="editImage" accept="image/*">
+
+                                    <!-- Vùng hiển thị ảnh xem trước đã được làm to hết cỡ theo chiều ngang của cột -->
+                                    <div class="mt-3 text-start">
+                                        <img id="imagePreview" src="" alt="Preview" class="img-thumbnail d-none shadow-sm" style="width: 100%; height: 250px; object-fit: cover; border-radius: 6px;">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mt-3 mt-md-0">
+                                    <label class="form-label fw-semibold d-block">Trạng thái (Status)</label>
+                                    <div class="d-flex align-items-center mt-2">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="editStatusRadio" id="statusActive" value="true" style="cursor: pointer;">
+                                            <label class="form-check-label" for="statusActive">Đang bán</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="editStatusRadio" id="statusInactive" value="false" style="cursor: pointer;">
+                                            <label class="form-check-label" for="statusInactive">Ngừng bán</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer border-top-0">
+                        <button type="button" class="btn btn-secondary rounded-0 px-4" data-bs-dismiss="modal">Hủy</button>
+                        <button type="button" class="btn text-white rounded-0 px-4" style="background-color: var(--primary-color);">Lưu Thay Đổi</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <a href="#" class="back-top-btn active" aria-label="Back to top" data-back-top-btn>
             <i class="fas fa-chevron-up"></i>
         </a>
@@ -440,5 +526,64 @@
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
         <script src="../js/index.js"></script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const editButtons = document.querySelectorAll('.btn-edit-product');
+                const imagePreview = document.getElementById('imagePreview');
+                const editImageInput = document.getElementById('editImage');
+
+                editButtons.forEach(button => {
+                    button.addEventListener('click', function () {
+                        const tr = this.closest('tr');
+
+                        const imgSrc = tr.querySelector('td:nth-child(2) img').src;
+                        const title = tr.querySelector('td:nth-child(3)').innerText.trim();
+                        const category = tr.querySelector('td:nth-child(4)').innerText.trim();
+                        const price = tr.querySelector('td:nth-child(5)').innerText.trim();
+                        const discount = tr.querySelector('td:nth-child(6)').innerText.trim();
+                        const status = tr.querySelector('td:nth-child(8)').innerText.trim() === 'true';
+                        const stock = tr.querySelector('td:nth-child(9)').innerText.trim();
+
+                        document.getElementById('editTitle').value = title;
+                        document.getElementById('editCategory').value = category;
+                        document.getElementById('editPrice').value = price;
+                        document.getElementById('editDiscount').value = discount;
+                        document.getElementById('editStock').value = stock;
+                        document.getElementById('editStock').value = stock;
+
+                        if (status) {
+                            document.getElementById('statusActive').checked = true;
+                        } else {
+                            document.getElementById('statusInactive').checked = true;
+                        }
+
+                        editImageInput.value = '';
+
+                        if (imgSrc) {
+                            imagePreview.src = imgSrc;
+                            imagePreview.classList.remove('d-none');
+                        } else {
+                            imagePreview.classList.add('d-none');
+                        }
+                    });
+                });
+
+                editImageInput.addEventListener('change', function (event) {
+                    const file = event.target.files[0];
+
+                    if (file) {
+                        const reader = new FileReader();
+
+                        reader.onload = function (e) {
+                            imagePreview.src = e.target.result;
+                            imagePreview.classList.remove('d-none');
+                        };
+
+                        reader.readAsDataURL(file);
+                    }
+                });
+            });
+        </script>
     </body>
 </html>

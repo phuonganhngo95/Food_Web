@@ -373,7 +373,12 @@
                                                     <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Burger" class="rounded shadow-sm" style="width: 50px; height: 50px; object-fit: cover;">
                                                 </td>
                                                 <td class="pe-4">
-                                                    <a href="#" class="btn btn-sm text-white me-1" style="background-color: var(--primary-color);"><i class="fas fa-edit me-1"></i>Edit</a>
+                                                    <button type="button" class="btn btn-sm text-white me-1 btn-edit-category" 
+                                                            style="background-color: var(--primary-color);" 
+                                                            data-bs-toggle="modal" 
+                                                            data-bs-target="#editCategoryModal">
+                                                        <i class="fas fa-edit me-1"></i>Edit
+                                                    </button>
                                                     <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt me-1"></i>Delete</a>
                                                 </td>
                                             </tr>
@@ -386,7 +391,12 @@
                                                     <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Pizza" class="rounded shadow-sm" style="width: 50px; height: 50px; object-fit: cover;">
                                                 </td>
                                                 <td class="pe-4">
-                                                    <a href="#" class="btn btn-sm text-white me-1" style="background-color: var(--primary-color);"><i class="fas fa-edit me-1"></i>Edit</a>
+                                                    <button type="button" class="btn btn-sm text-white me-1 btn-edit-category" 
+                                                            style="background-color: var(--primary-color);" 
+                                                            data-bs-toggle="modal" 
+                                                            data-bs-target="#editCategoryModal">
+                                                        <i class="fas fa-edit me-1"></i>Edit
+                                                    </button>
                                                     <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt me-1"></i>Delete</a>
                                                 </td>
                                             </tr>
@@ -399,7 +409,12 @@
                                                     <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Drink" class="rounded shadow-sm" style="width: 50px; height: 50px; object-fit: cover;">
                                                 </td>
                                                 <td class="pe-4">
-                                                    <a href="#" class="btn btn-sm text-white me-1" style="background-color: var(--primary-color);"><i class="fas fa-edit me-1"></i>Edit</a>
+                                                    <button type="button" class="btn btn-sm text-white me-1 btn-edit-category" 
+                                                            style="background-color: var(--primary-color);" 
+                                                            data-bs-toggle="modal" 
+                                                            data-bs-target="#editCategoryModal">
+                                                        <i class="fas fa-edit me-1"></i>Edit
+                                                    </button>
                                                     <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt me-1"></i>Delete</a>
                                                 </td>
                                             </tr>
@@ -457,6 +472,55 @@
             </div>
         </footer>
 
+        <div class="modal fade" id="editCategoryModal" tabindex="-1" aria-labelledby="editCategoryModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content border-0 shadow">
+                    <div class="modal-header bg-light border-bottom-0">
+                        <h5 class="modal-title card-title-custom fw-bold" id="editCategoryModalLabel" style="color: var(--primary-color);">
+                            <i class="fas fa-edit me-2"></i>Chỉnh Sửa Danh Mục
+                        </h5>
+                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body p-4">
+                        <form id="editCategoryFormModal">
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Tên Danh Mục (Category Name)</label>
+                                <input type="text" class="form-control form-control-custom rounded-0" id="editCategoryName" placeholder="Nhập tên danh mục">
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Hình ảnh (Chọn file)</label>
+                                    <input type="file" class="form-control form-control-custom rounded-0" id="editCategoryImage" accept="image/*">
+
+                                    <div class="mt-3 text-start">
+                                        <img id="categoryImagePreview" src="" alt="Preview" class="img-thumbnail d-none shadow-sm" style="width: 100%; height: 250px; object-fit: cover; border-radius: 6px;">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mt-3 mt-md-0">
+                                    <label class="form-label fw-semibold d-block">Trạng thái (Status)</label>
+                                    <div class="d-flex align-items-center mt-2">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="editCategoryStatus" id="editStatusActive" value="true" style="cursor: pointer;">
+                                            <label class="form-check-label" for="editStatusActive">Active</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="editCategoryStatus" id="editStatusInactive" value="false" style="cursor: pointer;">
+                                            <label class="form-check-label" for="editStatusInactive">Inactive</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer border-top-0">
+                        <button type="button" class="btn btn-secondary rounded-0 px-4" data-bs-dismiss="modal">Hủy</button>
+                        <button type="button" class="btn text-white rounded-0 px-4" style="background-color: var(--primary-color);">Lưu Thay Đổi</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <a href="#" class="back-top-btn active" aria-label="Back to top" data-back-top-btn>
             <i class="fas fa-chevron-up"></i>
         </a>
@@ -480,15 +544,11 @@
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 const form = document.getElementById('addCategoryForm');
-
                 form.addEventListener('submit', function (event) {
                     event.preventDefault();
-
                     let isValid = true;
-
                     const name = document.getElementById('categoryName');
                     const image = document.getElementById('categoryImage');
-
                     const inputs = form.querySelectorAll('.form-control, .form-select');
                     inputs.forEach(input => input.classList.remove('is-invalid'));
 
@@ -496,18 +556,58 @@
                         name.classList.add('is-invalid');
                         isValid = false;
                     }
-
                     if (image.files.length === 0) {
                         image.classList.add('is-invalid');
                         isValid = false;
                     }
-
                     if (isValid) {
                         alert('Đã lưu danh mục thành công!');
-                        // form.submit(); // Bỏ comment khi ghép với Backend
                         form.reset();
                     }
                 });
+
+                const editCategoryButtons = document.querySelectorAll('.btn-edit-category');
+                const categoryImagePreview = document.getElementById('categoryImagePreview');
+                const editCategoryImageInput = document.getElementById('editCategoryImage');
+
+                editCategoryButtons.forEach(button => {
+                    button.addEventListener('click', function () {
+                        const tr = this.closest('tr');
+
+                        const categoryName = tr.querySelector('td:nth-child(2)').innerText.trim();
+                        const statusStr = tr.querySelector('td:nth-child(3)').innerText.trim();
+                        const imgSrc = tr.querySelector('td:nth-child(4) img').src;
+
+                        document.getElementById('editCategoryName').value = categoryName;
+
+                        if (statusStr === 'true') {
+                            document.getElementById('editStatusActive').checked = true;
+                        } else {
+                            document.getElementById('editStatusInactive').checked = true;
+                        }
+
+                        editCategoryImageInput.value = ''; // Reset file input
+                        if (imgSrc) {
+                            categoryImagePreview.src = imgSrc;
+                            categoryImagePreview.classList.remove('d-none');
+                        } else {
+                            categoryImagePreview.classList.add('d-none');
+                        }
+                    });
+                });
+
+                editCategoryImageInput.addEventListener('change', function (event) {
+                    const file = event.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function (e) {
+                            categoryImagePreview.src = e.target.result;
+                            categoryImagePreview.classList.remove('d-none');
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+
             });
         </script>
     </body>

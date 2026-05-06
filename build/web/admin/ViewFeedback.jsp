@@ -5,7 +5,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Thêm Danh Mục</title>
+        <title>Xem Phản Hồi</title>
 
         <link rel="icon" href="../img/logo.png" type="image/png">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,21 +23,9 @@
                 background-color: #f8f9fc;
             }
 
-            .form-control.is-invalid, .form-select.is-invalid {
-                transition: none !important;
-            }
-            .invalid-feedback {
-                animation: none !important;
-                transition: none !important;
-            }
-
-            .form-control-custom:focus:not(.is-invalid), .form-select-custom:focus:not(.is-invalid) {
+            .form-control-custom:focus {
                 border-color: var(--primary-color);
                 box-shadow: 0 0 0 0.25rem rgba(234, 106, 71, 0.25);
-            }
-            .form-check-input-custom:checked {
-                background-color: var(--primary-color);
-                border-color: var(--primary-color);
             }
 
             .pagination-custom .page-link {
@@ -57,8 +45,17 @@
 
             .card-title-custom {
                 font-family: var(--ff-heading);
-                color: #333;
                 font-weight: 500;
+            }
+
+            .table-bordered th, .table-bordered td {
+                border-color: #eaeaea;
+                vertical-align: middle;
+            }
+
+            .rating-stars {
+                color: #ffb703;
+                font-size: 0.9rem;
             }
         </style>
     </head>
@@ -300,315 +297,170 @@
                     <div style="width: 18px; height: 40px; background-color: var(--primary-color);"></div>
                 </div>
             </div>
-        </div>      
+        </div>
 
         <section class="admin-dashboard-section" style="margin-top: 50px; padding-bottom: 50px;">
-            <div class="container-xl">
-                <div class="row g-4">
-                    <div class="col-lg-4">
-                        <div class="card shadow-sm border-0" style="border-radius: 4px;">
-                            <div class="card-header bg-white text-center py-3" style="border-bottom: 1px solid #eaeaea;">
-                                <h4 class="mb-0 card-title-custom">Add Category</h4>
-                            </div>
-
-                            <div class="card-body p-4">
-                                <form id="addCategoryForm" action="AddCategoryServlet" method="POST" enctype="multipart/form-data" novalidate>
-                                    <div class="mb-3">
-                                        <label for="categoryName" class="form-label text-dark" style="font-size: 0.95rem;">Enter Category</label>
-                                        <input type="text" class="form-control form-control-custom" id="categoryName" name="categoryName" required>
-                                        <div class="invalid-feedback">Vui lòng nhập tên danh mục.</div>
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label class="form-label text-dark d-block" style="font-size: 0.95rem;">Status</label>
-                                        <div class="form-check mb-1">
-                                            <input class="form-check-input form-check-input-custom" type="radio" name="categoryStatus" id="statusActive" value="active" checked>
-                                            <label class="form-check-label" for="statusActive">Active</label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input form-check-input-custom" type="radio" name="categoryStatus" id="statusInactive" value="inactive">
-                                            <label class="form-check-label" for="statusInactive">Inactive</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <label for="categoryImage" class="form-label text-dark" style="font-size: 0.95rem;">Upload Image</label>
-                                        <input class="form-control form-control-custom" type="file" id="categoryImage" name="categoryImage" accept="image/*" style="font-size: 0.9rem;" required>
-                                        <div class="invalid-feedback">Vui lòng chọn hình ảnh danh mục.</div>
-                                    </div>
-
-                                    <div class="d-grid">
-                                        <button type="submit" class="btn btn-custom py-2" style="font-size: 1.05rem; border-radius: 4px;">Save</button>
-                                    </div>
-
-                                </form>
-                            </div>
-                        </div>
+            <div class="container-fluid px-4 px-lg-5">
+                <div class="card shadow-sm border-0" style="border-radius: 4px;">
+                    <div class="card-header bg-white text-center py-3" style="border-bottom: 1px solid #eaeaea;">
+                        <h3 class="mb-0 card-title-custom text-dark">Quản Lý Liên Hệ & Thắc Mắc</h3>
                     </div>
 
-                    <div class="col-lg-8">
-                        <div class="card shadow-sm border-0" style="border-radius: 4px; height: 100%;">
-                            <div class="card-header bg-white text-center py-3" style="border-bottom: 1px solid #eaeaea;">
-                                <h4 class="mb-0 card-title-custom">Category Details</h4>
-                            </div>
+                    <div class="card-body p-4">
+                        <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-3">
+                            <a href="./index.jsp" class="text-decoration-none fw-bold" style="color: var(--primary-color); font-size: 1.05rem;">
+                                <i class="fas fa-arrow-left me-1"></i> Trở về
+                            </a>
 
-                            <div class="card-body p-0">
-                                <div class="table-responsive">
-                                    <table class="table table-hover align-middle mb-0">
-                                        <thead class="bg-light">
-                                            <tr>
-                                                <th scope="col" class="ps-4 py-3">Sl No</th>
-                                                <th scope="col" class="py-3">Category</th>
-                                                <th scope="col" class="py-3">Status</th>
-                                                <th scope="col" class="py-3">Image</th>
-                                                <th scope="col" class="pe-4 py-3">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="border-top-0">
-                                            <tr>
-                                                <td class="ps-4 fw-bold">1</td>
-                                                <td>Burger</td>
-                                                <td>true</td>
-                                                <td>
-                                                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Burger" class="rounded shadow-sm" style="width: 50px; height: 50px; object-fit: cover;">
-                                                </td>
-                                                <td class="pe-4">
-                                                    <button type="button" class="btn btn-sm text-white me-1 btn-edit-category" 
-                                                            style="background-color: var(--primary-color);" 
-                                                            data-bs-toggle="modal" 
-                                                            data-bs-target="#editCategoryModal">
-                                                        <i class="fas fa-edit me-1"></i>Edit
-                                                    </button>
-                                                    <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt me-1"></i>Delete</a>
-                                                </td>
-                                            </tr>
+                            <form action="#" method="GET" class="d-flex" style="width: 100%; max-width: 400px;">
+                                <input type="text" class="form-control form-control-custom me-2 rounded-0" placeholder="Tìm kiếm theo tên hoặc SĐT...">
+                                <button type="button" class="btn btn-custom px-4 rounded-0">Tìm kiếm</button>
+                            </form>
+                        </div>
 
-                                            <tr>
-                                                <td class="ps-4 fw-bold">2</td>
-                                                <td>Pizza</td>
-                                                <td>true</td>
-                                                <td>
-                                                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Pizza" class="rounded shadow-sm" style="width: 50px; height: 50px; object-fit: cover;">
-                                                </td>
-                                                <td class="pe-4">
-                                                    <button type="button" class="btn btn-sm text-white me-1 btn-edit-category" 
-                                                            style="background-color: var(--primary-color);" 
-                                                            data-bs-toggle="modal" 
-                                                            data-bs-target="#editCategoryModal">
-                                                        <i class="fas fa-edit me-1"></i>Edit
-                                                    </button>
-                                                    <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt me-1"></i>Delete</a>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="ps-4 fw-bold">3</td>
-                                                <td>Thức uống</td>
-                                                <td>false</td>
-                                                <td>
-                                                    <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" alt="Drink" class="rounded shadow-sm" style="width: 50px; height: 50px; object-fit: cover;">
-                                                </td>
-                                                <td class="pe-4">
-                                                    <button type="button" class="btn btn-sm text-white me-1 btn-edit-category" 
-                                                            style="background-color: var(--primary-color);" 
-                                                            data-bs-toggle="modal" 
-                                                            data-bs-target="#editCategoryModal">
-                                                        <i class="fas fa-edit me-1"></i>Edit
-                                                    </button>
-                                                    <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt me-1"></i>Delete</a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-
-                            <div class="card-footer bg-white d-flex justify-content-between align-items-center py-3 border-top" style="border-color: #eaeaea !important;">
-                                <span class="text-muted" style="font-size: 0.95rem;">Total Category: 3</span>
-
-                                <nav aria-label="Page navigation">
-                                    <ul class="pagination pagination-custom mb-0">
-                                        <li class="page-item disabled">
-                                            <a class="page-link" href="#" aria-label="Previous">
-                                                <span aria-hidden="true">&laquo;</span>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover align-middle mb-0">
+                                <thead class="bg-light text-dark text-center" style="font-family: var(--ff-heading); font-size: 0.95rem;">
+                                    <tr>
+                                        <th scope="col" class="py-3">STT</th>
+                                        <th scope="col" class="py-3 text-start">Thông Tin Khách Hàng</th>
+                                        <th scope="col" class="py-3 text-start">Vấn Đề</th>
+                                        <th scope="col" class="py-3 text-start" style="width: 30%;">Nội Dung Phản Hồi</th>
+                                        <th scope="col" class="py-3">File Đính Kèm</th>
+                                        <th scope="col" class="py-3">Trạng Thái</th>
+                                        <th scope="col" class="py-3">Hành Động</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="fw-bold text-center">1</td>
+                                        <td>
+                                            <div class="fw-bold">Ngô Phương Anh</div>
+                                            <div class="small text-muted"><i class="fas fa-envelope me-1"></i>nguyenvana@gmail.com</div>
+                                            <div class="small text-muted"><i class="fas fa-phone-alt me-1"></i>0912345678</div>
+                                        </td>
+                                        <td class="fw-medium text-danger">Đơn hàng</td>
+                                        <td>
+                                            <p class="mb-1" style="white-space: pre-wrap; word-break: break-word;">Tôi đã đặt món nhưng đột nhiên bị hủy</p>
+                                            <small class="text-muted d-block"><i>Gửi lúc: 06/05/2026 14:30</i></small>
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="#" class="text-decoration-none text-primary" title="Xem ảnh bill_momo.jpg">
+                                                <i class="fas fa-file-image fs-4"></i>
                                             </a>
-                                        </li>
-                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" aria-label="Next">
-                                                <span aria-hidden="true">&raquo;</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
+                                        </td>
+                                        <td class="text-center">
+                                            <span class="badge bg-warning text-dark px-3 py-2 rounded-pill">Chưa xử lý</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <div class="d-flex justify-content-center gap-2">
+                                                <button class="btn btn-sm text-white" style="background-color: var(--primary-color); border-radius: 4px;" data-bs-toggle="modal" data-bs-target="#replyModal">
+                                                    <i class="fas fa-reply me-1"></i>Trả lời
+                                                </button>
+                                                <button class="btn btn-danger btn-sm" style="border-radius: 4px;"><i class="fas fa-trash-alt"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
 
+                                    <tr>
+                                        <td class="fw-bold text-center">2</td>
+                                        <td>
+                                            <div class="fw-bold">Vũ Ngọc Hương Giang</div>
+                                            <div class="small text-muted"><i class="fas fa-envelope me-1"></i>thibtran99@gmail.com</div>
+                                            <div class="small text-muted"><i class="fas fa-phone-alt me-1"></i>0987654321</div>
+                                        </td>
+                                        <td class="fw-medium text-info">Chất lượng món ăn</td>
+                                        <td>
+                                            <p class="mb-1" style="white-space: pre-wrap; word-break: break-word;">Gà rán hôm nay giao đến bị nguội</p>
+                                            <small class="text-muted d-block"><i>Gửi lúc: 05/05/2026 19:15</i></small>
+                                        </td>
+                                        <td class="text-center text-muted">
+                                            Không có
+                                        </td>
+                                        <td class="text-center">
+                                            <span class="badge bg-success px-3 py-2 rounded-pill">Đã phản hồi</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <div class="d-flex justify-content-center gap-2">
+                                                <button class="btn btn-sm btn-outline-secondary" style="border-radius: 4px;" data-bs-toggle="modal" data-bs-target="#replyModal">
+                                                    <i class="fas fa-eye me-1"></i>Xem lại
+                                                </button>
+                                                <button class="btn btn-danger btn-sm" style="border-radius: 4px;"><i class="fas fa-trash-alt"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
 
-        <footer class="footer">
-            <div class="container text-center">
-                <h4 class="footer-title mb-4">Các thành viên trong nhóm:</h4>
-
-                <div class="d-flex flex-column align-items-center gap-3">
-
-                    <div class="member-item">
-                        <div class="member-name">1. Ngô Phương Anh - 09/05/2005</div>
-                    </div>
-
-                    <div class="member-item">
-                        <div class="member-name">2. Phùng Ngọc Bảo - 13/12/2005</div>
-                    </div>
-
-                    <div class="member-item">
-                        <div class="member-name">3. Vũ Ngọc Hương Giang - 25/12/2005</div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
-        <div class="modal fade" id="editCategoryModal" tabindex="-1" aria-labelledby="editCategoryModalLabel" aria-hidden="true">
+        <div class="modal fade" id="replyModal" tabindex="-1" aria-labelledby="replyModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content border-0 shadow">
                     <div class="modal-header bg-light border-bottom-0">
-                        <h5 class="modal-title card-title-custom fw-bold" id="editCategoryModalLabel" style="color: var(--primary-color);">
-                            <i class="fas fa-edit me-2"></i>Chỉnh Sửa Danh Mục
+                        <h5 class="modal-title fw-bold" id="replyModalLabel" style="color: var(--primary-color);">
+                            <i class="fas fa-envelope-open-text me-2"></i>Chi Tiết Phản Hồi & Trả Lời
                         </h5>
                         <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body p-4">
-                        <form id="editCategoryFormModal">
-                            <div class="mb-3">
-                                <label class="form-label fw-semibold">Tên Danh Mục (Category Name)</label>
-                                <input type="text" class="form-control form-control-custom rounded-0" id="editCategoryName" placeholder="Nhập tên danh mục">
+                        <div class="bg-light p-3 rounded mb-4 border">
+                            <div class="row mb-2">
+                                <div class="col-sm-3 text-muted fw-semibold">Người gửi:</div>
+                                <div class="col-sm-9 fw-bold">Nguyễn Văn A (0912345678)</div>
                             </div>
-
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <label class="form-label fw-semibold">Hình ảnh (Chọn file)</label>
-                                    <input type="file" class="form-control form-control-custom rounded-0" id="editCategoryImage" accept="image/*">
-
-                                    <div class="mt-3 text-start">
-                                        <img id="categoryImagePreview" src="" alt="Preview" class="img-thumbnail d-none shadow-sm" style="width: 100%; height: 250px; object-fit: cover; border-radius: 6px;">
-                                    </div>
+                            <div class="row mb-2">
+                                <div class="col-sm-3 text-muted fw-semibold">Chủ đề:</div>
+                                <div class="col-sm-9 text-danger fw-medium">Đơn hàng & Thanh toán</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3 text-muted fw-semibold">Nội dung:</div>
+                                <div class="col-sm-9">
+                                    Tôi đã thanh toán qua Momo nhưng đơn hàng vẫn báo chưa thanh toán. Trừ tiền rồi nhưng không thấy đơn ở đâu. Nhờ shop kiểm tra gấp!
                                 </div>
-                                <div class="col-md-6 mt-3 mt-md-0">
-                                    <label class="form-label fw-semibold d-block">Trạng thái (Status)</label>
-                                    <div class="d-flex align-items-center mt-2">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="editCategoryStatus" id="editStatusActive" value="true" style="cursor: pointer;">
-                                            <label class="form-check-label" for="editStatusActive">Active</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="editCategoryStatus" id="editStatusInactive" value="false" style="cursor: pointer;">
-                                            <label class="form-check-label" for="editStatusInactive">Inactive</label>
-                                        </div>
-                                    </div>
-                                </div>
+                            </div>
+                        </div>
+
+                        <form id="sendReplyForm">
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Gửi đến Email:</label>
+                                <input type="email" class="form-control rounded-0 bg-light" value="nguyenvana@gmail.com" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Tiêu đề Email:</label>
+                                <input type="text" class="form-control form-control-custom rounded-0" value="[Fast Food] Phản hồi về vấn đề Đơn hàng & Thanh toán">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Nội dung trả lời:</label>
+                                <textarea class="form-control form-control-custom rounded-0" rows="5" placeholder="Nhập nội dung email phản hồi cho khách hàng..."></textarea>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer border-top-0">
-                        <button type="button" class="btn btn-secondary rounded-0 px-4" data-bs-dismiss="modal">Hủy</button>
-                        <button type="button" class="btn text-white rounded-0 px-4" style="background-color: var(--primary-color);">Lưu Thay Đổi</button>
+                        <button type="button" class="btn btn-secondary rounded-0 px-4" data-bs-dismiss="modal">Đóng</button>
+                        <button type="button" class="btn text-white rounded-0 px-4" style="background-color: var(--primary-color);">
+                            <i class="fas fa-paper-plane me-2"></i>Gửi Phản Hồi
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <a href="#" class="back-top-btn active" aria-label="Back to top" data-back-top-btn>
-            <i class="fas fa-chevron-up"></i>
-        </a>
-
-        <div class="toast-container position-fixed top-0 end-0 p-3 mt-5 pt-4" style="z-index: 1055;">
-            <div id="wishlistToast" class="toast align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="d-flex">
-                    <div class="toast-body">
-
-                    </div>
-                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        <footer class="footer">
+            <div class="container text-center">
+                <h4 class="footer-title mb-4">Các thành viên trong nhóm:</h4>
+                <div class="d-flex flex-column align-items-center gap-3">
+                    <div class="member-item"><div class="member-name">1. Ngô Phương Anh - 09/05/2005</div></div>
+                    <div class="member-item"><div class="member-name">2. Phùng Ngọc Bảo - 13/12/2005</div></div>
+                    <div class="member-item"><div class="member-name">3. Vũ Ngọc Hương Giang - 25/12/2005</div></div>
                 </div>
             </div>
-        </div>
+        </footer>
 
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="../js/index.js"></script>
-
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const form = document.getElementById('addCategoryForm');
-                form.addEventListener('submit', function (event) {
-                    event.preventDefault();
-                    let isValid = true;
-                    const name = document.getElementById('categoryName');
-                    const image = document.getElementById('categoryImage');
-                    const inputs = form.querySelectorAll('.form-control, .form-select');
-                    inputs.forEach(input => input.classList.remove('is-invalid'));
-
-                    if (name.value.trim() === '') {
-                        name.classList.add('is-invalid');
-                        isValid = false;
-                    }
-                    if (image.files.length === 0) {
-                        image.classList.add('is-invalid');
-                        isValid = false;
-                    }
-                    if (isValid) {
-                        alert('Đã lưu danh mục thành công!');
-                        form.reset();
-                    }
-                });
-
-                const editCategoryButtons = document.querySelectorAll('.btn-edit-category');
-                const categoryImagePreview = document.getElementById('categoryImagePreview');
-                const editCategoryImageInput = document.getElementById('editCategoryImage');
-
-                editCategoryButtons.forEach(button => {
-                    button.addEventListener('click', function () {
-                        const tr = this.closest('tr');
-
-                        const categoryName = tr.querySelector('td:nth-child(2)').innerText.trim();
-                        const statusStr = tr.querySelector('td:nth-child(3)').innerText.trim();
-                        const imgSrc = tr.querySelector('td:nth-child(4) img').src;
-
-                        document.getElementById('editCategoryName').value = categoryName;
-
-                        if (statusStr === 'true') {
-                            document.getElementById('editStatusActive').checked = true;
-                        } else {
-                            document.getElementById('editStatusInactive').checked = true;
-                        }
-
-                        editCategoryImageInput.value = ''; // Reset file input
-                        if (imgSrc) {
-                            categoryImagePreview.src = imgSrc;
-                            categoryImagePreview.classList.remove('d-none');
-                        } else {
-                            categoryImagePreview.classList.add('d-none');
-                        }
-                    });
-                });
-
-                editCategoryImageInput.addEventListener('change', function (event) {
-                    const file = event.target.files[0];
-                    if (file) {
-                        const reader = new FileReader();
-                        reader.onload = function (e) {
-                            categoryImagePreview.src = e.target.result;
-                            categoryImagePreview.classList.remove('d-none');
-                        };
-                        reader.readAsDataURL(file);
-                    }
-                });
-
-            });
-        </script>
     </body>
 </html>

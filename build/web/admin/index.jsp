@@ -263,7 +263,7 @@
         <section class="admin-dashboard-section" style="margin-top: 80px">
             <div class="container">
                 <h2 class="text-center admin-title">Admin Dashboard</h2>
-                
+
                 <div class="row g-4" style="max-width: 1000px; margin: 0 auto;">
                     <div class="col-12 col-sm-6 col-md-4">
                         <a href="AddProduct.jsp" class="dashboard-card theme-blue">
@@ -314,6 +314,12 @@
                         </a>
                     </div>
 
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <a href="ViewFeedback.jsp" class="dashboard-card theme-green">
+                            <i class="fas fa-comments"></i>
+                            <span>View Feedback</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
